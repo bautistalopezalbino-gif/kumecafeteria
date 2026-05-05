@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KÜME café — Benimaclet, Valencia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #536345;
+      --primary-container: #6b7c5c;
+      --on-primary: #ffffff;
+      --secondary: #805533;
+      --secondary-container: #fdc39a;
+      --on-secondary: #ffffff;
+      --surface: #fcf9f8;
+      --surface-low: #f6f3f2;
+      --surface-container: #f0eded;
+      --surface-container-high: #eae7e7;
+      --on-surface: #1c1b1b;
+      --on-surface-variant: #444840;
+      --outline: #75786f;
+      --outline-variant: #c5c8bd;
+      --inverse-surface: #313030;
+      --inverse-on-surface: #f3f0ef;
+      --container-max: 1200px;
+      --margin-desktop: 64px;
+      --section-gap: 120px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--on-surface);
+      background: var(--surface);
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--margin-desktop);
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 22px 0;
+      will-change: background, padding;
+      transition: background 0.18s ease, border-color 0.18s ease,
+                  box-shadow 0.18s ease, padding 0.18s ease;
+    }
+    nav.scrolled {
+      background: rgba(252, 249, 248, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--outline-variant);
+      padding: 14px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--margin-desktop);
+    }
+    .nav-logo {
+      font-family: 'Noto Serif', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      transition: color 0.18s ease;
+    }
+    nav.scrolled .nav-logo { color: var(--on-surface); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: color 0.18s ease, opacity 0.15s ease;
+    }
+    nav.scrolled .nav-links a { color: var(--on-surface-variant); }
+    .nav-links a:hover { opacity: 0.7; }
+    .btn-nav {
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-nav:hover { background: #6b4526; transform: translateY(-1px); }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      animation: heroZoom 2.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.12); }
+      to   { transform: scale(1); }
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(20,18,16,0.45) 0%, rgba(20,18,16,0.25) 40%, rgba(20,18,16,0.55) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+      max-width: 720px;
+      padding: 0 24px;
+    }
+    .hero-eyebrow {
+      font-family: 'Noto Serif', serif;
+      font-size: clamp(22px, 3.5vw, 36px);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 22px;
+      text-transform: none;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 1.75;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 40px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-hero {
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      padding: 15px 34px;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-hero:hover { background: #6b4526; transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.55);
+      padding: 15px 34px;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.3);
+      display: block;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── SECTION COMMON ──────────────────────────────── */
+    section { padding: var(--section-gap) 0; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Noto Serif', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--on-surface);
+      margin-bottom: 18px;
+    }
+    .section-body {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--on-surface-variant);
+    }
+
+    /* ── VALUES ──────────────────────────────────────── */
+    .values { background: var(--surface); padding: 100px 0; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      padding: 52px 40px;
+      border: 1px solid var(--outline-variant);
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .value-card:hover {
+      box-shadow: 0 10px 40px rgba(128, 85, 51, 0.09);
+      transform: translateY(-3px);
+    }
+    .value-icon-wrap {
+      margin-bottom: 28px;
+      color: var(--secondary);
+    }
+    .value-card h3 {
+      font-family: 'Noto Serif', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--on-surface);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .value-card p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--on-surface-variant);
+    }
+
+    /* ── ABOUT ───────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-image {
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .about-text .section-body + .section-body { margin-top: -8px; }
+    .chip {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .chip span {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(83, 99, 69, 0.1);
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .link-arrow {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      transition: gap 0.2s;
+    }
+    .link-arrow:hover { gap: 10px; }
+
+    /* ── MENU ────────────────────────────────────────── */
+    .menu-section { background: #c9a87e; }
+    .menu-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .menu-header .section-body {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px 80px;
+    }
+    .menu-category h3 {
+      font-family: 'Noto Serif', serif;
+      font-size: 22px;
+      font-weight: 600;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--outline-variant);
+      margin-bottom: 24px;
+    }
+    .menu-item {
+      display: flex;
+      align-items: baseline;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--surface-container-high);
+    }
+    .menu-item:last-child { border-bottom: none; }
+    .menu-item-name { font-size: 15px; color: var(--on-surface); flex: 1; }
+    .menu-item-desc { font-size: 12px; color: var(--outline); margin-left: 4px; }
+    .menu-item-price {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--secondary);
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+
+    /* ── TORTAS ──────────────────────────────────────── */
+    .tortas-section { background: #fcf9f8; }
+    .tortas-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .tortas-text { display: flex; flex-direction: column; gap: 22px; }
+    .btn-torta-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #b5835a;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-torta-wa:hover { background: #9a6d49; transform: translateY(-2px); }
+    .tortas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .torta-card {
+      background: #fff;
+      border: 1px solid var(--outline-variant);
+      border-radius: 1rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .torta-card:hover {
+      box-shadow: 0 8px 28px rgba(128, 85, 51, 0.12);
+      transform: translateY(-4px);
+    }
+    .torta-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--surface-container-high);
+      overflow: hidden;
+    }
+    .torta-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .torta-card:hover .torta-img img { transform: scale(1.05); }
+    .torta-name {
+      font-family: 'Noto Serif', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--on-surface);
+      padding: 14px 16px;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* ── GALLERY ─────────────────────────────────────── */
+    .gallery-header { text-align: center; margin-bottom: 48px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .gallery-item {
+      border-radius: 1rem;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      cursor: zoom-in;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* WhatsApp flotante */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+    }
+    .whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #25D366;
+      animation: waPulse 2.2s ease-out infinite;
+    }
+    @keyframes waPulse {
+      0%   { transform: scale(1); opacity: 0.6; }
+      70%  { transform: scale(1.5); opacity: 0; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 1rem;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      animation: lbIn 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+    @keyframes lbIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* ── REELS ───────────────────────────────────────────── */
+    .reels-section {
+      background: var(--surface);
+      padding: var(--section-gap) 0;
+    }
+    .reels-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .ig-handle {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--outline);
+      font-size: 14px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .ig-handle:hover { color: var(--on-surface); }
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+      align-items: start;
+    }
+    .ig-embed-wrap {
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--outline-variant);
+    }
+    .ig-iframe {
+      width: 100%;
+      height: 580px;
+      border: none;
+      display: block;
+    }
+    .reels-cta { text-align: center; }
+    .btn-ig-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-ig-main:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* ── LOCATION ────────────────────────────────────── */
+    .location-section { background: var(--surface); }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .location-info { display: flex; flex-direction: column; gap: 32px; }
+    .location-block h4 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+    .location-block p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--on-surface-variant);
+    }
+    .btn-outline {
+      display: inline-block;
+      background: #b5835a;
+      border: 1.5px solid #b5835a;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-outline:hover { background: #9a6d49; border-color: #9a6d49; }
+    .location-map {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      aspect-ratio: 5/4;
+      background: var(--surface-container-high);
+    }
+    .location-map img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── GOOGLE REVIEWS ──────────────────────────────── */
+    .reviews-section { background: var(--surface); }
+    .reviews-header { text-align: center; margin-bottom: 16px; }
+    .reviews-rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+    .reviews-score {
+      font-family: 'Noto Serif', serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--on-surface);
+    }
+    .reviews-stars-row { display: flex; flex-direction: column; gap: 5px; }
+    .g-stars { color: #FBBC04; font-size: 18px; letter-spacing: 2px; }
+    .reviews-count { font-size: 12px; color: var(--outline); letter-spacing: 0.03em; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .review-card {
+      background: #fff;
+      border: 1px solid var(--outline-variant);
+      border-radius: 1rem;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: box-shadow 0.2s;
+    }
+    .review-card:hover { box-shadow: 0 8px 32px rgba(128, 85, 51, 0.08); }
+    .review-header { display: flex; align-items: center; gap: 14px; }
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(83, 99, 69, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+    .review-meta { display: flex; flex-direction: column; gap: 3px; }
+    .review-name { font-size: 14px; font-weight: 600; color: var(--on-surface); }
+    .review-date { font-size: 12px; color: var(--outline); }
+    .review-stars { color: #FBBC04; font-size: 14px; letter-spacing: 1px; }
+    .review-text { font-size: 14px; line-height: 1.75; color: var(--on-surface-variant); }
+    .reviews-cta { text-align: center; }
+    .btn-google {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      border: 1.5px solid var(--outline-variant);
+      color: var(--on-surface-variant);
+      padding: 13px 28px;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+    .btn-google:hover { background: var(--surface-low); box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
+    /* ── NEWSLETTER ──────────────────────────────────── */
+    .newsletter {
+      background: var(--surface);
+      padding: var(--section-gap) 0;
+    }
+    .newsletter-inner {
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .newsletter .section-label { color: var(--secondary); }
+    .newsletter .section-title { color: var(--on-surface); }
+    .newsletter .section-body {
+      color: var(--on-surface-variant);
+      margin-bottom: 40px;
+    }
+    .contact-options {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .contact-opt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 32px 40px 28px;
+      border: 1.5px solid var(--outline-variant);
+      border-radius: 1.25rem;
+      text-decoration: none;
+      background: #fff;
+      min-width: 200px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .contact-opt:hover {
+      border-color: var(--primary);
+      box-shadow: 0 6px 28px rgba(83, 99, 69, 0.13);
+      transform: translateY(-3px);
+    }
+    .contact-opt-wa:hover {
+      border-color: #25D366;
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.14);
+    }
+    .contact-opt-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .contact-icon-phone { background: rgba(83, 99, 69, 0.1); color: var(--primary); }
+    .contact-icon-wa    { background: rgba(37, 211, 102, 0.12); color: #1aad52; }
+    .contact-opt-label {
+      font-family: 'Noto Serif', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+    .contact-opt-num {
+      font-size: 14px;
+      color: var(--outline);
+      letter-spacing: 0.02em;
+    }
+    .contact-opt-cta {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      padding: 7px 20px;
+      border-radius: 999px;
+      border: 1.5px solid var(--outline-variant);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .contact-opt-wa .contact-opt-cta { color: #1aad52; }
+    .contact-opt:hover .contact-opt-cta {
+      background: rgba(83, 99, 69, 0.07);
+      border-color: var(--primary);
+    }
+    .contact-opt-wa:hover .contact-opt-cta {
+      background: rgba(37, 211, 102, 0.08);
+      border-color: #25D366;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--secondary);
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding: 44px 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-logo {
+      font-family: 'Noto Serif', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-links { display: flex; gap: 28px; list-style: none; }
+    .footer-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+    /* ── REVEAL ANIMATIONS ───────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-in.reveal-up    { transform: translateY(48px); }
+    .fade-in.reveal-left  { transform: translateX(-52px); }
+    .fade-in.reveal-right { transform: translateX(52px); }
+    .fade-in.reveal-scale { transform: scale(0.9); }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── MARQUEE ──────────────────────────────────────── */
+    .marquee-band {
+      background: var(--primary);
+      padding: 18px 0;
+      overflow: hidden;
+    }
+    .marquee-inner {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-inner span {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.88);
+      padding: 0 32px;
+      white-space: nowrap;
+    }
+    .marquee-inner .sep { opacity: 0.35; padding: 0 8px; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── PARALLAX IMAGE ───────────────────────────────── */
+    .parallax-wrap { overflow: hidden; border-radius: 1.5rem; }
+    .parallax-wrap img { will-change: transform; transition: none; }
+
+    /* ── MODAL RESERVA ───────────────────────────────── */
+    .reserva-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(28, 27, 27, 0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .reserva-modal.open { display: flex; }
+    .reserva-card {
+      background: var(--surface);
+      border-radius: 1.5rem;
+      padding: 52px 44px 44px;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 24px 80px rgba(28,27,27,0.18);
+      animation: lbIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reserva-close {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      background: var(--surface-container-high);
+      border: none;
+      color: var(--on-surface-variant);
+      font-size: 16px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .reserva-close:hover { background: var(--outline-variant); }
+    .reserva-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+    .reserva-title {
+      font-family: 'Noto Serif', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--on-surface);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .reserva-sub {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--on-surface-variant);
+      margin-bottom: 36px;
+    }
+    .reserva-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .reserva-opt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 28px 16px 24px;
+      border: 1.5px solid var(--outline-variant);
+      border-radius: 1.25rem;
+      text-decoration: none;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .reserva-opt:hover {
+      border-color: var(--primary);
+      box-shadow: 0 6px 24px rgba(83, 99, 69, 0.14);
+      transform: translateY(-2px);
+    }
+    .reserva-opt-wa:hover {
+      border-color: #25D366;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.15);
+    }
+    .reserva-opt-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .reserva-icon-phone { background: rgba(83, 99, 69, 0.1); color: var(--primary); }
+    .reserva-icon-wa    { background: rgba(37, 211, 102, 0.12); color: #1aad52; }
+    .reserva-opt-label {
+      font-family: 'Noto Serif', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+    .reserva-opt-num {
+      font-size: 14px;
+      color: var(--outline);
+      letter-spacing: 0.02em;
+    }
+    .reserva-opt-cta {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      padding: 7px 18px;
+      border-radius: 999px;
+      border: 1.5px solid var(--outline-variant);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .reserva-opt-wa .reserva-opt-cta { color: #1aad52; }
+    .reserva-opt:hover .reserva-opt-cta {
+      background: rgba(83, 99, 69, 0.07);
+      border-color: var(--primary);
+    }
+    .reserva-opt-wa:hover .reserva-opt-cta {
+      background: rgba(37, 211, 102, 0.08);
+      border-color: #25D366;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      :root { --margin-desktop: 24px; --section-gap: 72px; }
+      .nav-links { display: none; }
+      .values-grid { grid-template-columns: 1fr; gap: 16px; }
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .menu-grid { grid-template-columns: 1fr; gap: 40px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.tall { grid-row: auto; aspect-ratio: 4/3; }
+      .tortas-inner { grid-template-columns: 1fr; gap: 40px; }
+      .tortas-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .location-grid { grid-template-columns: 1fr; gap: 40px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- WhatsApp flotante -->
+<a
+  href="https://wa.me/34621498315"
+  target="_blank"
+  class="whatsapp-btn"
+  aria-label="Escríbenos por WhatsApp"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="28" height="28">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.784-1.856l-.486-.29-5.002 1.194 1.234-4.862-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/>
+  </svg>
+</a>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<!-- Modal Reserva -->
+<div class="reserva-modal" id="reservaModal">
+  <div class="reserva-card">
+    <button class="reserva-close" id="reservaClose">✕</button>
+    <p class="reserva-eyebrow">Küme café · Benimaclet</p>
+    <h3 class="reserva-title">Reserva tu mesa</h3>
+    <p class="reserva-sub">Elige cómo prefieres contactarnos y te atendemos enseguida.</p>
+    <div class="reserva-options">
+      <a href="tel:+34621498315" class="reserva-opt">
+        <div class="reserva-opt-icon reserva-icon-phone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.0 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+        </div>
+        <span class="reserva-opt-label">Llamar</span>
+        <span class="reserva-opt-num">621 49 83 15</span>
+        <span class="reserva-opt-cta">Llamar ahora →</span>
+      </a>
+      <a href="https://wa.me/34621498315?text=Hola,%20me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20K%C3%BCme%20caf%C3%A9." target="_blank" class="reserva-opt reserva-opt-wa">
+        <div class="reserva-opt-icon reserva-icon-wa">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="26" height="26"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
+        </div>
+        <span class="reserva-opt-label">WhatsApp</span>
+        <span class="reserva-opt-num">621 49 83 15</span>
+        <span class="reserva-opt-cta">Abrir WhatsApp →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ───────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">KÜME café</a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#galeria">Espacios</a></li>
+      <li><a href="#ubicacion">Dónde estamos</a></li>
+    </ul>
+    <a href="#" class="btn-nav" id="btnReserva">Reservar mesa</a>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">El rincón que buscabas en Benimaclet</p>
+    <p class="hero-sub">Café de especialidad · Desayunos · Brunch.<br/>Un espacio diseñado para el bienestar y el disfrute pausado.</p>
+    <div class="hero-ctas">
+      <a href="#menu" class="btn-hero">Ver la carta</a>
+      <a href="#ubicacion" class="btn-ghost">Cómo llegar</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+
+<!-- ── VALUES ────────────────────────────────────────── -->
+<section class="values">
+  <div class="container">
+    <div class="values-grid">
+      <div class="value-card fade-in reveal-up">
+        <div class="value-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 7 4 2 5c0 5 3 9 10 7"/><path d="M12 12c0-5 5-8 10-7 0 5-3 9-10 7"/></svg>
+        </div>
+        <h3>Origen único</h3>
+        <p>Trabajamos con microlotes de productores comprometidos con prácticas regenerativas y trazabilidad total desde la finca.</p>
+      </div>
+      <div class="value-card fade-in reveal-up" style="transition-delay:0.15s">
+        <div class="value-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
+        </div>
+        <h3>Elaboración lenta</h3>
+        <p>Cada taza requiere atención plena. Sin prisas, sin atajos. Solo técnica precisa, temperatura exacta y cariño genuino.</p>
+      </div>
+      <div class="value-card fade-in reveal-up" style="transition-delay:0.3s">
+        <div class="value-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Espacio para quedarse</h3>
+        <p>Un rincón en el corazón de Benimaclet pensado para conectar, trabajar o simplemente disfrutar del ritmo del barrio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────── -->
+<section id="historia">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-in reveal-left">
+        <div>
+          <span class="section-label">Nuestra historia</span>
+          <h2 class="section-title">¿Quiénes somos?</h2>
+        </div>
+        <p class="section-body">
+          KÜME nace de la palabra mapuche que significa "bienestar". Somos un local recién llegado al corazón de Benimaclet con las ganas de convertirnos en el rincón del barrio.
+        </p>
+        <p class="section-body">
+          Queremos que el barrio sea nuestro y nosotros del barrio. Que vengas a desayunar, a trabajar, a quedarte. Cada taza, cada pasta y cada conversación son parte de lo mismo: hacer comunidad.
+        </p>
+      </div>
+      <div class="about-image fade-in reveal-right" style="transition-delay:0.18s">
+        <img
+          src="fotos/15d9a405-d1fd-4138-aabf-a4f46c89cf71.jpg"
+          alt="Cookies artesanales Küme"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MENU ───────────────────────────────────────────── -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <div class="menu-header fade-in">
+      <span class="section-label">Lo que ofrecemos</span>
+      <h2 class="section-title">Nuestra carta</h2>
+      <p class="section-body">Café de especialidad, té de calidad y pastelería de obrador. Todo hecho con tiempo y con cuidado.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-category fade-in">
+        <h3>Cafés</h3>
+        <div class="menu-item"><span class="menu-item-name">Espresso</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cortado</span></div>
+        <div class="menu-item"><span class="menu-item-name">Carajillo</span></div>
+        <div class="menu-item"><span class="menu-item-name">Americano</span></div>
+        <div class="menu-item"><span class="menu-item-name">Café con leche</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cappuccino</span></div>
+        <div class="menu-item"><span class="menu-item-name">Caramel Latte</span></div>
+        <div class="menu-item"><span class="menu-item-name">Café con leche ARG</span></div>
+        <div class="menu-item"><span class="menu-item-name">Bombón</span></div>
+      </div>
+
+      <div class="menu-category fade-in" style="transition-delay:0.12s">
+        <h3>Infusiones y otros</h3>
+        <div class="menu-item"><span class="menu-item-name">Infusión</span></div>
+        <div class="menu-item"><span class="menu-item-name">Chai Latte</span></div>
+        <div class="menu-item"><span class="menu-item-name">Matcha Latte</span></div>
+        <div class="menu-item"><span class="menu-item-name">Chocolate</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cholock</span></div>
+        <div class="menu-item"><span class="menu-item-name">Colacao</span></div>
+        <div class="menu-item"><span class="menu-item-name">Taza de leche</span></div>
+      </div>
+
+      <div class="menu-category fade-in" style="transition-delay:0.24s">
+        <h3>Bollería</h3>
+        <div class="menu-item"><span class="menu-item-name">Medialuna</span></div>
+        <div class="menu-item"><span class="menu-item-name">Vigilante</span></div>
+        <div class="menu-item"><span class="menu-item-name">Torta negra</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cañoncito</span></div>
+        <div class="menu-item"><span class="menu-item-name">Sacramentos</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cuernito</span></div>
+        <div class="menu-item"><span class="menu-item-name">Bizcocho de grasa</span></div>
+        <div class="menu-item"><span class="menu-item-name">Palmerita</span></div>
+        <div class="menu-item"><span class="menu-item-name">Bola de fraile</span></div>
+      </div>
+
+      <div class="menu-category fade-in" style="transition-delay:0.36s">
+        <h3>Cookies</h3>
+        <div class="menu-item"><span class="menu-item-name">Cookies de lotus</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cookies de pistacho</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cookies de oreo</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cookies de kínder</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cookies de red velvet</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cookies de personajes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TORTAS ──────────────────────────────────────────── -->
+<section class="tortas-section">
+  <div class="container">
+    <div class="tortas-inner fade-in">
+      <div class="tortas-text">
+        <span class="section-label">Pide desde casa</span>
+        <h2 class="section-title">Tortas artesanales<br/>a domicilio</h2>
+        <p class="section-body">Elaboradas con ingredientes de calidad y mucho cariño. Pídelas por WhatsApp con antelación y te las llevamos donde estés.</p>
+        <a
+          href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20de%20torta%20%F0%9F%8E%82"
+          target="_blank"
+          class="btn-torta-wa"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="20" height="20"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
+          Pedir por WhatsApp
+        </a>
+      </div>
+      <div class="tortas-grid">
+        <div class="torta-card">
+          <div class="torta-img"><img src="fotos/carrot%20cake.jpeg" alt="Carrot cake" loading="lazy" /></div>
+          <span class="torta-name">Carrot cake</span>
+        </div>
+        <div class="torta-card">
+          <div class="torta-img"><img src="fotos/torta%20de%20oreo.jpeg" alt="Torta de oreo" loading="lazy" /></div>
+          <span class="torta-name">Torta de oreo</span>
+        </div>
+        <div class="torta-card">
+          <div class="torta-img"><img src="fotos/chocotorta%20(2).jpg" alt="Chocotorta" loading="lazy" /></div>
+          <span class="torta-name">Chocotorta</span>
+        </div>
+        <div class="torta-card">
+          <div class="torta-img"><img src="fotos/rogel.jpg" alt="Rogel" loading="lazy" /></div>
+          <span class="torta-name">Rogel</span>
+        </div>
+        <div class="torta-card">
+          <div class="torta-img"><img src="fotos/lemon%20pie.jpg" alt="Lemon pie" loading="lazy" /></div>
+          <span class="torta-name">Lemon pie</span>
+        </div>
+        <div class="torta-card">
+          <div class="torta-img"><img src="fotos/red%20velvet.jpg" alt="Red velvet" loading="lazy" /></div>
+          <span class="torta-name">Red velvet</span>
+        </div>
+        <div class="torta-card">
+          <div class="torta-img"><img src="fotos/cheesecake.jpg" alt="Cheesecake" loading="lazy" /></div>
+          <span class="torta-name">Cheesecake</span>
+        </div>
+        <div class="torta-card">
+          <div class="torta-img"><img src="fotos/tarta%20de%20la%20abuela.jpg" alt="Tarta de la abuela" loading="lazy" /></div>
+          <span class="torta-name">Torta de choco</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY ────────────────────────────────────────── -->
+<section id="galeria">
+  <div class="container">
+    <div class="gallery-header fade-in">
+      <span class="section-label">El espacio</span>
+      <h2 class="section-title">Espacios para el ritual</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in reveal-scale">
+        <img src="fotos/Captura%20de%20pantalla%202026-05-05%20092954.png" alt="Entrada de Küme Cafetería" loading="lazy" />
+      </div>
+      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.12s">
+        <img src="fotos/Captura%20de%20pantalla%202026-05-05%20093104.png" alt="Muffins de chocolate" loading="lazy" />
+      </div>
+      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.24s">
+        <img src="fotos/Captura%20de%20pantalla%202026-05-05%20093146.png" alt="Vitrina de pastelería" loading="lazy" />
+      </div>
+      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.36s">
+        <img src="fotos/Captura%20de%20pantalla%202026-05-05%20104703.png" alt="Vitrina de tartas" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REELS ──────────────────────────────────────────── -->
+<section class="reels-section">
+  <div class="container">
+    <div class="reels-header fade-in">
+      <span class="section-label">Síguenos</span>
+      <h2 class="section-title">Últimos reels</h2>
+      <a href="https://www.instagram.com/kume.cafe/" target="_blank" class="ig-handle">@kume.cafe</a>
+    </div>
+    <div class="reels-grid">
+      <div class="ig-embed-wrap fade-in reveal-up">
+        <iframe
+          src="https://www.instagram.com/p/DXg34wmiNmD/embed/"
+          class="ig-iframe"
+          frameborder="0"
+          scrolling="no"
+          allowtransparency="true"
+          loading="lazy"
+        ></iframe>
+      </div>
+      <div class="ig-embed-wrap fade-in reveal-up" style="transition-delay:0.15s">
+        <iframe
+          src="https://www.instagram.com/p/DWUJecFjV-E/embed/"
+          class="ig-iframe"
+          frameborder="0"
+          scrolling="no"
+          allowtransparency="true"
+          loading="lazy"
+        ></iframe>
+      </div>
+      <div class="ig-embed-wrap fade-in reveal-up" style="transition-delay:0.3s">
+        <iframe
+          src="https://www.instagram.com/p/DVy24GJjFzp/embed/"
+          class="ig-iframe"
+          frameborder="0"
+          scrolling="no"
+          allowtransparency="true"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+    <div class="reels-cta fade-in">
+      <a href="https://www.instagram.com/kume.cafe/" target="_blank" class="btn-ig-main">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Ver todos los reels
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOCATION ───────────────────────────────────────── -->
+<section class="location-section" id="ubicacion">
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-info fade-in reveal-left">
+        <div>
+          <span class="section-label">Dónde estamos</span>
+          <h2 class="section-title">Nos encontrarás<br/>en Benimaclet</h2>
+        </div>
+        <div class="location-block">
+          <h4>Dirección</h4>
+          <p>Carrer de la Guàrdia Civil, 20<br/>Benimaclet, València 46020</p>
+        </div>
+        <div class="location-block">
+          <h4>Horario</h4>
+          <p>Lunes a viernes · 8:00 – 20:00<br/>Sábado y domingo · 9:00 – 21:00</p>
+        </div>
+        <div class="location-block">
+          <h4>Contacto</h4>
+          <p>621 49 83 15</p>
+        </div>
+        <a href="https://www.google.com/maps?biw=1536&bih=826&sca_esv=cb0ecc58b37c0fe9&sxsrf=ANbL-n7zb7F4Oh2cNCg5AFWE1x8xFNMFnw:1777965032121&um=1&ie=UTF-8&fb=1&gl=es&sa=X&geocode=KVWRr1FISWANMV17W__rgxgx&daddr=Carrer+de+la+Gu%C3%A0rdia+Civil,+20,+Benimaclet,+46020+Val%C3%A8ncia,+Valencia" target="_blank" class="btn-outline">Ver en Google Maps</a>
+      </div>
+      <div class="location-map fade-in reveal-right" style="transition-delay:0.18s">
+        <img
+          src="fotos/Captura%20de%20pantalla%202026-05-05%20093752.png"
+          alt="Logo Küme Cafetería"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GOOGLE REVIEWS ─────────────────────────────────── -->
+<section class="reviews-section">
+  <div class="container">
+    <div class="reviews-header fade-in">
+      <span class="section-label">Opiniones</span>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+    </div>
+    <div class="reviews-rating fade-in">
+      <div class="reviews-score">4,6</div>
+      <div class="reviews-stars-row">
+        <div class="g-stars">★★★★★</div>
+        <div class="reviews-count">Basado en reseñas de Google</div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card fade-in reveal-up">
+        <div class="review-header">
+          <div class="review-avatar">S</div>
+          <div class="review-meta">
+            <span class="review-name">Sonia M.</span>
+            <span class="review-date">hace 2 semanas</span>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">¡Me encantó este lugar! La decoración y el ambiente son geniales, el café y las facturas están deliciosos. El servicio es excepcional y, además, ¡está justo al lado de mi casa! Lo recomiendo al 110%.</p>
+      </div>
+      <div class="review-card fade-in reveal-up" style="transition-delay:0.15s">
+        <div class="review-header">
+          <div class="review-avatar">B</div>
+          <div class="review-meta">
+            <span class="review-name">Barth Estudios</span>
+            <span class="review-date">hace 1 mes</span>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Las pastas artesanales estaban riquísimas, sobre todo las de chocolate. Mi mujer se pidió uno de sus cafés especiales con leche de avena y dice que de los mejores que se ha tomado. La camarera súper amable y el local está chulo.</p>
+      </div>
+      <div class="review-card fade-in reveal-up" style="transition-delay:0.3s">
+        <div class="review-header">
+          <div class="review-avatar">D</div>
+          <div class="review-meta">
+            <span class="review-name">Daniel González</span>
+            <span class="review-date">hace 3 semanas</span>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Muy buena atención, además de un ambiente muy agradable. Una cosa más: las medialunas con café con leche son perfectas.</p>
+      </div>
+    </div>
+
+    <div class="reviews-cta fade-in">
+      <a href="https://www.google.com/search?q=KÜME+café+Opiniones&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2NjU2NzcyMjU1szQyMTIzNjIz3MDI-IpR1PvwHF9XheTEtMMrFfwLMvMy8_NSixexYhcHACxu6DpKAAAA&rldimm=3537722556924263261&tbm=lcl" target="_blank" class="btn-google">
+        <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.3 33.1 29.7 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l6-6C34.5 6.5 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.2-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15 16.1 19.1 13 24 13c3.1 0 5.8 1.1 7.9 3l6-6C34.5 6.5 29.6 4 24 4 16.3 4 9.7 8.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 44c5.5 0 10.5-1.9 14.4-5l-6.7-5.5C29.7 35.3 27 36 24 36c-5.7 0-10.3-2.9-11.7-7.5l-7 5.4C8.6 40.1 15.7 44 24 44z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-.6 2.3-2 4.3-3.9 5.7l6.7 5.5C42.2 36.3 44.5 30.6 44.5 24c0-1.3-.1-2.7-.2-4z"/></svg>
+        Ver todas las reseñas en Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACTO ────────────────────────────────────────── -->
+<section class="newsletter" id="newsletter">
+  <div class="container">
+    <div class="newsletter-inner fade-in">
+      <span class="section-label">Contacta con nosotros</span>
+      <h2 class="section-title">¿Hablamos?</h2>
+      <p class="section-body">Reserva tu mesa, pregúntanos lo que quieras o simplemente salúdanos. Estamos aquí.</p>
+      <div class="contact-options">
+        <a href="tel:+34621498315" class="contact-opt">
+          <div class="contact-opt-icon contact-icon-phone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.0 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+          </div>
+          <span class="contact-opt-label">Llamar</span>
+          <span class="contact-opt-num">621 49 83 15</span>
+          <span class="contact-opt-cta">Llamar ahora →</span>
+        </a>
+        <a href="https://wa.me/34621498315?text=Hola,%20me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20K%C3%BCme%20caf%C3%A9." target="_blank" class="contact-opt contact-opt-wa">
+          <div class="contact-opt-icon contact-icon-wa">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="26" height="26"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
+          </div>
+          <span class="contact-opt-label">WhatsApp</span>
+          <span class="contact-opt-num">621 49 83 15</span>
+          <span class="contact-opt-cta">Abrir WhatsApp →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#" class="footer-logo">KÜME café</a>
+      <ul class="footer-links">
+        <li><a href="#">Política de privacidad</a></li>
+        <li><a href="#">Aviso legal</a></li>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="#menu">Carta</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 KÜME café · Benimaclet, Valencia</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+
+  // Scroll-triggered reveal
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      revealObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => revealObs.observe(el));
+
+  // Parallax on about image
+  const parallaxImgs = document.querySelectorAll('.parallax-wrap img');
+  window.addEventListener('scroll', () => {
+    parallaxImgs.forEach(img => {
+      const rect = img.closest('.parallax-wrap').getBoundingClientRect();
+      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+      img.style.transform = `translateY(${center * 0.12}px) scale(1.08)`;
+    });
+  }, { passive: true });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Modal reserva
+  const reservaModal = document.getElementById('reservaModal');
+  function openReserva(e) { e.preventDefault(); reservaModal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeReserva() { reservaModal.classList.remove('open'); document.body.style.overflow = ''; }
+  document.getElementById('btnReserva').addEventListener('click', openReserva);
+  document.getElementById('reservaClose').addEventListener('click', closeReserva);
+  reservaModal.addEventListener('click', e => { if (e.target === reservaModal) closeReserva(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReserva(); });
+
+  // Newsletter form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    const input = e.target.querySelector('input');
+    btn.textContent = '¡Suscrito!';
+    btn.style.background = '#536345';
+    input.value = '';
+    setTimeout(() => {
+      btn.textContent = 'Suscribirse';
+      btn.style.background = '';
+    }, 3000);
+  }
+</script>
+</body>
+</html>
