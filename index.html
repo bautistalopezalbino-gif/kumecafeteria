@@ -77,14 +77,18 @@
     }
     .nav-logo {
       font-family: 'Noto Serif', serif;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
-      color: #fff;
+      color: var(--primary);
+      background: #e8e4d5;
+      padding: 7px 20px;
+      border-radius: 8px;
       text-decoration: none;
-      letter-spacing: -0.02em;
-      transition: color 0.18s ease;
+      letter-spacing: -0.01em;
+      transition: opacity 0.18s ease;
     }
-    nav.scrolled .nav-logo { color: var(--on-surface); }
+    .nav-logo:hover { opacity: 0.85; }
+    nav.scrolled .nav-logo { color: var(--primary); }
     .nav-links {
       display: flex;
       gap: 36px;
@@ -1104,7 +1108,7 @@
 <!-- ── NAV ───────────────────────────────────────────── -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><img src="fotos/nuevas%20fotos/5c8a20ce-8fa0-4308-9c1c-8751d236ea65.jpg" alt="KÜME café" style="height:38px;width:auto;mix-blend-mode:multiply;" /></a>
+    <a href="#" class="nav-logo">Küme</a>
     <ul class="nav-links">
       <li><a href="#menu">Menú</a></li>
       <li><a href="#historia">Historia</a></li>
