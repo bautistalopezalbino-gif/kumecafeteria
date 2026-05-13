@@ -11,22 +11,24 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --primary: #536345;
-      --primary-container: #6b7c5c;
+      --primary: #4E6130;
+      --primary-container: #7A9050;
       --on-primary: #ffffff;
       --secondary: #4E6130;
       --secondary-container: #C4D4A0;
       --on-secondary: #ffffff;
-      --surface: #7E8C54;
-      --surface-low: #f6f3f2;
-      --surface-container: #f0eded;
-      --surface-container-high: #eae7e7;
-      --on-surface: #1c1b1b;
-      --on-surface-variant: #444840;
-      --outline: #75786f;
-      --outline-variant: #c5c8bd;
+      --surface: #8A9C60;
+      --surface-low: #7A8E52;
+      --surface-container: #728648;
+      --surface-container-high: rgba(255,255,255,0.18);
+      --on-surface: #ffffff;
+      --on-surface-variant: #E8F0DA;
+      --outline: rgba(255,255,255,0.35);
+      --outline-variant: rgba(255,255,255,0.2);
       --inverse-surface: #313030;
       --inverse-on-surface: #f3f0ef;
+      --text-dark: #1c1b1b;
+      --text-dark-variant: #444840;
       --container-max: 1200px;
       --margin-desktop: 64px;
       --section-gap: 120px;
@@ -61,10 +63,10 @@
                   box-shadow 0.18s ease, padding 0.18s ease;
     }
     nav.scrolled {
-      background: rgba(252, 249, 248, 0.97);
+      background: rgba(100, 118, 62, 0.97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--outline-variant);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
       padding: 14px 0;
     }
     .nav-inner {
@@ -96,7 +98,7 @@
       text-decoration: none;
       transition: color 0.18s ease, opacity 0.15s ease;
     }
-    nav.scrolled .nav-links a { color: var(--on-surface-variant); }
+    nav.scrolled .nav-links a { color: rgba(255,255,255,0.9); }
     .nav-links a:hover { opacity: 0.7; }
     .btn-nav {
       background: var(--secondary);
@@ -275,9 +277,11 @@
       transition: box-shadow 0.25s, transform 0.2s;
     }
     .value-card:hover {
-      box-shadow: 0 10px 40px rgba(128, 85, 51, 0.09);
+      box-shadow: 0 10px 40px rgba(78, 97, 48, 0.15);
       transform: translateY(-3px);
     }
+    .value-card h3 { color: var(--text-dark) !important; }
+    .value-card p { color: var(--text-dark-variant) !important; }
     .value-icon-wrap {
       margin-bottom: 28px;
       color: var(--secondary);
@@ -388,7 +392,10 @@
     }
 
     /* ── TORTAS ──────────────────────────────────────── */
-    .tortas-section { background: #EAF0DC; }
+    .tortas-section { background: #EAF0DC; color: var(--text-dark); }
+    .tortas-section .section-label { color: var(--primary); }
+    .tortas-section .section-title { color: var(--text-dark); }
+    .tortas-section .section-body { color: var(--text-dark-variant); }
     .tortas-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -695,7 +702,10 @@
       gap: 16px;
       transition: box-shadow 0.2s;
     }
-    .review-card:hover { box-shadow: 0 8px 32px rgba(128, 85, 51, 0.08); }
+    .review-card:hover { box-shadow: 0 8px 32px rgba(78, 97, 48, 0.12); }
+    .review-card .review-name { color: var(--text-dark) !important; }
+    .review-card .review-text { color: var(--text-dark-variant) !important; }
+    .review-card .review-date { color: #666 !important; }
     .review-header { display: flex; align-items: center; gap: 14px; }
     .review-avatar {
       width: 40px;
@@ -732,7 +742,8 @@
       text-decoration: none;
       transition: box-shadow 0.2s, background 0.2s;
     }
-    .btn-google:hover { background: var(--surface-low); box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+    .btn-google { color: var(--text-dark-variant) !important; border-color: #ccc !important; }
+    .btn-google:hover { background: #f5f5f5; box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
 
     /* ── NEWSLETTER ──────────────────────────────────── */
     .newsletter {
