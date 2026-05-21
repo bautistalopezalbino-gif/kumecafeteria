@@ -494,25 +494,80 @@
     #galeria { background: var(--g-50); }
     #galeria .section-label { color: var(--g-800); }
     #galeria .section-title { color: var(--on-light); }
-    .gallery-header { text-align: center; margin-bottom: 48px; }
+    .gallery-header { text-align: center; margin-bottom: 52px; }
+
+    /* base (mobile-first): 2 cols uniformes */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }
     .gallery-item {
       border-radius: 1rem;
       overflow: hidden;
+      position: relative;
+      background: var(--g-200);
       aspect-ratio: 4/3;
     }
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
-      cursor: zoom-in;
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+      display: block;
     }
-    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-caption {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem 1.2rem;
+      background: linear-gradient(to top, rgba(26,50,40,0.80) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+    .gallery-caption span {
+      color: #F5F0E8;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* tablet: 3 cols uniformes */
+    @media (min-width: 600px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    }
+
+    /* desktop: bento editorial 4 cols */
+    @media (min-width: 901px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 240px);
+        grid-template-areas:
+          "a a b c"
+          "a a d e"
+          "f g h i"
+          "j j k l";
+        gap: 14px;
+      }
+      .gallery-item { aspect-ratio: auto; border-radius: 1.1rem; }
+      .gallery-item:nth-child(1)  { grid-area: a; }
+      .gallery-item:nth-child(2)  { grid-area: b; }
+      .gallery-item:nth-child(3)  { grid-area: c; }
+      .gallery-item:nth-child(4)  { grid-area: d; }
+      .gallery-item:nth-child(5)  { grid-area: e; }
+      .gallery-item:nth-child(6)  { grid-area: f; }
+      .gallery-item:nth-child(7)  { grid-area: g; }
+      .gallery-item:nth-child(8)  { grid-area: h; }
+      .gallery-item:nth-child(9)  { grid-area: i; }
+      .gallery-item:nth-child(10) { grid-area: j; }
+      .gallery-item:nth-child(11) { grid-area: k; }
+      .gallery-item:nth-child(12) { grid-area: l; }
+    }
 
     /* WhatsApp flotante */
     .whatsapp-btn {
@@ -1079,8 +1134,6 @@
       .values-grid { grid-template-columns: 1fr; gap: 16px; }
       .about-grid { grid-template-columns: 1fr; gap: 36px; }
       .menu-grid { grid-template-columns: 1fr; gap: 40px; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-item.tall { grid-row: auto; aspect-ratio: 4/3; }
       .tortas-inner { grid-template-columns: 1fr; gap: 40px; }
       .tortas-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .location-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1090,7 +1143,6 @@
     }
 
     @media (max-width: 480px) {
-      .gallery-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1347,39 +1399,51 @@
     <div class="gallery-grid">
       <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/198b91a9-e637-467d-b899-af305d0b24c3.jpg" alt="Muffins artesanales" loading="lazy" />
+        <div class="gallery-caption"><span>Muffins artesanales</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.10s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/bca864e4-ca34-438b-8a52-8f8e08c899e8.jpg" alt="Tartaletas de fruta" loading="lazy" />
+        <div class="gallery-caption"><span>Tartaletas de fruta</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.20s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/44087304-0e13-4a57-a695-3be9a519bc70.jpg" alt="Croissants rellenos" loading="lazy" />
+        <div class="gallery-caption"><span>Croissants rellenos</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.30s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/c2961e64-92b4-4375-bc12-04d9d1b31f7c.jpg" alt="Milhojas" loading="lazy" />
+        <div class="gallery-caption"><span>Milhojas</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.40s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/IMG_6803.JPG" alt="Tartas de frutas" loading="lazy" />
+        <div class="gallery-caption"><span>Tartas de frutas</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.50s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/IMG_6811.JPG" alt="Cafés especiales" loading="lazy" />
+        <div class="gallery-caption"><span>Cafés especiales</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.60s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/IMG_6814.JPG" alt="Vigilantes" loading="lazy" />
+        <div class="gallery-caption"><span>Vigilantes</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.70s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/IMG_6817.JPG" alt="Cookies rellenas" loading="lazy" />
+        <div class="gallery-caption"><span>Cookies rellenas</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.80s">
-        <img src="fotos/nuevas%20fotos/IMG_6810.JPG" alt="Bollería" loading="lazy" />
+      <div class="gallery-item fade-in reveal-scale">
+        <img src="fotos/nuevas%20fotos/IMG_6810.JPG" alt="Bollería artesanal" loading="lazy" />
+        <div class="gallery-caption"><span>Bollería artesanal</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:0.90s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/IMG_6813.JPG" alt="Medialunas" loading="lazy" />
+        <div class="gallery-caption"><span>Medialunas</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:1.00s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/5704feb1-ac1d-4aa4-bb53-29f0a5a656fa.jpg" alt="Vitrina de productos" loading="lazy" />
+        <div class="gallery-caption"><span>Vitrina de productos</span></div>
       </div>
-      <div class="gallery-item fade-in reveal-scale" style="transition-delay:1.10s">
+      <div class="gallery-item fade-in reveal-scale">
         <img src="fotos/nuevas%20fotos/30f0b8fc-5827-4c9d-9bd8-7754a6759aca.jpg" alt="Tartas artesanales" loading="lazy" />
+        <div class="gallery-caption"><span>Tartas artesanales</span></div>
       </div>
     </div>
   </div>
