@@ -516,26 +516,7 @@
       transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
       display: block;
     }
-    .gallery-caption {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: flex-end;
-      padding: 1rem 1.2rem;
-      background: linear-gradient(to top, rgba(26,50,40,0.80) 0%, transparent 55%);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-      pointer-events: none;
-    }
-    .gallery-caption span {
-      color: #F5F0E8;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
     .gallery-item:hover img { transform: scale(1.06); }
-    .gallery-item:hover .gallery-caption { opacity: 1; }
 
     /* tablet: 3 cols uniformes */
     @media (min-width: 600px) {
