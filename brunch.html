@@ -218,6 +218,7 @@
       aspect-ratio: 4/3; overflow: hidden;
       background: var(--g-100); flex-shrink: 0;
     }
+    #smoothies .menu-card-img { aspect-ratio: 5/6; }
     .menu-card-img img {
       width: 100%; height: 100%; object-fit: cover;
       transition: transform 0.55s ease;
@@ -741,87 +742,80 @@
       <h2>Smoothies Naturales</h2>
       <p>Hechos al momento con fruta fresca · <strong>5 €</strong> · +1 € con leche · +2 € con ron · +3 € con vodka.</p>
     </div>
-    <div class="smoothies-layout">
+    <div class="menu-grid">
 
-      <div class="smoothies-visual">
-        <img src="Kume menus/images/smoothies-collage.png" alt="Los 9 smoothies naturales de Küme" loading="lazy" />
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-caribbean.png" alt="Caribbean Passion" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Caribbean Passion</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
       </div>
 
-      <div class="smoothies-list">
-
-        <div class="menu-card menu-card-compact">
-          <div class="menu-card-body">
-            <div class="menu-card-name">Dragon Fruit Mix</div>
-            <div class="menu-card-desc">Mango · Fresa · Pitaya</div>
-            <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
-          </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-colada.png" alt="Colada Jungle" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Colada Jungle</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
         </div>
-
-        <div class="menu-card menu-card-compact">
-          <div class="menu-card-body">
-            <div class="menu-card-name">Caribbean Passion</div>
-            <div class="menu-card-desc">Mango · Papaya · Piña</div>
-            <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
-          </div>
-        </div>
-
-        <div class="menu-card menu-card-compact">
-          <div class="menu-card-body">
-            <div class="menu-card-name">Colada Jungle</div>
-            <div class="menu-card-desc">Plátano · Coco · Piña</div>
-            <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
-          </div>
-        </div>
-
-        <div class="menu-card menu-card-compact">
-          <div class="menu-card-body">
-            <div class="menu-card-name">Berries Passion</div>
-            <div class="menu-card-desc">Mango · Cereza · Arándano · Fresa</div>
-            <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
-          </div>
-        </div>
-
-        <div class="menu-card menu-card-compact">
-          <div class="menu-card-body">
-            <div class="menu-card-name">Vitality</div>
-            <div class="menu-card-desc">Plátano · Fresa</div>
-            <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
-          </div>
-        </div>
-
-        <div class="menu-card menu-card-compact">
-          <div class="menu-card-body">
-            <div class="menu-card-name">Sunny Splash</div>
-            <div class="menu-card-desc">Mango · Limón · Piña · Fruta de la pasión</div>
-            <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
-          </div>
-        </div>
-
-        <div class="menu-card menu-card-compact">
-          <div class="menu-card-body">
-            <div class="menu-card-name">Tropical Heaven</div>
-            <div class="menu-card-desc">Melón · Mango · Kiwi · Piña</div>
-            <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
-          </div>
-        </div>
-
-        <div class="menu-card menu-card-compact">
-          <div class="menu-card-body">
-            <div class="menu-card-name">Red Bliss</div>
-            <div class="menu-card-desc">Plátano · Arándano · Frambuesa</div>
-            <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
-          </div>
-        </div>
-
-        <div class="menu-card menu-card-compact">
-          <div class="menu-card-body">
-            <div class="menu-card-name">Green Power</div>
-            <div class="menu-card-desc">Pepino · Col rizada · Piña · Espinaca</div>
-            <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
-          </div>
-        </div>
-
       </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-dragon.png" alt="Dragon Fruit Mix" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Dragon Fruit Mix</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-berries.png" alt="Berries Passion" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Berries Passion</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-vitality.png" alt="Vitality" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Vitality</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-sunny.png" alt="Sunny Splash" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Sunny Splash</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-tropical.png" alt="Tropical Heaven" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tropical Heaven</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-redbliss.png" alt="Red Bliss" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Red Bliss</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-green.png" alt="Green Power" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Green Power</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
