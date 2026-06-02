@@ -966,76 +966,66 @@
       color: var(--on-dark-muted);
       margin-bottom: 40px;
     }
-    .contact-options {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 8px;
+    /* ── CONTACT — iOS grouped list ─────────────────── */
+    .contact-ios-group {
+      max-width: 440px;
+      margin: 8px auto 0;
+      background: rgba(255,255,255,0.10);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
     }
-    .contact-opt {
+    .contact-ios-row {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 8px;
-      padding: 32px 40px 28px;
-      border: 1.5px solid rgba(255,255,255,0.15);
-      border-radius: 1.25rem;
+      gap: 14px;
+      padding: 14px 16px;
       text-decoration: none;
-      background: #fff;
-      min-width: 200px;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      background: rgba(255,255,255,0.06);
+      position: relative;
+      transition: background 0.12s ease;
     }
-    .contact-opt:hover {
-      border-color: var(--g-800);
-      box-shadow: 0 6px 28px rgba(0,0,0,0.18);
-      transform: translateY(-3px);
+    .contact-ios-row::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 76px; right: 0;
+      height: 0.5px;
+      background: rgba(255,255,255,0.14);
     }
-    .contact-opt-wa:hover {
-      border-color: #25D366;
-      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.20);
-    }
-    .contact-opt-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+    .contact-ios-row:last-child::after { display: none; }
+    .contact-ios-row:active { background: rgba(255,255,255,0.12); }
+    @media (hover: hover) { .contact-ios-row:hover { background: rgba(255,255,255,0.10); } }
+
+    .contact-ios-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 11px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 8px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     }
-    .contact-icon-phone { background: rgba(43, 83, 64, 0.10); color: var(--g-800); }
-    .contact-icon-wa    { background: rgba(37, 211, 102, 0.12); color: #1aad52; }
-    .contact-opt-label {
-      font-family: 'Noto Serif', serif;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--on-light) !important;
+    .contact-icon-wa  { background: linear-gradient(145deg, #2dda6e, #20c157); }
+    .contact-icon-tel { background: linear-gradient(145deg, #44d963, #34c759); }
+
+    .contact-ios-text { flex: 1; min-width: 0; }
+    .contact-ios-label {
+      font-size: 17px;
+      font-weight: 590;
+      color: #fff;
+      letter-spacing: -0.01em;
+      font-family: -apple-system, 'Inter', sans-serif;
     }
-    .contact-opt-num {
-      font-size: 14px;
-      color: var(--on-light-muted) !important;
-      letter-spacing: 0.02em;
+    .contact-ios-num {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-top: 1px;
+      letter-spacing: 0.01em;
     }
-    .contact-opt-cta {
-      margin-top: 10px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      color: var(--g-800) !important;
-      padding: 7px 20px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(43,83,64,0.20);
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .contact-opt-wa .contact-opt-cta { color: #1aad52 !important; }
-    .contact-opt:hover .contact-opt-cta {
-      background: rgba(43, 83, 64, 0.07);
-      border-color: var(--g-800);
-    }
-    .contact-opt-wa:hover .contact-opt-cta {
-      background: rgba(37, 211, 102, 0.08);
-      border-color: #25D366;
+    .contact-ios-chevron {
+      color: rgba(255,255,255,0.35);
+      flex-shrink: 0;
     }
 
     /* ── FOOTER ──────────────────────────────────────── */
@@ -1870,23 +1860,32 @@
       <span class="section-label">Contacta con nosotros</span>
       <h2 class="section-title">¿Hablamos?</h2>
       <p class="section-body">Reserva tu pedido con antelación, pregúntanos lo que quieras o simplemente salúdanos. Estamos aquí.</p>
-      <div class="contact-options">
-        <a href="https://wa.me/34621498315?text=Hola,%20me%20gustar%C3%ADa%20reservar%20mi%20pedido%20con%20antelaci%C3%B3n%20en%20K%C3%BCme%20caf%C3%A9." target="_blank" class="contact-opt contact-opt-wa">
-          <div class="contact-opt-icon contact-icon-wa">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="26" height="26"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
+      <div class="contact-ios-group">
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/34621498315?text=Hola,%20me%20gustar%C3%ADa%20reservar%20mi%20pedido%20con%20antelaci%C3%B3n%20en%20K%C3%BCme%20caf%C3%A9." target="_blank" class="contact-ios-row">
+          <div class="contact-ios-icon contact-icon-wa">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="24" height="24"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
           </div>
-          <span class="contact-opt-label">WhatsApp</span>
-          <span class="contact-opt-num">621 49 83 15</span>
-          <span class="contact-opt-cta">Abrir WhatsApp →</span>
-        </a>
-        <a href="tel:+34621498315" class="contact-opt">
-          <div class="contact-opt-icon contact-icon-phone">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.0 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+          <div class="contact-ios-text">
+            <div class="contact-ios-label">WhatsApp</div>
+            <div class="contact-ios-num">621 49 83 15</div>
           </div>
-          <span class="contact-opt-label">Llamar</span>
-          <span class="contact-opt-num">621 49 83 15</span>
-          <span class="contact-opt-cta">Llamar ahora →</span>
+          <svg class="contact-ios-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+
+        <!-- Llamar -->
+        <a href="tel:+34621498315" class="contact-ios-row">
+          <div class="contact-ios-icon contact-icon-tel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+          </div>
+          <div class="contact-ios-text">
+            <div class="contact-ios-label">Llamar</div>
+            <div class="contact-ios-num">621 49 83 15</div>
+          </div>
+          <svg class="contact-ios-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
       </div>
     </div>
   </div>
