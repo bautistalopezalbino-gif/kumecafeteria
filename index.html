@@ -1110,139 +1110,153 @@
     .parallax-wrap { overflow: hidden; border-radius: 1.5rem; }
     .parallax-wrap img { will-change: transform; transition: none; }
 
-    /* ── MODAL RESERVA ───────────────────────────────── */
+    /* ── MODAL RESERVA — iOS Action Sheet ───────────── */
     .reserva-modal {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 500;
-      background: rgba(28, 27, 27, 0.55);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      align-items: center;
+      background: rgba(0,0,0,0.38);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      align-items: flex-end;
       justify-content: center;
-      padding: 24px;
     }
     .reserva-modal.open { display: flex; }
+
+    @keyframes iosSheetIn {
+      from { transform: translateY(100%); opacity: 0.6; }
+      to   { transform: translateY(0);   opacity: 1; }
+    }
+    @keyframes iosSheetOut {
+      from { transform: translateY(0);   opacity: 1; }
+      to   { transform: translateY(100%); opacity: 0; }
+    }
+
     .reserva-card {
-      background: var(--g-10);
-      border-radius: 1.5rem;
-      padding: 52px 44px 44px;
-      max-width: 500px;
       width: 100%;
-      position: relative;
-      text-align: center;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.22);
-      animation: lbIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      max-width: 480px;
+      padding: 0 8px calc(8px + env(safe-area-inset-bottom, 0px));
+      animation: iosSheetIn 0.44s cubic-bezier(0.32, 0.72, 0, 1) both;
     }
-    .reserva-close {
-      position: absolute;
-      top: 18px;
-      right: 20px;
-      background: rgba(43,83,64,0.10);
-      border: none;
-      color: var(--g-800);
-      font-size: 16px;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-    }
-    .reserva-close:hover { background: rgba(43,83,64,0.18); }
-    .reserva-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--g-800);
-      margin-bottom: 10px;
-    }
-    .reserva-title {
-      font-family: 'Noto Serif', serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--on-light);
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-    }
-    .reserva-sub {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--on-light-muted);
-      margin-bottom: 36px;
-    }
-    .reserva-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .reserva-opt {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      padding: 28px 16px 24px;
-      border: 1.5px solid rgba(43,83,64,0.14);
-      border-radius: 1.25rem;
-      text-decoration: none;
-      background: #fff;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-    }
-    .reserva-opt:hover {
-      border-color: var(--g-800);
-      box-shadow: 0 6px 24px rgba(43,83,64,0.16);
-      transform: translateY(-2px);
-    }
-    .reserva-opt-wa:hover {
-      border-color: #25D366;
-      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.18);
-    }
-    .reserva-opt-icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+    /* main sheet group */
+    .reserva-sheet {
+      background: rgba(242,242,247,0.92);
+      backdrop-filter: blur(40px) saturate(1.8);
+      -webkit-backdrop-filter: blur(40px) saturate(1.8);
+      border-radius: 14px;
+      overflow: hidden;
       margin-bottom: 8px;
     }
-    .reserva-icon-phone { background: rgba(43, 83, 64, 0.10); color: var(--g-800); }
-    .reserva-icon-wa    { background: rgba(37, 211, 102, 0.12); color: #1aad52; }
-    .reserva-opt-label {
-      font-family: 'Noto Serif', serif;
-      font-size: 19px;
-      font-weight: 600;
-      color: var(--on-light) !important;
+
+    /* drag handle */
+    .reserva-handle {
+      width: 36px;
+      height: 5px;
+      background: rgba(60,60,67,0.28);
+      border-radius: 3px;
+      margin: 10px auto 0;
     }
-    .reserva-opt-num {
-      font-size: 14px;
-      color: var(--on-light-muted) !important;
-      letter-spacing: 0.02em;
+
+    /* sheet header */
+    .reserva-sheet-header {
+      padding: 16px 16px 14px;
+      text-align: center;
+      border-bottom: 0.5px solid rgba(60,60,67,0.20);
     }
-    .reserva-opt-cta {
-      margin-top: 10px;
+    .reserva-sheet-eyebrow {
       font-size: 12px;
+      font-weight: 400;
+      color: rgba(60,60,67,0.55);
+      margin-bottom: 3px;
+      letter-spacing: 0.01em;
+    }
+    .reserva-sheet-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: -0.025em;
+      font-family: -apple-system, 'Inter', sans-serif;
+    }
+
+    /* list rows */
+    .reserva-list { background: #fff; }
+    .reserva-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 16px;
+      text-decoration: none;
+      background: transparent;
+      position: relative;
+      transition: background 0.1s ease;
+      cursor: pointer;
+    }
+    .reserva-row::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 58px; right: 0;
+      height: 0.5px;
+      background: rgba(60,60,67,0.16);
+    }
+    .reserva-row:last-child::after { display: none; }
+    .reserva-row:active { background: rgba(0,0,0,0.05); }
+    @media (hover: hover) { .reserva-row:hover { background: rgba(0,0,0,0.03); } }
+
+    /* app-icon style */
+    .reserva-row-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .reserva-icon-wa  { background: linear-gradient(145deg, #2dda6e, #20c157); }
+    .reserva-icon-tel { background: linear-gradient(145deg, #44d963, #34c759); }
+
+    .reserva-row-text { flex: 1; min-width: 0; }
+    .reserva-row-label {
+      font-size: 17px;
+      font-weight: 590;
+      color: #111;
+      letter-spacing: -0.01em;
+      font-family: -apple-system, 'Inter', sans-serif;
+    }
+    .reserva-row-num {
+      font-size: 13px;
+      color: rgba(60,60,67,0.55);
+      margin-top: 1px;
+      letter-spacing: 0.01em;
+    }
+    .reserva-row-chevron {
+      color: rgba(60,60,67,0.30);
+      flex-shrink: 0;
+    }
+
+    /* cancel button */
+    .reserva-cancel-btn {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      border-radius: 14px;
+      text-align: center;
+      font-size: 17px;
       font-weight: 600;
-      letter-spacing: 0.05em;
-      color: var(--g-800) !important;
-      padding: 7px 18px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(43,83,64,0.20);
-      transition: background 0.2s, border-color 0.2s;
+      color: #007AFF;
+      border: none;
+      cursor: pointer;
+      font-family: -apple-system, 'Inter', sans-serif;
+      letter-spacing: -0.01em;
+      transition: background 0.1s ease;
     }
-    .reserva-opt-wa .reserva-opt-cta { color: #1aad52 !important; }
-    .reserva-opt:hover .reserva-opt-cta {
-      background: rgba(43, 83, 64, 0.07);
-      border-color: var(--g-800);
-    }
-    .reserva-opt-wa:hover .reserva-opt-cta {
-      background: rgba(37, 211, 102, 0.08);
-      border-color: #25D366;
-    }
+    .reserva-cancel-btn:active { background: rgba(220,220,230,0.92); }
 
     /* ── HAMBURGER & DRAWER ─────────────────────────── */
     .nav-hamburger {
@@ -1420,31 +1434,49 @@
   <img id="lightboxImg" src="" alt="" />
 </div>
 
-<!-- Modal Reserva -->
+<!-- Modal Reserva — iOS Action Sheet -->
 <div class="reserva-modal" id="reservaModal">
   <div class="reserva-card">
-    <button class="reserva-close" id="reservaClose">✕</button>
-    <p class="reserva-eyebrow">Küme café · Benimaclet</p>
-    <h3 class="reserva-title">Haz tu pedido</h3>
-    <p class="reserva-sub">Te contestaremos lo antes posible.</p>
-    <div class="reserva-options">
-      <a href="https://wa.me/34621498315?text=Hola,%20me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20K%C3%BCme%20caf%C3%A9." target="_blank" class="reserva-opt reserva-opt-wa">
-        <div class="reserva-opt-icon reserva-icon-wa">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="26" height="26"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
-        </div>
-        <span class="reserva-opt-label">WhatsApp</span>
-        <span class="reserva-opt-num">621 49 83 15</span>
-        <span class="reserva-opt-cta">Abrir WhatsApp →</span>
-      </a>
-      <a href="tel:+34621498315" class="reserva-opt">
-        <div class="reserva-opt-icon reserva-icon-phone">
-          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.0 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
-        </div>
-        <span class="reserva-opt-label">Llamar</span>
-        <span class="reserva-opt-num">621 49 83 15</span>
-        <span class="reserva-opt-cta">Llamar ahora →</span>
-      </a>
+
+    <!-- Main sheet -->
+    <div class="reserva-sheet">
+      <div class="reserva-handle"></div>
+      <div class="reserva-sheet-header">
+        <p class="reserva-sheet-eyebrow">Küme café · Benimaclet</p>
+        <h3 class="reserva-sheet-title">Haz tu pedido</h3>
+      </div>
+      <div class="reserva-list">
+
+        <!-- WhatsApp row -->
+        <a href="https://wa.me/34621498315?text=Hola,%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20en%20K%C3%BCme%20caf%C3%A9." target="_blank" class="reserva-row">
+          <div class="reserva-row-icon reserva-icon-wa">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="26" height="26"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
+          </div>
+          <div class="reserva-row-text">
+            <div class="reserva-row-label">WhatsApp</div>
+            <div class="reserva-row-num">621 49 83 15</div>
+          </div>
+          <svg class="reserva-row-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <!-- Phone row -->
+        <a href="tel:+34621498315" class="reserva-row">
+          <div class="reserva-row-icon reserva-icon-tel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+          </div>
+          <div class="reserva-row-text">
+            <div class="reserva-row-label">Llamar</div>
+            <div class="reserva-row-num">621 49 83 15</div>
+          </div>
+          <svg class="reserva-row-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+      </div>
     </div>
+
+    <!-- Cancel -->
+    <button class="reserva-cancel-btn" id="reservaClose">Cancelar</button>
+
   </div>
 </div>
 
