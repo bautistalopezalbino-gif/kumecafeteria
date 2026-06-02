@@ -118,6 +118,24 @@
     }
     nav.scrolled .nav-links a { color: rgba(255,255,255,0.9); }
     .nav-links a:hover { opacity: 0.7; }
+    .nav-ctas { display: flex; gap: 10px; align-items: center; }
+    .btn-carta-nav {
+      background: transparent;
+      color: rgba(255,255,255,0.88);
+      border: 1.5px solid rgba(255,255,255,0.40);
+      padding: 10px 22px;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-carta-nav:hover { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.70); }
+    nav.scrolled .btn-carta-nav { border-color: rgba(255,255,255,0.55); }
     .btn-nav {
       background: var(--g-800);
       color: var(--on-dark);
@@ -281,41 +299,39 @@
     }
 
     /* ── VALUES — fondo verde oscuro ─────────────────── */
-    .values { background: var(--g-800); padding: 100px 0; }
-    .values .section-label { color: var(--g-200); }
-    .values .section-title { color: var(--on-dark); }
-    .values-grid {
+    .values { background: var(--g-800); padding: 80px 0; }
+    .values-list { list-style: none; }
+    .values-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: 80px 1fr 1.6fr;
+      gap: 0 56px;
+      align-items: start;
+      padding: 48px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
     }
-    .value-card {
-      background: #fff;
-      border-radius: 1.25rem;
-      padding: 52px 40px;
-      border: 1px solid rgba(0,0,0,0.06);
-      transition: box-shadow 0.25s, transform 0.2s;
-    }
-    .value-card:hover {
-      box-shadow: 0 10px 40px rgba(43, 83, 64, 0.22);
-      transform: translateY(-3px);
-    }
-    .value-icon-wrap {
-      margin-bottom: 28px;
-      color: var(--g-800);
-    }
-    .value-card h3 {
+    .values-row:first-child { border-top: 1px solid rgba(255,255,255,0.10); }
+    .value-num {
       font-family: 'Noto Serif', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--on-light) !important;
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
+      font-size: 12px;
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.28);
+      letter-spacing: 0.10em;
+      padding-top: 6px;
     }
-    .value-card p {
+    .value-title {
+      font-family: 'Noto Serif', serif;
+      font-size: clamp(22px, 2.2vw, 28px);
+      font-weight: 600;
+      color: var(--on-dark);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .value-desc {
       font-size: 15px;
-      line-height: 1.8;
-      color: var(--on-light-muted) !important;
+      line-height: 1.85;
+      color: var(--on-dark-muted);
+      padding-top: 4px;
     }
 
     /* ── ABOUT — fondo verde pálido ─────────────────── */
@@ -1112,7 +1128,8 @@
     @media (max-width: 900px) {
       :root { --margin-desktop: 24px; --section-gap: 72px; }
       .nav-links { display: none; }
-      .values-grid { grid-template-columns: 1fr; gap: 16px; }
+      .values-row { grid-template-columns: 1fr; gap: 12px; padding: 36px 0; }
+      .value-num { padding-top: 0; }
       .about-grid { grid-template-columns: 1fr; gap: 36px; }
       .menu-grid { grid-template-columns: 1fr; gap: 40px; }
       .tortas-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1180,13 +1197,15 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo"><img src="fotos/nuevas%20fotos/IMG_6820-Photoroom.png" alt="Küme café" style="height:38px;width:auto;" /></a>
     <ul class="nav-links">
-      <li><a href="#menu">Menú</a></li>
       <li><a href="#historia">Historia</a></li>
       <li><a href="#galeria">Espacios</a></li>
       <li><a href="#ubicacion">Dónde estamos</a></li>
       <li><a href="brunch.html">Brunch</a></li>
     </ul>
-    <a href="#" class="btn-nav" id="btnReserva">Haz tu pedido</a>
+    <div class="nav-ctas">
+      <a href="carta.html" class="btn-carta-nav">Ver la carta</a>
+      <a href="#" class="btn-nav" id="btnReserva">Haz tu pedido</a>
+    </div>
   </div>
 </nav>
 
@@ -1204,35 +1223,6 @@
   <div class="hero-scroll">Scroll</div>
 </section>
 
-
-<!-- ── VALUES ────────────────────────────────────────── -->
-<section class="values">
-  <div class="container">
-    <div class="values-grid">
-      <div class="value-card fade-in reveal-up">
-        <div class="value-icon-wrap">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 7 4 2 5c0 5 3 9 10 7"/><path d="M12 12c0-5 5-8 10-7 0 5-3 9-10 7"/></svg>
-        </div>
-        <h3>Origen único</h3>
-        <p>Trabajamos con microlotes de productores comprometidos con prácticas regenerativas y trazabilidad total desde la finca.</p>
-      </div>
-      <div class="value-card fade-in reveal-up" style="transition-delay:0.15s">
-        <div class="value-icon-wrap">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
-        </div>
-        <h3>Elaboración lenta</h3>
-        <p>Cada taza requiere atención plena. Sin prisas, sin atajos. Solo técnica precisa, temperatura exacta y cariño genuino.</p>
-      </div>
-      <div class="value-card fade-in reveal-up" style="transition-delay:0.3s">
-        <div class="value-icon-wrap">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <h3>Espacio para quedarse</h3>
-        <p>Un rincón en el corazón de Benimaclet pensado para conectar, trabajar o simplemente disfrutar del ritmo del barrio.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── ABOUT ──────────────────────────────────────────── -->
 <section id="historia">
@@ -1256,61 +1246,6 @@
           alt="Cookies artesanales Küme"
           loading="lazy"
         />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── MENU ───────────────────────────────────────────── -->
-<section class="menu-section" id="menu">
-  <div class="container">
-    <div class="menu-header fade-in">
-      <span class="section-label">Lo que ofrecemos</span>
-      <h2 class="section-title">Nuestros productos</h2>
-      <p class="section-body">Café de especialidad, té de calidad y pastelería de obrador. Todo hecho con tiempo y con cuidado.</p>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-category fade-in">
-        <h3>Cafés</h3>
-        <div class="menu-item"><span class="menu-item-name">Espresso</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cortado</span></div>
-        <div class="menu-item"><span class="menu-item-name">Carajillo</span></div>
-        <div class="menu-item"><span class="menu-item-name">Americano</span></div>
-        <div class="menu-item"><span class="menu-item-name">Café con leche</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cappuccino</span></div>
-        <div class="menu-item"><span class="menu-item-name">Caramel Latte</span></div>
-        <div class="menu-item"><span class="menu-item-name">Café con leche ARG</span></div>
-        <div class="menu-item"><span class="menu-item-name">Bombón</span></div>
-      </div>
-
-      <div class="menu-category fade-in" style="transition-delay:0.12s">
-        <h3>Infusiones varias</h3>
-        <div class="menu-item"><span class="menu-item-name">Infusión</span></div>
-        <div class="menu-item"><span class="menu-item-name">Chai Latte</span></div>
-        <div class="menu-item"><span class="menu-item-name">Matcha Latte</span></div>
-        <div class="menu-item"><span class="menu-item-name">Chocolate</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cholock</span></div>
-        <div class="menu-item"><span class="menu-item-name">Colacao</span></div>
-        <div class="menu-item"><span class="menu-item-name">Taza de leche</span></div>
-      </div>
-
-      <div class="menu-category fade-in" style="transition-delay:0.24s">
-        <h3>Bollería argentina</h3>
-        <div class="menu-item"><span class="menu-item-name">Medialuna</span></div>
-        <div class="menu-item"><span class="menu-item-name">Vigilante</span></div>
-        <div class="menu-item"><span class="menu-item-name">Croissant</span></div>
-        <div class="menu-item"><span class="menu-item-name">Facturas rellenas de crema pastelera y membrillo</span></div>
-        <div class="menu-item"><span class="menu-item-name">Bolas de fraile</span></div>
-      </div>
-
-      <div class="menu-category fade-in" style="transition-delay:0.36s">
-        <h3>Cookies rellenas</h3>
-        <div class="menu-item"><span class="menu-item-name">Cookies de lotus</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cookies de pistacho</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cookies de oreo</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cookies de kínder</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cookies de red velvet</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cookies de personajes</span></div>
       </div>
     </div>
   </div>
@@ -1617,7 +1552,7 @@
         <li><a href="#">Política de privacidad</a></li>
         <li><a href="#">Aviso legal</a></li>
         <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-        <li><a href="#menu">Carta</a></li>
+        <li><a href="carta.html">Carta</a></li>
       </ul>
       <p class="footer-copy">© 2025 KÜME café · Benimaclet, Valencia</p>
     </div>

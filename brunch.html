@@ -97,7 +97,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-image: url('Kume menus/images/brunch-tortitas.png');
       background-size: cover; background-position: center 40%;
       transform: scale(1.04);
       transition: transform 8s ease-out;
@@ -125,10 +125,7 @@
       line-height: 1.7; margin-bottom: 40px; font-weight: 300;
     }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
-    .hero-stats {
-      display: flex; gap: 32px; flex-wrap: wrap;
-    }
-    .hero-stat { }
+    .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
     .hero-stat-val {
       font-family: 'Noto Serif', serif; font-size: 1.6rem; font-weight: 700;
       color: var(--on-dark); line-height: 1;
@@ -142,201 +139,93 @@
       align-self: center;
     }
 
-    /* ── INTRO SPLIT ── */
-    .intro { background: var(--g-50); padding: 100px 0; }
-    .intro-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 72px;
-      align-items: center;
+    /* ── INCLUDE BANNER ── */
+    .include-banner {
+      background: var(--g-800);
+      padding: 18px 0;
+      text-align: center;
     }
-    .intro-img-wrap {
-      border-radius: var(--r); overflow: hidden;
-      aspect-ratio: 4/5;
-      box-shadow: 0 20px 60px rgba(26,50,40,0.15);
+    .include-banner p {
+      font-size: 0.92rem; color: var(--on-dark-muted); letter-spacing: 0.03em;
     }
-    .intro-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .intro-text .eyebrow { margin-bottom: 18px; }
-    .intro-text h2 {
-      font-family: 'Noto Serif', serif; font-weight: 700;
-      font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.15;
-      color: var(--on-light); margin-bottom: 20px;
-    }
-    .intro-text h2 em { font-style: italic; color: var(--g-700); }
-    .intro-text p {
-      font-size: 1rem; color: var(--on-light-muted); line-height: 1.75;
-      margin-bottom: 16px; font-weight: 300;
-    }
-    .intro-pills {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px;
-    }
-    .pill {
-      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em;
-      background: var(--g-100); color: var(--on-light-muted);
-      border-radius: 100px; padding: 6px 16px;
-    }
+    .include-banner strong { color: var(--g-200); font-weight: 600; }
 
-    /* ── COMBOS ── */
-    .combos { background: var(--g-950); padding: 100px 0; }
-    .section-head { margin-bottom: 56px; }
+    /* ── MENU SECTIONS ── */
+    .menu-sec { padding: 88px 0; }
+    .menu-sec:nth-child(odd) { background: var(--g-10); }
+    .menu-sec:nth-child(even) { background: var(--g-50); }
+    .section-head { margin-bottom: 48px; }
+    .section-head .eyebrow { margin-bottom: 10px; }
     .section-head h2 {
       font-family: 'Noto Serif', serif; font-weight: 700;
-      font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.15;
-      margin-top: 14px;
+      font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1.15;
+      color: var(--on-light); margin-top: 10px;
     }
     .section-head p {
-      font-size: 1rem; line-height: 1.7; max-width: 520px; margin-top: 10px;
-      font-weight: 300;
+      font-size: 0.95rem; color: var(--on-light-muted);
+      line-height: 1.7; max-width: 480px; margin-top: 10px; font-weight: 300;
     }
-    .combos .section-head h2 { color: var(--on-dark); }
-    .combos .section-head p { color: var(--on-dark-muted); }
 
-    .combos-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
-      max-width: 780px; margin-left: auto; margin-right: auto;
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
-    .combo-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: var(--r); overflow: hidden;
-      transition: border-color 0.25s, transform 0.25s;
+
+    .menu-card {
+      background: #fff;
+      border: 1px solid rgba(43,83,64,0.10);
+      border-radius: var(--r);
+      overflow: hidden;
       display: flex; flex-direction: column;
+      transition: transform 0.22s, box-shadow 0.22s;
+      box-shadow: 0 2px 12px rgba(26,50,40,0.06);
     }
-    .combo-card:hover {
-      border-color: rgba(196,212,160,0.35);
-      transform: translateY(-4px);
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px rgba(26,50,40,0.13);
     }
-    .combo-card.top { border-color: rgba(196,212,160,0.30); }
-    .combo-img {
-      aspect-ratio: 3/2; overflow: hidden; position: relative; flex-shrink: 0;
-      background: var(--g-800);
+    .menu-card-img {
+      aspect-ratio: 4/3; overflow: hidden;
+      background: var(--g-100); flex-shrink: 0;
     }
-    .combo-img img {
+    .menu-card-img img {
       width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.6s ease;
+      transition: transform 0.55s ease;
     }
-    .combo-card:hover .combo-img img { transform: scale(1.06); }
-    .combo-badge {
-      position: absolute; top: 12px; left: 12px;
-      background: var(--g-400); color: var(--g-950);
-      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em;
-      text-transform: uppercase; border-radius: 100px; padding: 4px 11px;
+    .menu-card:hover .menu-card-img img { transform: scale(1.06); }
+    .menu-card-body {
+      padding: 22px 20px 24px;
+      display: flex; flex-direction: column; flex: 1;
     }
-    .combo-body { padding: 22px 20px; flex: 1; display: flex; flex-direction: column; }
-    .combo-name {
+    .menu-card-name {
       font-family: 'Noto Serif', serif; font-weight: 700;
-      font-size: 1.05rem; color: var(--on-dark); margin-bottom: 8px;
+      font-size: 1.05rem; color: var(--on-light);
+      margin-bottom: 6px; line-height: 1.3;
     }
-    .combo-items {
-      list-style: none; flex: 1; margin-bottom: 20px;
+    .menu-card-desc {
+      font-size: 0.80rem; color: var(--on-light-subtle);
+      line-height: 1.55; flex: 1; margin-bottom: 18px;
     }
-    .combo-items li {
-      font-size: 0.80rem; color: var(--on-dark-muted);
-      padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-      display: flex; gap: 8px; align-items: flex-start;
-    }
-    .combo-items li:last-child { border-bottom: none; }
-    .combo-items li::before { content: '·'; color: var(--g-400); flex-shrink: 0; font-weight: 700; }
-    .combo-foot {
+    .menu-card-foot {
       display: flex; align-items: center; justify-content: space-between;
-      padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 16px; border-top: 1px solid rgba(43,83,64,0.09);
     }
-    .combo-price {
+    .menu-card-price {
       font-family: 'Noto Serif', serif; font-weight: 700;
-      font-size: 1.7rem; color: var(--on-dark);
+      font-size: 1.55rem; color: var(--primary);
     }
-    .combo-price sup { font-size: 0.9rem; color: var(--g-400); vertical-align: super; }
-
-    /* ── A LA CARTA ── */
-    .carta { background: var(--g-10); padding: 100px 0; }
-    .carta .section-head h2 { color: var(--on-light); }
-    .carta .section-head p { color: var(--on-light-muted); }
-    .carta-layout {
-      display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start;
-    }
-    .carta-img-stack { position: sticky; top: 100px; }
-    .carta-img-main {
-      border-radius: var(--r); overflow: hidden;
-      aspect-ratio: 3/4; box-shadow: 0 20px 60px rgba(26,50,40,0.12);
-      background: var(--g-100);
-    }
-    .carta-img-main img { width: 100%; height: 100%; object-fit: cover; }
-    .carta-img-float {
-      border-radius: var(--r); overflow: hidden;
-      width: 55%; aspect-ratio: 1;
-      box-shadow: 0 12px 32px rgba(26,50,40,0.14);
-      background: var(--g-100);
-      margin-top: -60px; margin-left: auto;
-      border: 4px solid var(--g-10);
-    }
-    .carta-img-float img { width: 100%; height: 100%; object-fit: cover; }
-
-    .carta-dishes { display: flex; flex-direction: column; gap: 2px; }
-    .dish-row {
-      display: flex; align-items: center; gap: 16px;
-      padding: 18px 0; border-bottom: 1px solid rgba(43,83,64,0.09);
-      transition: background 0.15s;
-    }
-    .dish-row:first-child { padding-top: 0; }
-    .dish-thumb {
-      width: 68px; height: 68px; border-radius: 0.75rem; flex-shrink: 0;
-      overflow: hidden; background: var(--g-100);
-    }
-    .dish-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .dish-info { flex: 1; }
-    .dish-name {
-      font-family: 'Noto Serif', serif; font-weight: 600;
-      font-size: 0.98rem; color: var(--on-light); margin-bottom: 3px;
-    }
-    .dish-desc {
-      font-size: 0.79rem; color: var(--on-light-subtle); line-height: 1.45;
-    }
-    .dish-price {
-      font-family: 'Noto Serif', serif; font-weight: 700;
-      font-size: 1.1rem; color: var(--primary); white-space: nowrap; flex-shrink: 0;
-    }
-
-    /* ── BEBIDAS ── */
-    .bebidas { background: var(--g-800); padding: 100px 0; }
-    .bebidas .section-head h2 { color: var(--on-dark); }
-    .bebidas .section-head p { color: var(--on-dark-muted); }
-    .bebidas-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
-    }
-    .beb-card {
-      border-radius: var(--r); overflow: hidden;
-      position: relative;
-      transition: transform 0.25s;
-      background: var(--g-700);
-    }
-    .beb-card:hover { transform: translateY(-3px); }
-    .beb-img {
-      aspect-ratio: 3/4; overflow: hidden;
-    }
-    .beb-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .beb-card:hover .beb-img img { transform: scale(1.05); }
-    .beb-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(26,50,40,0.88) 0%, transparent 50%);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 22px 18px;
-    }
-    .beb-name {
-      font-family: 'Noto Serif', serif; font-weight: 700;
-      font-size: 1rem; color: var(--on-dark); margin-bottom: 3px;
-    }
-    .beb-desc { font-size: 0.75rem; color: var(--on-dark-muted); margin-bottom: 10px; }
-    .beb-price {
-      font-family: 'Noto Serif', serif; font-weight: 700;
-      font-size: 1.2rem; color: var(--g-200);
+    .menu-card-incl {
+      font-size: 0.72rem; color: var(--on-light-subtle);
+      letter-spacing: 0.03em; text-align: right; line-height: 1.4;
     }
 
     /* ── PHOTO STRIP ── */
-    .strip { background: var(--g-950); padding: 80px 0; overflow: hidden; }
+    .strip { background: var(--g-950); padding: 72px 0; overflow: hidden; }
     .strip-track {
       display: flex; gap: 14px;
       width: max-content;
-      animation: slide 28s linear infinite;
+      animation: slide 30s linear infinite;
     }
     .strip-track:hover { animation-play-state: paused; }
     .strip-item {
@@ -409,25 +298,17 @@
     footer a { color: var(--g-400); text-decoration: none; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .combos-grid { grid-template-columns: 1fr; }
-    }
     @media (max-width: 900px) {
       :root { --pad: 24px; }
-      .intro-grid { grid-template-columns: 1fr; gap: 48px; }
-      .intro-img-wrap { aspect-ratio: 16/9; }
-      .carta-layout { grid-template-columns: 1fr; }
-      .carta-img-stack { display: none; }
-      .bebidas-grid { grid-template-columns: repeat(2, 1fr); }
+      .menu-grid { grid-template-columns: 1fr 1fr; }
       .info-grid { grid-template-columns: 1fr; }
       .info-block { border-right: none; border-bottom: 1px solid rgba(43,83,64,0.10); }
       .info-block:last-child { border-bottom: none; }
     }
     @media (max-width: 600px) {
-      .combos-grid { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.6rem; }
       .hero-stats { gap: 20px; }
-      .bebidas-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -449,22 +330,22 @@
 <section class="hero">
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-content">
-    <div class="eyebrow eyebrow-light" style="margin-bottom:24px;">Sábados y Domingos · 10:00 — 14:30 h</div>
+    <div class="eyebrow eyebrow-light" style="margin-bottom:24px;">Lunes a Viernes · 11:00 — 14:00 h</div>
     <h1>El brunch que<br><em>mereces.</em></h1>
-    <p class="hero-sub">Desayuno y comida fundidos en un ritual de fin de semana. Masa madre propia, café de especialidad y productos frescos en el corazón de Benimaclet.</p>
+    <p class="hero-sub">Tortitas, crepes y gofres elaborados al momento. Todos los platos incluyen café y zumo de naranja natural.</p>
     <div class="hero-actions">
-      <a href="#combos" class="btn btn-fill-cream">Ver los combos</a>
+      <a href="#tortitas" class="btn btn-fill-cream">Ver la carta</a>
       <a href="https://wa.me/34600000000?text=Hola!%20Quiero%20reservar%20brunch" class="btn btn-ghost" target="_blank">Reservar por WhatsApp</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="hero-stat-val">Desde 13€</div>
-        <div class="hero-stat-label">Precio combo completo</div>
+        <div class="hero-stat-val">Desde 6,50 €</div>
+        <div class="hero-stat-label">Con café y zumo incluidos</div>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-stat">
-        <div class="hero-stat-val">4 combos</div>
-        <div class="hero-stat-label">Para cada gusto</div>
+        <div class="hero-stat-val">9 platos</div>
+        <div class="hero-stat-label">Tortitas, crepes y gofres</div>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-stat">
@@ -475,264 +356,172 @@
   </div>
 </section>
 
-<!-- ── INTRO ── -->
-<section class="intro">
-  <div class="container">
-    <div class="intro-grid">
-      <div class="intro-img-wrap">
-        <img
-          src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80"
-          alt="Tortitas artesanales con frutos rojos"
-          loading="lazy"
-        />
-      </div>
-      <div class="intro-text">
-        <div class="eyebrow eyebrow-dark">Nuestra filosofía</div>
-        <h2>Hecho con calma,<br>pensado para <em>disfrutar</em></h2>
-        <p>En Küme creemos que el brunch no es solo comida: es el ritmo perfecto para el fin de semana. Sin prisas, con ingredientes que se nota que son buenos.</p>
-        <p>Todo lo que sale de nuestra cocina está elaborado con masa madre propia, huevos de gallinas camperas y productos locales de la Comunitat Valenciana.</p>
-        <div class="intro-pills">
-          <span class="pill">Opciones veganas</span>
-          <span class="pill">Sin gluten bajo petición</span>
-          <span class="pill">Café de especialidad</span>
-          <span class="pill">Ingredientes locales</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ── INCLUDE BANNER ── -->
+<div class="include-banner">
+  <p>☕ <strong>Todos los platos incluyen café y zumo de naranja natural</strong> · Horario 11:00 – 14:00 h</p>
+</div>
 
-<!-- ── COMBOS ── -->
-<section class="combos" id="combos">
+<!-- ── TORTITAS ── -->
+<section class="menu-sec" id="tortitas">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow eyebrow-cream">Nuestros sets</div>
-      <h2>Combos brunch</h2>
-      <p>Todo en uno: plato principal, acompañamiento y bebida. Sin sorpresas en la cuenta.</p>
+      <div class="eyebrow eyebrow-dark">Brunch</div>
+      <h2>Tortitas</h2>
+      <p>Esponjosas por dentro, doradas por fuera. Elaboradas al momento con ingredientes frescos.</p>
     </div>
-    <div class="combos-grid">
+    <div class="menu-grid">
 
-      <!-- CLÁSICO -->
-      <div class="combo-card top">
-        <div class="combo-img">
-          <img src="https://images.pexels.com/photos/1351238/pexels-photo-1351238.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Avocado toast" loading="lazy" />
-          <span class="combo-badge">⭐ Más pedido</span>
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="Kume menus/images/tortitas-miel.png" alt="Tortitas con mantequilla y miel, huevo y bacon" loading="lazy" />
         </div>
-        <div class="combo-body">
-          <div class="combo-name">El Küme Clásico</div>
-          <ul class="combo-items">
-            <li>Tostada de masa madre con aguacate y huevo poché</li>
-            <li>Mini croissant de mantequilla artesanal</li>
-            <li>Zumo de naranja natural exprimido</li>
-            <li>Café con leche o té a elección</li>
-          </ul>
-          <div class="combo-foot">
-            <div class="combo-price"><sup>€</sup>14,50</div>
-            <a href="https://wa.me/34600000000?text=Quiero%20el%20Combo%20Küme%20Clásico" class="btn btn-fill-green" target="_blank">Pedir</a>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Mantequilla y miel, huevo y bacon</div>
+          <div class="menu-card-desc">Tortitas artesanales con mantequilla, miel, huevo y bacon crujiente</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">8,50 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
           </div>
         </div>
       </div>
 
-      <!-- DULCE -->
-      <div class="combo-card">
-        <div class="combo-img">
-          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80" alt="Tortitas con frutos rojos" loading="lazy" />
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="Kume menus/images/tortitas-salmon.png" alt="Tortitas con aguacate, salmón y huevo" loading="lazy" />
         </div>
-        <div class="combo-body">
-          <div class="combo-name">El Dulce</div>
-          <ul class="combo-items">
-            <li>Tortitas de buttermilk con frutos rojos y nata fresca</li>
-            <li>Bollería artesanal de temporada</li>
-            <li>Zumo de naranja natural</li>
-            <li>Café, matcha latte o chocolate caliente</li>
-          </ul>
-          <div class="combo-foot">
-            <div class="combo-price"><sup>€</sup>13,50</div>
-            <a href="https://wa.me/34600000000?text=Quiero%20el%20Combo%20El%20Dulce" class="btn btn-fill-green" target="_blank">Pedir</a>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Aguacate, salmón y huevo</div>
+          <div class="menu-card-desc">Tortitas artesanales con aguacate fresco, salmón ahumado y huevo</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">9,50 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
           </div>
         </div>
       </div>
 
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="Kume menus/images/brunch-tortitas.png" alt="Tortitas con bacon, queso y huevo" loading="lazy" />
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Bacon, queso y huevo</div>
+          <div class="menu-card-desc">Tortitas artesanales con bacon crujiente, queso fundido y huevo</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">8,90 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
 </section>
 
-<!-- ── A LA CARTA ── -->
-<section class="carta" id="carta">
+<!-- ── CREPES ── -->
+<section class="menu-sec" id="crepes">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow eyebrow-dark">A la carta</div>
-      <h2>Platos individuales</h2>
-      <p>Completa tu brunch como quieras. Todo elaborado al momento con ingredientes frescos de temporada.</p>
+      <div class="eyebrow eyebrow-dark">Brunch</div>
+      <h2>Crepes</h2>
+      <p>Finas y crujientes, rellenas con los mejores ingredientes. Elaboradas al momento.</p>
     </div>
-    <div class="carta-layout">
+    <div class="menu-grid">
 
-      <!-- sticky image -->
-      <div class="carta-img-stack">
-        <div class="carta-img-main">
-          <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Mesa de brunch" loading="lazy" />
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="Kume menus/images/brunch-crepes.png" alt="Crepe de jamón, queso, tomate y huevo" loading="lazy" />
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Jamón, queso, tomate y huevo</div>
+          <div class="menu-card-desc">Crepe con jamón serrano, queso fundido, tomate fresco y huevo</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">8,50 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
         </div>
       </div>
 
-      <!-- dish list -->
-      <div class="carta-dishes">
-
-        <div class="dish-row">
-          <div class="dish-thumb">
-            <img src="https://images.pexels.com/photos/1351238/pexels-photo-1351238.jpeg?auto=compress&cs=tinysrgb&w=140" alt="" loading="lazy" />
-          </div>
-          <div class="dish-info">
-            <div class="dish-name">Avocado toast</div>
-            <div class="dish-desc">Pan de masa madre, aguacate, huevo poché, semillas y chile en hojuelas</div>
-          </div>
-          <div class="dish-price">7,50 €</div>
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="Kume menus/images/crepe-jamon-queso.png" alt="Crepe de jamón y queso" loading="lazy" />
         </div>
-
-        <div class="dish-row">
-          <div class="dish-thumb">
-            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=140&q=80" alt="" loading="lazy" />
+        <div class="menu-card-body">
+          <div class="menu-card-name">Jamón y queso</div>
+          <div class="menu-card-desc">Crepe clásica con jamón serrano y queso emmental fundido</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">6,90 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
           </div>
-          <div class="dish-info">
-            <div class="dish-name">Tortitas de buttermilk</div>
-            <div class="dish-desc">3 uds, sirope de arce, frutos rojos frescos y nata montada</div>
-          </div>
-          <div class="dish-price">8,00 €</div>
         </div>
-
-        <div class="dish-row">
-          <div class="dish-thumb">
-            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=140&q=80" alt="" loading="lazy" />
-          </div>
-          <div class="dish-info">
-            <div class="dish-name">Huevos benedictinos</div>
-            <div class="dish-desc">Muffin inglés, jamón ibérico, huevos poché y holandesa casera</div>
-          </div>
-          <div class="dish-price">9,50 €</div>
-        </div>
-
-        <div class="dish-row">
-          <div class="dish-thumb">
-            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=140&q=80" alt="" loading="lazy" />
-          </div>
-          <div class="dish-info">
-            <div class="dish-name">Croissant relleno</div>
-            <div class="dish-desc">Mantequilla artesanal, jamón serrano y queso emmental fundido</div>
-          </div>
-          <div class="dish-price">4,50 €</div>
-        </div>
-
-        <div class="dish-row">
-          <div class="dish-thumb">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=140&q=80" alt="" loading="lazy" />
-          </div>
-          <div class="dish-info">
-            <div class="dish-name">Bowl de yogur & granola</div>
-            <div class="dish-desc">Yogur griego, granola tostada artesanal, miel de romero y frutas de temporada</div>
-          </div>
-          <div class="dish-price">6,50 €</div>
-        </div>
-
-        <div class="dish-row">
-          <div class="dish-thumb">
-            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=140&q=80" alt="" loading="lazy" />
-          </div>
-          <div class="dish-info">
-            <div class="dish-name">Tostada PB & Plátano</div>
-            <div class="dish-desc">Masa madre, crema de cacahuete natural, plátano en láminas y miel</div>
-          </div>
-          <div class="dish-price">5,50 €</div>
-        </div>
-
-        <div class="dish-row">
-          <div class="dish-thumb">
-            <img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=140" alt="" loading="lazy" />
-          </div>
-          <div class="dish-info">
-            <div class="dish-name">Açaí bowl</div>
-            <div class="dish-desc">Açaí orgánico, granola crujiente, fresa, arándano, plátano y coco rallado</div>
-          </div>
-          <div class="dish-price">8,50 €</div>
-        </div>
-
-        <div class="dish-row">
-          <div class="dish-thumb">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=140&q=80" alt="" loading="lazy" />
-          </div>
-          <div class="dish-info">
-            <div class="dish-name">Gofre artesanal</div>
-            <div class="dish-desc">Crujiente por fuera, esponjoso por dentro. Con dulce de leche y helado de vainilla</div>
-          </div>
-          <div class="dish-price">7,00 €</div>
-        </div>
-
-        <div class="dish-row" style="border-bottom:none;">
-          <div class="dish-thumb">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=140&q=80" alt="" loading="lazy" />
-          </div>
-          <div class="dish-info">
-            <div class="dish-name">Ensalada brunch</div>
-            <div class="dish-desc">Mix de hojas, tomate cherry, pepino, queso feta, nueces y vinagreta miel-mostaza</div>
-          </div>
-          <div class="dish-price">7,00 €</div>
-        </div>
-
       </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="Kume menus/images/crepe-jamon-queso-huevo.png" alt="Crepe de jamón, queso y huevo" loading="lazy" />
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Jamón, queso y huevo</div>
+          <div class="menu-card-desc">Crepe con jamón serrano, queso fundido y huevo a la plancha</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">7,90 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ── BEBIDAS ── -->
-<section class="bebidas" id="bebidas">
+<!-- ── GOFRES Y CROISSANT ── -->
+<section class="menu-sec" id="gofres">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow eyebrow-cream">Para beber</div>
-      <h2>Bebidas</h2>
-      <p>Café de especialidad, zumos prensados al momento y alternativas para cada gusto.</p>
+      <div class="eyebrow eyebrow-dark">Brunch</div>
+      <h2>Gofres y Croissant</h2>
+      <p>Crujientes por fuera, tiernos por dentro. El brunch más especial de Benimaclet.</p>
     </div>
-    <div class="bebidas-grid">
+    <div class="menu-grid">
 
-      <div class="beb-card">
-        <div class="beb-img">
-          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=80" alt="Café con leche" loading="lazy" />
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="Kume menus/images/brunch-gofres.png" alt="Gofre con aguacate, salmón y huevo" loading="lazy" />
         </div>
-        <div class="beb-overlay">
-          <div class="beb-name">Café con leche</div>
-          <div class="beb-desc">Blend de especialidad · leche de vaca o vegetal</div>
-          <div class="beb-price">2,20 €</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Gofre · aguacate, salmón y huevo</div>
+          <div class="menu-card-desc">Gofre artesanal con aguacate, salmón ahumado y huevo</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">9,90 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
         </div>
       </div>
 
-      <div class="beb-card">
-        <div class="beb-img">
-          <img src="https://images.pexels.com/photos/3679602/pexels-photo-3679602.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Matcha latte" loading="lazy" />
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="Kume menus/images/gofre-bacon.png" alt="Gofre con bacon y huevo" loading="lazy" />
         </div>
-        <div class="beb-overlay">
-          <div class="beb-name">Matcha latte</div>
-          <div class="beb-desc">Matcha ceremonial con leche de avena</div>
-          <div class="beb-price">3,80 €</div>
-        </div>
-      </div>
-
-      <div class="beb-card">
-        <div class="beb-img">
-          <img src="https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Zumo de naranja" loading="lazy" />
-        </div>
-        <div class="beb-overlay">
-          <div class="beb-name">Zumo de naranja</div>
-          <div class="beb-desc">Natural exprimido · naranjas valencianas</div>
-          <div class="beb-price">3,20 €</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Gofre · bacon y huevo</div>
+          <div class="menu-card-desc">Gofre artesanal con bacon crujiente y huevo a la plancha</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">6,90 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
         </div>
       </div>
 
-      <div class="beb-card">
-        <div class="beb-img">
-          <img src="https://images.pexels.com/photos/775032/pexels-photo-775032.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Smoothie verde" loading="lazy" />
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="Kume menus/images/croissant-jamonqueso.png" alt="Croissant con jamón, queso y tomate cherry" loading="lazy" />
         </div>
-        <div class="beb-overlay">
-          <div class="beb-name">Smoothie verde</div>
-          <div class="beb-desc">Manzana · jengibre · espinaca · limón</div>
-          <div class="beb-price">4,50 €</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Croissant · jamón, queso y tomate cherry</div>
+          <div class="menu-card-desc">Croissant artesanal con jamón serrano, queso y tomate cherry</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">6,50 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
         </div>
       </div>
 
@@ -743,23 +532,23 @@
 <!-- ── PHOTO STRIP ── -->
 <section class="strip">
   <div class="strip-track" id="stripTrack">
-    <div class="strip-item"><img src="https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.pexels.com/photos/1351238/pexels-photo-1351238.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/tortitas-miel.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/tortitas-salmon.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/brunch-crepes.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/crepe-jamon-queso.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/brunch-gofres.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/gofre-bacon.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/croissant-jamonqueso.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/brunch-tortitas.png" alt="" loading="lazy"/></div>
     <!-- duplicado para loop infinito -->
-    <div class="strip-item"><img src="https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.pexels.com/photos/1351238/pexels-photo-1351238.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=400&q=75" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/tortitas-miel.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/tortitas-salmon.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/brunch-crepes.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/crepe-jamon-queso.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/brunch-gofres.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/gofre-bacon.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/croissant-jamonqueso.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/brunch-tortitas.png" alt="" loading="lazy"/></div>
   </div>
 </section>
 
@@ -770,8 +559,8 @@
       <div class="info-block">
         <span class="info-icon">🕙</span>
         <div class="info-label">Horario brunch</div>
-        <div class="info-val">Sábados y Domingos</div>
-        <div class="info-sub">10:00 — 14:30 h · Se recomienda reservar</div>
+        <div class="info-val">11:00 — 14:00 h</div>
+        <div class="info-sub">De lunes a viernes · Se recomienda reservar</div>
       </div>
       <div class="info-block">
         <span class="info-icon">📍</span>
@@ -792,9 +581,9 @@
 <!-- ── CTA ── -->
 <section class="cta-sec">
   <div class="container">
-    <div class="eyebrow eyebrow-light">¿Listo para el finde?</div>
+    <div class="eyebrow eyebrow-light">¿Te apetece el brunch?</div>
     <h2>Reserva tu mesa<br>de <em>brunch</em></h2>
-    <p>Plazas limitadas los fines de semana. Escríbenos y te confirmamos en minutos.</p>
+    <p>Escríbenos y te confirmamos en minutos. Café y zumo incluidos en todos los platos.</p>
     <div class="cta-btns">
       <a href="https://wa.me/34600000000?text=Hola!%20Quiero%20reservar%20brunch%20en%20Küme%20Café" class="btn btn-fill-cream" target="_blank">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -811,11 +600,9 @@
 </footer>
 
 <script>
-  // Parallax suave en hero
   const bg = document.getElementById('heroBg');
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    bg.style.transform = `scale(1.04) translateY(${y * 0.25}px)`;
+    bg.style.transform = `scale(1.04) translateY(${window.scrollY * 0.25}px)`;
   }, { passive: true });
 </script>
 </body>

@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta — Küme Café · Pastelería Argentina en Benimaclet</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background:                  '#fcf9f8',
+            surface:                     '#fcf9f8',
+            'surface-bright':            '#ffffff',
+            'surface-dim':               '#dcd9d9',
+            'surface-container-lowest':  '#ffffff',
+            'surface-container-low':     '#f6f3f2',
+            'surface-container':         '#f0eded',
+            'surface-container-high':    '#eae7e7',
+            'surface-container-highest': '#e5e2e1',
+            'on-surface':                '#1c1b1b',
+            'on-surface-variant':        '#444840',
+            'inverse-surface':           '#313030',
+            'inverse-on-surface':        '#f3f0ef',
+            outline:                     '#75786f',
+            'outline-variant':           '#c5c8bd',
+            'surface-tint':              '#536345',
+            primary:                     '#536345',
+            'on-primary':                '#ffffff',
+            'primary-container':         '#6b7c5c',
+            'on-primary-container':      '#ffffff',
+            'inverse-primary':           '#bacda8',
+            secondary:                   '#805533',
+            'on-secondary':              '#ffffff',
+            'secondary-container':       '#fdc39a',
+            'on-secondary-container':    '#794e2e',
+            tertiary:                    '#635e4d',
+            'primary-fixed':             '#d6e9c2',
+            'primary-fixed-dim':         '#bacda8',
+            error:                       '#ba1a1a',
+          },
+          fontFamily: {
+            serif:  ['Noto Serif', 'Georgia', 'serif'],
+            sans:   ['Inter', 'system-ui', 'sans-serif'],
+          },
+          borderRadius: {
+            sm:      '0.25rem',
+            DEFAULT: '0.5rem',
+            md:      '0.75rem',
+            lg:      '1rem',
+            xl:      '1.5rem',
+            full:    '9999px',
+          },
+          spacing: {
+            'margin-mobile':  '1rem',
+            'margin-desktop': '4rem',
+            'gutter':         '1.5rem',
+            'section-gap':    '7.5rem',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ── Grain texture ── */
+    :root {
+      --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    }
+
+    body {
+      background-color: #fcf9f8;
+      background-image: var(--grain);
+      background-size: 320px 320px;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1;
+    }
+
+    /* ── Tabs ── */
+    .tabs-bar::-webkit-scrollbar { height: 0; }
+
+    .tab-link {
+      transition: color .22s ease, border-color .22s ease;
+    }
+    .tab-link.active {
+      color: #536345;
+      border-bottom-color: #536345;
+    }
+
+    /* ── Menu item hover ── */
+    .menu-row {
+      transition: background-color .15s ease;
+    }
+    .menu-row:hover {
+      background-color: rgba(83, 99, 69, 0.05);
+    }
+
+    /* ── Pastry card ── */
+    .pastry-card {
+      transition: transform .32s cubic-bezier(.34,1.56,.64,1), box-shadow .28s ease;
+    }
+    .pastry-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(83,99,69,.14);
+    }
+    .pastry-card img {
+      transition: transform .65s cubic-bezier(.25,.46,.45,.94);
+    }
+    .pastry-card:hover img {
+      transform: scale(1.06);
+    }
+
+    /* ── Reveal on scroll ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Nav slide-down ── */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: none; }
+    }
+    #main-nav { animation: slideDown .5s cubic-bezier(.16,1,.3,1) both; }
+
+    /* ── Header entrance ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); filter: blur(3px); }
+      to   { opacity: 1; transform: none; filter: blur(0); }
+    }
+    .header-anim {
+      opacity: 0;
+      animation: fadeUp .85s cubic-bezier(.16,1,.3,1) forwards;
+    }
+
+    /* ── WA float ── */
+    @keyframes floatBob {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-5px); }
+    }
+    .wa-float { animation: floatBob 3.2s ease-in-out infinite; }
+
+    /* ── Btn shine ── */
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shine::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.20) 50%, transparent 62%);
+      transform: skewX(-18deg) translateX(-200%);
+      pointer-events: none;
+    }
+    .btn-shine:hover::after {
+      transform: skewX(-18deg) translateX(600%);
+      transition: transform .55s ease;
+    }
+
+    /* ── Encargo card ── */
+    .encargo-card {
+      background: linear-gradient(135deg, #f0eded 0%, #e5e2e1 100%);
+      border: 1px solid rgba(197,200,189,.5);
+    }
+
+    /* ── Price badge ── */
+    .price {
+      font-family: 'Noto Serif', Georgia, serif;
+      font-style: italic;
+      color: #536345;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+
+    /* ── Section ornament line ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #c5c8bd;
+    }
+
+    /* ── Hero gradient overlay ── */
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(252,249,248,.0) 0%,
+        rgba(252,249,248,.0) 55%,
+        rgba(252,249,248,.85) 85%,
+        rgba(252,249,248,1) 100%
+      );
+    }
+
+    /* ── Tarta name overlay ── */
+    .tarta-overlay {
+      background: linear-gradient(to top, rgba(28,27,27,.75) 0%, rgba(28,27,27,0) 55%);
+    }
+  </style>
+</head>
+
+<body class="text-on-surface antialiased overflow-x-hidden selection:bg-primary-fixed selection:text-on-surface">
+
+<!-- ══════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════ -->
+<nav id="main-nav" class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300">
+  <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop h-16 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-3 group">
+      <img src="fotos/nuevas fotos/IMG_6820-Photoroom.png" alt="Küme Café" class="h-10 w-auto group-hover:opacity-75 transition-opacity duration-300" onerror="this.outerHTML='<span class=\'font-serif text-2xl font-bold text-primary tracking-tight\'>Küme</span>'"/>
+    </a>
+
+    <!-- Desktop nav links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Inicio</a>
+      <a href="#cafeteria" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Café</a>
+      <a href="#bolleria" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Bollería</a>
+      <a href="#pasteleria" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Pastelería</a>
+      <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+         class="wa-float inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-semibold tracking-wide uppercase px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Encargar
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="mobile-btn" class="md:hidden text-on-surface-variant hover:text-primary transition-colors p-1" aria-label="Menú">
+      <span class="material-symbols-outlined text-[26px]">menu</span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/20 bg-background/98">
+    <div class="flex flex-col gap-5 px-margin-mobile py-6">
+      <a href="index.html" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant">Inicio</a>
+      <a href="#cafeteria" class="mobile-link text-xs font-medium tracking-widest uppercase text-on-surface-variant">Café</a>
+      <a href="#bolleria" class="mobile-link text-xs font-medium tracking-widest uppercase text-on-surface-variant">Bollería</a>
+      <a href="#pasteleria" class="mobile-link text-xs font-medium tracking-widest uppercase text-on-surface-variant">Pastelería</a>
+      <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+         class="self-start inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-semibold tracking-wide uppercase px-5 py-2.5 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Encargar
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     HERO HEADER
+══════════════════════════════════════════════ -->
+<header class="relative pt-16 overflow-hidden">
+
+  <!-- Background photo strip -->
+  <div class="relative h-[340px] md:h-[420px] w-full overflow-hidden">
+    <img src="fotos/nuevas fotos/WhatsApp Image 2026-05-13 at 09.49.30.jpeg"
+         alt="Küme Café exterior"
+         class="w-full h-full object-cover object-center scale-105"
+         style="transform-origin: center 60%;"/>
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+
+  <!-- Header text (overlaps the photo bottom) -->
+  <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop -mt-24 relative z-10 pb-10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+
+      <div>
+        <p class="header-anim font-sans text-xs uppercase tracking-[0.25em] text-primary mb-3" style="animation-delay:.08s">
+          Benimaclet, Valencia
+        </p>
+        <h1 class="header-anim font-serif text-4xl md:text-6xl text-on-surface leading-tight mb-2" style="animation-delay:.22s">
+          Nuestra Carta
+        </h1>
+        <p class="header-anim font-sans text-sm text-on-surface-variant leading-relaxed" style="animation-delay:.38s">
+          Pastelería Argentina · Cafetería de Especialidad · Bollería del Día
+        </p>
+      </div>
+
+      <div class="header-anim flex flex-wrap gap-2" style="animation-delay:.5s">
+        <span class="inline-flex items-center gap-1.5 bg-surface-container-low border border-outline-variant/30 px-3 py-1.5 rounded-full text-xs text-on-surface-variant">
+          <span class="material-symbols-outlined text-[13px] text-primary">schedule</span>
+          L–V  7:30–20:00
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-surface-container-low border border-outline-variant/30 px-3 py-1.5 rounded-full text-xs text-on-surface-variant">
+          <span class="material-symbols-outlined text-[13px] text-primary">schedule</span>
+          S–D  8:00–21:00
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-primary/10 px-3 py-1.5 rounded-full text-xs text-primary font-medium">
+          <span class="material-symbols-outlined text-[13px]">verified</span>
+          IVA incluido
+        </span>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="header-anim mt-6 flex flex-wrap items-center gap-4" style="animation-delay:.6s">
+      <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+         class="btn-shine inline-flex items-center gap-2 bg-primary text-on-primary text-sm font-medium px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-colors shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir por WhatsApp
+      </a>
+      <span class="text-xs text-on-surface-variant italic">Sin envío a domicilio · Recogida en tienda</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     STICKY CATEGORY TABS
+══════════════════════════════════════════════ -->
+<div class="sticky top-16 z-40 bg-background/95 backdrop-blur-md border-b border-outline-variant/25">
+  <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="tabs-bar flex gap-0 overflow-x-auto -mb-px">
+
+      <a href="#cafeteria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+        <span class="material-symbols-outlined text-[15px]">local_cafe</span>
+        Cafetería
+      </a>
+      <a href="#bolleria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+        <span class="material-symbols-outlined text-[15px]">bakery_dining</span>
+        Bollería
+      </a>
+      <a href="#bebidas" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+        <span class="material-symbols-outlined text-[15px]">local_bar</span>
+        Bebidas Frías
+      </a>
+      <a href="#pasteleria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+        <span class="material-symbols-outlined text-[15px]">cake</span>
+        Pastelería
+      </a>
+      <a href="#encargos" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+        <span class="material-symbols-outlined text-[15px]">redeem</span>
+        Encargos
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════ -->
+<main class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-14 md:py-20 space-y-20 md:space-y-28">
+
+  <!-- ─────────────────────────────
+       CAFETERÍA
+  ───────────────────────────── -->
+  <section id="cafeteria" class="scroll-mt-36 reveal">
+    <div class="ornament">
+      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Cafetería</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
+
+      <!-- Cafés clásicos -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Cafés Clásicos</p>
+        <div class="space-y-0">
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Espresso</span>
+            </div>
+            <span class="price text-sm">1,20 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Cortado</span>
+            <span class="price text-sm">1,40 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Bombón</span>
+            <span class="price text-sm">1,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Café con leche</span>
+            <span class="price text-sm">1,60 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Americano</span>
+            <span class="price text-sm">1,70 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Carajillo</span>
+            <span class="price text-sm">1,70 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Café con leche argentino</span>
+            <span class="price text-sm">1,80 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Cappuccino</span>
+            <span class="price text-sm">2,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Flat White</span>
+            <span class="price text-sm">2,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Caramel Latte</span>
+            <span class="price text-sm">2,80 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Cremaet</span>
+            <span class="price text-sm">2,50 €</span>
+          </div>
+
+        </div>
+
+        <div class="mt-5 bg-primary/5 border border-primary/15 px-4 py-3 rounded-DEFAULT">
+          <p class="text-xs text-on-surface-variant italic">
+            Suplemento leche vegetal (avena, soja, almendra, sin lactosa):
+            <span class="text-on-surface not-italic font-medium">+0,20 €</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Bebidas calientes especiales -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Especialidades & Bebidas Calientes</p>
+        <div class="space-y-0">
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Vaso de leche</span>
+            <span class="price text-sm">1,20 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Infusión</span>
+            <span class="price text-sm">1,60 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Cola Cao</span>
+            <span class="price text-sm">1,60 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Chocolate caliente</span>
+              <span class="text-xs text-on-surface-variant ml-1">(chico)</span>
+            </div>
+            <span class="price text-sm">2,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Chocolate caliente</span>
+              <span class="text-xs text-on-surface-variant ml-1">(grande)</span>
+            </div>
+            <span class="price text-sm">3,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Submarino argentino</span>
+              <span class="block text-xs text-on-surface-variant">Leche caliente con tableta de chocolate</span>
+            </div>
+            <span class="price text-sm">3,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Matcha Latte</span>
+              <span class="ml-2 inline-flex items-center text-[10px] font-semibold tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase">Especial</span>
+            </div>
+            <span class="price text-sm">4,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+
+          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Chai Latte</span>
+              <span class="ml-2 inline-flex items-center text-[10px] font-semibold tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase">Especial</span>
+            </div>
+            <span class="price text-sm">4,00 €</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divisor -->
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─────────────────────────────
+       BOLLERÍA
+  ───────────────────────────── -->
+  <section id="bolleria" class="scroll-mt-36 reveal">
+    <div class="ornament">
+      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Bollería & Dulces</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10">
+
+      <!-- Bollería simple -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Bollería del Día</p>
+        <div class="space-y-0">
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Ensaimada</span>
+            <span class="price text-sm">0,90 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Bollería simple</span>
+            <span class="price text-sm">1,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Bollería rellena</span>
+            <span class="price text-sm">1,20 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Magdalenas</span>
+            <span class="price text-sm">1,20 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Magdalenas de calabaza</span>
+            <span class="price text-sm">1,40 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Magdalenas sin gluten</span>
+            <span class="price text-sm">1,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Muffin relleno</span>
+            <span class="price text-sm">2,00 €</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Croissants -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Croissants & Napolitanas</p>
+        <div class="space-y-0">
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Croissant pequeño Kinder</span>
+            <span class="price text-sm">1,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Croissant</span>
+            <span class="price text-sm">1,60 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Napolitana de chocolate</span>
+            </div>
+            <span class="price text-sm">1,70 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Napolitana jamón y queso</span>
+            <span class="price text-sm">1,90 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Croissant de dulce de leche</span>
+            <span class="price text-sm">2,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Croissant relleno</span>
+            <span class="price text-sm">3,20 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <span class="text-sm font-medium text-on-surface">Super croissant relleno</span>
+            <span class="price text-sm">3,50 €</span>
+          </div>
+        </div>
+        <div class="mt-4 text-xs text-on-surface-variant italic px-2">
+          Sabores: Oreo · Pistacho · Kinder
+        </div>
+      </div>
+
+      <!-- Alfajores & especiales -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Dulces Argentinos</p>
+        <div class="space-y-0">
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Berlinesa</span>
+              <span class="text-xs text-on-surface-variant ml-1">(bañada / rellena)</span>
+            </div>
+            <span class="price text-sm">1,70 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Alfajor</span>
+              <span class="text-xs text-on-surface-variant ml-1">(choco / maicena)</span>
+            </div>
+            <span class="price text-sm">2,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Pasteles</span>
+              <span class="text-xs text-on-surface-variant ml-1">(manzana / crema)</span>
+            </div>
+            <span class="price text-sm">2,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Budín de pan</span>
+              <span class="text-xs text-on-surface-variant ml-1">(porción)</span>
+            </div>
+            <span class="price text-sm">2,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Facturas de manteca</span>
+              <span class="block text-xs text-on-surface-variant">Medialunas, vigilantes y cañitas</span>
+            </div>
+            <span class="price text-sm">1,00 €</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divisor -->
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─────────────────────────────
+       BEBIDAS FRÍAS
+  ───────────────────────────── -->
+  <section id="bebidas" class="scroll-mt-36 reveal">
+    <div class="ornament">
+      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Bebidas Frías</span>
+    </div>
+
+    <div class="max-w-lg space-y-0">
+
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+        <span class="text-sm text-on-surface">Agua</span>
+        <span class="price text-sm">1,00 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+        <span class="text-sm text-on-surface">Refresco</span>
+        <span class="price text-sm">1,50 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+        <span class="text-sm text-on-surface">Zumo de naranja natural</span>
+        <span class="price text-sm">2,80 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+        <span class="text-sm text-on-surface">Cold Brew</span>
+        <span class="price text-sm">3,50 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+        <div>
+          <span class="text-sm text-on-surface">Granizado</span>
+          <span class="text-xs text-on-surface-variant ml-1">(limón / café)</span>
+        </div>
+        <span class="price text-sm">3,00 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+        <div>
+          <span class="text-sm text-on-surface">Café con hielo</span>
+        </div>
+        <span class="price text-sm">2,00 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+        <div>
+          <span class="text-sm text-on-surface">Iced Latte</span>
+          <span class="ml-2 inline-flex items-center text-[10px] font-semibold tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase">Especial</span>
+        </div>
+        <span class="price text-sm">3,50 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
+        <div>
+          <span class="text-sm text-on-surface">Iced Matcha Latte</span>
+          <span class="ml-2 inline-flex items-center text-[10px] font-semibold tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase">Especial</span>
+        </div>
+        <span class="price text-sm">4,50 €</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divisor -->
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─────────────────────────────
+       PASTELERÍA — PHOTO CARDS
+  ───────────────────────────── -->
+  <section id="pasteleria" class="scroll-mt-36">
+
+    <div class="reveal ornament">
+      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Pastelería Artesanal</span>
+    </div>
+    <p class="reveal -mt-4 mb-10 text-sm text-on-surface-variant">
+      Tartas enteras por encargo · Consulte las porciones disponibles en vitrina
+    </p>
+
+    <!-- Photo grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 mb-14">
+
+      <!-- Chocotorta -->
+      <div class="reveal pastry-card group relative rounded-xl overflow-hidden aspect-[3/4] cursor-default border border-outline-variant/15" style="transition-delay:.05s">
+        <img src="fotos/chocotorta (2).jpg" alt="Chocotorta" class="w-full h-full object-cover"/>
+        <div class="tarta-overlay absolute inset-0"></div>
+        <div class="absolute bottom-0 left-0 w-full p-4">
+          <p class="font-serif text-base text-white leading-tight mb-1">Chocotorta</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">3,50 € porción</p>
+        </div>
+      </div>
+
+      <!-- Red Velvet -->
+      <div class="reveal pastry-card group relative rounded-xl overflow-hidden aspect-[3/4] cursor-default border border-outline-variant/15" style="transition-delay:.10s">
+        <img src="fotos/red velvet.jpg" alt="Red Velvet" class="w-full h-full object-cover"/>
+        <div class="tarta-overlay absolute inset-0"></div>
+        <div class="absolute bottom-0 left-0 w-full p-4">
+          <p class="font-serif text-base text-white leading-tight mb-1">Red Velvet</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">4,00 € porción</p>
+        </div>
+      </div>
+
+      <!-- Lemon Pie -->
+      <div class="reveal pastry-card group relative rounded-xl overflow-hidden aspect-[3/4] cursor-default border border-outline-variant/15" style="transition-delay:.15s">
+        <img src="fotos/lemon pie.jpg" alt="Lemon Pie" class="w-full h-full object-cover object-bottom"/>
+        <div class="tarta-overlay absolute inset-0"></div>
+        <div class="absolute bottom-0 left-0 w-full p-4">
+          <p class="font-serif text-base text-white leading-tight mb-1">Lemon Pie</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">3,80 € porción</p>
+        </div>
+      </div>
+
+      <!-- Carrot Cake -->
+      <div class="reveal pastry-card group relative rounded-xl overflow-hidden aspect-[3/4] cursor-default border border-outline-variant/15" style="transition-delay:.20s">
+        <img src="fotos/carrot cake.jpeg" alt="Carrot Cake" class="w-full h-full object-cover"/>
+        <div class="tarta-overlay absolute inset-0"></div>
+        <div class="absolute bottom-0 left-0 w-full p-4">
+          <p class="font-serif text-base text-white leading-tight mb-1">Carrot Cake</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">3,80 € porción</p>
+        </div>
+      </div>
+
+      <!-- Cheesecake -->
+      <div class="reveal pastry-card group relative rounded-xl overflow-hidden aspect-[3/4] cursor-default border border-outline-variant/15" style="transition-delay:.25s">
+        <img src="fotos/cheesecake.jpg" alt="Cheesecake de frutilla" class="w-full h-full object-cover"/>
+        <div class="tarta-overlay absolute inset-0"></div>
+        <div class="absolute bottom-0 left-0 w-full p-4">
+          <p class="font-serif text-base text-white leading-tight mb-1">Cheesecake</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">4,00 € porción</p>
+        </div>
+      </div>
+
+      <!-- Rogel -->
+      <div class="reveal pastry-card group relative rounded-xl overflow-hidden aspect-[3/4] cursor-default border border-outline-variant/15" style="transition-delay:.30s">
+        <img src="fotos/rogel.jpg" alt="Rogel" class="w-full h-full object-cover object-top"/>
+        <div class="tarta-overlay absolute inset-0"></div>
+        <div class="absolute bottom-0 left-0 w-full p-4">
+          <p class="font-serif text-base text-white leading-tight mb-1">Rogel</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">3,50 € porción</p>
+        </div>
+      </div>
+
+      <!-- Torta de Oreo -->
+      <div class="reveal pastry-card group relative rounded-xl overflow-hidden aspect-[3/4] cursor-default border border-outline-variant/15" style="transition-delay:.35s">
+        <img src="fotos/torta de oreo.jpeg" alt="Torta de Oreo" class="w-full h-full object-cover object-top"/>
+        <div class="tarta-overlay absolute inset-0"></div>
+        <div class="absolute bottom-0 left-0 w-full p-4">
+          <p class="font-serif text-base text-white leading-tight mb-1">Torta de Oreo</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">3,80 € porción</p>
+        </div>
+      </div>
+
+      <!-- Tarta de la Abuela -->
+      <div class="reveal pastry-card group relative rounded-xl overflow-hidden aspect-[3/4] cursor-default border border-outline-variant/15" style="transition-delay:.40s">
+        <img src="fotos/tarta de la abuela.jpg" alt="Tarta de la Abuela" class="w-full h-full object-cover"/>
+        <div class="tarta-overlay absolute inset-0"></div>
+        <div class="absolute bottom-0 left-0 w-full p-4">
+          <p class="font-serif text-base text-white leading-tight mb-1">Tarta de la Abuela</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">3,50 € porción</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tartas enteras -->
+    <div class="reveal grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <div class="bg-surface-container-low rounded-xl border border-outline-variant/20 p-6 md:p-8">
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-5 pb-2 border-b border-outline-variant/30">Tartas Enteras · Tamaño M</p>
+        <div class="space-y-0">
+          <div class="menu-row flex justify-between py-2.5 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Chocotorta entera</span>
+            <span class="price text-sm">22,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-2.5 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Lemon Pie</span>
+            <span class="price text-sm">24,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-2.5 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Rogel / Mousse</span>
+            <span class="price text-sm">28,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-2.5 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Carrot / Red Velvet</span>
+            <span class="price text-sm">28,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-2.5 px-2 rounded-DEFAULT">
+            <span class="text-sm text-on-surface">Torta Oreo</span>
+            <span class="price text-sm">28,00 €</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-low rounded-xl border border-outline-variant/20 p-6 md:p-8">
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-5 pb-2 border-b border-outline-variant/30">Grandes & Especiales · XL</p>
+        <div class="space-y-0">
+          <div class="menu-row flex justify-between py-2.5 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Cheesecake</span>
+              <span class="text-xs text-on-surface-variant ml-1">(M)</span>
+            </div>
+            <span class="price text-sm">35,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-2.5 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Lemon Pie / Cheesecake</span>
+              <span class="text-xs text-on-surface-variant ml-1">(XL)</span>
+            </div>
+            <span class="price text-sm">38,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-2.5 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm text-on-surface">Oreo / Red Velvet / Carrot</span>
+              <span class="text-xs text-on-surface-variant ml-1">(XL)</span>
+            </div>
+            <span class="price text-sm">40,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-2.5 px-2 rounded-DEFAULT">
+            <div>
+              <span class="text-sm font-medium text-on-surface">Tarta a medida</span>
+              <span class="block text-xs text-on-surface-variant">Diseño personalizado, consultar</span>
+            </div>
+            <span class="price text-sm">Desde 45 €</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divisor -->
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─────────────────────────────
+       ENCARGOS & CTA
+  ───────────────────────────── -->
+  <section id="encargos" class="scroll-mt-36 reveal">
+
+    <div class="encargo-card rounded-2xl overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2">
+
+        <!-- Texto -->
+        <div class="p-8 md:p-12 flex flex-col justify-center">
+          <span class="text-xs uppercase tracking-[0.22em] text-primary mb-4 block font-medium">Encargos especiales</span>
+          <h2 class="font-serif text-2xl md:text-3xl text-on-surface leading-snug mb-5">
+            Tu tarta ideal,<br/>a tu medida.
+          </h2>
+          <p class="text-sm text-on-surface-variant leading-relaxed mb-8">
+            Elaboramos tartas enteras por encargo con 48 horas de antelación.
+            Bandejas de bollería para desayunos de empresa, eventos y cumpleaños.
+            Escríbenos y nos ocupamos de todo.
+          </p>
+
+          <ul class="space-y-3 mb-10">
+            <li class="flex items-center gap-3 text-sm text-on-surface">
+              <span class="material-symbols-outlined text-[18px] text-primary">cake</span>
+              Tartas personalizadas (Rogel, Chocotorta, Red Velvet…)
+            </li>
+            <li class="flex items-center gap-3 text-sm text-on-surface">
+              <span class="material-symbols-outlined text-[18px] text-primary">redeem</span>
+              Bandejas de bollería y medialunas para oficinas
+            </li>
+            <li class="flex items-center gap-3 text-sm text-on-surface">
+              <span class="material-symbols-outlined text-[18px] text-primary">celebration</span>
+              Catering dulce para bodas y celebraciones
+            </li>
+          </ul>
+
+          <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+             class="btn-shine wa-float self-start inline-flex items-center gap-2.5 bg-primary text-on-primary text-sm font-medium px-7 py-3.5 rounded-DEFAULT hover:bg-primary-container transition-colors shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Consultar por WhatsApp
+          </a>
+        </div>
+
+        <!-- Foto collage -->
+        <div class="hidden md:grid grid-cols-2 gap-1 p-1">
+          <div class="overflow-hidden rounded-tl-xl">
+            <img src="fotos/cheesecake.jpg" alt="" class="w-full h-full object-cover" style="height:220px;"/>
+          </div>
+          <div class="overflow-hidden rounded-tr-xl">
+            <img src="fotos/red velvet.jpg" alt="" class="w-full h-full object-cover" style="height:220px;"/>
+          </div>
+          <div class="overflow-hidden rounded-bl-xl">
+            <img src="fotos/lemon pie.jpg" alt="" class="w-full h-full object-cover object-bottom" style="height:220px;"/>
+          </div>
+          <div class="overflow-hidden rounded-br-xl">
+            <img src="fotos/carrot cake.jpeg" alt="" class="w-full h-full object-cover" style="height:220px;"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="bg-inverse-surface text-inverse-on-surface mt-6">
+  <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-14 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+
+      <!-- Brand -->
+      <div>
+        <img src="fotos/nuevas fotos/IMG_6820-Photoroom.png" alt="Küme Café"
+             class="h-10 w-auto mb-4 brightness-0 invert opacity-80"
+             onerror="this.outerHTML='<span class=\'font-serif text-2xl font-bold text-white\'>Küme</span>'"/>
+        <p class="text-sm text-inverse-on-surface/60 leading-relaxed max-w-xs">
+          Pastelería artesanal argentina.<br/>
+          Hecho con tiempo, calma y dedicación.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <p class="text-xs uppercase tracking-widest text-inverse-on-surface/40 mb-4 font-medium">Carta</p>
+        <nav class="flex flex-col gap-2.5 text-sm text-inverse-on-surface/70">
+          <a href="#cafeteria" class="hover:text-inverse-on-surface transition-colors">Cafetería</a>
+          <a href="#bolleria" class="hover:text-inverse-on-surface transition-colors">Bollería</a>
+          <a href="#bebidas" class="hover:text-inverse-on-surface transition-colors">Bebidas Frías</a>
+          <a href="#pasteleria" class="hover:text-inverse-on-surface transition-colors">Pastelería</a>
+          <a href="#encargos" class="hover:text-inverse-on-surface transition-colors">Encargos</a>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="text-xs uppercase tracking-widest text-inverse-on-surface/40 mb-4 font-medium">Visítanos</p>
+        <div class="flex flex-col gap-3 text-sm text-inverse-on-surface/70">
+          <div class="flex items-start gap-2.5">
+            <span class="material-symbols-outlined text-[16px] mt-0.5 text-inverse-primary">location_on</span>
+            <span>Benimaclet, Valencia</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="material-symbols-outlined text-[16px] mt-0.5 text-inverse-primary">schedule</span>
+            <span>L–V 7:30–20:00 · S–D 8:00–21:00</span>
+          </div>
+          <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-2.5 hover:text-inverse-on-surface transition-colors">
+            <span class="material-symbols-outlined text-[16px] text-inverse-primary">chat</span>
+            WhatsApp
+          </a>
+          <a href="index.html" class="flex items-center gap-2.5 hover:text-inverse-on-surface transition-colors">
+            <span class="material-symbols-outlined text-[16px] text-inverse-primary">home</span>
+            Volver al inicio
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-t border-inverse-on-surface/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-inverse-on-surface/40">
+        © 2026 Küme Café · Benimaclet, Valencia · Todos los derechos reservados
+      </p>
+      <p class="text-xs text-inverse-on-surface/30 italic">
+        Precios con IVA incluido · Disponibilidad sujeta al día
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════ -->
+<script>
+  /* ── Mobile menu ── */
+  const mobileBtn  = document.getElementById('mobile-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileLinks.forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  /* ── Navbar on scroll ── */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('shadow-md', window.scrollY > 24);
+  }, { passive: true });
+
+  /* ── Scroll-reveal with IntersectionObserver ── */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.07 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ── Active tab highlight on scroll ── */
+  const sections = ['cafeteria','bolleria','bebidas','pasteleria','encargos'];
+  const tabLinks  = document.querySelectorAll('.tab-link');
+
+  const tabObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        tabLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) tabObs.observe(el);
+  });
+
+  /* ── Smooth-scroll offset compensation ── */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const offset = 140;
+      window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
