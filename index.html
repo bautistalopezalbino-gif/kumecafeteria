@@ -434,40 +434,49 @@
       margin-left: 16px;
     }
 
-    /* ── TORTAS — fondo casi blanco ──────────────────── */
+    /* ── TARTAS A ENCARGO — fondo casi blanco ────────── */
     .tortas-section { background: var(--g-10); }
     .tortas-section .section-label { color: var(--g-800); }
     .tortas-section .section-title { color: var(--on-light); }
-    .tortas-section .section-body  { color: var(--on-light-muted); }
-    .tortas-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+    .tortas-section .section-body  { color: var(--on-light-muted); max-width: 440px; }
+
+    .encargo-header {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 36px;
     }
-    .tortas-text { display: flex; flex-direction: column; gap: 22px; }
+    .encargo-header-text { display: flex; flex-direction: column; gap: 14px; }
     .btn-torta-wa {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--g-800);
+      background: var(--g-950);
       color: var(--on-dark);
       padding: 14px 28px;
       border-radius: 0.5rem;
       font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
+      white-space: nowrap;
       align-self: flex-start;
-      transition: background 0.2s, transform 0.15s;
+      transition: opacity 0.2s, transform 0.15s;
     }
-    .btn-torta-wa:hover { background: var(--primary-hover); transform: translateY(-2px); }
-    .tortas-grid {
+    .btn-torta-wa:hover { opacity: 0.85; transform: translateY(-2px); }
+    .encargo-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (min-width: 580px) {
+      .encargo-header { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+      .encargo-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    }
+    @media (min-width: 901px) {
+      .encargo-grid { grid-template-columns: repeat(8, 1fr); gap: 12px; }
     }
     .torta-card {
       background: #fff;
@@ -485,7 +494,6 @@
     .torta-img {
       width: 100%;
       aspect-ratio: 1 / 1;
-      background: var(--surface-container-high);
       overflow: hidden;
     }
     .torta-img img {
@@ -497,11 +505,10 @@
     }
     .torta-card:hover .torta-img img { transform: scale(1.05); }
     .torta-name {
-      font-family: 'Noto Serif', serif;
-      font-size: 14px;
+      font-size: 11px;
       font-weight: 600;
-      color: var(--on-light);
-      padding: 14px 16px;
+      color: var(--on-light-muted);
+      padding: 10px 8px;
       text-align: center;
       line-height: 1.3;
     }
@@ -1132,8 +1139,8 @@
       .value-num { padding-top: 0; }
       .about-grid { grid-template-columns: 1fr; gap: 36px; }
       .menu-grid { grid-template-columns: 1fr; gap: 40px; }
-      .tortas-inner { grid-template-columns: 1fr; gap: 40px; }
-      .tortas-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .encargo-header { flex-direction: column; gap: 24px; }
+      .encargo-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .location-grid { grid-template-columns: 1fr; gap: 40px; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .newsletter-form { flex-direction: column; }
@@ -1251,58 +1258,63 @@
   </div>
 </section>
 
-<!-- ── TORTAS ──────────────────────────────────────────── -->
-<section class="tortas-section">
+<!-- ── TARTAS A ENCARGO ────────────────────────────────── -->
+<section class="tortas-section" id="encargo">
   <div class="container">
-    <div class="tortas-inner fade-in">
-      <div class="tortas-text">
+
+    <!-- Cabecera: texto izquierda · botón derecha -->
+    <div class="encargo-header fade-in">
+      <div class="encargo-header-text">
         <span class="section-label">Pide desde casa</span>
         <h2 class="section-title">Tartas artesanales<br/>a encargo</h2>
         <p class="section-body">Elaboradas con ingredientes de calidad y mucho cariño. Pídelas por WhatsApp con antelación y las preparamos especialmente para vos.</p>
-        <a
-          href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20de%20torta%20%F0%9F%8E%82"
-          target="_blank"
-          class="btn-torta-wa"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="20" height="20"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
-          Pedir por WhatsApp
-        </a>
       </div>
-      <div class="tortas-grid">
-        <div class="torta-card">
-          <div class="torta-img"><img src="fotos/carrot%20cake.jpeg" alt="Carrot cake" loading="lazy" /></div>
-          <span class="torta-name">Carrot cake</span>
-        </div>
-        <div class="torta-card">
-          <div class="torta-img"><img src="fotos/torta%20de%20oreo.jpeg" alt="Torta de oreo" loading="lazy" /></div>
-          <span class="torta-name">Torta de oreo</span>
-        </div>
-        <div class="torta-card">
-          <div class="torta-img"><img src="fotos/chocotorta%20(2).jpg" alt="Chocotorta" loading="lazy" /></div>
-          <span class="torta-name">Chocotorta</span>
-        </div>
-        <div class="torta-card">
-          <div class="torta-img"><img src="fotos/rogel.jpg" alt="Rogel" loading="lazy" /></div>
-          <span class="torta-name">Rogel</span>
-        </div>
-        <div class="torta-card">
-          <div class="torta-img"><img src="fotos/lemon%20pie.jpg" alt="Lemon pie" loading="lazy" /></div>
-          <span class="torta-name">Lemon pie</span>
-        </div>
-        <div class="torta-card">
-          <div class="torta-img"><img src="fotos/red%20velvet.jpg" alt="Red velvet" loading="lazy" /></div>
-          <span class="torta-name">Red velvet</span>
-        </div>
-        <div class="torta-card">
-          <div class="torta-img"><img src="fotos/cheesecake.jpg" alt="Cheesecake" loading="lazy" /></div>
-          <span class="torta-name">Cheesecake</span>
-        </div>
-        <div class="torta-card">
-          <div class="torta-img"><img src="fotos/tarta%20de%20la%20abuela.jpg" alt="Tarta de la abuela" loading="lazy" /></div>
-          <span class="torta-name">Torta de choco</span>
-        </div>
+      <a
+        href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20de%20tarta%20%F0%9F%8E%82"
+        target="_blank"
+        class="btn-torta-wa"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="18" height="18"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
+        Pedir por WhatsApp
+      </a>
+    </div>
+
+    <!-- Grid de tartas -->
+    <div class="encargo-grid">
+      <div class="torta-card fade-in reveal-scale">
+        <div class="torta-img"><img src="fotos/carrot%20cake.jpeg" alt="Carrot cake" loading="lazy" /></div>
+        <span class="torta-name">Carrot cake</span>
+      </div>
+      <div class="torta-card fade-in reveal-scale">
+        <div class="torta-img"><img src="fotos/torta%20de%20oreo.jpeg" alt="Torta de oreo" loading="lazy" /></div>
+        <span class="torta-name">Torta de oreo</span>
+      </div>
+      <div class="torta-card fade-in reveal-scale">
+        <div class="torta-img"><img src="fotos/chocotorta%20(2).jpg" alt="Chocotorta" loading="lazy" /></div>
+        <span class="torta-name">Chocotorta</span>
+      </div>
+      <div class="torta-card fade-in reveal-scale">
+        <div class="torta-img"><img src="fotos/rogel.jpg" alt="Rogel" loading="lazy" /></div>
+        <span class="torta-name">Rogel</span>
+      </div>
+      <div class="torta-card fade-in reveal-scale">
+        <div class="torta-img"><img src="fotos/lemon%20pie.jpg" alt="Lemon pie" loading="lazy" /></div>
+        <span class="torta-name">Lemon pie</span>
+      </div>
+      <div class="torta-card fade-in reveal-scale">
+        <div class="torta-img"><img src="fotos/nuevas%20fotos/red%20velvet.jpg" alt="Red velvet" loading="lazy" /></div>
+        <span class="torta-name">Red velvet</span>
+      </div>
+      <div class="torta-card fade-in reveal-scale">
+        <div class="torta-img"><img src="fotos/cheesecake.jpg" alt="Cheesecake" loading="lazy" /></div>
+        <span class="torta-name">Cheesecake</span>
+      </div>
+      <div class="torta-card fade-in reveal-scale">
+        <div class="torta-img"><img src="fotos/tarta%20de%20la%20abuela.jpg" alt="Torta de choco" loading="lazy" /></div>
+        <span class="torta-name">Torta de choco</span>
       </div>
     </div>
+
   </div>
 </section>
 
