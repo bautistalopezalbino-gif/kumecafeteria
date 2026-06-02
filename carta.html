@@ -240,8 +240,8 @@
     <!-- Desktop nav links -->
     <div class="hidden md:flex items-center gap-8">
       <a href="index.html" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Inicio</a>
-      <a href="#cafeteria" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Café</a>
-      <a href="#bolleria" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Bollería</a>
+      <a href="#refrescos" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Bebidas</a>
+      <a href="#licores" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Licores</a>
       <a href="#pasteleria" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors">Pastelería</a>
       <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
          class="wa-float inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-semibold tracking-wide uppercase px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-sm">
@@ -260,8 +260,8 @@
   <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/20 bg-background/98">
     <div class="flex flex-col gap-5 px-margin-mobile py-6">
       <a href="index.html" class="text-xs font-medium tracking-widest uppercase text-on-surface-variant">Inicio</a>
-      <a href="#cafeteria" class="mobile-link text-xs font-medium tracking-widest uppercase text-on-surface-variant">Café</a>
-      <a href="#bolleria" class="mobile-link text-xs font-medium tracking-widest uppercase text-on-surface-variant">Bollería</a>
+      <a href="#refrescos" class="mobile-link text-xs font-medium tracking-widest uppercase text-on-surface-variant">Bebidas</a>
+      <a href="#licores" class="mobile-link text-xs font-medium tracking-widest uppercase text-on-surface-variant">Licores</a>
       <a href="#pasteleria" class="mobile-link text-xs font-medium tracking-widest uppercase text-on-surface-variant">Pastelería</a>
       <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
          class="self-start inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-semibold tracking-wide uppercase px-5 py-2.5 rounded-full">
@@ -338,17 +338,21 @@
   <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
     <div class="tabs-bar flex gap-0 overflow-x-auto -mb-px">
 
-      <a href="#cafeteria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
-        <span class="material-symbols-outlined text-[15px]">local_cafe</span>
-        Cafetería
+      <a href="#refrescos" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+        <span class="material-symbols-outlined text-[15px]">water_drop</span>
+        Refrescos
       </a>
-      <a href="#bolleria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
-        <span class="material-symbols-outlined text-[15px]">bakery_dining</span>
-        Bollería
+      <a href="#cervezas" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+        <span class="material-symbols-outlined text-[15px]">sports_bar</span>
+        Cervezas
       </a>
-      <a href="#bebidas" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+      <a href="#vinos" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+        <span class="material-symbols-outlined text-[15px]">wine_bar</span>
+        Vinos
+      </a>
+      <a href="#licores" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
         <span class="material-symbols-outlined text-[15px]">local_bar</span>
-        Bebidas Frías
+        Licores
       </a>
       <a href="#pasteleria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
         <span class="material-symbols-outlined text-[15px]">cake</span>
@@ -369,167 +373,51 @@
 <main class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-14 md:py-20 space-y-20 md:space-y-28">
 
   <!-- ─────────────────────────────
-       CAFETERÍA
+       REFRESCOS Y ZUMOS
   ───────────────────────────── -->
-  <section id="cafeteria" class="scroll-mt-36 reveal">
+  <section id="refrescos" class="scroll-mt-36 reveal">
     <div class="ornament">
-      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Cafetería</span>
+      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Refrescos y Zumos</span>
     </div>
-
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
-
-      <!-- Cafés clásicos -->
       <div>
-        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Cafés Clásicos</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Refrescos</p>
         <div class="space-y-0">
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Espresso</span>
-            </div>
-            <span class="price text-sm">1,20 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Coca Cola</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Cortado</span>
-            <span class="price text-sm">1,40 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Coca Cola Zero</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Bombón</span>
-            <span class="price text-sm">1,50 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Coca Zero Zero</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Café con leche</span>
-            <span class="price text-sm">1,60 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Fanta Naranja</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Americano</span>
-            <span class="price text-sm">1,70 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Fanta Limón</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Carajillo</span>
-            <span class="price text-sm">1,70 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Nestea</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Café con leche argentino</span>
-            <span class="price text-sm">1,80 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Aquarius Naranja</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Cappuccino</span>
-            <span class="price text-sm">2,00 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Aquarius Limón</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Flat White</span>
-            <span class="price text-sm">2,50 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Tónica</span><span class="price text-sm">2,20 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Caramel Latte</span>
-            <span class="price text-sm">2,80 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Agua con Gas</span><span class="price text-sm">2,20 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Cremaet</span>
-            <span class="price text-sm">2,50 €</span>
-          </div>
-
-        </div>
-
-        <div class="mt-5 bg-primary/5 border border-primary/15 px-4 py-3 rounded-DEFAULT">
-          <p class="text-xs text-on-surface-variant italic">
-            Suplemento leche vegetal (avena, soja, almendra, sin lactosa):
-            <span class="text-on-surface not-italic font-medium">+0,20 €</span>
-          </p>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Agua 500ml</span><span class="price text-sm">1,50 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Agua 1,5L</span><span class="price text-sm">2,00 €</span></div>
         </div>
       </div>
-
-      <!-- Bebidas calientes especiales -->
       <div>
-        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Especialidades & Bebidas Calientes</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Zumos</p>
         <div class="space-y-0">
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Vaso de leche</span>
-            <span class="price text-sm">1,20 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Zumo de Naranja</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Infusión</span>
-            <span class="price text-sm">1,60 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Zumo de Piña</span><span class="price text-sm">2,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Cola Cao</span>
-            <span class="price text-sm">1,60 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Chocolate caliente</span>
-              <span class="text-xs text-on-surface-variant ml-1">(chico)</span>
-            </div>
-            <span class="price text-sm">2,50 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Chocolate caliente</span>
-              <span class="text-xs text-on-surface-variant ml-1">(grande)</span>
-            </div>
-            <span class="price text-sm">3,00 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Submarino argentino</span>
-              <span class="block text-xs text-on-surface-variant">Leche caliente con tableta de chocolate</span>
-            </div>
-            <span class="price text-sm">3,00 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Matcha Latte</span>
-              <span class="ml-2 inline-flex items-center text-[10px] font-semibold tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase">Especial</span>
-            </div>
-            <span class="price text-sm">4,00 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-
-          <div class="menu-row flex items-center justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Chai Latte</span>
-              <span class="ml-2 inline-flex items-center text-[10px] font-semibold tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase">Especial</span>
-            </div>
-            <span class="price text-sm">4,00 €</span>
-          </div>
-
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Zumo de Melocotón</span><span class="price text-sm">2,00 €</span></div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -537,148 +425,43 @@
   <div class="border-b border-outline-variant/20"></div>
 
   <!-- ─────────────────────────────
-       BOLLERÍA
+       CERVEZAS
   ───────────────────────────── -->
-  <section id="bolleria" class="scroll-mt-36 reveal">
+  <section id="cervezas" class="scroll-mt-36 reveal">
     <div class="ornament">
-      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Bollería & Dulces</span>
+      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Cervezas</span>
     </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10">
-
-      <!-- Bollería simple -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
       <div>
-        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Bollería del Día</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">De barril</p>
         <div class="space-y-0">
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Ensaimada</span>
-            <span class="price text-sm">0,90 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Caña</span><span class="price text-sm">1,90 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Bollería simple</span>
-            <span class="price text-sm">1,00 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Doble</span><span class="price text-sm">2,50 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Bollería rellena</span>
-            <span class="price text-sm">1,20 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Magdalenas</span>
-            <span class="price text-sm">1,20 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Magdalenas de calabaza</span>
-            <span class="price text-sm">1,40 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Magdalenas sin gluten</span>
-            <span class="price text-sm">1,50 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Muffin relleno</span>
-            <span class="price text-sm">2,00 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Rivera Reposada</span><span class="price text-sm">4,00 €</span></div>
         </div>
       </div>
-
-      <!-- Croissants -->
       <div>
-        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Croissants & Napolitanas</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Botella / Tercio</p>
         <div class="space-y-0">
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Croissant pequeño Kinder</span>
-            <span class="price text-sm">1,50 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Alhambra Especial</span><span class="price text-sm">3,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Croissant</span>
-            <span class="price text-sm">1,60 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Tercio Estrella Galicia</span><span class="price text-sm">3,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Napolitana de chocolate</span>
-            </div>
-            <span class="price text-sm">1,70 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Tercio 1906 Reserva</span><span class="price text-sm">3,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Napolitana jamón y queso</span>
-            <span class="price text-sm">1,90 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Estrella 0,0% Tostada</span><span class="price text-sm">3,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Croissant de dulce de leche</span>
-            <span class="price text-sm">2,50 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Radler</span><span class="price text-sm">3,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm text-on-surface">Croissant relleno</span>
-            <span class="price text-sm">3,20 €</span>
-          </div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Tercio Franziskaner</span><span class="price text-sm">4,00 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <span class="text-sm font-medium text-on-surface">Super croissant relleno</span>
-            <span class="price text-sm">3,50 €</span>
-          </div>
-        </div>
-        <div class="mt-4 text-xs text-on-surface-variant italic px-2">
-          Sabores: Oreo · Pistacho · Kinder
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Tyris IPA</span><span class="price text-sm">4,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Tyris Sin Gluten</span><span class="price text-sm">4,00 €</span></div>
         </div>
       </div>
-
-      <!-- Alfajores & especiales -->
-      <div>
-        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Dulces Argentinos</p>
-        <div class="space-y-0">
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Berlinesa</span>
-              <span class="text-xs text-on-surface-variant ml-1">(bañada / rellena)</span>
-            </div>
-            <span class="price text-sm">1,70 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Alfajor</span>
-              <span class="text-xs text-on-surface-variant ml-1">(choco / maicena)</span>
-            </div>
-            <span class="price text-sm">2,50 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Pasteles</span>
-              <span class="text-xs text-on-surface-variant ml-1">(manzana / crema)</span>
-            </div>
-            <span class="price text-sm">2,00 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Budín de pan</span>
-              <span class="text-xs text-on-surface-variant ml-1">(porción)</span>
-            </div>
-            <span class="price text-sm">2,50 €</span>
-          </div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-            <div>
-              <span class="text-sm text-on-surface">Facturas de manteca</span>
-              <span class="block text-xs text-on-surface-variant">Medialunas, vigilantes y cañitas</span>
-            </div>
-            <span class="price text-sm">1,00 €</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -686,66 +469,88 @@
   <div class="border-b border-outline-variant/20"></div>
 
   <!-- ─────────────────────────────
-       BEBIDAS FRÍAS
+       VINOS
   ───────────────────────────── -->
-  <section id="bebidas" class="scroll-mt-36 reveal">
+  <section id="vinos" class="scroll-mt-36 reveal">
     <div class="ornament">
-      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Bebidas Frías</span>
+      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Vinos</span>
     </div>
-
     <div class="max-w-lg space-y-0">
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Vino Tinto Copa</span><span class="price text-sm">3,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Vino Blanco Copa</span><span class="price text-sm">3,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Trumpeter</span><span class="price text-sm">20,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Viñadrián</span><span class="price text-sm">14,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Elsa Bianchi</span><span class="price text-sm">15,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Les Alcusses</span><span class="price text-sm">14,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">San Telmo</span><span class="price text-sm">14,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Carantoña</span><span class="price text-sm">11,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Barceló</span><span class="price text-sm">18,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Benjamín</span><span class="price text-sm">15,00 €</span></div>
+    </div>
+  </section>
 
-      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-        <span class="text-sm text-on-surface">Agua</span>
-        <span class="price text-sm">1,00 €</span>
-      </div>
-      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-        <span class="text-sm text-on-surface">Refresco</span>
-        <span class="price text-sm">1,50 €</span>
-      </div>
-      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-        <span class="text-sm text-on-surface">Zumo de naranja natural</span>
-        <span class="price text-sm">2,80 €</span>
-      </div>
-      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-        <span class="text-sm text-on-surface">Cold Brew</span>
-        <span class="price text-sm">3,50 €</span>
-      </div>
-      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-        <div>
-          <span class="text-sm text-on-surface">Granizado</span>
-          <span class="text-xs text-on-surface-variant ml-1">(limón / café)</span>
-        </div>
-        <span class="price text-sm">3,00 €</span>
-      </div>
-      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-        <div>
-          <span class="text-sm text-on-surface">Café con hielo</span>
-        </div>
-        <span class="price text-sm">2,00 €</span>
-      </div>
-      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-        <div>
-          <span class="text-sm text-on-surface">Iced Latte</span>
-          <span class="ml-2 inline-flex items-center text-[10px] font-semibold tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase">Especial</span>
-        </div>
-        <span class="price text-sm">3,50 €</span>
-      </div>
-      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT">
-        <div>
-          <span class="text-sm text-on-surface">Iced Matcha Latte</span>
-          <span class="ml-2 inline-flex items-center text-[10px] font-semibold tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase">Especial</span>
-        </div>
-        <span class="price text-sm">4,50 €</span>
-      </div>
+  <!-- Divisor -->
+  <div class="border-b border-outline-variant/20"></div>
 
+  <!-- ─────────────────────────────
+       LICORES Y CÓCTELES
+  ───────────────────────────── -->
+  <section id="licores" class="scroll-mt-36 reveal">
+    <div class="ornament">
+      <span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Licores y Cócteles</span>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
+      <div>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Cócteles y combinados</p>
+        <div class="space-y-0">
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Aperol Spritz</span><span class="price text-sm">6,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Cuba Libre</span><span class="price text-sm">7,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Daikiri</span><span class="price text-sm">8,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Tinto de Verano</span><span class="price text-sm">4,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Vermouth</span><span class="price text-sm">3,50 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Vermouth con aperitivo</span><span class="price text-sm">8,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bitter Rosso</span><span class="price text-sm">2,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Fernet</span><span class="price text-sm">7,00 €</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Ginebras y licores</p>
+        <div class="space-y-0">
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Tanqueray</span><span class="price text-sm">8,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Beefeater</span><span class="price text-sm">8,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Seagrams</span><span class="price text-sm">2,50 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Puerto de Indias</span><span class="price text-sm">9,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Pimpollo</span><span class="price text-sm">8,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Whiskey / Ron Especial</span><span class="price text-sm">5,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Copa de Licor</span><span class="price text-sm">3,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Chupito</span><span class="price text-sm">2,00 €</span></div>
+          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Chupito Especial</span><span class="price text-sm">3,00 €</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1012,9 +817,10 @@
       <div>
         <p class="text-xs uppercase tracking-widest text-inverse-on-surface/40 mb-4 font-medium">Carta</p>
         <nav class="flex flex-col gap-2.5 text-sm text-inverse-on-surface/70">
-          <a href="#cafeteria" class="hover:text-inverse-on-surface transition-colors">Cafetería</a>
-          <a href="#bolleria" class="hover:text-inverse-on-surface transition-colors">Bollería</a>
-          <a href="#bebidas" class="hover:text-inverse-on-surface transition-colors">Bebidas Frías</a>
+          <a href="#refrescos" class="hover:text-inverse-on-surface transition-colors">Refrescos y Zumos</a>
+          <a href="#cervezas" class="hover:text-inverse-on-surface transition-colors">Cervezas</a>
+          <a href="#vinos" class="hover:text-inverse-on-surface transition-colors">Vinos</a>
+          <a href="#licores" class="hover:text-inverse-on-surface transition-colors">Licores y Cócteles</a>
           <a href="#pasteleria" class="hover:text-inverse-on-surface transition-colors">Pastelería</a>
           <a href="#encargos" class="hover:text-inverse-on-surface transition-colors">Encargos</a>
         </nav>
@@ -1088,7 +894,7 @@
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
   /* ── Active tab highlight on scroll ── */
-  const sections = ['cafeteria','bolleria','bebidas','pasteleria','encargos'];
+  const sections = ['refrescos','cervezas','vinos','licores','pasteleria','encargos'];
   const tabLinks  = document.querySelectorAll('.tab-link');
 
   const tabObs = new IntersectionObserver(entries => {
