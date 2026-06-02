@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Desayunos — Küme Café</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  deck-stage:not(:defined) { visibility: hidden; }
+
+  :root {
+    --cream:      #f5eee0;
+    --cream-2:    #faf5ec;
+    --white:      #ffffff;
+    --green:      #2e3a25;
+    --green-2:    #44563a;
+    --green-pale: #e3e8d8;
+    --ink:        #2d4018;
+    --ink-soft:   #4d6230;
+    --line:       #c9cdbc;
+
+    --type-display: 104px;
+    --type-title:   76px;
+    --type-eyebrow: 25px;
+    --type-dish:    33px;
+    --type-price:   46px;
+    --type-body:    28px;
+    --type-small:   24px;
+
+    --pad-x:    104px;
+    --pad-top:  88px;
+    --pad-bot:  84px;
+
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  * { box-sizing: border-box; }
+
+  section {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    background-color: var(--cream);
+    background-image: var(--grain);
+    background-size: 320px 320px;
+    overflow: hidden;
+  }
+
+  .serif { font-family: 'Noto Serif', Georgia, serif; }
+
+  /* ── Eyebrow + ornament ── */
+  .eyebrow {
+    font-size: var(--type-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 0;
+  }
+  .diamond-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .diamond-rule .bar {
+    height: 1.5px;
+    width: 88px;
+    background: var(--line);
+  }
+  .diamond-rule .dot {
+    width: 9px; height: 9px;
+    background: var(--green);
+    transform: rotate(45deg);
+  }
+
+  /* ════════ COVER ════════ */
+  .cover {
+    display: grid;
+    grid-template-columns: 1fr 720px;
+  }
+  .cover-text {
+    padding: var(--pad-top) 96px var(--pad-bot) var(--pad-x);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    background: var(--green);
+  }
+  .cover-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .cover-brand .mark {
+    font-family: 'Noto Serif', serif;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--cream-2);
+  }
+  .cover-brand .loc {
+    font-size: var(--type-small);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #b9c2a8;
+    padding-left: 20px;
+    border-left: 1.5px solid rgba(255,255,255,0.28);
+  }
+  .cover-title {
+    font-size: var(--type-display);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--cream-2);
+  }
+  .cover-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: #c7d2b3;
+  }
+  .cover-sub {
+    font-size: var(--type-body);
+    line-height: 1.5;
+    color: #d6dccb;
+    max-width: 620px;
+    margin: 0;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 44px;
+    margin-top: 12px;
+  }
+  .cover-meta .item .k {
+    font-size: var(--type-small);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b9c2a8;
+    margin: 0 0 6px;
+    font-weight: 600;
+  }
+  .cover-meta .item .v {
+    font-family: 'Noto Serif', serif;
+    font-size: 30px;
+    color: var(--cream-2);
+    margin: 0;
+  }
+  .cover-photo {
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+  }
+
+  /* ════════ MENU BOARD (shared) ════════ */
+  .board {
+    padding: var(--pad-top) var(--pad-x) var(--pad-bot);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #faf5ec;
+    background-image:
+      radial-gradient(ellipse 700px 520px at -70px -100px,
+        rgba(46,58,37,0.28) 0%,
+        rgba(46,58,37,0.12) 42%,
+        transparent 68%),
+      radial-gradient(ellipse 520px 400px at calc(100% + 70px) calc(100% + 80px),
+        rgba(46,58,37,0.22) 0%,
+        rgba(46,58,37,0.08) 42%,
+        transparent 68%),
+      repeating-linear-gradient(-45deg,
+        transparent 0px, transparent 34px,
+        rgba(46,58,37,0.038) 34px, rgba(46,58,37,0.038) 35px),
+      var(--grain);
+    background-size: auto, auto, auto, 320px 320px;
+  }
+  .board-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+  .board-title {
+    font-size: var(--type-title);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin: 0;
+    color: var(--green);
+  }
+  .price-note {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 14px;
+    font-size: var(--type-body);
+    color: var(--ink-soft);
+  }
+  .price-note strong {
+    font-family: 'Noto Serif', serif;
+    font-weight: 600;
+    color: var(--green);
+  }
+  .price-note .tag {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--type-small);
+    letter-spacing: 0.04em;
+    color: var(--green);
+    background: var(--green-pale);
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  /* card grids */
+  .grid {
+    flex: 1;
+    display: grid;
+    align-content: center;
+    gap: 34px;
+  }
+  .grid-5 { grid-template-columns: repeat(5, 1fr); }
+  .grid-esp { grid-template-columns: repeat(4, 1fr); gap: 30px; }
+
+  .card {
+    background: var(--white);
+    border: 1px solid #e7e3d7;
+    border-radius: 22px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 18px 40px -22px rgba(46,58,37,0.38);
+  }
+  .card-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #fbfbfa;
+  }
+  .card-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .card-body {
+    padding: 24px 22px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+  .card-pre {
+    font-size: var(--type-small);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 600;
+    margin: 0;
+  }
+  .card-name {
+    font-family: 'Noto Serif', serif;
+    font-size: var(--type-dish);
+    line-height: 1.18;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  /* especiales: price row */
+  .grid-esp .card-photo { aspect-ratio: 5 / 4; }
+  .grid-esp .card-body { padding: 26px 26px 30px; gap: 12px; }
+  .grid-esp .card-name { font-size: 30px; line-height: 1.2; min-height: 2.4em; }
+  .card-foot {
+    margin-top: auto;
+    padding-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #eceae6;
+  }
+  .card-foot .incl {
+    font-size: var(--type-small);
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .card-price {
+    font-family: 'Noto Serif', serif;
+    font-size: var(--type-price);
+    font-weight: 600;
+    color: var(--green);
+    line-height: 1;
+  }
+  .card-price span { font-size: 0.6em; }
+
+  /* ════════ BEBIDAS ════════ */
+  .drink-grid { flex:1; display:grid; gap:18px; align-content:center; }
+  .drink-3x3 { grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); }
+  .drink-3x2 { grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr); }
+  .drink-card { display:flex; gap:20px; align-items:center; background:var(--white); border:1px solid #e8e4da; border-radius:16px; padding:18px 20px; box-shadow:0 8px 24px -14px rgba(46,58,37,0.28); }
+  .drink-thumb { border-radius:10px; overflow:hidden; background:#f8f5ee; flex-shrink:0; }
+  .drink-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+  .drink-thumb.sq   { width:175px; height:175px; }
+  .drink-thumb.sq img { object-fit:contain; }
+  .drink-thumb.tall { width:120px; height:220px; }
+  .drink-thumb.tall img { object-fit:contain; }
+  .drink-thumb.grid-bg { background-repeat:no-repeat; }
+  .drink-thumb.grid-bg.sm-grid { background-size:300% 300%; }
+  .drink-thumb.grid-bg.mk-grid { background-size:300% 200%; }
+  .drink-info { flex:1; display:flex; flex-direction:column; gap:5px; min-width:0; }
+  .drink-name { font-family:'Noto Serif',serif; font-size:27px; font-weight:600; color:var(--ink); line-height:1.15; margin:0; }
+  .drink-ingr { font-size: 22px; color:var(--ink-soft); line-height:1.3; margin:0; }
+  .drink-price { font-family:'Noto Serif',serif; font-size:30px; font-weight:600; color:var(--green); margin-top:4px; line-height:1; }
+
+  /* ════════ BRUNCH (3 cards / slide) ════════ */
+  .grid-b {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    align-content: center;
+  }
+  .grid-b .card-photo { aspect-ratio: 4 / 3; }
+  .grid-b .card-body { padding: 28px 30px 32px; gap: 14px; }
+  .grid-b .card-name { font-size: 32px; line-height: 1.2; min-height: 2.4em; }
+
+  /* ════════ MERIENDA (4 cards / slide) ════════ */
+  .grid-merienda {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    align-content: center;
+  }
+  .grid-merienda .card-photo { aspect-ratio: 1 / 1; background: var(--white); }
+  .grid-merienda .card-photo img { object-fit: contain; }
+  .grid-merienda .card-body { padding: 22px 22px 26px; gap: 10px; }
+  .grid-merienda .card-name { font-size: 28px; line-height: 1.2; min-height: 2.4em; }
+
+  /* ════════ TARTAS DE ENCARGO ════════ */
+  .tarta-slide {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    height: 100%;
+    background: var(--cream-2);
+    overflow: hidden;
+  }
+  .tarta-panel {
+    background: var(--green);
+    background-image: var(--grain);
+    background-size: 320px 320px;
+    padding: 54px 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tarta-panel::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 140px; height: 140px;
+    border: 2px solid rgba(157,186,130,0.14);
+    border-radius: 50%;
+    transform: translate(50%, 50%);
+    pointer-events: none;
+  }
+  .tarta-eyebrow {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+    color: #9dba82;
+    margin: 0;
+  }
+  .tarta-orn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: -2px 0;
+  }
+  .tarta-orn .orn-bar {
+    height: 1px;
+    width: 42px;
+    background: rgba(157,186,130,0.32);
+  }
+  .tarta-orn .orn-dot {
+    width: 5px; height: 5px;
+    background: #9dba82;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+  .tarta-h {
+    font-family: 'Noto Serif', serif;
+    font-size: 78px;
+    line-height: 1.0;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--cream-2);
+    margin: 0;
+  }
+  .tarta-h em {
+    font-style: italic;
+    font-weight: 400;
+    color: #c7d2b3;
+  }
+  .tarta-desc {
+    font-size: 21px;
+    line-height: 1.65;
+    color: #b8c8a0;
+    margin: 0;
+  }
+  .tarta-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 16px 0 0;
+    margin: 0;
+    border-top: 1px solid rgba(255,255,255,0.09);
+  }
+  .tarta-bullets li {
+    display: flex;
+    align-items: baseline;
+    gap: 11px;
+    font-size: 20px;
+    line-height: 1.35;
+    color: #ccd8b6;
+  }
+  .tarta-bullets li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #9dba82;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .tarta-qr-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(245,238,224,0.09);
+    border: 1px solid rgba(245,238,224,0.18);
+    border-radius: 20px;
+    padding: 20px 22px;
+    margin-top: 4px;
+  }
+  #tarta-qr { flex-shrink: 0; }
+  #tarta-qr canvas,
+  #tarta-qr img { border-radius: 10px; display: block; }
+  .tarta-qr-info { display: flex; flex-direction: column; gap: 7px; }
+  .tarta-qr-call {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #9dba82;
+    margin: 0;
+  }
+  .tarta-qr-label {
+    font-family: 'Noto Serif', serif;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.38;
+    color: var(--cream);
+    margin: 0;
+  }
+  .tarta-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1fba57;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    width: fit-content;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    box-shadow: 0 3px 14px rgba(31,186,87,0.32);
+  }
+  /* ── galería 7×2 ── */
+  .tarta-gallery {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    background: var(--cream-2);
+    padding: 30px 28px;
+  }
+  .tarta-cake {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .tarta-cake-img {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--cream);
+    box-shadow: 0 4px 18px rgba(46,58,37,0.13);
+    transition: box-shadow 0.30s ease, transform 0.30s ease;
+  }
+  .tarta-cake:hover .tarta-cake-img {
+    box-shadow: 0 10px 30px rgba(46,58,37,0.22);
+    transform: translateY(-4px);
+  }
+  .tarta-cake-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.40s ease;
+  }
+  .tarta-cake:hover .tarta-cake-img img { transform: scale(1.04); }
+  .tarta-cake-name {
+    font-family: 'Noto Serif', serif;
+    font-size: 13.5px;
+    font-style: italic;
+    text-align: center;
+    color: var(--ink-soft);
+    padding: 8px 4px 2px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+  }
+  .tarta-custom-tag {
+    display: none;
+  }
+
+  /* ════════ CAFÉS ESPECIALES (2 cards / slide) ════════ */
+  .grid-cafes {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    align-content: center;
+  }
+  .grid-cafes .card-photo { aspect-ratio: 1 / 1; background: var(--white); }
+  .grid-cafes .card-photo img { object-fit: contain; }
+  .grid-cafes .card-body { padding: 22px 22px 26px; gap: 10px; }
+  .grid-cafes .card-name { font-size: 28px; line-height: 1.2; min-height: 2.4em; }
+
+  /* ════════ TARDEO (2 cards / slide) ════════ */
+  .grid-tardeo {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    align-content: center;
+  }
+  .grid-tardeo .card-photo { aspect-ratio: 1 / 1; background: var(--white); }
+  .grid-tardeo .card-photo img { object-fit: contain; }
+  .grid-tardeo .card-body { padding: 28px 30px 32px; gap: 14px; }
+  .grid-tardeo .card-name { font-size: 32px; line-height: 1.2; min-height: 2.4em; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- ░░ 1 · PORTADA ░░ -->
+  <section data-label="Portada" class="cover">
+    <div class="cover-text">
+      <div class="cover-brand">
+        <span class="mark">Küme</span>
+        <span class="loc">Benimaclet · València</span>
+      </div>
+      <h1 class="cover-title serif">Carta de<br/><em>Desayunos</em></h1>
+      <p class="cover-sub">Café de especialidad y pastelería argentina para empezar el día sin prisa. Tostadas, croissants y medialunas recién hechas.</p>
+      <div class="cover-meta">
+        <div class="item">
+          <p class="k">Clásicos</p>
+          <p class="v">desde 3 €</p>
+        </div>
+        <div class="item">
+          <p class="k">Especiales</p>
+          <p class="v">desde 5,50 €</p>
+        </div>
+        <div class="item">
+          <p class="k">Brunch</p>
+          <p class="v">desde 6,50 €</p>
+        </div>
+      </div>
+    </div>
+    <div class="cover-photo">
+      <img src="images/croissant.jpg" alt="Café con croissant y zumo natural"/>
+    </div>
+  </section>
+
+  <!-- ░░ 2 · CLÁSICOS ░░ -->
+  <section data-label="Desayunos Clásicos" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Todos los días</p>
+      <h2 class="board-title serif">Desayunos Clásicos</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note">Café incluido · <strong>3 €</strong> cada uno <span class="tag">+ 1 € el zumo natural</span></p>
+      <p class="price-note"><span class="tag">🕖 7:00 – 11:00 h</span></p>
+    </div>
+
+    <div class="grid grid-5">
+      <article class="card">
+        <div class="card-photo"><img src="images/croissant.jpg" alt="Café con croissant"/></div>
+        <div class="card-body">
+          <p class="card-pre">Café +</p>
+          <h3 class="card-name">Croissant</h3>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-photo"><img src="images/tomate-aceite.jpg" alt="Tostada de tomate y aceite"/></div>
+        <div class="card-body">
+          <p class="card-pre">Café +</p>
+          <h3 class="card-name">Tostada de tomate y aceite</h3>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-photo" style="aspect-ratio:1/1;"><img src="images/tomate-jamon.png" alt="Tostada de tomate y jamón serrano"/></div>
+        <div class="card-body" style="flex:1;">
+          <p class="card-pre">Café +</p>
+          <h3 class="card-name">Tostada de tomate y jamón serrano</h3>
+          <div style="margin-top:auto; padding-top:16px; border-top:1px solid #eceae6; display:flex; flex-direction:column; align-items:flex-start; gap:10px;">
+            <span class="card-price">3,50<span> €</span></span>
+            <span style="background:var(--green-pale); color:var(--green); font-size:18px; font-weight:600; padding:5px 14px; border-radius:999px; letter-spacing:0.03em;">+0,50 € loncha extra de jamón</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-photo"><img src="images/mantequilla-mermelada.jpg" alt="Tostada de mantequilla y mermelada"/></div>
+        <div class="card-body">
+          <p class="card-pre">Café +</p>
+          <h3 class="card-name">Tostada de mantequilla y mermelada</h3>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-photo"><img src="images/medialunas.jpg" alt="Dos medialunas"/></div>
+        <div class="card-body">
+          <p class="card-pre">Café +</p>
+          <h3 class="card-name">Dos medialunas</h3>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ 3 · ESPECIALES ░░ -->
+  <section data-label="Desayunos Especiales" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Para los que quieren más</p>
+      <h2 class="board-title serif">Desayunos Especiales</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note">Café y zumo natural <strong>incluidos</strong></p>
+    </div>
+
+    <div class="grid grid-esp">
+      <article class="card">
+        <div class="card-photo"><img src="images/salmon-aguacate.png" alt="Tostada de salmón, aguacate y queso"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Tostada de salmón, aguacate y queso</h3>
+          <div class="card-foot">
+            <span class="incl">Café + zumo</span>
+            <span class="card-price">5,90<span> €</span></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-photo"><img src="images/huevo-guacamole.jpg" alt="Tostada de huevo, aguacate y tomate"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Tostada de huevo, aguacate y tomate</h3>
+          <div class="card-foot">
+            <span class="incl">Café + zumo</span>
+            <span class="card-price">5,50<span> €</span></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-photo"><img src="images/tostada-tortilla.png" alt="Tostada con tortilla francesa, aguacate y bacon"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Tostada con tortilla francesa, aguacate y bacon</h3>
+          <div class="card-foot">
+            <span class="incl">Café + zumo</span>
+            <span class="card-price">5,50<span> €</span></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-photo"><img src="images/croissant-huevo.jpg" alt="Croissant con huevos y bacon"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Croissant con huevos y bacon</h3>
+          <div class="card-foot">
+            <span class="incl">Café + zumo</span>
+            <span class="card-price">5,50<span> €</span></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ 4 · CAFÉS ESPECIALES ░░ -->
+  <section data-label="Cafés Especiales" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Bebidas especiales</p>
+      <h2 class="board-title serif">Cafés Especiales</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+    </div>
+    <div class="grid grid-cafes">
+      <article class="card">
+        <div class="card-photo"><img src="images/cafe-matcha-latte.png" alt="Ice Matcha Latte"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Ice Matcha Latte</h3>
+          <div class="card-foot"><span></span><span class="card-price">4<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/cafe-chai-latte.png" alt="Ice Chai Latte"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Ice Chai Latte</h3>
+          <div class="card-foot"><span></span><span class="card-price">4<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/cafe-coffee-latte.png" alt="Ice Coffee Latte"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Ice Coffee Latte</h3>
+          <div class="card-foot"><span></span><span class="card-price">4<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/cafe-caramel-latte.png" alt="Ice Caramel Latte"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Ice Caramel Latte</h3>
+          <div class="card-foot"><span></span><span class="card-price">4<span> €</span></span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ 5 · BRUNCH · TORTITAS ░░ -->
+  <section data-label="Brunch · Tortitas" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Brunch · café y zumo incluido</p>
+      <h2 class="board-title serif">Tortitas</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note"><span class="tag">🕚 11:00 – 14:00 h</span></p>
+    </div>
+    <div class="grid grid-b">
+      <article class="card">
+        <div class="card-photo"><img src="images/tortitas-miel.png" alt="Tortitas con mantequilla y miel, huevo y bacon" style="object-position: center 38%;"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Mantequilla y miel, huevo y bacon</h3>
+          <div class="card-foot"><span class="incl">Café + zumo</span><span class="card-price">8,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/tortitas-salmon.png" alt="Tortitas con aguacate, salmón y huevo"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Aguacate, salmón y huevo</h3>
+          <div class="card-foot"><span class="incl">Café + zumo</span><span class="card-price">9,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/brunch-tortitas.png" alt="Tortitas con bacon, queso y huevo"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Bacon, queso y huevo</h3>
+          <div class="card-foot"><span class="incl">Café + zumo</span><span class="card-price">8,90<span> €</span></span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ 5 · BRUNCH · CREPES ░░ -->
+  <section data-label="Brunch · Crepes" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Brunch · café y zumo incluido</p>
+      <h2 class="board-title serif">Crepes</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note"><span class="tag">🕚 11:00 – 14:00 h</span></p>
+    </div>
+    <div class="grid grid-b">
+      <article class="card">
+        <div class="card-photo"><img src="images/brunch-crepes.png" alt="Crepe de jamón, queso, tomate y huevo"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Jamón, queso, tomate y huevo</h3>
+          <div class="card-foot"><span class="incl">Café + zumo</span><span class="card-price">8,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/crepe-jamon-queso.png" alt="Crepe de jamón y queso"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Jamón y queso</h3>
+          <div class="card-foot"><span class="incl">Café + zumo</span><span class="card-price">6,90<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/crepe-jamon-queso-huevo.png" alt="Crepe de jamón, queso y huevo"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Jamón, queso y huevo</h3>
+          <div class="card-foot"><span class="incl">Café + zumo</span><span class="card-price">7,90<span> €</span></span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ 6 · BRUNCH · GOFRES Y CROISSANT ░░ -->
+  <section data-label="Brunch · Gofres y Croissant" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Brunch · café y zumo incluido</p>
+      <h2 class="board-title serif">Gofres y Croissant</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note"><span class="tag">🕚 11:00 – 14:00 h</span></p>
+    </div>
+    <div class="grid grid-b">
+      <article class="card">
+        <div class="card-photo"><img src="images/brunch-gofres.png" alt="Gofre con aguacate, salmón y huevo"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Gofre · aguacate, salmón y huevo</h3>
+          <div class="card-foot"><span class="incl">Café + zumo</span><span class="card-price">9,90<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/gofre-bacon.png" alt="Gofre con bacon y huevo"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Gofre · bacon y huevo</h3>
+          <div class="card-foot"><span class="incl">Café + zumo</span><span class="card-price">6,90<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/croissant-jamon-queso-cherry.jpg" alt="Croissant de jamón, queso y tomate cherry"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Croissant · jamón, queso y tomate cherry</h3>
+          <div class="card-foot"><span class="incl">Café + zumo</span><span class="card-price">6,50<span> €</span></span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ 7 · SMOOTHIES NATURALES ░░ -->
+  <section data-label="Smoothies naturales" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Hechos al momento</p>
+      <h2 class="board-title serif">Smoothies naturales</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note"><strong>5 €</strong> · <span class="tag">+1 € con leche</span> · <span class="tag">+2 € con ron</span> · <span class="tag">+3 € con vodka</span></p>
+    </div>
+    <div style="text-align:center; margin:32px 0;">
+      <img src="images/smoothies-collage.png" alt="Smoothies Naturales - 9 variedades" style="max-width:100%; height:auto; border-radius:16px; box-shadow:0 8px 32px rgba(45,45,45,0.15);"/>
+    </div>
+  </section>
+
+  <!-- ░░ 8 · BATIDOS ░░ -->
+  <section data-label="Batidos" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Helados batidos</p>
+      <h2 class="board-title serif">Batidos</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note">Convertir en frappé con café <strong>+ 1 €</strong></p>
+    </div>
+    <div class="drink-grid drink-3x2">
+      <div class="drink-card">
+        <div class="drink-thumb tall"><img src="images/drinks/mk-cookies.jpg" alt="Cookies &amp; Cream"/></div>
+        <div class="drink-info"><p class="drink-name">Cookies &amp; Cream</p><p class="drink-ingr">Vainilla con galleta de chocolate</p><p class="drink-price">5,50 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb tall"><img src="images/drinks/mk-caramel.jpg" alt="Salted Caramel Dream"/></div>
+        <div class="drink-info"><p class="drink-name">Salted Caramel Dream</p><p class="drink-ingr">Vainilla con caramelo salado</p><p class="drink-price">5,50 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb tall"><img src="images/drinks/mk-vanilla.jpg" alt="Vanilla Dream"/></div>
+        <div class="drink-info"><p class="drink-name">Vanilla Dream</p><p class="drink-ingr">Helado de vainilla</p><p class="drink-price">5,50 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb tall"><img src="images/drinks/mk-strawberry.jpg" alt="Strawberry Fantasy"/></div>
+        <div class="drink-info"><p class="drink-name">Strawberry Fantasy</p><p class="drink-ingr">Vainilla con fresas</p><p class="drink-price">5,50 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb tall"><img src="images/drinks/mk-banana.jpg" alt="Bananalicious"/></div>
+        <div class="drink-info"><p class="drink-name">Bananalicious</p><p class="drink-ingr">Plátano y vainilla</p><p class="drink-price">5,50 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb tall"><img src="images/drinks/mk-chocolate.jpg" alt="Pure Chocolate"/></div>
+        <div class="drink-info"><p class="drink-name">Pure Chocolate</p><p class="drink-ingr">Vainilla con 60% chocolate</p><p class="drink-price">5,50 €</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ░░ 9 · MERIENDA ░░ -->
+  <section data-label="Merienda" class="board">
+    <div class="board-head">
+      <p class="eyebrow">De tarde</p>
+      <h2 class="board-title serif">Merienda</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note">Por <strong>+1,50 €</strong> más · <span class="tag">cambia el tostado por una porción de tarta</span></p>
+    </div>
+    <div class="grid grid-merienda">
+      <article class="card">
+        <div class="card-photo"><img src="images/tardeo-infantil.png" alt="Tardeo infantil: tostado con Choleck"/></div>
+        <div class="card-body">
+          <p class="card-pre">Infantil</p>
+          <h3 class="card-name">Tostado con Choleck</h3>
+          <div class="card-foot"><span></span><span class="card-price">5,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/merienda-cafe-tostado.png" alt="Café con leche y tostado"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Café con leche y tostado</h3>
+          <div class="card-foot"><span></span><span class="card-price">5,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/merienda-matcha-tostado.png" alt="Matcha latte y tostado"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Matcha latte y tostado</h3>
+          <div class="card-foot"><span></span><span class="card-price">6,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/merienda-cafe-tostado.png" alt="Caramel latte y tostado"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Caramel latte y tostado</h3>
+          <div class="card-foot"><span></span><span class="card-price">6,50<span> €</span></span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ 10 · TARDEO ░░ -->
+  <section data-label="Tardeo" class="board">
+    <div class="board-head">
+      <p class="eyebrow">De tarde</p>
+      <h2 class="board-title serif">Tardeo</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note"><span class="tag">🌙 7:00 – 12:00 h</span></p>
+    </div>
+    <div class="grid grid-tardeo">
+      <article class="card">
+        <div class="card-photo"><img src="images/tardeo-adulto.png" alt="1 cerveza con dos sandwich de miga"/></div>
+        <div class="card-body">
+          <h3 class="card-name">1 cerveza con dos sandwich de miga</h3>
+          <div class="card-foot"><span></span><span class="card-price">7<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/tardeo-carlitos.png" alt="1 cerveza con tostado Carlitos"/></div>
+        <div class="card-body">
+          <h3 class="card-name">1 cerveza con tostado Carlitos</h3>
+          <div class="card-foot"><span></span><span class="card-price">5,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/tardeo-estrella.png" alt="Caña de cerveza"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Caña de cerveza</h3>
+          <div class="card-foot"><span class="incl">Tapa de cortesía</span><span class="card-price">1,90<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="images/tardeo-estrella.png" alt="Doble de cerveza"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Doble de cerveza</h3>
+          <div class="card-foot"><span class="incl">Tapa de cortesía</span><span class="card-price">2,90<span> €</span></span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ 11 · TARTAS DE ENCARGO ░░ -->
+  <section data-label="Tartas de encargo" class="tarta-slide">
+
+    <!-- Panel izquierdo verde -->
+    <div class="tarta-panel">
+      <p class="tarta-eyebrow">Dulces para cada momento</p>
+      <div class="tarta-orn"><div class="orn-bar"></div><div class="orn-dot"></div><div class="orn-bar"></div></div>
+      <h2 class="tarta-h">Tartas<br/><em>de encargo</em></h2>
+      <p class="tarta-desc">Elaboradas artesanalmente con los mejores ingredientes. Personalizamos sabor, tamaño y decoración para tu ocasión especial.</p>
+      <ul class="tarta-bullets">
+        <li>Tartas de cumpleaños y celebraciones</li>
+        <li>Sabores clásicos y opciones sin gluten</li>
+        <li>Solo recogida en nuestro local</li>
+      </ul>
+      <!-- QR WhatsApp -->
+      <div class="tarta-qr-box">
+        <div id="tarta-qr"></div>
+        <div class="tarta-qr-info">
+          <p class="tarta-qr-call">Encarga la tuya</p>
+          <p class="tarta-qr-label">Escanea y escríbenos<br/>por WhatsApp</p>
+          <a class="tarta-wa-btn" href="https://wa.me/34621498315" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.07.527 4.02 1.448 5.727L0 24l6.418-1.427A11.932 11.932 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.944 0-3.77-.497-5.362-1.367l-.384-.22-3.965.882.883-3.895-.242-.4A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+            </svg>
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Galería 7×2 de tartas -->
+    <div class="tarta-gallery">
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/chaja.jpg" alt="Tarta Chajá"/></div><p class="tarta-cake-name">Tarta Chajá</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/chocotorta.jpg" alt="Chocotorta"/></div><p class="tarta-cake-name">Chocotorta</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/oreo.jpg" alt="Tarta Oreo"/></div><p class="tarta-cake-name">Tarta Oreo</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/choco.jpg" alt="Tarta de Choco"/></div><p class="tarta-cake-name">Tarta de Choco</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/carrot.jpg" alt="Carrot Cake"/></div><p class="tarta-cake-name">Carrot Cake</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/lemon-pie.jpg" alt="Lemon Pie"/></div><p class="tarta-cake-name">Lemon Pie</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/brazo-gitano.jpg" alt="Brazo Gitano"/></div><p class="tarta-cake-name">Brazo Gitano</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/rogel.jpg" alt="Rogel"/></div><p class="tarta-cake-name">Rogel</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/cheesecake.jpg" alt="Cheesecake"/></div><p class="tarta-cake-name">Cheesecake</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/selva-negra.jpg" alt="Selva Negra"/></div><p class="tarta-cake-name">Selva Negra</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/balcarce.jpg" alt="Balcarce"/></div><p class="tarta-cake-name">Balcarce</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/fresita.jpg" alt="Fresita"/></div><p class="tarta-cake-name">Fresita</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/frutal.jpg" alt="Tarta Frutal"/></div><p class="tarta-cake-name">Tarta Frutal</p></div>
+      <div class="tarta-cake"><div class="tarta-cake-img"><img src="images/tartas/a-medida.jpg" alt="A Medida"/></div><p class="tarta-cake-name">A Medida ✦</p></div>
+    </div>
+
+  </section>
+
+</deck-stage>
+<script src="deck-stage.js"></script>
+<script>
+  /* ── QR Tartas de encargo ── */
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js';
+    s.onload = function () {
+      new QRCode(document.getElementById('tarta-qr'), {
+        text: 'https://wa.me/34621498315',
+        width: 136,
+        height: 136,
+        colorDark: '#2e3a25',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    };
+    document.head.appendChild(s);
+  })();
+</script>
+</body>
+</html>
