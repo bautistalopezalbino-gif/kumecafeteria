@@ -1244,25 +1244,159 @@
       border-color: #25D366;
     }
 
+    /* ── HAMBURGER & DRAWER ─────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px;
+      transition: background 0.18s ease;
+      z-index: 110;
+    }
+    .nav-hamburger:hover { background: rgba(255,255,255,0.10); }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: rgba(255,255,255,0.88);
+      border-radius: 2px;
+      transition: transform 0.32s var(--ease-out), opacity 0.22s ease, width 0.22s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      pointer-events: none;
+    }
+    .nav-drawer.open { pointer-events: all; }
+    .nav-drawer-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.48);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .nav-drawer.open .nav-drawer-overlay { opacity: 1; }
+    .nav-drawer-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: min(320px, 88vw);
+      height: 100%;
+      background: rgba(13,24,17,0.97);
+      backdrop-filter: blur(24px) saturate(1.5);
+      -webkit-backdrop-filter: blur(24px) saturate(1.5);
+      border-left: 1px solid rgba(255,255,255,0.09);
+      transform: translateX(100%);
+      transition: transform 0.38s var(--ease-out);
+      display: flex;
+      flex-direction: column;
+      padding: 88px 32px 44px;
+      overflow-y: auto;
+    }
+    .nav-drawer.open .nav-drawer-panel { transform: translateX(0); }
+    .nav-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 40px;
+      flex: 1;
+    }
+    .nav-drawer-links li a {
+      display: block;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.80);
+      text-decoration: none;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: color 0.18s ease, padding-left 0.2s var(--ease-out);
+    }
+    .nav-drawer-links li:last-child a { border-bottom: none; }
+    .nav-drawer-links li a:hover { color: #fff; padding-left: 8px; }
+    .nav-drawer-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .nav-drawer-ctas .btn-carta-nav,
+    .nav-drawer-ctas .btn-nav {
+      display: block;
+      text-align: center;
+      padding: 15px 22px;
+      font-size: 14px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 900px) {
-      :root { --margin-desktop: 24px; --section-gap: 72px; }
+      :root { --margin-desktop: 24px; --section-gap: 64px; }
       .nav-links { display: none; }
-      .values-row { grid-template-columns: 1fr; gap: 12px; padding: 36px 0; }
+      .nav-ctas  { display: none; }
+      .nav-hamburger { display: flex; }
+      .values-row { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
       .value-num { padding-top: 0; }
-      .about-grid { grid-template-columns: 1fr; gap: 36px; }
-      .menu-grid { grid-template-columns: 1fr; gap: 40px; }
-      .encargo-header { flex-direction: column; gap: 24px; }
-      .encargo-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .location-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .menu-grid { grid-template-columns: 1fr; gap: 36px; }
+      .encargo-header { flex-direction: column; gap: 20px; }
+      .location-grid { grid-template-columns: 1fr; gap: 36px; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .newsletter-form { flex-direction: column; }
-      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-inner { flex-direction: column; text-align: center; gap: 20px; }
       .reels-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
     }
 
+    @media (max-width: 600px) {
+      :root { --margin-desktop: 18px; --section-gap: 56px; }
+      .hero { min-height: 100svh; }
+      .menu-header { margin-bottom: 48px; }
+      .reels-header { margin-bottom: 44px; }
+      .reels-grid { max-width: 340px; }
+      .ig-phone-wrap { border-radius: 40px; padding: 16px 7px 20px; }
+      .ig-phone-wrap::before { height: 24px; top: 10px; }
+      .ig-phone-wrap::after { right: -4px; width: 3px; height: 54px; }
+      .ig-side-btns::before { height: 22px; }
+      .ig-side-btns::after { height: 28px; box-shadow: 0 40px 0 0 #3a3a3c; }
+      .ig-embed-wrap { border-radius: 30px; height: 540px; }
+      .ig-iframe { height: 540px; }
+      .reserva-options { grid-template-columns: 1fr; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+    }
+
     @media (max-width: 480px) {
+      :root { --margin-desktop: 16px; --section-gap: 48px; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas .btn-hero,
+      .hero-ctas .btn-ghost { text-align: center; padding: 14px 24px; }
+      .about-grid { gap: 24px; }
+      .menu-grid { grid-template-columns: 1fr; gap: 28px; }
+      .encargo-header { flex-direction: column; gap: 14px; }
+      .btn-torta-wa { align-self: stretch; justify-content: center; text-align: center; }
+      .section-title { font-size: clamp(24px, 7vw, 34px); }
       .reels-grid { max-width: 300px; }
+      .ig-phone-wrap { border-radius: 34px; padding: 12px 6px 16px; }
+      .ig-phone-wrap::before { height: 20px; top: 8px; border-radius: 16px; }
+      .ig-embed-wrap { border-radius: 26px; height: 480px; }
+      .ig-iframe { height: 480px; }
+      .newsletter-form input,
+      .newsletter-form button { width: 100%; box-sizing: border-box; }
     }
   </style>
 </head>
@@ -1328,8 +1462,28 @@
       <a href="carta.html" class="btn-carta-nav">Ver la carta</a>
       <a href="#" class="btn-nav" id="btnReserva">Haz tu pedido</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- ── NAV DRAWER (móvil) ────────────────────────────── -->
+<div class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <div class="nav-drawer-overlay" id="navDrawerOverlay"></div>
+  <div class="nav-drawer-panel" role="dialog" aria-label="Menú de navegación">
+    <ul class="nav-drawer-links">
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#galeria">Espacios</a></li>
+      <li><a href="#ubicacion">Dónde estamos</a></li>
+      <li><a href="brunch.html">Menús</a></li>
+    </ul>
+    <div class="nav-drawer-ctas">
+      <a href="carta.html" class="btn-carta-nav">Ver la carta</a>
+      <a href="#" class="btn-nav" id="btnReservaDrawer">Haz tu pedido</a>
+    </div>
+  </div>
+</div>
 
 <!-- ── HERO ──────────────────────────────────────────── -->
 <section class="hero">
@@ -1780,7 +1934,39 @@
   document.getElementById('btnReserva').addEventListener('click', openReserva);
   document.getElementById('reservaClose').addEventListener('click', closeReserva);
   reservaModal.addEventListener('click', e => { if (e.target === reservaModal) closeReserva(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReserva(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeReserva(); closeDrawer(); } });
+
+  // ── Hamburger drawer ────────────────────────────────
+  const hamburger = document.getElementById('navHamburger');
+  const drawer    = document.getElementById('navDrawer');
+  const overlay   = document.getElementById('navDrawerOverlay');
+
+  function openDrawer() {
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+  overlay.addEventListener('click', closeDrawer);
+
+  document.querySelectorAll('.nav-drawer-links a').forEach(a => {
+    a.addEventListener('click', closeDrawer);
+  });
+
+  document.getElementById('btnReservaDrawer').addEventListener('click', e => {
+    closeDrawer();
+    openReserva(e);
+  });
 
   // Newsletter form
   function handleSubmit(e) {
