@@ -873,8 +873,11 @@
     }
     .location-map iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-    /* ── GOOGLE REVIEWS — fondo verde pálido ─────────── */
-    .reviews-section { background: var(--g-50); }
+    /* ── GOOGLE REVIEWS — iOS style paleta KÜME ─────────── */
+    .reviews-section {
+      background: var(--g-50);
+      padding: var(--section-gap) var(--margin-desktop);
+    }
     .reviews-section .section-label { color: var(--g-800); }
     .reviews-section .section-title { color: var(--on-light); }
     .reviews-header { text-align: center; margin-bottom: 16px; }
@@ -882,73 +885,113 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      margin-bottom: 56px;
+      gap: 16px;
+      margin-bottom: 48px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(20px) saturate(1.6);
+      -webkit-backdrop-filter: blur(20px) saturate(1.6);
+      border: 0.5px solid rgba(43,83,64,0.18);
+      border-radius: 20px;
+      padding: 16px 28px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 12px rgba(43,83,64,0.08);
     }
     .reviews-score {
       font-family: 'Noto Serif', serif;
-      font-size: 40px;
+      font-size: 42px;
       font-weight: 700;
       line-height: 1;
       color: var(--on-light);
     }
-    .reviews-stars-row { display: flex; flex-direction: column; gap: 5px; }
-    .g-stars { color: #FBBC04; font-size: 18px; letter-spacing: 2px; }
-    .reviews-count { font-size: 12px; color: var(--on-light-subtle); letter-spacing: 0.03em; }
+    .reviews-stars-row { display: flex; flex-direction: column; gap: 4px; }
+    .g-stars { color: #FBBC04; font-size: 17px; letter-spacing: 3px; }
+    .reviews-count { font-size: 11px; color: var(--on-light-subtle); letter-spacing: 0.04em; font-family: -apple-system, 'Inter', sans-serif; }
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 40px;
+      gap: 16px;
+      margin-bottom: 36px;
     }
     .review-card {
-      background: #fff;
-      border: 1px solid rgba(43,83,64,0.10);
-      border-radius: 1rem;
-      padding: 28px;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(30px) saturate(1.5);
+      -webkit-backdrop-filter: blur(30px) saturate(1.5);
+      border: 0.5px solid rgba(43,83,64,0.16);
+      border-radius: 16px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      transition: box-shadow 0.2s;
+      gap: 14px;
+      box-shadow: 0 1px 3px rgba(43,83,64,0.06), 0 6px 24px rgba(43,83,64,0.07);
+      transition: box-shadow 0.22s ease, transform 0.22s var(--ease-out);
     }
-    .review-card:hover { box-shadow: 0 8px 32px rgba(43, 83, 64, 0.14); }
-    .review-header { display: flex; align-items: center; gap: 14px; }
+    .review-card:hover { box-shadow: 0 4px 20px rgba(43,83,64,0.13), 0 12px 40px rgba(43,83,64,0.09); }
+    .review-card:active { transform: scale(0.985); }
+    .review-header { display: flex; align-items: center; gap: 12px; }
     .review-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(43, 83, 64, 0.10);
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: linear-gradient(145deg, var(--g-700), var(--g-800));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 600;
-      color: var(--g-800);
+      color: #fff;
       flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(43,83,64,0.25);
+      font-family: -apple-system, 'Inter', sans-serif;
+      letter-spacing: -0.01em;
     }
-    .review-meta { display: flex; flex-direction: column; gap: 3px; }
-    .review-name  { font-size: 14px; font-weight: 600; color: var(--on-light) !important; }
-    .review-date  { font-size: 12px; color: var(--on-light-subtle) !important; }
-    .review-stars { color: #FBBC04; font-size: 14px; letter-spacing: 1px; }
-    .review-text  { font-size: 14px; line-height: 1.75; color: var(--on-light-muted) !important; }
+    .review-meta { display: flex; flex-direction: column; gap: 2px; }
+    .review-name { font-size: 14px; font-weight: 590; color: var(--on-light) !important; font-family: -apple-system, 'Inter', sans-serif; letter-spacing: -0.01em; }
+    .review-date { font-size: 12px; color: var(--on-light-subtle) !important; font-family: -apple-system, 'Inter', sans-serif; }
+    .review-divider { height: 0.5px; background: rgba(43,83,64,0.13); margin: 0 -20px; }
+    .review-stars { color: #FBBC04; font-size: 13px; letter-spacing: 2px; }
+    .review-text  { font-size: 14px; line-height: 1.72; color: var(--on-light-muted) !important; font-family: -apple-system, 'Inter', sans-serif; }
     .reviews-cta { text-align: center; }
     .btn-google {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #fff;
-      border: 1.5px solid rgba(43,83,64,0.18);
-      color: var(--on-light) !important;
-      padding: 13px 28px;
-      border-radius: 0.5rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 0.5px solid rgba(43,83,64,0.18);
+      color: var(--g-800) !important;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-family: -apple-system, 'Inter', sans-serif;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.03em;
+      letter-spacing: -0.01em;
       text-decoration: none;
-      transition: box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 2px 10px rgba(43,83,64,0.08);
+      transition: background 0.18s ease, box-shadow 0.18s ease;
     }
-    .btn-google:hover { background: #f5f5f5; box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+    .btn-google:hover { background: rgba(240,248,243,0.95); box-shadow: 0 4px 18px rgba(43,83,64,0.13); }
+    .btn-google:active { background: rgba(220,235,225,0.95); box-shadow: none; }
+    @media (max-width: 720px) {
+      .reviews-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        margin-left: calc(-1 * var(--margin-desktop));
+        margin-right: calc(-1 * var(--margin-desktop));
+        padding-left: var(--margin-desktop);
+        padding-right: var(--margin-desktop);
+      }
+      .reviews-grid::-webkit-scrollbar { display: none; }
+      .review-card { min-width: min(80vw, 300px); scroll-snap-align: start; flex-shrink: 0; }
+      .reviews-rating { padding: 14px 20px; }
+    }
 
     /* ── NEWSLETTER/CONTACTO — fondo verde oscuro ────── */
     .newsletter {
@@ -1808,41 +1851,7 @@
       </div>
     </div>
 
-    <div class="reviews-grid">
-      <div class="review-card fade-in reveal-up">
-        <div class="review-header">
-          <div class="review-avatar">S</div>
-          <div class="review-meta">
-            <span class="review-name">Sonia M.</span>
-            <span class="review-date">hace 2 semanas</span>
-          </div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">¡Me encantó este lugar! La decoración y el ambiente son geniales, el café y las facturas están deliciosos. El servicio es excepcional y, además, ¡está justo al lado de mi casa! Lo recomiendo al 110%.</p>
-      </div>
-      <div class="review-card fade-in reveal-up" style="transition-delay:0.15s">
-        <div class="review-header">
-          <div class="review-avatar">B</div>
-          <div class="review-meta">
-            <span class="review-name">Barth Estudios</span>
-            <span class="review-date">hace 1 mes</span>
-          </div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Las pastas artesanales estaban riquísimas, sobre todo las de chocolate. Mi mujer se pidió uno de sus cafés especiales con leche de avena y dice que de los mejores que se ha tomado. La camarera súper amable y el local está chulo.</p>
-      </div>
-      <div class="review-card fade-in reveal-up" style="transition-delay:0.3s">
-        <div class="review-header">
-          <div class="review-avatar">D</div>
-          <div class="review-meta">
-            <span class="review-name">Daniel González</span>
-            <span class="review-date">hace 3 semanas</span>
-          </div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Muy buena atención, además de un ambiente muy agradable. Una cosa más: las medialunas con café con leche son perfectas.</p>
-      </div>
-    </div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
 
     <div class="reviews-cta fade-in">
       <a href="https://www.google.com/search?q=KÜME+café+Opiniones&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2NjU2NzcyMjU1szQyMTIzNjIz3MDI-IpR1PvwHF9XheTEtMMrFfwLMvMy8_NSixexYhcHACxu6DpKAAAA&rldimm=3537722556924263261&tbm=lcl" target="_blank" class="btn-google">
@@ -1998,6 +2007,55 @@
     closeDrawer();
     openReserva(e);
   });
+
+  // ── REVIEWS — rotación semanal determinista ──────────────
+  const REVIEWS_POOL = [
+    { initial:"S", name:"Sonia M.",        date:"hace 2 semanas", stars:5, text:"¡Me encantó este lugar! La decoración y el ambiente son geniales, el café y las facturas están deliciosos. El servicio es excepcional y, además, ¡está justo al lado de mi casa! Lo recomiendo al 110%." },
+    { initial:"B", name:"Barth Estudios",  date:"hace 1 mes",     stars:5, text:"Las pastas artesanales estaban riquísimas, sobre todo las de chocolate. Mi mujer se pidió uno de sus cafés especiales con leche de avena y dice que de los mejores que se ha tomado. La camarera súper amable y el local está chulo." },
+    { initial:"D", name:"Daniel González", date:"hace 3 semanas", stars:5, text:"Muy buena atención, además de un ambiente muy agradable. Una cosa más: las medialunas con café con leche son perfectas." },
+    { initial:"M", name:"María Fernández", date:"hace 1 semana",  stars:5, text:"Un rincón precioso en Benimaclet. El café con leche está buenísimo y los croissants recién hechos son una delicia. Ambiente tranquilo y muy acogedor." },
+    { initial:"A", name:"Alejandro Torres",date:"hace 2 meses",   stars:5, text:"El mejor café del barrio sin duda. El trato es muy cercano y la calidad de los productos es excelente. Siempre que vengo me voy con una sonrisa." },
+    { initial:"L", name:"Laura Sánchez",   date:"hace 3 semanas", stars:5, text:"Descubrí Küme hace poco y ya es mi cafetería de cabecera. El ambiente es muy especial, con mucha luz y plantas. Los desayunos especiales son increíbles." },
+    { initial:"C", name:"Carlos Ruiz",     date:"hace 1 mes",     stars:5, text:"Qué lugar tan bonito. Fui con mis hijos y los atendieron de maravilla. Los zumos naturales fresquísimos y las tostadas con tomate, una de las mejores que he probado." },
+    { initial:"P", name:"Patricia Molina", date:"hace 2 semanas", stars:5, text:"Local súper cuidado, con detalles preciosos. El café con leche de avena es el mejor que he tomado en Valencia. Y la tostada de aguacate con salmón, espectacular." },
+    { initial:"J", name:"Javier Herrera",  date:"hace 1 mes",     stars:5, text:"Llevaba mucho tiempo buscando una cafetería con este nivel. Café de especialidad, pastas caseras y un servicio de lujo. Küme es un descubrimiento que guardo para mí." },
+  ];
+  function getWeekSeed() {
+    const now = new Date();
+    const week = Math.floor((now - new Date(now.getFullYear(), 0, 1)) / 604800000);
+    return now.getFullYear() * 100 + week;
+  }
+  function seededShuffle(arr, seed) {
+    const a = [...arr];
+    let s = seed >>> 0;
+    for (let i = a.length - 1; i > 0; i--) {
+      s = Math.imul(s ^ (s >>> 15), s | 1);
+      s ^= s + Math.imul(s ^ (s >>> 7), s | 61);
+      s = (s ^ (s >>> 14)) >>> 0;
+      [a[i], a[Math.abs(s) % (i + 1)]] = [a[Math.abs(s) % (i + 1)], a[i]];
+    }
+    return a;
+  }
+  function renderReviews() {
+    const grid = document.getElementById('reviewsGrid');
+    if (!grid) return;
+    const picked = seededShuffle(REVIEWS_POOL, getWeekSeed()).slice(0, 3);
+    grid.innerHTML = picked.map((r, i) => `
+      <div class="review-card fade-in reveal-up" style="transition-delay:${i * 0.12}s">
+        <div class="review-header">
+          <div class="review-avatar">${r.initial}</div>
+          <div class="review-meta">
+            <span class="review-name">${r.name}</span>
+            <span class="review-date">${r.date}</span>
+          </div>
+        </div>
+        <div class="review-divider"></div>
+        <div class="review-stars">${'★'.repeat(r.stars)}</div>
+        <p class="review-text">${r.text}</p>
+      </div>`).join('');
+    grid.querySelectorAll('.fade-in').forEach(el => revealObs.observe(el));
+  }
+  renderReviews();
 
   // Newsletter form
   function handleSubmit(e) {
