@@ -709,36 +709,79 @@
       position: relative;
     }
 
-    /* Phone mockup */
+    /* ── iPhone 17 Pro Max mockup ── */
     .ig-phone-wrap {
-      background: #111;
-      border-radius: 44px;
-      padding: 14px 10px 20px;
+      background: #111114;
+      border-radius: 52px;
+      padding: 20px 11px 24px;
+      position: relative;
       box-shadow:
         0 50px 90px rgba(0,0,0,0.55),
-        inset 0 0 0 1.5px rgba(255,255,255,0.07),
-        0 0 0 3px rgba(0,0,0,0.7);
-      position: relative;
-      transition: transform 320ms var(--ease-out), box-shadow 320ms var(--ease-out);
+        0 0 0 2.5px #6e6e73,
+        0 0 0 4px   #111114,
+        0 0 0 5.5px #2a2a2e,
+        inset 0 1px 0 rgba(255,255,255,0.14);
+      transition: transform 340ms var(--ease-out), box-shadow 340ms var(--ease-out);
     }
     .ig-phone-wrap:hover {
-      transform: translateY(-10px) scale(1.015);
+      transform: translateY(-12px) scale(1.018);
       box-shadow:
         0 70px 110px rgba(0,0,0,0.65),
-        inset 0 0 0 1.5px rgba(255,255,255,0.10),
-        0 0 0 3px rgba(0,0,0,0.7);
+        0 0 0 2.5px #6e6e73,
+        0 0 0 4px   #111114,
+        0 0 0 5.5px #2a2a2e,
+        inset 0 1px 0 rgba(255,255,255,0.14);
     }
-    /* pill notch */
+    /* Dynamic Island */
     .ig-phone-wrap::before {
       content: '';
       position: absolute;
-      top: 8px; left: 50%; transform: translateX(-50%);
-      width: 46px; height: 5px;
-      background: #1e1e1e;
-      border-radius: 3px;
+      top: 13px; left: 50%; transform: translateX(-50%);
+      width: 38%; height: 30px;
+      background: #000;
+      border-radius: 22px;
+      z-index: 10;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    /* Botón lateral derecho — encendido */
+    .ig-phone-wrap::after {
+      content: '';
+      position: absolute;
+      right: -5px; top: 41%; transform: translateY(-50%);
+      width: 4px; height: 72px;
+      background: #3a3a3c;
+      border-radius: 0 3px 3px 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    /* Botones izquierda — Action + Vol+ + Vol− */
+    .ig-side-btns {
+      position: absolute;
+      left: -5px; top: 0;
+      width: 4px; height: 100%;
+      pointer-events: none;
+    }
+    .ig-side-btns::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 21%;
+      width: 4px; height: 30px;
+      background: #3a3a3c;
+      border-radius: 3px 0 0 3px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    .ig-side-btns::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 35%;
+      width: 4px; height: 38px;
+      background: #3a3a3c;
+      border-radius: 3px 0 0 3px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.12),
+        0 52px 0 0 #3a3a3c;
     }
     .ig-embed-wrap {
-      border-radius: 34px;
+      border-radius: 40px;
       overflow: hidden;
       height: 480px;
       background: #000;
@@ -750,12 +793,11 @@
       border: none;
       display: block;
     }
-    /* fade out Instagram footer interactions */
     .ig-embed-wrap::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 72px;
+      height: 80px;
       background: linear-gradient(to bottom, transparent, #000);
       pointer-events: none;
     }
@@ -1488,6 +1530,7 @@
     </div>
     <div class="reels-grid">
       <div class="ig-phone-wrap">
+        <span class="ig-side-btns" aria-hidden="true"></span>
         <div class="ig-embed-wrap">
           <iframe
             src="https://www.instagram.com/p/DXg34wmiNmD/embed/"
@@ -1500,6 +1543,7 @@
         </div>
       </div>
       <div class="ig-phone-wrap">
+        <span class="ig-side-btns" aria-hidden="true"></span>
         <div class="ig-embed-wrap">
           <iframe
             src="https://www.instagram.com/p/DWUJecFjV-E/embed/"
@@ -1512,6 +1556,7 @@
         </div>
       </div>
       <div class="ig-phone-wrap">
+        <span class="ig-side-btns" aria-hidden="true"></span>
         <div class="ig-embed-wrap">
           <iframe
             src="https://www.instagram.com/p/DVy24GJjFzp/embed/"
