@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brunch — KÜME café Benimaclet</title>
+  <title>Menús — KÜME café Benimaclet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet" />
@@ -163,12 +163,17 @@
     }
     .section-head p {
       font-size: 0.95rem; color: var(--on-light-muted);
-      line-height: 1.7; max-width: 480px; margin-top: 10px; font-weight: 300;
+      line-height: 1.7; max-width: 560px; margin-top: 10px; font-weight: 300;
     }
 
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .menu-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 22px;
     }
 
@@ -225,7 +230,7 @@
     .strip-track {
       display: flex; gap: 14px;
       width: max-content;
-      animation: slide 30s linear infinite;
+      animation: slide 36s linear infinite;
     }
     .strip-track:hover { animation-play-state: paused; }
     .strip-item {
@@ -278,35 +283,39 @@
     .cta-sec .eyebrow { margin-bottom: 22px; }
     .cta-sec h2 {
       font-family: 'Noto Serif', serif; font-weight: 700;
-      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1;
-      color: var(--on-dark); margin-bottom: 18px;
+      font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.1;
+      color: var(--on-dark); margin-bottom: 20px;
     }
     .cta-sec h2 em { font-style: italic; color: var(--g-200); }
     .cta-sec p {
-      font-size: 1.05rem; color: var(--on-dark-muted);
-      max-width: 460px; margin: 0 auto 44px; font-weight: 300; line-height: 1.7;
+      font-size: 1rem; color: var(--on-dark-muted); max-width: 440px;
+      margin: 0 auto 44px; line-height: 1.7; font-weight: 300;
     }
-    .cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--g-950);
-      border-top: 1px solid rgba(255,255,255,0.07);
+      background: var(--g-950); border-top: 1px solid rgba(255,255,255,0.06);
       padding: 28px 0; text-align: center;
     }
-    footer p { font-size: 0.80rem; color: var(--on-dark-subtle); }
-    footer a { color: var(--g-400); text-decoration: none; }
+    footer p {
+      font-size: 0.82rem; color: var(--on-dark-subtle);
+    }
+    footer a { color: var(--g-200); text-decoration: none; }
+    footer a:hover { color: var(--on-dark); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       :root { --pad: 24px; }
       .menu-grid { grid-template-columns: 1fr 1fr; }
+      .menu-grid-4 { grid-template-columns: 1fr 1fr; }
       .info-grid { grid-template-columns: 1fr; }
       .info-block { border-right: none; border-bottom: 1px solid rgba(43,83,64,0.10); }
       .info-block:last-child { border-bottom: none; }
     }
     @media (max-width: 600px) {
       .menu-grid { grid-template-columns: 1fr; }
+      .menu-grid-4 { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.6rem; }
       .hero-stats { gap: 20px; }
     }
@@ -321,8 +330,8 @@
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg>
       Volver
     </a>
-    <div class="nav-logo">KÜME <span>/</span> Brunch</div>
-    <a href="https://wa.me/34600000000?text=Hola!%20Quiero%20reservar%20brunch%20en%20Küme" class="btn btn-fill-cream" target="_blank" style="font-size:0.80rem;padding:9px 22px;">Reservar mesa</a>
+    <div class="nav-logo">KÜME <span>/</span> Menús</div>
+    <a href="https://wa.me/34621498315?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20Küme" class="btn btn-fill-cream" target="_blank" style="font-size:0.80rem;padding:9px 22px;">Reservar mesa</a>
   </div>
 </nav>
 
@@ -330,22 +339,22 @@
 <section class="hero">
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-content">
-    <div class="eyebrow eyebrow-light" style="margin-bottom:24px;">Lunes a Viernes · 11:00 — 14:00 h</div>
-    <h1>El brunch que<br><em>mereces.</em></h1>
-    <p class="hero-sub">Tortitas, crepes y gofres elaborados al momento. Todos los platos incluyen café y zumo de naranja natural.</p>
+    <div class="eyebrow eyebrow-light" style="margin-bottom:24px;">Desayunos · Brunch · Merienda · Tardeo</div>
+    <h1>Toda nuestra<br><em>carta.</em></h1>
+    <p class="hero-sub">Desayunos clásicos desde 3€, brunch con tortitas y crepes, smoothies naturales, batidos, meriendas y tardeos. Todo elaborado al momento en Benimaclet.</p>
     <div class="hero-actions">
-      <a href="#tortitas" class="btn btn-fill-cream">Ver la carta</a>
-      <a href="https://wa.me/34600000000?text=Hola!%20Quiero%20reservar%20brunch" class="btn btn-ghost" target="_blank">Reservar por WhatsApp</a>
+      <a href="#desayunos" class="btn btn-fill-cream">Ver desayunos</a>
+      <a href="https://wa.me/34621498315" class="btn btn-ghost" target="_blank">Reservar por WhatsApp</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="hero-stat-val">Desde 6,50 €</div>
-        <div class="hero-stat-label">Con café y zumo incluidos</div>
+        <div class="hero-stat-val">Desde 3 €</div>
+        <div class="hero-stat-label">Desayunos clásicos</div>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-stat">
-        <div class="hero-stat-val">9 platos</div>
-        <div class="hero-stat-label">Tortitas, crepes y gofres</div>
+        <div class="hero-stat-val">+25 platos</div>
+        <div class="hero-stat-label">Toda la carta</div>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-stat">
@@ -356,25 +365,209 @@
   </div>
 </section>
 
-<!-- ── INCLUDE BANNER ── -->
+<!-- ── HORARIOS BANNER ── -->
 <div class="include-banner">
-  <p>☕ <strong>Todos los platos incluyen café y zumo de naranja natural</strong> · Horario 11:00 – 14:00 h</p>
+  <p>🌅 <strong>Desayunos</strong> 7:00–11:00 h &nbsp;·&nbsp; 🍳 <strong>Brunch</strong> 11:00–14:00 h (L–V) &nbsp;·&nbsp; 🌙 <strong>Merienda &amp; Tardeo</strong> toda la tarde</p>
 </div>
 
-<!-- ── TORTITAS ── -->
-<section class="menu-sec" id="tortitas">
+<!-- ── DESAYUNOS CLÁSICOS ── -->
+<section class="menu-sec" id="desayunos">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow eyebrow-dark">Brunch</div>
-      <h2>Tortitas</h2>
-      <p>Esponjosas por dentro, doradas por fuera. Elaboradas al momento con ingredientes frescos.</p>
+      <div class="eyebrow eyebrow-dark">Desayunos · 7:00 – 11:00 h</div>
+      <h2>Desayunos Clásicos</h2>
+      <p>Café de especialidad incluido · <strong>3 €</strong> cada uno · +1 € el zumo de naranja natural.</p>
     </div>
     <div class="menu-grid">
 
       <div class="menu-card">
-        <div class="menu-card-img">
-          <img src="Kume menus/images/tortitas-miel.png" alt="Tortitas con mantequilla y miel, huevo y bacon" loading="lazy" />
+        <div class="menu-card-img"><img src="Kume menus/images/croissant.jpg" alt="Café con croissant" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Café + Croissant</div>
+          <div class="menu-card-desc">Café de especialidad con croissant artesanal</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">3 €</div>
+            <div class="menu-card-incl">+1 € zumo</div>
+          </div>
         </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/tomate-aceite.jpg" alt="Tostada de tomate y aceite" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tostada de tomate y aceite</div>
+          <div class="menu-card-desc">Pan tostado con tomate natural y aceite de oliva virgen</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">3 €</div>
+            <div class="menu-card-incl">+1 € zumo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/tomate-jamon.png" alt="Tostada de tomate y jamón serrano" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tostada de tomate y jamón</div>
+          <div class="menu-card-desc">Pan tostado con tomate, aceite y jamón serrano · +0,50 € loncha extra</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">3 €</div>
+            <div class="menu-card-incl">+1 € zumo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/mantequilla-mermelada.jpg" alt="Tostada de mantequilla y mermelada" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tostada de mantequilla y mermelada</div>
+          <div class="menu-card-desc">Pan tostado con mantequilla y mermelada artesanal</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">3 €</div>
+            <div class="menu-card-incl">+1 € zumo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/medialunas.jpg" alt="Café con dos medialunas" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Café + Dos Medialunas</div>
+          <div class="menu-card-desc">Café de especialidad con dos medialunas recién hechas</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">3 €</div>
+            <div class="menu-card-incl">+1 € zumo</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DESAYUNOS ESPECIALES ── -->
+<section class="menu-sec" id="especiales">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-dark">Desayunos · Café y zumo incluidos</div>
+      <h2>Desayunos Especiales</h2>
+      <p>Café de especialidad y zumo de naranja natural incluidos en todos los platos.</p>
+    </div>
+    <div class="menu-grid-4">
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/salmon-aguacate.png" alt="Tostada de salmón, aguacate y queso" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tostada de salmón, aguacate y queso</div>
+          <div class="menu-card-desc">Pan tostado con salmón ahumado, aguacate y queso fresco</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">5,90 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/huevo-guacamole.jpg" alt="Tostada de huevo, aguacate y tomate" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tostada de huevo, aguacate y tomate</div>
+          <div class="menu-card-desc">Pan tostado con huevo, guacamole fresco y tomate</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">5,50 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/tostada-tortilla.png" alt="Tostada con tortilla, aguacate y bacon" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tostada con tortilla, aguacate y bacon</div>
+          <div class="menu-card-desc">Pan tostado con tortilla francesa, aguacate y bacon crujiente</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">5,50 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/croissant-huevo.jpg" alt="Croissant con huevos y bacon" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Croissant con huevos y bacon</div>
+          <div class="menu-card-desc">Croissant artesanal relleno de huevos y bacon crujiente</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">5,50 €</div>
+            <div class="menu-card-incl">café + zumo<br>incluidos</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CAFÉS ESPECIALES ── -->
+<section class="menu-sec" id="cafes">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-dark">Bebidas especiales</div>
+      <h2>Cafés Especiales</h2>
+      <p>Nuestras bebidas más especiales, elaboradas al momento para tomarte el día con calma.</p>
+    </div>
+    <div class="menu-grid-4">
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/cafe-matcha-latte.png" alt="Ice Matcha Latte" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Ice Matcha Latte</div>
+          <div class="menu-card-desc">Matcha ceremonial con leche de avena y hielo</div>
+          <div class="menu-card-foot"><div class="menu-card-price">4 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/cafe-chai-latte.png" alt="Ice Chai Latte" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Ice Chai Latte</div>
+          <div class="menu-card-desc">Chai especiado con leche y hielo</div>
+          <div class="menu-card-foot"><div class="menu-card-price">4 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/cafe-coffee-latte.png" alt="Ice Coffee Latte" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Ice Coffee Latte</div>
+          <div class="menu-card-desc">Café frío con leche de avena y sirope de vainilla</div>
+          <div class="menu-card-foot"><div class="menu-card-price">4 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/cafe-caramel-latte.png" alt="Ice Caramel Latte" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Ice Caramel Latte</div>
+          <div class="menu-card-desc">Café frío con leche y sirope de caramelo</div>
+          <div class="menu-card-foot"><div class="menu-card-price">4 €</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── BRUNCH · TORTITAS ── -->
+<section class="menu-sec" id="tortitas">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-dark">Brunch · 11:00 – 14:00 h</div>
+      <h2>Tortitas</h2>
+      <p>Esponjosas por dentro, doradas por fuera. Elaboradas al momento con ingredientes frescos. Café y zumo incluidos.</p>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/tortitas-miel.png" alt="Tortitas con mantequilla y miel, huevo y bacon" loading="lazy" /></div>
         <div class="menu-card-body">
           <div class="menu-card-name">Mantequilla y miel, huevo y bacon</div>
           <div class="menu-card-desc">Tortitas artesanales con mantequilla, miel, huevo y bacon crujiente</div>
@@ -386,9 +579,7 @@
       </div>
 
       <div class="menu-card">
-        <div class="menu-card-img">
-          <img src="Kume menus/images/tortitas-salmon.png" alt="Tortitas con aguacate, salmón y huevo" loading="lazy" />
-        </div>
+        <div class="menu-card-img"><img src="Kume menus/images/tortitas-salmon.png" alt="Tortitas con aguacate, salmón y huevo" loading="lazy" /></div>
         <div class="menu-card-body">
           <div class="menu-card-name">Aguacate, salmón y huevo</div>
           <div class="menu-card-desc">Tortitas artesanales con aguacate fresco, salmón ahumado y huevo</div>
@@ -400,9 +591,7 @@
       </div>
 
       <div class="menu-card">
-        <div class="menu-card-img">
-          <img src="Kume menus/images/brunch-tortitas.png" alt="Tortitas con bacon, queso y huevo" loading="lazy" />
-        </div>
+        <div class="menu-card-img"><img src="Kume menus/images/brunch-tortitas.png" alt="Tortitas con bacon, queso y huevo" loading="lazy" /></div>
         <div class="menu-card-body">
           <div class="menu-card-name">Bacon, queso y huevo</div>
           <div class="menu-card-desc">Tortitas artesanales con bacon crujiente, queso fundido y huevo</div>
@@ -417,20 +606,18 @@
   </div>
 </section>
 
-<!-- ── CREPES ── -->
+<!-- ── BRUNCH · CREPES ── -->
 <section class="menu-sec" id="crepes">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow eyebrow-dark">Brunch</div>
+      <div class="eyebrow eyebrow-dark">Brunch · 11:00 – 14:00 h</div>
       <h2>Crepes</h2>
-      <p>Finas y crujientes, rellenas con los mejores ingredientes. Elaboradas al momento.</p>
+      <p>Finas y crujientes, rellenas con los mejores ingredientes. Elaboradas al momento. Café y zumo incluidos.</p>
     </div>
     <div class="menu-grid">
 
       <div class="menu-card">
-        <div class="menu-card-img">
-          <img src="Kume menus/images/brunch-crepes.png" alt="Crepe de jamón, queso, tomate y huevo" loading="lazy" />
-        </div>
+        <div class="menu-card-img"><img src="Kume menus/images/brunch-crepes.png" alt="Crepe de jamón, queso, tomate y huevo" loading="lazy" /></div>
         <div class="menu-card-body">
           <div class="menu-card-name">Jamón, queso, tomate y huevo</div>
           <div class="menu-card-desc">Crepe con jamón serrano, queso fundido, tomate fresco y huevo</div>
@@ -442,9 +629,7 @@
       </div>
 
       <div class="menu-card">
-        <div class="menu-card-img">
-          <img src="Kume menus/images/crepe-jamon-queso.png" alt="Crepe de jamón y queso" loading="lazy" />
-        </div>
+        <div class="menu-card-img"><img src="Kume menus/images/crepe-jamon-queso.png" alt="Crepe de jamón y queso" loading="lazy" /></div>
         <div class="menu-card-body">
           <div class="menu-card-name">Jamón y queso</div>
           <div class="menu-card-desc">Crepe clásica con jamón serrano y queso emmental fundido</div>
@@ -456,9 +641,7 @@
       </div>
 
       <div class="menu-card">
-        <div class="menu-card-img">
-          <img src="Kume menus/images/crepe-jamon-queso-huevo.png" alt="Crepe de jamón, queso y huevo" loading="lazy" />
-        </div>
+        <div class="menu-card-img"><img src="Kume menus/images/crepe-jamon-queso-huevo.png" alt="Crepe de jamón, queso y huevo" loading="lazy" /></div>
         <div class="menu-card-body">
           <div class="menu-card-name">Jamón, queso y huevo</div>
           <div class="menu-card-desc">Crepe con jamón serrano, queso fundido y huevo a la plancha</div>
@@ -473,20 +656,18 @@
   </div>
 </section>
 
-<!-- ── GOFRES Y CROISSANT ── -->
+<!-- ── BRUNCH · GOFRES Y CROISSANT ── -->
 <section class="menu-sec" id="gofres">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow eyebrow-dark">Brunch</div>
+      <div class="eyebrow eyebrow-dark">Brunch · 11:00 – 14:00 h</div>
       <h2>Gofres y Croissant</h2>
-      <p>Crujientes por fuera, tiernos por dentro. El brunch más especial de Benimaclet.</p>
+      <p>Crujientes por fuera, tiernos por dentro. El brunch más especial de Benimaclet. Café y zumo incluidos.</p>
     </div>
     <div class="menu-grid">
 
       <div class="menu-card">
-        <div class="menu-card-img">
-          <img src="Kume menus/images/brunch-gofres.png" alt="Gofre con aguacate, salmón y huevo" loading="lazy" />
-        </div>
+        <div class="menu-card-img"><img src="Kume menus/images/brunch-gofres.png" alt="Gofre con aguacate, salmón y huevo" loading="lazy" /></div>
         <div class="menu-card-body">
           <div class="menu-card-name">Gofre · aguacate, salmón y huevo</div>
           <div class="menu-card-desc">Gofre artesanal con aguacate, salmón ahumado y huevo</div>
@@ -498,9 +679,7 @@
       </div>
 
       <div class="menu-card">
-        <div class="menu-card-img">
-          <img src="Kume menus/images/gofre-bacon.png" alt="Gofre con bacon y huevo" loading="lazy" />
-        </div>
+        <div class="menu-card-img"><img src="Kume menus/images/gofre-bacon.png" alt="Gofre con bacon y huevo" loading="lazy" /></div>
         <div class="menu-card-body">
           <div class="menu-card-name">Gofre · bacon y huevo</div>
           <div class="menu-card-desc">Gofre artesanal con bacon crujiente y huevo a la plancha</div>
@@ -512,9 +691,7 @@
       </div>
 
       <div class="menu-card">
-        <div class="menu-card-img">
-          <img src="Kume menus/images/croissant-jamonqueso.png" alt="Croissant con jamón, queso y tomate cherry" loading="lazy" />
-        </div>
+        <div class="menu-card-img"><img src="Kume menus/images/croissant-jamonqueso.png" alt="Croissant con jamón, queso y tomate cherry" loading="lazy" /></div>
         <div class="menu-card-body">
           <div class="menu-card-name">Croissant · jamón, queso y tomate cherry</div>
           <div class="menu-card-desc">Croissant artesanal con jamón serrano, queso y tomate cherry</div>
@@ -529,26 +706,296 @@
   </div>
 </section>
 
+<!-- ── SMOOTHIES NATURALES ── -->
+<section class="menu-sec" id="smoothies">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-dark">Bebidas naturales</div>
+      <h2>Smoothies Naturales</h2>
+      <p>Hechos al momento con fruta fresca · <strong>5 €</strong> · +1 € con leche · +2 € con ron · +3 € con vodka.</p>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-dragon.png" alt="Dragon Fruit Mix" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Dragon Fruit Mix</div>
+          <div class="menu-card-desc">Mango · Fresa · Pitaya</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-sunny.png" alt="Sunny Splash" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Sunny Splash</div>
+          <div class="menu-card-desc">Mango · Limón · Piña · Fruta de la pasión</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-green.png" alt="Green Power" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Green Power</div>
+          <div class="menu-card-desc">Pepino · Col rizada · Piña · Espinaca</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-colada.png" alt="Colada Jungle" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Colada Jungle</div>
+          <div class="menu-card-desc">Plátano · Coco · Piña</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-vitality.png" alt="Vitality" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Vitality</div>
+          <div class="menu-card-desc">Plátano · Fresa</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-redbliss.png" alt="Red Bliss" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Red Bliss</div>
+          <div class="menu-card-desc">Plátano · Arándano · Frambuesa</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-caribbean.png" alt="Caribbean Passion" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Caribbean Passion</div>
+          <div class="menu-card-desc">Mango · Papaya · Piña</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-berries.png" alt="Berries Passion" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Berries Passion</div>
+          <div class="menu-card-desc">Mango · Cereza · Arándano · Fresa</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/sm-tropical.png" alt="Tropical Heaven" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tropical Heaven</div>
+          <div class="menu-card-desc">Melón · Mango · Kiwi · Piña</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5 €</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── BATIDOS ── -->
+<section class="menu-sec" id="batidos">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-dark">Bebidas</div>
+      <h2>Batidos</h2>
+      <p>Helados batidos · <strong>5,50 €</strong> · Convertir en frappé con café <strong>+1 €</strong>.</p>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/mk-cookies.png" alt="Cookies & Cream" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Cookies &amp; Cream</div>
+          <div class="menu-card-desc">Vainilla con galleta de chocolate</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5,50 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/mk-caramel.png" alt="Salted Caramel Dream" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Salted Caramel Dream</div>
+          <div class="menu-card-desc">Vainilla con caramelo salado</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5,50 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/mk-vanilla.png" alt="Vanilla Dream" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Vanilla Dream</div>
+          <div class="menu-card-desc">Helado de vainilla</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5,50 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/mk-strawberry.png" alt="Strawberry Fantasy" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Strawberry Fantasy</div>
+          <div class="menu-card-desc">Vainilla con fresas</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5,50 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/mk-banana.png" alt="Bananalicious" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Bananalicious</div>
+          <div class="menu-card-desc">Plátano y vainilla</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5,50 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/drinks/mk-chocolate.png" alt="Pure Chocolate" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Pure Chocolate</div>
+          <div class="menu-card-desc">Vainilla con 60% chocolate</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5,50 €</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── MERIENDA ── -->
+<section class="menu-sec" id="merienda">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-dark">De tarde</div>
+      <h2>Merienda</h2>
+      <p>Por <strong>+1,50 €</strong> más, cambia el tostado por una porción de tarta artesanal.</p>
+    </div>
+    <div class="menu-grid-4">
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/tardeo-infantil.png" alt="Tostado con Choleck" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tostado con Choleck</div>
+          <div class="menu-card-desc">Tostado de pan con Choleck · Para los más pequeños</div>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">5,50 €</div>
+            <div class="menu-card-incl">Infantil</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/merienda-cafe-tostado.png" alt="Café con leche y tostado" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Café con leche y tostado</div>
+          <div class="menu-card-desc">Café con leche y tostado artesanal</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5,50 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/merienda-matcha-tostado.png" alt="Matcha latte y tostado" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Matcha latte y tostado</div>
+          <div class="menu-card-desc">Matcha latte caliente con tostado artesanal</div>
+          <div class="menu-card-foot"><div class="menu-card-price">6,50 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/merienda-cafe-tostado.png" alt="Caramel latte y tostado" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Caramel latte y tostado</div>
+          <div class="menu-card-desc">Caramel latte caliente con tostado artesanal</div>
+          <div class="menu-card-foot"><div class="menu-card-price">6,50 €</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TARDEO ── -->
+<section class="menu-sec" id="tardeo">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-dark">De tarde</div>
+      <h2>Tardeo</h2>
+      <p>Cerveza fría con tapa de cortesía. Las tardes en Benimaclet son de Küme.</p>
+    </div>
+    <div class="menu-grid-4">
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/tardeo-adulto.png" alt="1 cerveza con dos sandwich de miga" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Cerveza con sandwich de miga</div>
+          <div class="menu-card-desc">1 cerveza con dos sandwich de miga argentina</div>
+          <div class="menu-card-foot"><div class="menu-card-price">7 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/tardeo-carlitos.png" alt="1 cerveza con tostado Carlitos" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Cerveza con tostado Carlitos</div>
+          <div class="menu-card-desc">1 cerveza con tostado de queso y tomate Carlitos</div>
+          <div class="menu-card-foot"><div class="menu-card-price">5,50 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/tardeo-estrella.png" alt="Caña de cerveza" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Caña de cerveza</div>
+          <div class="menu-card-desc">Caña de cerveza fría con tapa de cortesía</div>
+          <div class="menu-card-foot"><div class="menu-card-price">1,90 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/tardeo-estrella.png" alt="Doble de cerveza" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Doble de cerveza</div>
+          <div class="menu-card-desc">Doble caña de cerveza fría con tapa de cortesía</div>
+          <div class="menu-card-foot"><div class="menu-card-price">2,90 €</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── PHOTO STRIP ── -->
 <section class="strip">
   <div class="strip-track" id="stripTrack">
+    <div class="strip-item"><img src="Kume menus/images/croissant.jpg" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/tomate-aceite.jpg" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/salmon-aguacate.png" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/tortitas-miel.png" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/tortitas-salmon.png" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/brunch-crepes.png" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="Kume menus/images/crepe-jamon-queso.png" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/brunch-gofres.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/cafe-matcha-latte.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/medialunas.jpg" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/gofre-bacon.png" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="Kume menus/images/croissant-jamonqueso.png" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="Kume menus/images/brunch-tortitas.png" alt="" loading="lazy"/></div>
     <!-- duplicado para loop infinito -->
+    <div class="strip-item"><img src="Kume menus/images/croissant.jpg" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/tomate-aceite.jpg" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/salmon-aguacate.png" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/tortitas-miel.png" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/tortitas-salmon.png" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/brunch-crepes.png" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="Kume menus/images/crepe-jamon-queso.png" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/brunch-gofres.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/cafe-matcha-latte.png" alt="" loading="lazy"/></div>
+    <div class="strip-item"><img src="Kume menus/images/medialunas.jpg" alt="" loading="lazy"/></div>
     <div class="strip-item"><img src="Kume menus/images/gofre-bacon.png" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="Kume menus/images/croissant-jamonqueso.png" alt="" loading="lazy"/></div>
-    <div class="strip-item"><img src="Kume menus/images/brunch-tortitas.png" alt="" loading="lazy"/></div>
   </div>
 </section>
 
@@ -557,22 +1004,22 @@
   <div class="container">
     <div class="info-grid">
       <div class="info-block">
-        <span class="info-icon">🕙</span>
-        <div class="info-label">Horario brunch</div>
+        <span class="info-icon">☕</span>
+        <div class="info-label">Desayunos</div>
+        <div class="info-val">7:00 — 11:00 h</div>
+        <div class="info-sub">Todos los días · Café incluido desde 3 €</div>
+      </div>
+      <div class="info-block">
+        <span class="info-icon">🍳</span>
+        <div class="info-label">Brunch</div>
         <div class="info-val">11:00 — 14:00 h</div>
-        <div class="info-sub">De lunes a viernes · Se recomienda reservar</div>
+        <div class="info-sub">De lunes a viernes · Café y zumo incluidos</div>
       </div>
       <div class="info-block">
-        <span class="info-icon">📍</span>
-        <div class="info-label">Dónde estamos</div>
-        <div class="info-val">Benimaclet, Valencia</div>
-        <div class="info-sub">C/ Guardia Civil, 20 · 46020</div>
-      </div>
-      <div class="info-block">
-        <span class="info-icon">💬</span>
-        <div class="info-label">Reservas</div>
-        <div class="info-val">WhatsApp directo</div>
-        <div class="info-sub">Confirmación en menos de 2 horas</div>
+        <span class="info-icon">🌙</span>
+        <div class="info-label">Merienda &amp; Tardeo</div>
+        <div class="info-val">Toda la tarde</div>
+        <div class="info-sub">Benimaclet · C/ Guardia Civil, 20</div>
       </div>
     </div>
   </div>
@@ -580,12 +1027,12 @@
 
 <!-- ── CTA ── -->
 <section class="cta-sec">
-  <div class="container">
-    <div class="eyebrow eyebrow-light">¿Te apetece el brunch?</div>
-    <h2>Reserva tu mesa<br>de <em>brunch</em></h2>
-    <p>Escríbenos y te confirmamos en minutos. Café y zumo incluidos en todos los platos.</p>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="eyebrow eyebrow-light">¿Nos vemos en Küme?</div>
+    <h2>Reserva tu mesa<br>o <em>pídelo ya.</em></h2>
+    <p>Escríbenos y te confirmamos en minutos. Estamos en el corazón de Benimaclet.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/34600000000?text=Hola!%20Quiero%20reservar%20brunch%20en%20Küme%20Café" class="btn btn-fill-cream" target="_blank">
+      <a href="https://wa.me/34621498315?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20K%C3%BCme%20Caf%C3%A9" class="btn btn-fill-cream" target="_blank">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Reservar por WhatsApp
       </a>
