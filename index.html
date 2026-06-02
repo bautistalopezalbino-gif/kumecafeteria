@@ -49,6 +49,8 @@
       --container-max: 1200px;
       --margin-desktop: 64px;
       --section-gap: 120px;
+      --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     }
 
     html { scroll-behavior: smooth; }
@@ -132,8 +134,9 @@
       text-transform: uppercase;
       text-decoration: none;
       display: inline-block;
-      transition: background 0.2s, border-color 0.2s;
+      transition: transform 160ms var(--ease-out), background-color 150ms ease, border-color 150ms ease;
     }
+    .btn-carta-nav:active { transform: scale(0.97); }
     .btn-carta-nav:hover { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.70); }
     nav.scrolled .btn-carta-nav { border-color: rgba(255,255,255,0.55); }
     .btn-nav {
@@ -150,9 +153,10 @@
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
-      transition: background 0.2s, transform 0.1s;
+      transition: transform 160ms var(--ease-out), background-color 150ms ease;
     }
-    .btn-nav:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .btn-nav:active { transform: scale(0.97); }
+    .btn-nav:hover { background: var(--primary-hover); }
 
     /* ── HERO ────────────────────────────────────────── */
     .hero {
@@ -224,9 +228,10 @@
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
-      transition: background 0.2s, transform 0.15s;
+      transition: transform 160ms var(--ease-out), background-color 150ms ease, box-shadow 150ms ease;
     }
-    .btn-hero:hover { background: var(--primary-hover); transform: translateY(-2px); }
+    .btn-hero:active { transform: scale(0.97); }
+    .btn-hero:hover { background: var(--primary-hover); box-shadow: 0 8px 24px rgba(26,50,40,0.28); }
     .btn-ghost {
       background: transparent;
       color: #fff;
@@ -241,8 +246,9 @@
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
-      transition: background 0.2s, border-color 0.2s;
+      transition: transform 160ms var(--ease-out), background-color 150ms ease, border-color 150ms ease;
     }
+    .btn-ghost:active { transform: scale(0.97); }
     .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
     .hero-scroll {
       position: absolute;
