@@ -1,0 +1,9 @@
+{
+  "name": "slide-exporter",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "puppeteer-core": "^25.1.0",
+    "sharp": "^0.34.5"
+  }
+}

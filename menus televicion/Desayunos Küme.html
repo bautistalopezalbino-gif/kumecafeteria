@@ -551,6 +551,71 @@
   .grid-tardeo .card-photo img { object-fit: contain; }
   .grid-tardeo .card-body { padding: 28px 30px 32px; gap: 14px; }
   .grid-tardeo .card-name { font-size: 32px; line-height: 1.2; min-height: 2.4em; }
+
+  /* ════════ BOCADILLOS (2 cards horizontales) ════════ */
+  .grid-boc {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 52px;
+    align-content: center;
+  }
+  .card-boc {
+    flex-direction: row;
+    min-height: 0;
+  }
+  .card-boc-photo {
+    width: 370px;
+    flex-shrink: 0;
+    aspect-ratio: unset !important;
+    align-self: stretch;
+    border-radius: 0;
+    overflow: hidden;
+    background: #fbfbfa;
+  }
+  .card-boc-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+  .card-boc-body {
+    flex: 1;
+    padding: 36px 42px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .boc-opts {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 20px 0 auto;
+  }
+  .boc-section-label {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+  .boc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .boc-tag {
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--green);
+    background: var(--green-pale);
+    padding: 6px 20px;
+    border-radius: 999px;
+  }
+  .boc-tag-alt {
+    background: #f0e6c8;
+    color: #6b4a00;
+  }
 </style>
 </head>
 <body>
@@ -795,10 +860,45 @@
       <p class="eyebrow">Hechos al momento</p>
       <h2 class="board-title serif">Smoothies naturales</h2>
       <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
-      <p class="price-note"><strong>3 €</strong> · <span class="tag">+1 € con leche</span> · <span class="tag">+2 € con ron</span> · <span class="tag">+3 € con vodka</span></p>
+      <p class="price-note"><strong>5 €</strong> · <span class="tag">+1 € con leche</span> · <span class="tag">+2 € con ron</span> · <span class="tag">+3 € con vodka</span></p>
     </div>
-    <div style="text-align:center; margin:32px 0;">
-      <img src="images/smoothies-collage.png" alt="Smoothies Naturales - 9 variedades" style="max-width:100%; height:auto; border-radius:16px; box-shadow:0 8px 32px rgba(45,45,45,0.15);"/>
+    <div class="drink-grid drink-3x3">
+      <div class="drink-card">
+        <div class="drink-thumb sq grid-bg sm-grid" style="background-image:url('images/drinks/sm-collage.png');background-position:0% 0%"></div>
+        <div class="drink-info"><p class="drink-name">Sunny Mango</p><p class="drink-ingr">Mango, papaya y piña</p><p class="drink-price">5 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb sq grid-bg sm-grid" style="background-image:url('images/drinks/sm-collage.png');background-position:50% 0%"></div>
+        <div class="drink-info"><p class="drink-name">Tropical</p><p class="drink-ingr">Piña, coco y mango</p><p class="drink-price">5 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb sq grid-bg sm-grid" style="background-image:url('images/drinks/sm-collage.png');background-position:100% 0%"></div>
+        <div class="drink-info"><p class="drink-name">Dragon Fruit</p><p class="drink-ingr">Pitahaya, fresa y mango</p><p class="drink-price">5 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb sq grid-bg sm-grid" style="background-image:url('images/drinks/sm-collage.png');background-position:0% 50%"></div>
+        <div class="drink-info"><p class="drink-name">Red Berries</p><p class="drink-ingr">Fresas, frambuesas y açaí</p><p class="drink-price">5 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb sq grid-bg sm-grid" style="background-image:url('images/drinks/sm-collage.png');background-position:50% 50%"></div>
+        <div class="drink-info"><p class="drink-name">Red Bliss</p><p class="drink-ingr">Sandía, fresa y limón</p><p class="drink-price">5 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb sq grid-bg sm-grid" style="background-image:url('images/drinks/sm-collage.png');background-position:100% 50%"></div>
+        <div class="drink-info"><p class="drink-name">Piña Colada</p><p class="drink-ingr">Piña, coco y lima</p><p class="drink-price">5 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb sq grid-bg sm-grid" style="background-image:url('images/drinks/sm-collage.png');background-position:0% 100%"></div>
+        <div class="drink-info"><p class="drink-name">Caribbean</p><p class="drink-ingr">Mango, maracuyá y lima</p><p class="drink-price">5 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb sq grid-bg sm-grid" style="background-image:url('images/drinks/sm-collage.png');background-position:50% 100%"></div>
+        <div class="drink-info"><p class="drink-name">Vitality</p><p class="drink-ingr">Naranja, zanahoria y cúrcuma</p><p class="drink-price">5 €</p></div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-thumb sq grid-bg sm-grid" style="background-image:url('images/drinks/sm-collage.png');background-position:100% 100%"></div>
+        <div class="drink-info"><p class="drink-name">Green Detox</p><p class="drink-ingr">Manzana, espinaca y jengibre</p><p class="drink-price">5 €</p></div>
+      </div>
     </div>
   </section>
 
@@ -808,37 +908,108 @@
       <p class="eyebrow">Helados batidos</p>
       <h2 class="board-title serif">Batidos</h2>
       <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+      <p class="price-note">Por <strong>+1,50 €</strong> más · <span class="tag">conviértelo en un frappé con café</span></p>
     </div>
     <div class="drink-grid drink-3x2">
       <div class="drink-card">
-        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.jpg');background-position:0% 0%"></div>
+        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.png');background-position:0% 0%"></div>
         <div class="drink-info"><p class="drink-name">Cookies &amp; Cream</p><p class="drink-ingr">Vainilla con galleta de chocolate</p><p class="drink-price">4,50 €</p></div>
       </div>
       <div class="drink-card">
-        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.jpg');background-position:50% 0%"></div>
+        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.png');background-position:50% 0%"></div>
         <div class="drink-info"><p class="drink-name">Salted Caramel Dream</p><p class="drink-ingr">Vainilla con caramelo salado</p><p class="drink-price">4,50 €</p></div>
       </div>
       <div class="drink-card">
-        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.jpg');background-position:100% 0%"></div>
+        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.png');background-position:100% 0%"></div>
         <div class="drink-info"><p class="drink-name">Vanilla Dream</p><p class="drink-ingr">Helado de vainilla</p><p class="drink-price">4,50 €</p></div>
       </div>
       <div class="drink-card">
-        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.jpg');background-position:0% 100%"></div>
+        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.png');background-position:0% 100%"></div>
         <div class="drink-info"><p class="drink-name">Strawberry Fantasy</p><p class="drink-ingr">Vainilla con fresas</p><p class="drink-price">4,50 €</p></div>
       </div>
       <div class="drink-card">
-        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.jpg');background-position:50% 100%"></div>
+        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.png');background-position:50% 100%"></div>
         <div class="drink-info"><p class="drink-name">Bananalicious</p><p class="drink-ingr">Plátano y vainilla</p><p class="drink-price">4,50 €</p></div>
       </div>
       <div class="drink-card">
-        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.jpg');background-position:100% 100%"></div>
+        <div class="drink-thumb tall grid-bg mk-grid" style="background-image:url('images/drinks/batidos-grid.png');background-position:100% 100%"></div>
         <div class="drink-info"><p class="drink-name">Pure Chocolate</p><p class="drink-ingr">Vainilla con 60% chocolate</p><p class="drink-price">4,50 €</p></div>
       </div>
     </div>
   </section>
 
 
-  <!-- ░░ 9 · MERIENDA ░░ -->
+  <!-- ░░ 9 · BOCADILLOS ░░ -->
+  <section data-label="Bocadillos" class="board">
+    <div class="board-head">
+      <p class="eyebrow">A tu gusto</p>
+      <h2 class="board-title serif">Bocadillos</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+    </div>
+    <div class="grid grid-boc">
+      <article class="card card-boc">
+        <div class="card-boc-photo"><img src="images/bocadillo.png" alt="Bocadillo grande"/></div>
+        <div class="card-boc-body">
+          <p class="card-pre">Grande</p>
+          <h3 class="card-name">Bocadillo</h3>
+          <div class="boc-opts">
+            <div>
+              <p class="boc-section-label">Relleno</p>
+              <div class="boc-tags">
+                <span class="boc-tag">Jamón york</span>
+                <span class="boc-tag">Bacon</span>
+                <span class="boc-tag">Serrano</span>
+                <span class="boc-tag">Huevo</span>
+              </div>
+            </div>
+            <div>
+              <p class="boc-section-label">Extras</p>
+              <div class="boc-tags">
+                <span class="boc-tag boc-tag-alt">Tomate</span>
+                <span class="boc-tag boc-tag-alt">Queso</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-foot">
+            <span></span>
+            <span class="card-price">5<span> €</span></span>
+          </div>
+        </div>
+      </article>
+      <article class="card card-boc">
+        <div class="card-boc-photo"><img src="images/bocadillo-pequeno.png" alt="Bocadillo pequeño" style="transform:scale(1.7);"/></div>
+        <div class="card-boc-body">
+          <p class="card-pre">Pequeño</p>
+          <h3 class="card-name">Bocadillo</h3>
+          <div class="boc-opts">
+            <div>
+              <p class="boc-section-label">Relleno</p>
+              <div class="boc-tags">
+                <span class="boc-tag">Jamón york</span>
+                <span class="boc-tag">Bacon</span>
+                <span class="boc-tag">Serrano</span>
+                <span class="boc-tag">Huevo</span>
+              </div>
+            </div>
+            <div>
+              <p class="boc-section-label">Extras</p>
+              <div class="boc-tags">
+                <span class="boc-tag boc-tag-alt">Tomate</span>
+                <span class="boc-tag boc-tag-alt">Queso</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-foot">
+            <span></span>
+            <span class="card-price">3<span> €</span></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- ░░ 10 · MERIENDA ░░ -->
   <section data-label="Merienda" class="board">
     <div class="board-head">
       <p class="eyebrow">De tarde</p>
@@ -879,7 +1050,7 @@
     </div>
   </section>
 
-  <!-- ░░ 10 · TARDEO ░░ -->
+  <!-- ░░ 11 · TARDEO ░░ -->
   <section data-label="Tardeo" class="board">
     <div class="board-head">
       <p class="eyebrow">De tarde</p>
@@ -918,7 +1089,7 @@
     </div>
   </section>
 
-  <!-- ░░ 11 · TARTAS DE ENCARGO ░░ -->
+  <!-- ░░ 12 · TARTAS DE ENCARGO ░░ -->
   <section data-label="Tartas de encargo" class="tarta-slide">
 
     <!-- Panel izquierdo verde -->
