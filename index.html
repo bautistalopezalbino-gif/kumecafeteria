@@ -160,6 +160,54 @@
     .btn-nav:active { transform: scale(0.97); }
     .btn-nav:hover { background: var(--primary-hover); }
 
+    /* ── LANG TOGGLE ─────────────────────────────────── */
+    #lang-toggle {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.40);
+      color: rgba(255,255,255,0.88);
+      border-radius: 4px;
+      padding: 5px 11px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+      line-height: 1;
+    }
+    #lang-toggle:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.70);
+    }
+    nav.scrolled #lang-toggle { border-color: rgba(255,255,255,0.55); }
+
+    /* Wrapper derecho: toggle + hamburger siempre visibles */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    /* en el drawer móvil */
+    #lang-toggle-drawer {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.80);
+      border-radius: 6px;
+      padding: 10px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.18s ease;
+      width: 100%;
+      text-align: center;
+      margin-top: 8px;
+    }
+    #lang-toggle-drawer:hover { background: rgba(255,255,255,0.14); }
+
     /* ── HERO ────────────────────────────────────────── */
     .hero {
       position: relative;
@@ -1404,6 +1452,8 @@
       .nav-links { display: none; }
       .nav-ctas  { display: none; }
       .nav-hamburger { display: flex; }
+      /* Toggle visible junto al hamburger en tablet/móvil */
+      #lang-toggle { padding: 5px 10px; font-size: 10px; }
       .values-row { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
       .value-num { padding-top: 0; }
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -1482,7 +1532,7 @@
       <div class="reserva-handle"></div>
       <div class="reserva-sheet-header">
         <p class="reserva-sheet-eyebrow">Küme café · Benimaclet</p>
-        <h3 class="reserva-sheet-title">Haz tu pedido</h3>
+        <h3 class="reserva-sheet-title" data-i18n="modal-title">Haz tu pedido</h3>
       </div>
       <div class="reserva-list">
 
@@ -1504,7 +1554,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
           </div>
           <div class="reserva-row-text">
-            <div class="reserva-row-label">Llamar</div>
+            <div class="reserva-row-label" data-i18n="modal-call">Llamar</div>
             <div class="reserva-row-num">621 49 83 15</div>
           </div>
           <svg class="reserva-row-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1514,7 +1564,7 @@
     </div>
 
     <!-- Cancel -->
-    <button class="reserva-cancel-btn" id="reservaClose">Cancelar</button>
+    <button class="reserva-cancel-btn" id="reservaClose" data-i18n="modal-cancel">Cancelar</button>
 
   </div>
 </div>
@@ -1524,17 +1574,20 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo"><img src="fotos/nuevas%20fotos/IMG_6820-Photoroom.png" alt="Küme café" style="height:54px;width:auto;" /></a>
     <ul class="nav-links">
-      <li><a href="#historia">Historia</a></li>
-      <li><a href="#galeria">Espacios</a></li>
-      <li><a href="#ubicacion">Dónde estamos</a></li>
+      <li><a href="#historia" data-i18n="nav-historia">Historia</a></li>
+      <li><a href="#galeria" data-i18n="nav-espacios">Espacios</a></li>
+      <li><a href="#ubicacion" data-i18n="nav-ubicacion">Dónde estamos</a></li>
     </ul>
     <div class="nav-ctas">
-      <a href="brunch.html" class="btn-carta-nav">Ver la carta</a>
-      <a href="#" class="btn-nav" id="btnReserva">Haz tu pedido</a>
+      <a href="brunch.html" class="btn-carta-nav" data-i18n="nav-carta">Ver la carta</a>
+      <a href="#" class="btn-nav" id="btnReserva" data-i18n="nav-pedido">Haz tu pedido</a>
     </div>
-    <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <button id="lang-toggle" aria-label="Switch to English">EN</button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -1543,13 +1596,14 @@
   <div class="nav-drawer-overlay" id="navDrawerOverlay"></div>
   <div class="nav-drawer-panel" role="dialog" aria-label="Menú de navegación">
     <ul class="nav-drawer-links">
-      <li><a href="#historia">Historia</a></li>
-      <li><a href="#galeria">Espacios</a></li>
-      <li><a href="#ubicacion">Dónde estamos</a></li>
+      <li><a href="#historia" data-i18n="nav-historia">Historia</a></li>
+      <li><a href="#galeria" data-i18n="nav-espacios">Espacios</a></li>
+      <li><a href="#ubicacion" data-i18n="nav-ubicacion">Dónde estamos</a></li>
     </ul>
     <div class="nav-drawer-ctas">
-      <a href="brunch.html" class="btn-carta-nav">Ver la carta</a>
-      <a href="#" class="btn-nav" id="btnReservaDrawer">Haz tu pedido</a>
+      <a href="brunch.html" class="btn-carta-nav" data-i18n="nav-carta">Ver la carta</a>
+      <a href="#" class="btn-nav" id="btnReservaDrawer" data-i18n="nav-pedido">Haz tu pedido</a>
+      <button id="lang-toggle-drawer" aria-label="Switch to English">EN — English</button>
     </div>
   </div>
 </div>
@@ -1558,14 +1612,14 @@
 <section class="hero">
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">El rincón que buscabas en Benimaclet</p>
-    <p class="hero-sub">Café de especialidad · Desayunos · Brunch.<br/>Un espacio diseñado para el bienestar y el disfrute pausado.</p>
+    <p class="hero-eyebrow" data-i18n="hero-eyebrow">El rincón que buscabas en Benimaclet</p>
+    <p class="hero-sub" data-i18n-html="hero-sub">Café de especialidad · Desayunos · Brunch.<br/>Un espacio diseñado para el bienestar y el disfrute pausado.</p>
     <div class="hero-ctas">
-      <a href="#menu" class="btn-hero">Ver nuestros productos</a>
-      <a href="#ubicacion" class="btn-ghost">Cómo llegar</a>
+      <a href="#menu" class="btn-hero" data-i18n="hero-btn-menu">Ver nuestros productos</a>
+      <a href="#ubicacion" class="btn-ghost" data-i18n="hero-btn-dir">Cómo llegar</a>
     </div>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  <div class="hero-scroll" data-i18n="hero-scroll">Scroll</div>
 </section>
 
 
@@ -1575,16 +1629,16 @@
     <div class="about-grid">
       <div class="about-text fade-in reveal-left">
         <div>
-          <span class="section-label">Nuestra historia</span>
-          <h2 class="section-title">¿Quiénes somos?</h2>
+          <span class="section-label" data-i18n="about-label">Nuestra historia</span>
+          <h2 class="section-title" data-i18n="about-title">¿Quiénes somos?</h2>
         </div>
-        <p class="section-body section-body--lg">
+        <p class="section-body section-body--lg" data-i18n="about-p1">
           KÜME significa en mapuche (idioma originario patagónico) "lugar de bienestar". Un nombre que no elegimos al azar: define exactamente lo que queremos ser.
         </p>
-        <p class="section-body section-body--lg">
+        <p class="section-body section-body--lg" data-i18n="about-p2">
           Las recetas que preparamos son artesanales de cuarta generación, heredadas de nuestros tatarabuelos argentinos. Toda la elaboración es a mano, con los mismos tiempos y el mismo cuidado de siempre. Ese sabor es lo que nos distingue.
         </p>
-        <p class="section-body section-body--lg">
+        <p class="section-body section-body--lg" data-i18n="about-p3">
           Siempre buscamos instalarnos en barrios que aprecien un producto de calidad y que nos integren como un lugar propio: de reunión, de recuerdos, de sabores compartidos. Nuestro objetivo es ser parte de la historia de la gente, y que la gente nos considere parte de la suya.
         </p>
       </div>
@@ -1606,9 +1660,9 @@
     <!-- Cabecera: texto izquierda · botón derecha -->
     <div class="encargo-header fade-in">
       <div class="encargo-header-text">
-        <span class="section-label">Pide desde casa</span>
-        <h2 class="section-title">Tartas artesanales<br/>a encargo</h2>
-        <p class="section-body">Elaboradas con ingredientes de calidad y mucho cariño. Pídelas por WhatsApp con antelación y las preparamos especialmente para vos.</p>
+        <span class="section-label" data-i18n="tartas-label">Pide desde casa</span>
+        <h2 class="section-title" data-i18n-html="tartas-title">Tartas artesanales<br/>a encargo</h2>
+        <p class="section-body" data-i18n="tartas-body">Elaboradas con ingredientes de calidad y mucho cariño. Pídelas por WhatsApp con antelación y las preparamos especialmente para vos.</p>
       </div>
       <a
         href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20de%20tarta%20%F0%9F%8E%82"
@@ -1616,7 +1670,7 @@
         class="btn-torta-wa"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="18" height="18"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
-        Pedir por WhatsApp
+        <span data-i18n="tartas-btn">Pedir por WhatsApp</span>
       </a>
     </div>
 
@@ -1687,8 +1741,8 @@
 <section id="galeria">
   <div class="container">
     <div class="gallery-header fade-in">
-      <span class="section-label">El espacio</span>
-      <h2 class="section-title">Nuestras instalaciones</h2>
+      <span class="section-label" data-i18n="gallery-label">El espacio</span>
+      <h2 class="section-title" data-i18n="gallery-title">Nuestras instalaciones</h2>
     </div>
     <div class="gallery-grid">
       <div class="gallery-item fade-in reveal-scale">
@@ -1747,8 +1801,8 @@
 <section class="reels-section">
   <div class="container">
     <div class="reels-header">
-      <div class="eyebrow eyebrow-cream">Síguenos</div>
-      <h2>Últimos <em>reels</em></h2>
+      <div class="eyebrow eyebrow-cream" data-i18n="reels-eyebrow">Síguenos</div>
+      <h2><span data-i18n="reels-title">Últimos</span> <em>reels</em></h2>
       <a href="https://www.instagram.com/kume.cafe/" target="_blank" class="ig-handle">
         <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         @kume.cafe
@@ -1798,7 +1852,7 @@
     <div class="reels-cta">
       <a href="https://www.instagram.com/kume.cafe/" target="_blank" class="btn-ig">
         <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        Ver todos los reels en Instagram
+        <span data-i18n="reels-btn">Ver todos los reels en Instagram</span>
       </a>
     </div>
   </div>
@@ -1810,22 +1864,22 @@
     <div class="location-grid">
       <div class="location-info fade-in reveal-left">
         <div>
-          <span class="section-label">Dónde estamos</span>
-          <h2 class="section-title">Nos encontrarás<br/>en Benimaclet</h2>
+          <span class="section-label" data-i18n="loc-label">Dónde estamos</span>
+          <h2 class="section-title" data-i18n-html="loc-title">Nos encontrarás<br/>en Benimaclet</h2>
         </div>
         <div class="location-block">
-          <h4>Dirección</h4>
-          <p>Carrer de la Guàrdia Civil, 20<br/>Benimaclet, València 46020</p>
+          <h4 data-i18n="loc-dir-h">Dirección</h4>
+          <p data-i18n-html="loc-dir-p">Carrer de la Guàrdia Civil, 20<br/>Benimaclet, València 46020</p>
         </div>
         <div class="location-block">
-          <h4>Horario</h4>
-          <p>Lunes a sábado · 7:00 – 14:00 y 17:00 – 24:00<br/>Domingo · 8:00 – 14:00</p>
+          <h4 data-i18n="loc-hours-h">Horario</h4>
+          <p data-i18n-html="loc-hours-p">Lunes a sábado · 7:00 – 14:00 y 17:00 – 24:00<br/>Domingo · 8:00 – 14:00</p>
         </div>
         <div class="location-block">
-          <h4>Contacto</h4>
+          <h4 data-i18n="loc-contact-h">Contacto</h4>
           <p>621 49 83 15</p>
         </div>
-        <a href="https://www.google.com/maps?biw=1536&bih=826&sca_esv=cb0ecc58b37c0fe9&sxsrf=ANbL-n7zb7F4Oh2cNCg5AFWE1x8xFNMFnw:1777965032121&um=1&ie=UTF-8&fb=1&gl=es&sa=X&geocode=KVWRr1FISWANMV17W__rgxgx&daddr=Carrer+de+la+Gu%C3%A0rdia+Civil,+20,+Benimaclet,+46020+Val%C3%A8ncia,+Valencia" target="_blank" class="btn-outline">Ver en Google Maps</a>
+        <a href="https://www.google.com/maps?biw=1536&bih=826&sca_esv=cb0ecc58b37c0fe9&sxsrf=ANbL-n7zb7F4Oh2cNCg5AFWE1x8xFNMFnw:1777965032121&um=1&ie=UTF-8&fb=1&gl=es&sa=X&geocode=KVWRr1FISWANMV17W__rgxgx&daddr=Carrer+de+la+Gu%C3%A0rdia+Civil,+20,+Benimaclet,+46020+Val%C3%A8ncia,+Valencia" target="_blank" class="btn-outline" data-i18n="loc-btn">Ver en Google Maps</a>
       </div>
       <div class="location-map fade-in reveal-right" style="transition-delay:0.18s">
         <iframe
@@ -1847,14 +1901,14 @@
 <section class="reviews-section">
   <div class="container">
     <div class="reviews-header fade-in">
-      <span class="section-label">Opiniones</span>
-      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+      <span class="section-label" data-i18n="rev-label">Opiniones</span>
+      <h2 class="section-title" data-i18n="rev-title">Lo que dicen nuestros clientes</h2>
     </div>
     <div class="reviews-rating fade-in">
       <div class="reviews-score">4,6</div>
       <div class="reviews-stars-row">
         <div class="g-stars">★★★★★</div>
-        <div class="reviews-count">Basado en reseñas de Google</div>
+        <div class="reviews-count" data-i18n="rev-count">Basado en reseñas de Google</div>
       </div>
     </div>
 
@@ -1863,7 +1917,7 @@
     <div class="reviews-cta fade-in">
       <a href="https://www.google.com/search?q=KÜME+café+Opiniones&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2NjU2NzcyMjU1szQyMTIzNjIz3MDI-IpR1PvwHF9XheTEtMMrFfwLMvMy8_NSixexYhcHACxu6DpKAAAA&rldimm=3537722556924263261&tbm=lcl" target="_blank" class="btn-google">
         <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.3 33.1 29.7 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l6-6C34.5 6.5 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.2-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15 16.1 19.1 13 24 13c3.1 0 5.8 1.1 7.9 3l6-6C34.5 6.5 29.6 4 24 4 16.3 4 9.7 8.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 44c5.5 0 10.5-1.9 14.4-5l-6.7-5.5C29.7 35.3 27 36 24 36c-5.7 0-10.3-2.9-11.7-7.5l-7 5.4C8.6 40.1 15.7 44 24 44z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-.6 2.3-2 4.3-3.9 5.7l6.7 5.5C42.2 36.3 44.5 30.6 44.5 24c0-1.3-.1-2.7-.2-4z"/></svg>
-        Ver todas las reseñas en Google
+        <span data-i18n="rev-btn">Ver todas las reseñas en Google</span>
       </a>
     </div>
   </div>
@@ -1873,9 +1927,9 @@
 <section class="newsletter" id="newsletter">
   <div class="container">
     <div class="newsletter-inner fade-in">
-      <span class="section-label">Contacta con nosotros</span>
-      <h2 class="section-title">¿Hablamos?</h2>
-      <p class="section-body">Reserva tu pedido con antelación, pregúntanos lo que quieras o simplemente salúdanos. Estamos aquí.</p>
+      <span class="section-label" data-i18n="contact-label">Contacta con nosotros</span>
+      <h2 class="section-title" data-i18n="contact-title">¿Hablamos?</h2>
+      <p class="section-body" data-i18n="contact-body">Reserva tu pedido con antelación, pregúntanos lo que quieras o simplemente salúdanos. Estamos aquí.</p>
       <div class="contact-ios-group">
 
         <!-- WhatsApp -->
@@ -1896,7 +1950,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
           </div>
           <div class="contact-ios-text">
-            <div class="contact-ios-label">Llamar</div>
+            <div class="contact-ios-label" data-i18n="contact-call">Llamar</div>
             <div class="contact-ios-num">621 49 83 15</div>
           </div>
           <svg class="contact-ios-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1913,17 +1967,144 @@
     <div class="footer-inner">
       <a href="#" class="footer-logo">KÜME café</a>
       <ul class="footer-links">
-        <li><a href="#">Política de privacidad</a></li>
-        <li><a href="#">Aviso legal</a></li>
+        <li><a href="#" data-i18n="footer-privacy">Política de privacidad</a></li>
+        <li><a href="#" data-i18n="footer-legal">Aviso legal</a></li>
         <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-        <li><a href="carta.html">Carta</a></li>
+        <li><a href="carta.html" data-i18n="footer-menu">Carta</a></li>
       </ul>
-      <p class="footer-copy">© 2025 KÜME café · Benimaclet, Valencia</p>
+      <p class="footer-copy" data-i18n="footer-copy">© 2025 KÜME café · Benimaclet, Valencia</p>
     </div>
   </div>
 </footer>
 
 <script>
+  // ── INTERNACIONALIZACIÓN ─────────────────────────────
+  let currentLang = 'es';
+
+  const TRANSLATIONS = {
+    es: {
+      'nav-historia':    'Historia',
+      'nav-espacios':    'Espacios',
+      'nav-ubicacion':   'Dónde estamos',
+      'nav-carta':       'Ver la carta',
+      'nav-pedido':      'Haz tu pedido',
+      'hero-eyebrow':    'El rincón que buscabas en Benimaclet',
+      'hero-sub':        'Café de especialidad · Desayunos · Brunch.<br/>Un espacio diseñado para el bienestar y el disfrute pausado.',
+      'hero-btn-menu':   'Ver nuestros productos',
+      'hero-btn-dir':    'Cómo llegar',
+      'hero-scroll':     'Scroll',
+      'about-label':     'Nuestra historia',
+      'about-title':     '¿Quiénes somos?',
+      'about-p1':        'KÜME significa en mapuche (idioma originario patagónico) "lugar de bienestar". Un nombre que no elegimos al azar: define exactamente lo que queremos ser.',
+      'about-p2':        'Las recetas que preparamos son artesanales de cuarta generación, heredadas de nuestros tatarabuelos argentinos. Toda la elaboración es a mano, con los mismos tiempos y el mismo cuidado de siempre. Ese sabor es lo que nos distingue.',
+      'about-p3':        'Siempre buscamos instalarnos en barrios que aprecien un producto de calidad y que nos integren como un lugar propio: de reunión, de recuerdos, de sabores compartidos. Nuestro objetivo es ser parte de la historia de la gente, y que la gente nos considere parte de la suya.',
+      'tartas-label':    'Pide desde casa',
+      'tartas-title':    'Tartas artesanales<br/>a encargo',
+      'tartas-body':     'Elaboradas con ingredientes de calidad y mucho cariño. Pídelas por WhatsApp con antelación y las preparamos especialmente para vos.',
+      'tartas-btn':      'Pedir por WhatsApp',
+      'gallery-label':   'El espacio',
+      'gallery-title':   'Nuestras instalaciones',
+      'reels-eyebrow':   'Síguenos',
+      'reels-title':     'Últimos',
+      'reels-btn':       'Ver todos los reels en Instagram',
+      'loc-label':       'Dónde estamos',
+      'loc-title':       'Nos encontrarás<br/>en Benimaclet',
+      'loc-dir-h':       'Dirección',
+      'loc-dir-p':       'Carrer de la Guàrdia Civil, 20<br/>Benimaclet, València 46020',
+      'loc-hours-h':     'Horario',
+      'loc-hours-p':     'Lunes a sábado · 7:00 – 14:00 y 17:00 – 24:00<br/>Domingo · 8:00 – 14:00',
+      'loc-contact-h':   'Contacto',
+      'loc-btn':         'Ver en Google Maps',
+      'rev-label':       'Opiniones',
+      'rev-title':       'Lo que dicen nuestros clientes',
+      'rev-count':       'Basado en reseñas de Google',
+      'rev-btn':         'Ver todas las reseñas en Google',
+      'contact-label':   'Contacta con nosotros',
+      'contact-title':   '¿Hablamos?',
+      'contact-body':    'Reserva tu pedido con antelación, pregúntanos lo que quieras o simplemente salúdanos. Estamos aquí.',
+      'contact-call':    'Llamar',
+      'footer-privacy':  'Política de privacidad',
+      'footer-legal':    'Aviso legal',
+      'footer-menu':     'Carta',
+      'footer-copy':     '© 2025 KÜME café · Benimaclet, Valencia',
+      'modal-title':     'Haz tu pedido',
+      'modal-call':      'Llamar',
+      'modal-cancel':    'Cancelar',
+    },
+    en: {
+      'nav-historia':    'Our Story',
+      'nav-espacios':    'Spaces',
+      'nav-ubicacion':   'Find Us',
+      'nav-carta':       'View Menu',
+      'nav-pedido':      'Place Your Order',
+      'hero-eyebrow':    'The spot you were looking for in Benimaclet',
+      'hero-sub':        'Specialty Coffee · Breakfast · Brunch.<br/>A space designed for well-being and unhurried enjoyment.',
+      'hero-btn-menu':   'View Our Menu',
+      'hero-btn-dir':    'Get Directions',
+      'hero-scroll':     'Scroll',
+      'about-label':     'Our Story',
+      'about-title':     'Who We Are',
+      'about-p1':        'KÜME means "place of well-being" in Mapuche, an indigenous Patagonian language. A name we didn\'t choose at random: it defines exactly what we want to be.',
+      'about-p2':        'The recipes we prepare are artisanal, passed down through four generations from our Argentine great-great-grandparents. Everything is handmade, with the same care and attention as always. That flavour is what sets us apart.',
+      'about-p3':        'We always seek to settle in neighbourhoods that appreciate quality and welcome us as their own — a meeting spot, a place of memories and shared flavours. Our goal is to become part of people\'s stories, and for people to consider us part of theirs.',
+      'tartas-label':    'Order From Home',
+      'tartas-title':    'Artisanal Cakes<br/>to Order',
+      'tartas-body':     'Made with quality ingredients and plenty of care. Order via WhatsApp in advance and we\'ll prepare them especially for you.',
+      'tartas-btn':      'Order on WhatsApp',
+      'gallery-label':   'The Space',
+      'gallery-title':   'Our Spaces',
+      'reels-eyebrow':   'Follow Us',
+      'reels-title':     'Latest',
+      'reels-btn':       'View All Reels on Instagram',
+      'loc-label':       'Find Us',
+      'loc-title':       'You\'ll find us<br/>in Benimaclet',
+      'loc-dir-h':       'Address',
+      'loc-dir-p':       'Carrer de la Guàrdia Civil, 20<br/>Benimaclet, València 46020',
+      'loc-hours-h':     'Opening Hours',
+      'loc-hours-p':     'Mon – Sat · 7:00 – 14:00 &amp; 17:00 – 24:00<br/>Sun · 8:00 – 14:00',
+      'loc-contact-h':   'Contact',
+      'loc-btn':         'View on Google Maps',
+      'rev-label':       'Reviews',
+      'rev-title':       'What Our Customers Say',
+      'rev-count':       'Based on Google Reviews',
+      'rev-btn':         'View All Reviews on Google',
+      'contact-label':   'Get in Touch',
+      'contact-title':   'Let\'s Talk',
+      'contact-body':    'Reserve your order in advance, ask us anything you like, or simply say hello. We\'re here.',
+      'contact-call':    'Call',
+      'footer-privacy':  'Privacy Policy',
+      'footer-legal':    'Legal Notice',
+      'footer-menu':     'Menu',
+      'footer-copy':     '© 2025 KÜME café · Benimaclet, Valencia',
+      'modal-title':     'Place Your Order',
+      'modal-call':      'Call',
+      'modal-cancel':    'Cancel',
+    }
+  };
+
+  function setLanguage(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (TRANSLATIONS[lang][key] !== undefined) el.textContent = TRANSLATIONS[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18nHtml;
+      if (TRANSLATIONS[lang][key] !== undefined) el.innerHTML = TRANSLATIONS[lang][key];
+    });
+    document.documentElement.lang = lang;
+    const isEs = lang === 'es';
+    const btn = document.getElementById('lang-toggle');
+    const btnD = document.getElementById('lang-toggle-drawer');
+    if (btn)  { btn.textContent  = isEs ? 'EN' : 'ES'; btn.setAttribute('aria-label', isEs ? 'Switch to English' : 'Cambiar a español'); }
+    if (btnD) { btnD.textContent = isEs ? 'EN — English' : 'ES — Español'; btnD.setAttribute('aria-label', isEs ? 'Switch to English' : 'Cambiar a español'); }
+    currentLang = lang;
+    renderReviews();
+  }
+
+  document.getElementById('lang-toggle').addEventListener('click', () => setLanguage(currentLang === 'es' ? 'en' : 'es'));
+  const _drawerToggle = document.getElementById('lang-toggle-drawer');
+  if (_drawerToggle) _drawerToggle.addEventListener('click', () => setLanguage(currentLang === 'es' ? 'en' : 'es'));
+
   // Nav scroll effect
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -2017,15 +2198,15 @@
 
   // ── REVIEWS — rotación semanal determinista ──────────────
   const REVIEWS_POOL = [
-    { initial:"S", name:"Sonia M.",        date:"hace 2 semanas", stars:5, text:"¡Me encantó este lugar! La decoración y el ambiente son geniales, el café y las facturas están deliciosos. El servicio es excepcional y, además, ¡está justo al lado de mi casa! Lo recomiendo al 110%." },
-    { initial:"B", name:"Barth Estudios",  date:"hace 1 mes",     stars:5, text:"Las pastas artesanales estaban riquísimas, sobre todo las de chocolate. Mi mujer se pidió uno de sus cafés especiales con leche de avena y dice que de los mejores que se ha tomado. La camarera súper amable y el local está chulo." },
-    { initial:"D", name:"Daniel González", date:"hace 3 semanas", stars:5, text:"Muy buena atención, además de un ambiente muy agradable. Una cosa más: las medialunas con café con leche son perfectas." },
-    { initial:"M", name:"María Fernández", date:"hace 1 semana",  stars:5, text:"Un rincón precioso en Benimaclet. El café con leche está buenísimo y los croissants recién hechos son una delicia. Ambiente tranquilo y muy acogedor." },
-    { initial:"A", name:"Alejandro Torres",date:"hace 2 meses",   stars:5, text:"El mejor café del barrio sin duda. El trato es muy cercano y la calidad de los productos es excelente. Siempre que vengo me voy con una sonrisa." },
-    { initial:"L", name:"Laura Sánchez",   date:"hace 3 semanas", stars:5, text:"Descubrí Küme hace poco y ya es mi cafetería de cabecera. El ambiente es muy especial, con mucha luz y plantas. Los desayunos especiales son increíbles." },
-    { initial:"C", name:"Carlos Ruiz",     date:"hace 1 mes",     stars:5, text:"Qué lugar tan bonito. Fui con mis hijos y los atendieron de maravilla. Los zumos naturales fresquísimos y las tostadas con tomate, una de las mejores que he probado." },
-    { initial:"P", name:"Patricia Molina", date:"hace 2 semanas", stars:5, text:"Local súper cuidado, con detalles preciosos. El café con leche de avena es el mejor que he tomado en Valencia. Y la tostada de aguacate con salmón, espectacular." },
-    { initial:"J", name:"Javier Herrera",  date:"hace 1 mes",     stars:5, text:"Llevaba mucho tiempo buscando una cafetería con este nivel. Café de especialidad, pastas caseras y un servicio de lujo. Küme es un descubrimiento que guardo para mí." },
+    { initial:"S", name:"Sonia M.",        date:"hace 2 semanas", en_date:"2 weeks ago",  stars:5, text:"¡Me encantó este lugar! La decoración y el ambiente son geniales, el café y las facturas están deliciosos. El servicio es excepcional y, además, ¡está justo al lado de mi casa! Lo recomiendo al 110%.", en_text:"I loved this place! The decor and atmosphere are great, the coffee and pastries are delicious. The service is exceptional and it's right next to my house! I recommend it 110%." },
+    { initial:"B", name:"Barth Estudios",  date:"hace 1 mes",     en_date:"1 month ago",  stars:5, text:"Las pastas artesanales estaban riquísimas, sobre todo las de chocolate. Mi mujer se pidió uno de sus cafés especiales con leche de avena y dice que de los mejores que se ha tomado. La camarera súper amable y el local está chulo.", en_text:"The artisanal pastries were delicious, especially the chocolate ones. My wife ordered one of their special oat milk coffees and says it's one of the best she's ever had. Very friendly staff and a great vibe." },
+    { initial:"D", name:"Daniel González", date:"hace 3 semanas", en_date:"3 weeks ago",  stars:5, text:"Muy buena atención, además de un ambiente muy agradable. Una cosa más: las medialunas con café con leche son perfectas.", en_text:"Great service and a very pleasant atmosphere. One more thing: the medialunas with café con leche are absolutely perfect." },
+    { initial:"M", name:"María Fernández", date:"hace 1 semana",  en_date:"1 week ago",   stars:5, text:"Un rincón precioso en Benimaclet. El café con leche está buenísimo y los croissants recién hechos son una delicia. Ambiente tranquilo y muy acogedor.", en_text:"A beautiful little spot in Benimaclet. The café con leche is fantastic and the freshly made croissants are a real treat. A calm, welcoming atmosphere." },
+    { initial:"A", name:"Alejandro Torres",date:"hace 2 meses",   en_date:"2 months ago", stars:5, text:"El mejor café del barrio sin duda. El trato es muy cercano y la calidad de los productos es excelente. Siempre que vengo me voy con una sonrisa.", en_text:"Without doubt the best coffee in the neighbourhood. The staff are warm and attentive, and the quality of everything is excellent. I always leave with a smile." },
+    { initial:"L", name:"Laura Sánchez",   date:"hace 3 semanas", en_date:"3 weeks ago",  stars:5, text:"Descubrí Küme hace poco y ya es mi cafetería de cabecera. El ambiente es muy especial, con mucha luz y plantas. Los desayunos especiales son increíbles.", en_text:"I discovered Küme recently and it's already my go-to café. The atmosphere is very special — lots of light and plants. The special breakfasts are incredible." },
+    { initial:"C", name:"Carlos Ruiz",     date:"hace 1 mes",     en_date:"1 month ago",  stars:5, text:"Qué lugar tan bonito. Fui con mis hijos y los atendieron de maravilla. Los zumos naturales fresquísimos y las tostadas con tomate, una de las mejores que he probado.", en_text:"What a beautiful place. I went with my kids and they were looked after wonderfully. The fresh-squeezed juices are amazing and the tomato toast is one of the best I've ever tried." },
+    { initial:"P", name:"Patricia Molina", date:"hace 2 semanas", en_date:"2 weeks ago",  stars:5, text:"Local súper cuidado, con detalles preciosos. El café con leche de avena es el mejor que he tomado en Valencia. Y la tostada de aguacate con salmón, espectacular.", en_text:"A beautifully looked-after place, full of lovely details. The oat milk latte is the best I've had in Valencia. And the avocado toast with salmon — spectacular." },
+    { initial:"J", name:"Javier Herrera",  date:"hace 1 mes",     en_date:"1 month ago",  stars:5, text:"Llevaba mucho tiempo buscando una cafetería con este nivel. Café de especialidad, pastas caseras y un servicio de lujo. Küme es un descubrimiento que guardo para mí.", en_text:"I had been looking for a café at this level for a long time. Specialty coffee, homemade pastries and outstanding service. Küme is a gem I want to keep to myself." },
   ];
   function getWeekSeed() {
     const now = new Date();
@@ -2047,22 +2228,23 @@
     const grid = document.getElementById('reviewsGrid');
     if (!grid) return;
     const picked = seededShuffle(REVIEWS_POOL, getWeekSeed()).slice(0, 3);
+    const isEn = currentLang === 'en';
     grid.innerHTML = picked.map((r, i) => `
       <div class="review-card fade-in reveal-up" style="transition-delay:${i * 0.12}s">
         <div class="review-header">
           <div class="review-avatar">${r.initial}</div>
           <div class="review-meta">
             <span class="review-name">${r.name}</span>
-            <span class="review-date">${r.date}</span>
+            <span class="review-date">${isEn ? r.en_date : r.date}</span>
           </div>
         </div>
         <div class="review-divider"></div>
         <div class="review-stars">${'★'.repeat(r.stars)}</div>
-        <p class="review-text">${r.text}</p>
+        <p class="review-text">${isEn ? r.en_text : r.text}</p>
       </div>`).join('');
     grid.querySelectorAll('.fade-in').forEach(el => revealObs.observe(el));
   }
-  renderReviews();
+  setLanguage('es');
 
   // Newsletter form
   function handleSubmit(e) {
