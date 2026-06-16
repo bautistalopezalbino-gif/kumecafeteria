@@ -182,11 +182,11 @@
     }
     nav.scrolled #lang-toggle { border-color: rgba(255,255,255,0.55); }
 
-    /* Wrapper derecho: toggle + hamburger siempre visibles */
-    .nav-right {
+    /* Grupo logo + toggle (izquierda del nav) */
+    .nav-logo-group {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 14px;
     }
     /* en el drawer móvil */
     #lang-toggle-drawer {
@@ -1452,8 +1452,8 @@
       .nav-links { display: none; }
       .nav-ctas  { display: none; }
       .nav-hamburger { display: flex; }
-      /* Toggle visible junto al hamburger en tablet/móvil */
-      #lang-toggle { padding: 5px 10px; font-size: 10px; }
+      /* En móvil/tablet el toggle sólo aparece en el drawer */
+      #lang-toggle { display: none; }
       .values-row { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
       .value-num { padding-top: 0; }
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -1572,7 +1572,10 @@
 <!-- ── NAV ───────────────────────────────────────────── -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><img src="fotos/nuevas%20fotos/IMG_6820-Photoroom.png" alt="Küme café" style="height:54px;width:auto;" /></a>
+    <div class="nav-logo-group">
+      <a href="#" class="nav-logo"><img src="fotos/nuevas%20fotos/IMG_6820-Photoroom.png" alt="Küme café" style="height:54px;width:auto;" /></a>
+      <button id="lang-toggle" aria-label="Switch to English">EN</button>
+    </div>
     <ul class="nav-links">
       <li><a href="#historia" data-i18n="nav-historia">Historia</a></li>
       <li><a href="#galeria" data-i18n="nav-espacios">Espacios</a></li>
@@ -1582,12 +1585,9 @@
       <a href="brunch.html" class="btn-carta-nav" data-i18n="nav-carta">Ver la carta</a>
       <a href="#" class="btn-nav" id="btnReserva" data-i18n="nav-pedido">Haz tu pedido</a>
     </div>
-    <div class="nav-right">
-      <button id="lang-toggle" aria-label="Switch to English">EN</button>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
