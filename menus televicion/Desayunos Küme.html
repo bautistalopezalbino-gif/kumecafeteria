@@ -295,6 +295,12 @@
     line-height: 1;
   }
   .card-price span { font-size: 0.6em; }
+  .card-extra {
+    font-size: var(--type-small);
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    margin: 6px 0 0;
+  }
 
   /* ════════ BEBIDAS ════════ */
   .drink-grid { flex:1; display:grid; gap:18px; align-content:center; }
@@ -326,6 +332,21 @@
   .grid-b .card-photo { aspect-ratio: 4 / 3; }
   .grid-b .card-body { padding: 28px 30px 32px; gap: 14px; }
   .grid-b .card-name { font-size: 32px; line-height: 1.2; min-height: 2.4em; }
+
+  /* ════════ BATIDOS CON CREPE (2 cards / slide) ════════ */
+  .grid-2b {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 64px;
+    align-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .grid-2b .card-photo { aspect-ratio: 4 / 3; }
+  .grid-2b .card-body { padding: 28px 30px 32px; gap: 14px; }
+  .grid-2b .card-name { font-size: 32px; line-height: 1.2; min-height: 2.4em; }
 
   /* ════════ MERIENDA (4 cards / slide) ════════ */
   .grid-merienda {
@@ -910,6 +931,72 @@
     </div>
   </section>
 
+
+  <!-- ░░ BATIDOS CON CREPE ░░ -->
+  <section data-label="Batidos con Crepe" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Combinado especial</p>
+      <h2 class="board-title serif">Batidos con Crepe</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+    </div>
+    <div class="grid grid-2b">
+      <article class="card">
+        <div class="card-photo"><img src="batido con crepe de dulce de leche.png" alt="Batido con Crepe de Dulce de Leche y Nata"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Batido con Crepe de Dulce de Leche y Nata</h3>
+          <div class="card-foot"><span class="card-price">7,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="batido con crepe de nutella.png" alt="Crepe de Nutella con Batido y Nata"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Crepe de Nutella con Batido y Nata</h3>
+          <div class="card-foot"><span class="card-price">7,50<span> €</span></span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ CREPES Y GOFRES DULCES ░░ -->
+  <section data-label="Crepes y Gofres Dulces" class="board">
+    <div class="board-head">
+      <p class="eyebrow">Dulces</p>
+      <h2 class="board-title serif">Crepes y Gofres</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+    </div>
+    <div class="grid grid-esp">
+      <article class="card">
+        <div class="card-photo"><img src="gofre con dulce de leche.png" alt="Gofre con Dulce de Leche"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Gofre · Dulce de Leche</h3>
+          <div class="card-foot"><span class="card-price">4,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="crepe de dulce de leche.png" alt="Crepe con Dulce de Leche"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Crepe · Dulce de Leche</h3>
+          <div class="card-foot"><span class="card-price">3,00<span> €</span></span></div>
+          <p class="card-extra">+0,50 € · nata y fresas</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="crepe de nutella.png" alt="Crepe con Nutella"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Crepe · Nutella</h3>
+          <div class="card-foot"><span class="card-price">3,00<span> €</span></span></div>
+          <p class="card-extra">+0,50 € · nata y fresas</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="gofre con dulce de leche nata y fresas.png" alt="Gofre de Dulce de Leche con Fresas y Nata"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Gofre de Dulce de Leche con Fresas y Nata</h3>
+          <div class="card-foot"><span class="card-price">5,50<span> €</span></span></div>
+        </div>
+      </article>
+    </div>
+  </section>
 
   <!-- ░░ 9 · BOCADILLOS ░░ -->
   <section data-label="Bocadillos" class="board">
