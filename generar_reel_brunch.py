@@ -37,7 +37,7 @@ ITEM_F    = 57     # 1.9 s
 OUTRO_F   = 96     # 3.2 s
 
 ITEM_IN, ITEM_OUT = 9, 8          # fade in / out del ítem
-ZOOM_MAX = 1.045                  # Ken Burns
+ZOOM_MAX = 1.035                  # Ken Burns suave (el fondo ya aporta movimiento)
 
 # ── Paleta KÜME (brunch.html :root) ─────────────────────────────────
 G950 = (26,  50,  40)    # #1A3228  fondo más oscuro
@@ -217,38 +217,105 @@ def cover_fit(img, box_w, box_h):
     return img.crop((x0, y0, x0 + box_w, y0 + box_h))
 
 
-# ── Fondo base (gradiente verde + viñeta + glow salvia) ─────────────
+# ════════════════════════════════════════════════════════════════════
+#  Fondo ANIMADO (gradiente verde + aurora salvia a la deriva + bokeh)
+#  · "Slow rituals": movimiento lento y orgánico, nunca distrae.
+#  · Se precalculan sprites una vez; cada frame solo pega y compone.
+# ════════════════════════════════════════════════════════════════════
 
-def make_background(glow=True):
-    top, bot = G950, G900
-    grad = Image.new("RGB", (1, H))
+import math
+
+GRAD_RGBA = None     # gradiente base RGBA
+VIG_MASK  = None     # máscara de viñeta (L)
+DARK_RGB  = Image.new("RGB", (W, H), (7, 16, 11))
+BLOBS     = []       # auroras grandes a la deriva
+BOKEH     = []       # partículas flotantes
+TAU = math.tau
+
+
+def radial_sprite(d, color, max_alpha, soft=0.16):
+    """Círculo radial suave (RGBA) con caída gaussiana."""
+    m = Image.new("L", (d, d), 0)
+    ImageDraw.Draw(m).ellipse([d * 0.16, d * 0.16, d * 0.84, d * 0.84], fill=max_alpha)
+    m = m.filter(ImageFilter.GaussianBlur(d * soft))
+    s = Image.new("RGBA", (d, d), color + (0,))
+    s.putalpha(m)
+    return s
+
+
+def init_background():
+    global GRAD_RGBA, VIG_MASK, BLOBS, BOKEH
+    # gradiente vertical G950 → G900
+    col = Image.new("RGB", (1, H))
     for y in range(H):
-        grad.putpixel((0, y), lerp(top, bot, y / H))
-    bg = grad.resize((W, H))
-    if glow:
-        glow_l = Image.new("L", (W, H), 0)
-        gd = ImageDraw.Draw(glow_l)
-        gd.ellipse([W//2 - 620, 240, W//2 + 620, 1180], fill=70)
-        glow_l = glow_l.filter(ImageFilter.GaussianBlur(160))
-        sage = Image.new("RGB", (W, H), G700)
-        bg = Image.composite(sage, bg, glow_l)
-    # viñeta
+        col.putpixel((0, y), lerp(G950, G900, y / H))
+    GRAD_RGBA = col.resize((W, H)).convert("RGBA")
+
+    # viñeta (oscurece bordes, foca el centro)
     vig = Image.new("L", (W, H), 0)
-    ImageDraw.Draw(vig).rectangle([0, 0, W, H], fill=0)
-    vd = ImageDraw.Draw(vig)
-    vd.ellipse([-260, -260, W + 260, H + 260], fill=255)
-    vig = vig.filter(ImageFilter.GaussianBlur(220))
-    dark = Image.new("RGB", (W, H), (8, 18, 13))
-    bg = Image.composite(bg, dark, vig)
-    return bg
+    ImageDraw.Draw(vig).ellipse([-300, -340, W + 300, H + 340], fill=255)
+    VIG_MASK = vig.filter(ImageFilter.GaussianBlur(240))
+
+    # auroras: sprite, centro base, amplitud (ax,ay), periodo s, fase, alpha base/var
+    blob_defs = [
+        (820, G700, (300, 360), (150, 120), 13.0, 0.0,  96, 28),
+        (760, G400, (760, 300), (170, 140), 17.0, 1.7,  62, 22),
+        (900, G800, (520, 1500),(140, 130), 15.5, 3.2, 104, 26),
+        (640, G400, (180, 1150),(130, 160), 11.0, 4.6,  54, 20),
+    ]
+    for d, color, (cx, cy), (ax, ay), per, ph, a0, av in blob_defs:
+        BLOBS.append({"spr": radial_sprite(d, color, 255), "d": d, "cx": cx, "cy": cy,
+                      "ax": ax, "ay": ay, "per": per * FPS, "ph": ph, "a0": a0, "av": av})
+
+    # bokeh: partículas flotando hacia arriba con leve vaivén
+    rng = np.random.default_rng(7)
+    sprites = {s: radial_sprite(s, G200, 255, soft=0.20) for s in (44, 64, 90, 120)}
+    for _ in range(16):
+        size = int(rng.choice([44, 64, 90, 120]))
+        BOKEH.append({
+            "spr": sprites[size], "d": size,
+            "x0": float(rng.uniform(0, W)),
+            "y0": float(rng.uniform(0, H + 200)),
+            "speed": float(rng.uniform(7, 18)) / FPS,    # px por frame, hacia arriba
+            "amp": float(rng.uniform(20, 70)),
+            "per": float(rng.uniform(6, 12)) * FPS,
+            "ph": float(rng.uniform(0, TAU)),
+            "a0": int(rng.uniform(26, 56)),
+            "av": int(rng.uniform(8, 20)),
+            "aper": float(rng.uniform(4, 8)) * FPS,
+        })
+
+
+def bg_frame(gt):
+    """Fotograma de fondo animado para el frame global gt."""
+    base = GRAD_RGBA.copy()
+    # auroras
+    for b in BLOBS:
+        t = gt / b["per"]
+        x = b["cx"] + b["ax"] * math.sin(TAU * t + b["ph"])
+        y = b["cy"] + b["ay"] * math.cos(TAU * t * 0.83 + b["ph"])
+        op = b["a0"] + b["av"] * math.sin(TAU * t * 0.6 + b["ph"] * 1.4)
+        spr = b["spr"].copy()
+        spr.putalpha(b["spr"].split()[3].point(lambda v, o=op: int(v * o / 255)))
+        base.paste(spr, (int(x - b["d"] / 2), int(y - b["d"] / 2)), spr)
+    # bokeh
+    span = H + 220
+    for p in BOKEH:
+        y = p["y0"] - p["speed"] * gt
+        y = ((y + 110) % span) - 110
+        x = p["x0"] + p["amp"] * math.sin(TAU * gt / p["per"] + p["ph"])
+        op = max(0, p["a0"] + p["av"] * math.sin(TAU * gt / p["aper"] + p["ph"]))
+        spr = p["spr"].copy()
+        spr.putalpha(p["spr"].split()[3].point(lambda v, o=op: int(v * o / 255)))
+        base.paste(spr, (int(x - p["d"] / 2), int(y - p["d"] / 2)), spr)
+    # viñeta
+    out = Image.composite(base.convert("RGB"), DARK_RGB, VIG_MASK)
+    return out
 
 
 # ════════════════════════════════════════════════════════════════════
 #  Construcción de frames base (PIL) por bloque
 # ════════════════════════════════════════════════════════════════════
-
-BG_GLOW = None
-BG_PLAIN = None
 
 def brand_header(draw, y=78):
     text_tracking(draw, (W // 2, y), "KÜME café", F("brand"), ON_DARK, tracking=2)
@@ -269,7 +336,7 @@ def pill(draw, text, cy, font, fg, bg, pad_x=30, pad_y=14):
 
 
 def build_item(item, section_title, idx, total):
-    bg = BG_GLOW.copy()
+    bg = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw = ImageDraw.Draw(bg)
 
     brand_header(draw)
@@ -341,7 +408,7 @@ def build_item(item, section_title, idx, total):
 
 
 def build_section(sec, idx_food):
-    bg = BG_PLAIN.copy()
+    bg = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw = ImageDraw.Draw(bg)
     brand_header(draw, y=140)
 
@@ -370,7 +437,7 @@ def build_section(sec, idx_food):
 
 
 def build_intro():
-    bg = BG_GLOW.copy()
+    bg = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw = ImageDraw.Draw(bg)
 
     pill(draw, "CARTA DE BRUNCH & DESAYUNOS", 690, F("eyebrow"), ON_DARK, G800, pad_x=34, pad_y=16)
@@ -390,7 +457,7 @@ def build_intro():
 
 
 def build_outro():
-    bg = BG_GLOW.copy()
+    bg = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw = ImageDraw.Draw(bg)
     brand_header(draw, y=140)
 
@@ -415,42 +482,47 @@ def build_outro():
 #  Animación → frames numpy
 # ════════════════════════════════════════════════════════════════════
 
-def ken_burns(base, f, nframes, zmax=ZOOM_MAX):
-    t = f / max(nframes - 1, 1)
-    scale = 1.0 + (zmax - 1.0) * t
-    nw, nh = int(W * scale), int(H * scale)
-    z = base.resize((nw, nh), Image.BILINEAR)
-    x0, y0 = (nw - W) // 2, (nh - H) // 2
-    return z.crop((x0, y0, x0 + W, y0 + H))
-
-def entrance(base, t):
-    """Escala 0.94→1.0 + leve subida, con ease_out. t en [0,1]."""
-    e = ease_out(t)
-    scale = 0.94 + 0.06 * e
-    nw, nh = int(W * scale), int(H * scale)
-    z = base.resize((nw, nh), Image.BILINEAR)
-    canvas = Image.new("RGB", (W, H), G900)
-    x = (W - nw) // 2
-    y = int((H - nh) // 2 + (1 - e) * 40)
-    canvas.paste(z, (x, y))
-    arr = np.array(canvas, np.float32) * (0.25 + 0.75 * e)
-    return arr.astype(np.uint8)
-
-def fade(frame_np, a):
-    return (frame_np.astype(np.float32) * a).astype(np.uint8)
+def transform_layer(content, scale=1.0, yoff=0.0, alpha_mult=1.0):
+    """Devuelve una capa RGBA W×H con el contenido escalado/desplazado/atenuado."""
+    if scale != 1.0:
+        nw, nh = int(round(W * scale)), int(round(H * scale))
+        c = content.resize((nw, nh), Image.LANCZOS)
+    else:
+        nw, nh, c = W, H, content
+    if nw == W and nh == H and yoff == 0:
+        canvas = c.copy()
+    else:
+        canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        canvas.paste(c, ((W - nw) // 2, (H - nh) // 2 + int(round(yoff))))
+    if alpha_mult < 1.0:
+        canvas.putalpha(canvas.split()[3].point(lambda v: int(v * alpha_mult)))
+    return canvas
 
 
-def write_block(writer, base, nframes, fin, fout, kb=True):
+def compose(layer, gt):
+    """Compone la capa de contenido sobre el fondo animado del frame global gt."""
+    frame = bg_frame(gt)            # RGB
+    frame.paste(layer, (0, 0), layer)
+    return np.asarray(frame, dtype=np.uint8)
+
+
+def write_block(writer, content, nframes, fin, fout, gt, kb=True):
+    """Escribe nframes del bloque; el fondo animado avanza con gt. Devuelve gt."""
+    last = nframes - 1
     for f in range(nframes):
-        if f < fin:
-            writer.append_data(entrance(base, f / fin))
-        elif f >= nframes - fout:
-            k = ken_burns(base, f, nframes) if kb else base
-            a = (nframes - 1 - f) / fout
-            writer.append_data(fade(np.array(k, np.uint8), 0.15 + 0.85 * a))
-        else:
-            frame = ken_burns(base, f, nframes) if kb else base
-            writer.append_data(np.array(frame, np.uint8))
+        if f < fin:                                    # entrada: escala + subida + fade
+            e = ease_out(f / fin)
+            layer = transform_layer(content, 0.94 + 0.06 * e, (1 - e) * 42, min(1.0, e * 1.06))
+        elif f >= nframes - fout:                      # salida: fade revelando el fondo
+            scale = 1.0 + (ZOOM_MAX - 1.0) * (f / last) if kb else 1.0
+            a = (last - f) / fout
+            layer = transform_layer(content, scale, 0.0, a)
+        else:                                          # sostén: Ken Burns suave (o fijo)
+            scale = 1.0 + (ZOOM_MAX - 1.0) * (f / last) if kb else 1.0
+            layer = transform_layer(content, scale)
+        writer.append_data(compose(layer, gt))
+        gt += 1
+    return gt
 
 
 # ════════════════════════════════════════════════════════════════════
@@ -458,7 +530,6 @@ def write_block(writer, base, nframes, fin, fout, kb=True):
 # ════════════════════════════════════════════════════════════════════
 
 def main():
-    global BG_GLOW, BG_PLAIN
     import imageio
 
     print("=== KÜME · Reel Brunch ===")
@@ -466,31 +537,31 @@ def main():
     total_items = sum(len(s["items"]) for s in sections)
     print(f"Secciones: {len(sections)}  |  Ítems con imagen: {total_items}")
 
-    print("Preparando fondos…")
-    BG_GLOW  = make_background(glow=True)
-    BG_PLAIN = make_background(glow=True)
+    print("Preparando fondo animado…")
+    init_background()
 
     nframes_total = INTRO_F + len(sections) * SECTION_F + total_items * ITEM_F + OUTRO_F
     print(f"Duración estimada: {nframes_total / FPS:.1f}s\n")
 
     t0 = time.time()
+    gt = 0
     with imageio.get_writer(str(OUTPUT), format="ffmpeg", mode="I", fps=FPS,
                             codec="libx264", quality=8, macro_block_size=1,
                             ffmpeg_params=["-pix_fmt", "yuv420p"]) as writer:
         print("[intro]")
-        write_block(writer, build_intro(), INTRO_F, 16, 12, kb=True)
+        gt = write_block(writer, build_intro(), INTRO_F, 16, 12, gt, kb=True)
 
         idx = 0
         for si, sec in enumerate(sections, 1):
             print(f"[sección {si}/{len(sections)}] {sec['title']} ({len(sec['items'])})")
-            write_block(writer, build_section(sec, si), SECTION_F, 10, 9, kb=False)
+            gt = write_block(writer, build_section(sec, si), SECTION_F, 10, 9, gt, kb=False)
             for item in sec["items"]:
                 idx += 1
                 base = build_item(item, sec["title"], idx, total_items)
-                write_block(writer, base, ITEM_F, ITEM_IN, ITEM_OUT, kb=True)
+                gt = write_block(writer, base, ITEM_F, ITEM_IN, ITEM_OUT, gt, kb=True)
 
         print("[cierre]")
-        write_block(writer, build_outro(), OUTRO_F, 16, 14, kb=True)
+        gt = write_block(writer, build_outro(), OUTRO_F, 16, 14, gt, kb=True)
 
     dt = time.time() - t0
     mb = OUTPUT.stat().st_size / 1e6
