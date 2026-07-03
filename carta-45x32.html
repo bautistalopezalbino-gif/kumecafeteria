@@ -3,246 +3,246 @@
 <head>
 <meta charset="UTF-8"/>
 <title>KÜME café — La Carta 45×32</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --g950:#1A3228;--g800:#2B5340;--g700:#3D6B50;--g400:#8A9C60;
-  --g200:#C4D4A0;--g100:#E0EBD0;--g50:#EAF0DC;--g10:#F8F6F2;
-  --cream:#F5F0E8;--dark:#1C2B1C;--muted:#4A5C42;--subtle:#7A8C72;
+  --g200:#C4D4A0;--g100:#E0EBD0;--g50:#EAF0DC;
+  --paper:#F8F6F2;--cream:#F5F0E8;--dark:#22301F;--muted:#44543C;
 }
-html,body{width:450mm;font-family:'Inter',sans-serif;font-size:9pt;color:var(--dark);background:#fff}
+html,body{width:450mm;font-family:'Inter',sans-serif;font-size:10pt;color:var(--dark);background:var(--paper)}
 img{display:block;max-width:100%;object-fit:cover}
 
 @page{size:450mm 320mm;margin:0}
 @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 
-.sheet{width:450mm;height:320mm;overflow:hidden;position:relative;page-break-after:always;break-after:page;display:flex;flex-direction:column}
+.sheet{width:450mm;height:320mm;overflow:hidden;position:relative;page-break-after:always;break-after:page;display:flex;flex-direction:column;background:var(--paper)}
 .sheet:last-child{page-break-after:avoid;break-after:avoid}
-.sheet.cream{background:var(--g50)}
-.sheet.white{background:#fff}
 
-/* Cabecera de pliego */
-.top{background:var(--g950);color:var(--cream);display:flex;align-items:center;justify-content:space-between;padding:4mm 10mm;flex:0 0 auto}
-.top-logo{font-family:'Noto Serif',serif;font-size:17pt;font-weight:700;letter-spacing:0.06em}
-.top-serif{font-family:'Noto Serif',serif;font-style:italic;font-size:9.5pt;color:var(--g200);margin-left:4mm}
-.top-right{font-size:7pt;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(245,240,232,0.60)}
+/* ── Cabecera del pliego ── */
+.top{background:var(--g950);color:var(--cream);display:flex;align-items:center;justify-content:space-between;padding:4.5mm 10mm;flex:0 0 auto}
+.top-logo{font-family:'Noto Serif',serif;font-size:20pt;font-weight:700;letter-spacing:0.06em}
+.top-serif{font-family:'Noto Serif',serif;font-style:italic;font-size:11pt;color:var(--g200);margin-left:4mm}
+.top-right{font-size:8pt;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,240,232,0.70)}
 
-/* Zona de contenido en columnas */
-.cols{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:6mm;padding:6mm 10mm 4mm;min-height:0}
-.col{display:flex;flex-direction:column;gap:3.5mm;min-width:0}
+/* ── Columnas ── */
+.cols{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:6.5mm;padding:6mm 10mm 5mm;min-height:0}
+.col{display:flex;flex-direction:column;gap:3.2mm;min-width:0}
 
-/* Cabecera de sección */
-.sh{display:flex;flex-direction:column;gap:0.6mm}
-.sh-eye{font-size:6.3pt;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--g400)}
-.sh-title{font-family:'Noto Serif',serif;font-size:14pt;font-weight:700;line-height:1.05;color:var(--g950);letter-spacing:-0.01em}
-.sh-desc{font-size:6.8pt;color:var(--muted);line-height:1.35;margin-top:0.4mm}
-.ss-title{font-family:'Noto Serif',serif;font-size:10.5pt;font-weight:600;color:var(--g950);letter-spacing:-0.01em}
+/* ── Banda de sección ── */
+.band{background:var(--g950);border-radius:2mm;padding:2.6mm 3.6mm;display:flex;flex-direction:column;gap:0.6mm}
+.b-title{font-family:'Noto Serif',serif;font-size:13.5pt;font-weight:700;color:#fff;line-height:1.05}
+.b-note{font-size:7.6pt;font-weight:500;color:var(--g200);line-height:1.35}
 
-/* Tarjetas con foto */
-.card-grid{display:grid;gap:2.5mm}
+/* ── Subsección ── */
+.ss{display:flex;align-items:baseline;gap:2.5mm;margin-top:1mm}
+.ss-title{font-family:'Noto Serif',serif;font-size:11.5pt;font-weight:700;color:var(--g800);white-space:nowrap}
+.ss::after{content:'';flex:1;border-bottom:1px solid rgba(43,83,64,0.25)}
+
+/* ── Lista con puntos guía ── */
+.mlist{display:flex;flex-direction:column}
+.mrow{display:flex;align-items:baseline;padding:1.35mm 0}
+.mname{font-size:10pt;font-weight:500;color:var(--dark);line-height:1.25}
+.dots{flex:1;min-width:4mm;margin:0 1.6mm;border-bottom:1.6px dotted rgba(43,83,64,0.35);transform:translateY(-0.8mm)}
+.mprice{font-size:10.5pt;font-weight:700;color:var(--g800);white-space:nowrap}
+
+/* ── Tarjetas con foto ── */
+.card-grid{display:grid;gap:2.6mm}
 .card-grid.k2{grid-template-columns:repeat(2,1fr)}
 .card-grid.k3{grid-template-columns:repeat(3,1fr)}
-.card{border-radius:2.5mm;overflow:hidden;background:#fff;border:0.5px solid rgba(43,83,64,0.14);display:flex;flex-direction:column}
+.card{border-radius:2.6mm;overflow:hidden;background:#fff;border:0.6px solid rgba(43,83,64,0.18);box-shadow:0 0.6mm 1.6mm rgba(43,83,64,0.06);display:flex;flex-direction:column}
 .card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.card img.w{aspect-ratio:3/2}
 .card img.sq{aspect-ratio:1/1}
-.card-body{padding:1.6mm 2mm 2mm;display:flex;flex-direction:column;gap:0.4mm}
-.card-name{font-size:7.2pt;font-weight:600;color:var(--dark);line-height:1.2}
-.card-desc{font-size:5.8pt;color:var(--subtle);line-height:1.2}
-.card-foot{display:flex;align-items:baseline;justify-content:space-between;margin-top:0.7mm}
-.card-price{font-size:8.2pt;font-weight:700;color:var(--g800)}
-.card-extra{font-size:5.8pt;color:var(--g400)}
+.card-body{padding:1.8mm 2.2mm 2.2mm;display:flex;flex-direction:column;gap:0.5mm;flex:1}
+.card-name{font-size:8.8pt;font-weight:600;color:var(--dark);line-height:1.22}
+.card-desc{font-size:7pt;color:var(--muted);line-height:1.25}
+.card-foot{display:flex;align-items:baseline;justify-content:space-between;margin-top:auto;padding-top:0.8mm}
+.card-price{font-size:10.5pt;font-weight:700;color:var(--g800)}
+.card-extra{font-size:7pt;color:var(--g700);font-weight:500}
 
-/* Lista compacta */
-.mlist{display:flex;flex-direction:column}
-.mrow{display:flex;align-items:baseline;gap:2mm;padding:1.4mm 0;border-bottom:0.5px dotted rgba(43,83,64,0.14)}
-.mrow:last-child{border-bottom:none}
-.mname{font-size:8pt;font-weight:500;color:var(--dark);flex:1;line-height:1.2}
-.mprice{font-size:8.5pt;font-weight:700;color:var(--g800);white-space:nowrap;text-align:right;min-width:12mm}
+/* ── Nota ── */
+.note{background:var(--g100);border-left:3px solid var(--g400);border-radius:1.5mm;padding:2.2mm 2.8mm;font-size:8pt;color:var(--muted);line-height:1.45}
 
-/* Nota */
-.note{background:rgba(43,83,64,0.07);border-left:2.5px solid var(--g400);border-radius:1.5mm;padding:2mm 2.5mm;font-size:6.8pt;color:var(--muted);line-height:1.45}
+/* ── Franja informativa (cara B) ── */
+.strip{background:var(--g950);color:var(--cream);display:flex;align-items:center;justify-content:space-between;gap:10mm;padding:3.6mm 10mm;flex:0 0 auto}
+.strip-logo{font-family:'Noto Serif',serif;font-size:14pt;font-weight:700;letter-spacing:0.05em}
+.strip-block{display:flex;flex-direction:column;gap:0.6mm}
+.strip-label{font-size:6.8pt;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--g400)}
+.strip-val{font-size:9pt;color:rgba(245,240,232,0.88);line-height:1.4}
 
-/* Panel de información (contacto) */
-.info-panel{background:var(--g950);color:var(--cream);border-radius:2.5mm;padding:5mm;display:flex;flex-direction:column;gap:3mm;margin-top:auto}
-.info-panel .ip-logo{font-family:'Noto Serif',serif;font-size:13pt;font-weight:700;letter-spacing:0.05em}
-.info-label{font-size:6pt;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--g400);margin-bottom:0.8mm}
-.info-val{font-size:7.5pt;color:rgba(245,240,232,0.80);line-height:1.55}
-
-/* Pie de pliego */
-.bot{flex:0 0 auto;display:flex;justify-content:space-between;padding:2mm 10mm 3mm;font-size:6.3pt;color:rgba(43,83,64,0.40);border-top:0.5px solid rgba(43,83,64,0.13);margin:0 0}
+/* ── Pie ── */
+.bot{flex:0 0 auto;display:flex;justify-content:space-between;padding:2.2mm 10mm 3.2mm;font-size:7.5pt;font-weight:500;color:rgba(43,83,64,0.55);border-top:0.6px solid rgba(43,83,64,0.16)}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════ CARA A ═══════════════════════ -->
-<div class="sheet white">
+<!-- ═══════════════════════ CARA A · MAÑANAS ═══════════════════════ -->
+<div class="sheet">
   <div class="top">
     <div style="display:flex;align-items:baseline">
       <span class="top-logo">KÜME</span>
       <span class="top-serif">café &amp; pastelería</span>
     </div>
-    <span class="top-right">La Carta · Benimaclet, Valencia</span>
+    <span class="top-right">Desayunos · Cafés · Brunch · Smoothies</span>
   </div>
 
   <div class="cols">
 
     <!-- COL 1 · DESAYUNOS -->
     <div class="col">
-      <div class="sh">
-        <span class="sh-eye">De lunes a viernes · 7:00 – 11:00 h</span>
-        <div class="sh-title">Desayunos Clásicos</div>
-        <p class="sh-desc">Café de especialidad incluido · +1 € zumo de naranja natural</p>
+      <div class="band">
+        <div class="b-title">Desayunos</div>
+        <div class="b-note">De lunes a viernes · 7:00 – 11:00 h · Café de especialidad incluido</div>
       </div>
+
+      <div class="ss"><span class="ss-title">Clásicos · 3 €</span></div>
       <div class="card-grid k2">
         <div class="card">
-          <img src="Kume%20menus/images/croissant.jpg" alt="Café + Croissant"/>
+          <img class="w" src="Kume%20menus/images/croissant.jpg" alt="Café + Croissant"/>
           <div class="card-body"><span class="card-name">Café + Croissant</span><div class="card-foot"><span class="card-price">3 €</span><span class="card-extra">+1 € zumo</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/tomate-aceite.jpg" alt="Tostada tomate y aceite"/>
+          <img class="w" src="Kume%20menus/images/tomate-aceite.jpg" alt="Tostada tomate y aceite"/>
           <div class="card-body"><span class="card-name">Tostada tomate y aceite</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/mantequilla-mermelada.jpg" alt="Mantequilla y mermelada"/>
+          <img class="w" src="Kume%20menus/images/mantequilla-mermelada.jpg" alt="Mantequilla y mermelada"/>
           <div class="card-body"><span class="card-name">Tostada mantequilla y mermelada</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/medialunas.jpg" alt="Dos medialunas"/>
+          <img class="w" src="Kume%20menus/images/medialunas.jpg" alt="Dos medialunas"/>
           <div class="card-body"><span class="card-name">Café + Dos medialunas</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/tomate-jamon.png" alt="Tostada tomate y jamón"/>
+          <img class="w" src="Kume%20menus/images/tomate-jamon.png" alt="Tostada tomate y jamón"/>
           <div class="card-body"><span class="card-name">Tostada tomate y jamón</span><div class="card-foot"><span class="card-price">3,50 €</span></div></div>
         </div>
       </div>
 
-      <div class="sh" style="margin-top:1mm">
-        <span class="sh-eye">Café y zumo incluidos</span>
-        <div class="sh-title" style="font-size:12pt">Desayunos Especiales</div>
-      </div>
+      <div class="ss"><span class="ss-title">Especiales · café y zumo incluidos</span></div>
       <div class="card-grid k2">
         <div class="card">
-          <img src="Kume%20menus/images/huevo-guacamole.jpg" alt="Huevo guacamole tomate"/>
+          <img class="w" src="Kume%20menus/images/huevo-guacamole.jpg" alt="Huevo guacamole tomate"/>
           <div class="card-body"><span class="card-name">Tostada huevo, guacamole y tomate</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/tostada-tortilla.png" alt="Tortilla aguacate bacon"/>
+          <img class="w" src="Kume%20menus/images/tostada-tortilla.png" alt="Tortilla aguacate bacon"/>
           <div class="card-body"><span class="card-name">Tostada tortilla, aguacate y bacon</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/croissant-huevo.jpg" alt="Croissant huevos bacon"/>
+          <img class="w" src="Kume%20menus/images/croissant-huevo.jpg" alt="Croissant huevos bacon"/>
           <div class="card-body"><span class="card-name">Croissant con huevos y bacon</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/salmon-aguacate.png" alt="Salmón aguacate queso"/>
+          <img class="w" src="Kume%20menus/images/salmon-aguacate.png" alt="Salmón aguacate queso"/>
           <div class="card-body"><span class="card-name">Tostada salmón, aguacate y queso</span><div class="card-foot"><span class="card-price">5,90 €</span></div></div>
         </div>
       </div>
     </div>
 
-    <!-- COL 2 · CAFÉS Y BEBIDAS -->
+    <!-- COL 2 · CAFÉS -->
     <div class="col">
-      <div class="sh">
-        <span class="sh-eye">Café de especialidad</span>
-        <div class="sh-title">Cafés &amp; Bebidas</div>
+      <div class="band">
+        <div class="b-title">Cafés &amp; Bebidas</div>
+        <div class="b-note">Café de especialidad tostado artesanalmente</div>
       </div>
 
-      <div class="ss-title">Cafés especiales</div>
+      <div class="ss"><span class="ss-title">Cafés especiales</span></div>
       <div class="card-grid k2">
         <div class="card">
-          <img class="sq" src="Kume%20menus/images/cafe-coffee-latte.png" alt="Coffee Latte"/>
+          <img class="w" src="Kume%20menus/images/cafe-coffee-latte.png" alt="Coffee Latte"/>
           <div class="card-body"><span class="card-name">Coffee Latte</span><div class="card-foot"><span class="card-price">4 €</span></div></div>
         </div>
         <div class="card">
-          <img class="sq" src="Kume%20menus/images/cafe-caramel-latte.png" alt="Caramel Latte"/>
+          <img class="w" src="Kume%20menus/images/cafe-caramel-latte.png" alt="Caramel Latte"/>
           <div class="card-body"><span class="card-name">Caramel Latte</span><div class="card-foot"><span class="card-price">4 €</span></div></div>
         </div>
         <div class="card">
-          <img class="sq" src="Kume%20menus/images/cafe-matcha-latte.png" alt="Matcha Latte"/>
+          <img class="w" src="Kume%20menus/images/cafe-matcha-latte.png" alt="Matcha Latte"/>
           <div class="card-body"><span class="card-name">Matcha Latte</span><div class="card-foot"><span class="card-price">4 €</span></div></div>
         </div>
         <div class="card">
-          <img class="sq" src="Kume%20menus/images/cafe-chai-latte.png" alt="Chai Latte"/>
+          <img class="w" src="Kume%20menus/images/cafe-chai-latte.png" alt="Chai Latte"/>
           <div class="card-body"><span class="card-name">Chai Latte</span><div class="card-foot"><span class="card-price">4 €</span></div></div>
         </div>
       </div>
 
-      <div class="ss-title">Cafetería</div>
+      <div class="ss"><span class="ss-title">Cafetería</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Café solo</span><span class="mprice">1,50 €</span></div>
-        <div class="mrow"><span class="mname">Cortado</span><span class="mprice">1,80 €</span></div>
-        <div class="mrow"><span class="mname">Bombón</span><span class="mprice">1,80 €</span></div>
-        <div class="mrow"><span class="mname">Café con leche</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Americano</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Carajillo</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Café argentino</span><span class="mprice">2,50 €</span></div>
-        <div class="mrow"><span class="mname">Capuchino</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Cremaet</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Caramel Latte</span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Café solo</span><span class="dots"></span><span class="mprice">1,50 €</span></div>
+        <div class="mrow"><span class="mname">Cortado</span><span class="dots"></span><span class="mprice">1,80 €</span></div>
+        <div class="mrow"><span class="mname">Bombón</span><span class="dots"></span><span class="mprice">1,80 €</span></div>
+        <div class="mrow"><span class="mname">Café con leche</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Americano</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Carajillo</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Café argentino</span><span class="dots"></span><span class="mprice">2,50 €</span></div>
+        <div class="mrow"><span class="mname">Capuchino</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Cremaet</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Caramel Latte</span><span class="dots"></span><span class="mprice">3 €</span></div>
       </div>
 
-      <div class="ss-title">Bebidas calientes</div>
+      <div class="ss"><span class="ss-title">Bebidas calientes</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Vaso de leche</span><span class="mprice">1,50 €</span></div>
-        <div class="mrow"><span class="mname">Infusión</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Colacao</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Choleck</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Chocolate chico</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Chocolate grande</span><span class="mprice">4 €</span></div>
-        <div class="mrow"><span class="mname">Matcha Latte caliente</span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Vaso de leche</span><span class="dots"></span><span class="mprice">1,50 €</span></div>
+        <div class="mrow"><span class="mname">Infusión</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Colacao</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Choleck</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Chocolate chico</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Chocolate grande</span><span class="dots"></span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Matcha Latte caliente</span><span class="dots"></span><span class="mprice">4 €</span></div>
       </div>
     </div>
 
     <!-- COL 3 · BEBIDAS FRÍAS + BRUNCH DULCE -->
     <div class="col">
-      <div class="ss-title" style="margin-top:1mm">Bebidas frías</div>
+      <div class="ss" style="margin-top:0"><span class="ss-title">Bebidas frías</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Iced Latte</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Ice Caramel Latte</span><span class="mprice">4 €</span></div>
-        <div class="mrow"><span class="mname">Ice Matcha Latte</span><span class="mprice">4 €</span></div>
-        <div class="mrow"><span class="mname">Ice Chai Latte</span><span class="mprice">4 €</span></div>
-        <div class="mrow"><span class="mname">Zumo de naranja natural</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Granizado limón · peq. / gde.</span><span class="mprice">2,90–3,30 €</span></div>
-        <div class="mrow"><span class="mname">Horchata</span><span class="mprice">3,30 €</span></div>
+        <div class="mrow"><span class="mname">Iced Latte</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Ice Caramel Latte</span><span class="dots"></span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Ice Matcha Latte</span><span class="dots"></span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Ice Chai Latte</span><span class="dots"></span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Zumo de naranja natural</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Granizado limón peq. / gde.</span><span class="dots"></span><span class="mprice">2,90 / 3,30 €</span></div>
+        <div class="mrow"><span class="mname">Horchata</span><span class="dots"></span><span class="mprice">3,30 €</span></div>
       </div>
 
-      <div class="ss-title">Refrescos</div>
+      <div class="ss"><span class="ss-title">Refrescos</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Coca Cola / Zero / 0,0</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Fanta / Nestea / Aquarius</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Tónica / Agua con gas</span><span class="mprice">2,20 €</span></div>
-        <div class="mrow"><span class="mname">Agua 500 ml / 1,5 L</span><span class="mprice">1,50–2 €</span></div>
+        <div class="mrow"><span class="mname">Coca Cola / Zero / 0,0</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Fanta / Nestea / Aquarius</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Tónica / Agua con gas</span><span class="dots"></span><span class="mprice">2,20 €</span></div>
+        <div class="mrow"><span class="mname">Agua 500 ml / 1,5 L</span><span class="dots"></span><span class="mprice">1,50 / 2 €</span></div>
       </div>
 
-      <div class="sh" style="margin-top:1mm">
-        <span class="sh-eye">Crepes y gofres dulces · todo el día</span>
-        <div class="sh-title" style="font-size:12pt">Brunch Dulce</div>
-        <p class="sh-desc">+0,50 € añadir nata y fresas en crepes</p>
+      <div class="band" style="margin-top:1mm">
+        <div class="b-title">Brunch Dulce</div>
+        <div class="b-note">Todo el día · +0,50 € añadir nata y fresas en crepes</div>
       </div>
       <div class="card-grid k2">
         <div class="card">
-          <img class="sq" src="fotos/dulces/crepe-dulce-de-leche.png" alt="Crepe DDL"/>
+          <img class="w" src="fotos/dulces/crepe-dulce-de-leche.png" alt="Crepe DDL"/>
           <div class="card-body"><span class="card-name">Crepe · Dulce de Leche</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
         </div>
         <div class="card">
-          <img class="sq" src="fotos/dulces/crepe-nutella.png" alt="Crepe Nutella"/>
+          <img class="w" src="fotos/dulces/crepe-nutella.png" alt="Crepe Nutella"/>
           <div class="card-body"><span class="card-name">Crepe · Nutella</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
         </div>
         <div class="card">
-          <img class="sq" src="fotos/dulces/gofre-dulce-de-leche.png" alt="Gofre DDL"/>
+          <img class="w" src="fotos/dulces/gofre-dulce-de-leche.png" alt="Gofre DDL"/>
           <div class="card-body"><span class="card-name">Gofre · Dulce de Leche</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
         </div>
         <div class="card">
-          <img class="sq" src="fotos/dulces/gofre-dulce-fresas-nata.png" alt="Gofre DDL Fresas"/>
-          <div class="card-body"><span class="card-name">Gofre · DDL Fresas y Nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+          <img class="w" src="fotos/dulces/gofre-dulce-fresas-nata.png" alt="Gofre DDL Fresas"/>
+          <div class="card-body"><span class="card-name">Gofre · DDL, Fresas y Nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
         </div>
         <div class="card">
-          <img class="sq" src="fotos/dulces/batido-crepe-dulce-de-leche.png" alt="Batido + Crepe DDL"/>
+          <img class="w" src="fotos/dulces/batido-crepe-dulce-de-leche.png" alt="Batido + Crepe DDL"/>
           <div class="card-body"><span class="card-name">Batido + Crepe DDL y Nata</span><div class="card-foot"><span class="card-price">7,50 €</span></div></div>
         </div>
         <div class="card">
-          <img class="sq" src="fotos/dulces/batido-crepe-nutella.png" alt="Batido + Crepe Nutella"/>
+          <img class="w" src="fotos/dulces/batido-crepe-nutella.png" alt="Batido + Crepe Nutella"/>
           <div class="card-body"><span class="card-name">Batido + Crepe Nutella y Nata</span><div class="card-foot"><span class="card-price">7,50 €</span></div></div>
         </div>
       </div>
@@ -250,12 +250,12 @@ img{display:block;max-width:100%;object-fit:cover}
 
     <!-- COL 4 · BRUNCH -->
     <div class="col">
-      <div class="sh">
-        <span class="sh-eye">Lunes a viernes · 11:00 – 14:00 h · Café y zumo incluidos</span>
-        <div class="sh-title">Brunch</div>
+      <div class="band">
+        <div class="b-title">Brunch</div>
+        <div class="b-note">Lunes a viernes · 11:00 – 14:00 h · Café y zumo de naranja incluidos</div>
       </div>
 
-      <div class="ss-title">Tortitas</div>
+      <div class="ss"><span class="ss-title">Tortitas</span></div>
       <div class="card-grid k3">
         <div class="card">
           <img src="Kume%20menus/images/tortitas-miel.png" alt="Tortitas miel"/>
@@ -271,7 +271,7 @@ img{display:block;max-width:100%;object-fit:cover}
         </div>
       </div>
 
-      <div class="ss-title">Crepes salados</div>
+      <div class="ss"><span class="ss-title">Crepes salados</span></div>
       <div class="card-grid k3">
         <div class="card">
           <img src="Kume%20menus/images/crepe-jamon-queso.png" alt="Crepe jamón queso"/>
@@ -287,7 +287,7 @@ img{display:block;max-width:100%;object-fit:cover}
         </div>
       </div>
 
-      <div class="ss-title">Gofres y Croissant</div>
+      <div class="ss"><span class="ss-title">Gofres y Croissant</span></div>
       <div class="card-grid k3">
         <div class="card">
           <img src="Kume%20menus/images/gofre-bacon.png" alt="Gofre bacon"/>
@@ -303,96 +303,94 @@ img{display:block;max-width:100%;object-fit:cover}
         </div>
       </div>
 
-      <div class="sh" style="margin-top:1mm">
-        <span class="sh-eye">Fruta fresca al momento</span>
-        <div class="sh-title" style="font-size:12pt">Smoothies Naturales</div>
-        <p class="sh-desc">5 € · +1 € con leche · +2 € ron · +3 € vodka</p>
+      <div class="note" style="margin-top:1.5mm">Todos los platos de brunch incluyen café de especialidad y zumo de naranja natural recién exprimido.</div>
+    </div>
+
+    <!-- COL 5 · SMOOTHIES Y BATIDOS -->
+    <div class="col">
+      <div class="band">
+        <div class="b-title">Smoothies · 5 €</div>
+        <div class="b-note">Fruta fresca al momento · +1 € con leche · +2 € ron · +3 € vodka</div>
       </div>
       <div class="card-grid k3">
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/sm-caribbean.png" alt="Caribbean Passion"/>
-          <div class="card-body"><span class="card-name">Caribbean Passion</span><span class="card-desc">Mango, melocotón, piña, zanahoria</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
+          <div class="card-body"><span class="card-name">Caribbean Passion</span><span class="card-desc">Mango, melocotón, piña, zanahoria</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/sm-colada.png" alt="Colada Jungle"/>
-          <div class="card-body"><span class="card-name">Colada Jungle</span><span class="card-desc">Coco, piña, plátano</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
+          <div class="card-body"><span class="card-name">Colada Jungle</span><span class="card-desc">Coco, piña, plátano</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/sm-dragon.png" alt="Dragon Fruit Mix"/>
-          <div class="card-body"><span class="card-name">Dragon Fruit Mix</span><span class="card-desc">Mango, fresa, pitahaya</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
+          <div class="card-body"><span class="card-name">Dragon Fruit Mix</span><span class="card-desc">Mango, fresa, pitahaya</span></div>
         </div>
-      </div>
-    </div>
-
-    <!-- COL 5 · SMOOTHIES + BATIDOS -->
-    <div class="col">
-      <div class="card-grid k3" style="margin-top:1mm">
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/sm-berries.png" alt="Berries Passion"/>
-          <div class="card-body"><span class="card-name">Berries Passion</span><span class="card-desc">Mango, cereza, arándanos, fresa</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
+          <div class="card-body"><span class="card-name">Berries Passion</span><span class="card-desc">Mango, cereza, arándanos, fresa</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/sm-vitality.png" alt="Vitality"/>
-          <div class="card-body"><span class="card-name">Vitality</span><span class="card-desc">Plátano, fresa</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
+          <div class="card-body"><span class="card-name">Vitality</span><span class="card-desc">Plátano, fresa</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/sm-sunny.png" alt="Sunny Splash"/>
-          <div class="card-body"><span class="card-name">Sunny Splash</span><span class="card-desc">Mango, lima, piña, maracuyá</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
+          <div class="card-body"><span class="card-name">Sunny Splash</span><span class="card-desc">Mango, lima, piña, maracuyá</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/sm-tropical.png" alt="Tropical Heaven"/>
-          <div class="card-body"><span class="card-name">Tropical Heaven</span><span class="card-desc">Kiwi, mango, piña</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
+          <div class="card-body"><span class="card-name">Tropical Heaven</span><span class="card-desc">Kiwi, mango, piña</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/sm-redbliss.png" alt="Red Bliss"/>
-          <div class="card-body"><span class="card-name">Red Bliss</span><span class="card-desc">Plátano, arándanos, pitahaya, mora</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
+          <div class="card-body"><span class="card-name">Red Bliss</span><span class="card-desc">Plátano, arándanos, pitahaya, mora</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/sm-green.png" alt="Green Power"/>
-          <div class="card-body"><span class="card-name">Green Power</span><span class="card-desc">Brócoli, pepino, espinacas, mango</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
+          <div class="card-body"><span class="card-name">Green Power</span><span class="card-desc">Brócoli, pepino, espinacas, mango</span></div>
         </div>
       </div>
 
-      <div class="sh" style="margin-top:1mm">
-        <div class="sh-title" style="font-size:12pt">Batidos</div>
-        <p class="sh-desc">5,50 € · +1 € convertir en frappé con café</p>
+      <div class="band" style="margin-top:1mm">
+        <div class="b-title">Batidos · 5,50 €</div>
+        <div class="b-note">+1 € convertir en frappé con café</div>
       </div>
       <div class="card-grid k3">
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/mk-cookies.png" alt="Cookies & Cream"/>
-          <div class="card-body"><span class="card-name">Cookies &amp; Cream</span><span class="card-desc">Helado vainilla, Oreo, nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Cookies &amp; Cream</span><span class="card-desc">Helado vainilla, Oreo, nata</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/mk-caramel.png" alt="Salted Caramel"/>
-          <div class="card-body"><span class="card-name">Salted Caramel</span><span class="card-desc">Caramelo salado, nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Salted Caramel</span><span class="card-desc">Caramelo salado, nata</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/mk-vanilla.png" alt="Vanilla Dream"/>
-          <div class="card-body"><span class="card-name">Vanilla Dream</span><span class="card-desc">Helado vainilla, leche, nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Vanilla Dream</span><span class="card-desc">Helado vainilla, leche, nata</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/mk-strawberry.png" alt="Strawberry Fantasy"/>
-          <div class="card-body"><span class="card-name">Strawberry Fantasy</span><span class="card-desc">Fresa natural, nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Strawberry Fantasy</span><span class="card-desc">Fresa natural, nata</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/mk-banana.png" alt="Bananalicious"/>
-          <div class="card-body"><span class="card-name">Bananalicious</span><span class="card-desc">Plátano fresco, nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Bananalicious</span><span class="card-desc">Plátano fresco, nata</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/drinks/mk-chocolate.png" alt="Pure Chocolate"/>
-          <div class="card-body"><span class="card-name">Pure Chocolate</span><span class="card-desc">Cacao puro, nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Pure Chocolate</span><span class="card-desc">Cacao puro, nata</span></div>
         </div>
       </div>
     </div>
 
   </div>
 
-  <div class="bot"><span>KÜME café · C/ Guardia Civil, 20 · Benimaclet, Valencia</span><span>Desayunos · Brunch · Smoothies</span><span>IVA incluido</span></div>
+  <div class="bot"><span>KÜME café · C/ Guardia Civil, 20 · Benimaclet, Valencia</span><span>kumepasteleria.com · @kume.cafe</span><span>IVA incluido</span></div>
 </div>
 
 
-<!-- ═══════════════════════ CARA B ═══════════════════════ -->
-<div class="sheet cream">
+<!-- ═══════════════════════ CARA B · TARDES ═══════════════════════ -->
+<div class="sheet">
   <div class="top">
     <div style="display:flex;align-items:baseline">
       <span class="top-logo">KÜME</span>
@@ -405,283 +403,273 @@ img{display:block;max-width:100%;object-fit:cover}
 
     <!-- COL 1 · MERIENDA + TARDEO -->
     <div class="col">
-      <div class="sh">
-        <span class="sh-eye">Toda la tarde</span>
-        <div class="sh-title">Merienda</div>
-        <p class="sh-desc">+1,50 € cambiar tostado por tarta artesanal</p>
+      <div class="band">
+        <div class="b-title">Merienda</div>
+        <div class="b-note">Toda la tarde · +1,50 € cambiar tostado por tarta artesanal</div>
       </div>
       <div class="card-grid k2">
         <div class="card">
-          <img src="Kume%20menus/images/merienda-cafe-tostado.png" alt="Café y tostado"/>
+          <img class="w" src="Kume%20menus/images/merienda-cafe-tostado.png" alt="Café y tostado"/>
           <div class="card-body"><span class="card-name">Café con leche y tostado</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/tardeo-infantil.png" alt="Choleck tostado"/>
-          <div class="card-body"><span class="card-name">Tostado con Choleck</span><span class="card-desc">Infantil</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+          <img class="w" src="Kume%20menus/images/tardeo-infantil.png" alt="Choleck tostado"/>
+          <div class="card-body"><span class="card-name">Tostado con Choleck</span><div class="card-foot"><span class="card-price">5,50 €</span><span class="card-extra">infantil</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/merienda-matcha-tostado.png" alt="Matcha tostado"/>
+          <img class="w" src="Kume%20menus/images/merienda-matcha-tostado.png" alt="Matcha tostado"/>
           <div class="card-body"><span class="card-name">Matcha Latte y tostado</span><div class="card-foot"><span class="card-price">6,50 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/merienda-cafe-tostado.png" alt="Caramel tostado"/>
+          <img class="w" src="Kume%20menus/images/merienda-cafe-tostado.png" alt="Caramel tostado"/>
           <div class="card-body"><span class="card-name">Caramel Latte y tostado</span><div class="card-foot"><span class="card-price">6,50 €</span></div></div>
         </div>
       </div>
 
-      <div class="sh" style="margin-top:1mm">
-        <span class="sh-eye">Cerveza fría con tapa de cortesía</span>
-        <div class="sh-title" style="font-size:12pt">Tardeo</div>
+      <div class="band" style="margin-top:1mm">
+        <div class="b-title">Tardeo</div>
+        <div class="b-note">Cerveza fría con tapa de cortesía</div>
       </div>
       <div class="card-grid k2">
         <div class="card">
-          <img src="Kume%20menus/images/tardeo-carlitos.png" alt="Cerveza tostado"/>
+          <img class="w" src="Kume%20menus/images/tardeo-carlitos.png" alt="Cerveza tostado"/>
           <div class="card-body"><span class="card-name">Cerveza con tostado Carlitos</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/tardeo-adulto.png" alt="Cerveza sandwich"/>
+          <img class="w" src="Kume%20menus/images/tardeo-adulto.png" alt="Cerveza sandwich"/>
           <div class="card-body"><span class="card-name">Cerveza con sandwich de miga</span><div class="card-foot"><span class="card-price">7 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/estrella-galicia.png" alt="Caña"/>
+          <img class="w" src="Kume%20menus/images/estrella-galicia.png" alt="Caña"/>
           <div class="card-body"><span class="card-name">Caña de cerveza</span><div class="card-foot"><span class="card-price">1,90 €</span></div></div>
         </div>
         <div class="card">
-          <img src="Kume%20menus/images/estrella-galicia.png" alt="Doble"/>
+          <img class="w" src="Kume%20menus/images/estrella-galicia.png" alt="Doble"/>
           <div class="card-body"><span class="card-name">Doble de cerveza</span><div class="card-foot"><span class="card-price">2,90 €</span></div></div>
         </div>
-      </div>
-
-      <div class="ss-title">Tapeo</div>
-      <div class="mlist">
-        <div class="mrow"><span class="mname">Miga Huevo y Pimientos</span><span class="mprice">2,50 €</span></div>
-        <div class="mrow"><span class="mname">Miga Carlitos</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">1 Cerveza + Tostado</span><span class="mprice">5,50 €</span></div>
-        <div class="mrow"><span class="mname">1 Cerveza + 2 Tostados</span><span class="mprice">7 €</span></div>
-        <div class="mrow"><span class="mname">Patatas / Olivas para cerveza</span><span class="mprice">1–2 €</span></div>
       </div>
     </div>
 
     <!-- COL 2 · COMIDA I -->
     <div class="col">
-      <div class="sh">
-        <span class="sh-eye">Cocina de casa</span>
-        <div class="sh-title">Comida</div>
+      <div class="band">
+        <div class="b-title">Comida</div>
+        <div class="b-note">Cocina de casa, hecha cada día</div>
       </div>
 
-      <div class="ss-title">Tapas y raciones</div>
+      <div class="ss"><span class="ss-title">Tapas y raciones</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Tapa chica</span><span class="mprice">1 €</span></div>
-        <div class="mrow"><span class="mname">Tapa grande</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Patatas fritas</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Tortilla francesa</span><span class="mprice">2,60 €</span></div>
-        <div class="mrow"><span class="mname">Huevo revuelto</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Pizza porción</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Quiché porción</span><span class="mprice">4 €</span></div>
-        <div class="mrow"><span class="mname">Quiche peq. entera</span><span class="mprice">14 €</span></div>
-        <div class="mrow"><span class="mname">Quiche gde. entera</span><span class="mprice">20 €</span></div>
+        <div class="mrow"><span class="mname">Tapa chica</span><span class="dots"></span><span class="mprice">1 €</span></div>
+        <div class="mrow"><span class="mname">Tapa grande</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Patatas fritas</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Tortilla francesa</span><span class="dots"></span><span class="mprice">2,60 €</span></div>
+        <div class="mrow"><span class="mname">Huevo revuelto</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Pizza porción</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Quiché porción</span><span class="dots"></span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Quiche pequeña entera</span><span class="dots"></span><span class="mprice">14 €</span></div>
+        <div class="mrow"><span class="mname">Quiche grande entera</span><span class="dots"></span><span class="mprice">20 €</span></div>
       </div>
 
-      <div class="ss-title">Tostas</div>
+      <div class="ss"><span class="ss-title">Tapeo</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Tostada de aceite</span><span class="mprice">1,80 €</span></div>
-        <div class="mrow"><span class="mname">Tomate y aceite</span><span class="mprice">1,80 €</span></div>
-        <div class="mrow"><span class="mname">Mantequilla y mermelada</span><span class="mprice">1,80 €</span></div>
-        <div class="mrow"><span class="mname">Tomate y jamón</span><span class="mprice">2,20 €</span></div>
-        <div class="mrow"><span class="mname">Huevo, jamón y tomate</span><span class="mprice">4 €</span></div>
-        <div class="mrow"><span class="mname">Huevo, tomate y guacamole</span><span class="mprice">4 €</span></div>
-        <div class="mrow"><span class="mname">Salmón y canónigo</span><span class="mprice">4,50 €</span></div>
+        <div class="mrow"><span class="mname">Miga Huevo y Pimientos</span><span class="dots"></span><span class="mprice">2,50 €</span></div>
+        <div class="mrow"><span class="mname">Miga Carlitos</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">1 Cerveza + Tostado</span><span class="dots"></span><span class="mprice">5,50 €</span></div>
+        <div class="mrow"><span class="mname">1 Cerveza + 2 Tostados</span><span class="dots"></span><span class="mprice">7 €</span></div>
+        <div class="mrow"><span class="mname">Patatas / Olivas para cerveza</span><span class="dots"></span><span class="mprice">1 – 2 €</span></div>
       </div>
 
-      <div class="ss-title">Empanadas</div>
+      <div class="ss"><span class="ss-title">Tostas</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Verdura / Pollo / Humita</span><span class="mprice">2,70 €</span></div>
-        <div class="mrow"><span class="mname">Pisto y atún</span><span class="mprice">2,70 €</span></div>
-        <div class="mrow"><span class="mname">Jamón y queso</span><span class="mprice">2,70 €</span></div>
-        <div class="mrow"><span class="mname">Cebolla y queso</span><span class="mprice">2,70 €</span></div>
-        <div class="mrow"><span class="mname">Criolla</span><span class="mprice">2,90 €</span></div>
-        <div class="mrow"><span class="mname">Pollo al curry</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Campo desmechada</span><span class="mprice">3,50 €</span></div>
+        <div class="mrow"><span class="mname">Tostada de aceite</span><span class="dots"></span><span class="mprice">1,80 €</span></div>
+        <div class="mrow"><span class="mname">Tomate y aceite</span><span class="dots"></span><span class="mprice">1,80 €</span></div>
+        <div class="mrow"><span class="mname">Mantequilla y mermelada</span><span class="dots"></span><span class="mprice">1,80 €</span></div>
+        <div class="mrow"><span class="mname">Tomate y jamón</span><span class="dots"></span><span class="mprice">2,20 €</span></div>
+        <div class="mrow"><span class="mname">Huevo, jamón y tomate</span><span class="dots"></span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Huevo, tomate y guacamole</span><span class="dots"></span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Salmón y canónigo</span><span class="dots"></span><span class="mprice">4,50 €</span></div>
       </div>
     </div>
 
     <!-- COL 3 · COMIDA II -->
     <div class="col">
-      <div class="ss-title" style="margin-top:1mm">Bocadillos</div>
+      <div class="ss" style="margin-top:0"><span class="ss-title">Empanadas</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Atún y olivas</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Pequeño tortilla</span><span class="mprice">4 €</span></div>
-        <div class="mrow"><span class="mname">Tortilla jamón</span><span class="mprice">5 €</span></div>
-        <div class="mrow"><span class="mname">Grande tortilla</span><span class="mprice">5 €</span></div>
-        <div class="mrow"><span class="mname">Tomate, jamón y queso</span><span class="mprice">5 €</span></div>
-        <div class="mrow"><span class="mname">Huevo y bacon</span><span class="mprice">5 €</span></div>
+        <div class="mrow"><span class="mname">Verdura / Pollo / Humita</span><span class="dots"></span><span class="mprice">2,70 €</span></div>
+        <div class="mrow"><span class="mname">Pisto y atún</span><span class="dots"></span><span class="mprice">2,70 €</span></div>
+        <div class="mrow"><span class="mname">Jamón y queso</span><span class="dots"></span><span class="mprice">2,70 €</span></div>
+        <div class="mrow"><span class="mname">Cebolla y queso</span><span class="dots"></span><span class="mprice">2,70 €</span></div>
+        <div class="mrow"><span class="mname">Criolla</span><span class="dots"></span><span class="mprice">2,90 €</span></div>
+        <div class="mrow"><span class="mname">Pollo al curry</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Campo desmechada</span><span class="dots"></span><span class="mprice">3,50 €</span></div>
       </div>
 
-      <div class="ss-title">Bocadillos XL</div>
+      <div class="ss"><span class="ss-title">Bocadillos</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">XL Francesa y queso</span><span class="mprice">5 €</span></div>
-        <div class="mrow"><span class="mname">XL Atún y olivas</span><span class="mprice">5 €</span></div>
-        <div class="mrow"><span class="mname">XL Morcilla</span><span class="mprice">7 €</span></div>
-        <div class="mrow"><span class="mname">XL Esgarraet y queso</span><span class="mprice">7 €</span></div>
-        <div class="mrow"><span class="mname">XL Calamar</span><span class="mprice">7 €</span></div>
-        <div class="mrow"><span class="mname">XL Caballo / Brascada</span><span class="mprice">7 €</span></div>
+        <div class="mrow"><span class="mname">Atún y olivas</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Pequeño tortilla</span><span class="dots"></span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Tortilla jamón</span><span class="dots"></span><span class="mprice">5 €</span></div>
+        <div class="mrow"><span class="mname">Grande tortilla</span><span class="dots"></span><span class="mprice">5 €</span></div>
+        <div class="mrow"><span class="mname">Tomate, jamón y queso</span><span class="dots"></span><span class="mprice">5 €</span></div>
+        <div class="mrow"><span class="mname">Huevo y bacon</span><span class="dots"></span><span class="mprice">5 €</span></div>
       </div>
 
-      <div class="ss-title">Bollería salada</div>
+      <div class="ss"><span class="ss-title">Bocadillos XL</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Medialuna jamón y queso</span><span class="mprice">1,70 €</span></div>
-        <div class="mrow"><span class="mname">Napolitana york y queso</span><span class="mprice">2,50 €</span></div>
-        <div class="mrow"><span class="mname">Croissant york y queso</span><span class="mprice">3,50 €</span></div>
-        <div class="mrow"><span class="mname">Croissant huevo y bacon</span><span class="mprice">3,70 €</span></div>
-        <div class="mrow"><span class="mname">Brioche pollo criolla</span><span class="mprice">6,50 €</span></div>
+        <div class="mrow"><span class="mname">Francesa y queso</span><span class="dots"></span><span class="mprice">5 €</span></div>
+        <div class="mrow"><span class="mname">Atún y olivas</span><span class="dots"></span><span class="mprice">5 €</span></div>
+        <div class="mrow"><span class="mname">Morcilla</span><span class="dots"></span><span class="mprice">7 €</span></div>
+        <div class="mrow"><span class="mname">Esgarraet y queso</span><span class="dots"></span><span class="mprice">7 €</span></div>
+        <div class="mrow"><span class="mname">Calamar</span><span class="dots"></span><span class="mprice">7 €</span></div>
+        <div class="mrow"><span class="mname">Caballo / Brascada</span><span class="dots"></span><span class="mprice">7 €</span></div>
       </div>
 
-      <div class="ss-title">Bollería dulce</div>
+      <div class="ss"><span class="ss-title">Bollería salada</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Donut glaseado</span><span class="mprice">1,20 €</span></div>
-        <div class="mrow"><span class="mname">Sfogliatella pistacho</span><span class="mprice">1,80 €</span></div>
-        <div class="mrow"><span class="mname">Napolitana choco</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Roll de canela / Caracola</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Muffin relleno</span><span class="mprice">2,30 €</span></div>
-        <div class="mrow"><span class="mname">Cookie personajes</span><span class="mprice">2,70 €</span></div>
-        <div class="mrow"><span class="mname">Alfajor choco / maicena</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Galletas Oreo / Lotus</span><span class="mprice">3,50 €</span></div>
-        <div class="mrow"><span class="mname">Galletas rellenas pistacho</span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Medialuna jamón y queso</span><span class="dots"></span><span class="mprice">1,70 €</span></div>
+        <div class="mrow"><span class="mname">Napolitana york y queso</span><span class="dots"></span><span class="mprice">2,50 €</span></div>
+        <div class="mrow"><span class="mname">Croissant york y queso</span><span class="dots"></span><span class="mprice">3,50 €</span></div>
+        <div class="mrow"><span class="mname">Croissant huevo y bacon</span><span class="dots"></span><span class="mprice">3,70 €</span></div>
+        <div class="mrow"><span class="mname">Brioche pollo criolla</span><span class="dots"></span><span class="mprice">6,50 €</span></div>
       </div>
     </div>
 
     <!-- COL 4 · BEBIDAS & CÓCTELES -->
     <div class="col">
-      <div class="sh">
-        <span class="sh-eye">Barra</span>
-        <div class="sh-title">Bebidas &amp; Cócteles</div>
+      <div class="band">
+        <div class="b-title">Bebidas &amp; Cócteles</div>
+        <div class="b-note">Cervezas, vinos y combinados</div>
       </div>
 
-      <div class="ss-title">Cervezas de barril</div>
+      <div class="ss"><span class="ss-title">Cervezas de barril</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Caña</span><span class="mprice">1,90 €</span></div>
-        <div class="mrow"><span class="mname">Doble</span><span class="mprice">2,50 €</span></div>
-        <div class="mrow"><span class="mname">Rivera Reposada</span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Caña</span><span class="dots"></span><span class="mprice">1,90 €</span></div>
+        <div class="mrow"><span class="mname">Doble</span><span class="dots"></span><span class="mprice">2,50 €</span></div>
+        <div class="mrow"><span class="mname">Rivera Reposada</span><span class="dots"></span><span class="mprice">4 €</span></div>
       </div>
 
-      <div class="ss-title">Botellas / Tercio</div>
+      <div class="ss"><span class="ss-title">Botellas / Tercio</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Estrella Galicia</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">1906 Reserva</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Estrella 0,0% Tostada</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Radler</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Tyris IPA / sin gluten</span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Estrella Galicia</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">1906 Reserva</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Estrella 0,0% Tostada</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Radler</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Tyris IPA / sin gluten</span><span class="dots"></span><span class="mprice">4 €</span></div>
       </div>
 
-      <div class="ss-title">Vinos</div>
+      <div class="ss"><span class="ss-title">Vinos</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Vino tinto / blanco copa</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">San Telmo (botella)</span><span class="mprice">14 €</span></div>
-        <div class="mrow"><span class="mname">Les Alcusses (botella)</span><span class="mprice">14 €</span></div>
+        <div class="mrow"><span class="mname">Vino tinto / blanco copa</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">San Telmo (botella)</span><span class="dots"></span><span class="mprice">14 €</span></div>
+        <div class="mrow"><span class="mname">Les Alcusses (botella)</span><span class="dots"></span><span class="mprice">14 €</span></div>
       </div>
 
-      <div class="ss-title">Cócteles</div>
+      <div class="ss"><span class="ss-title">Cócteles</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Aperol Spritz</span><span class="mprice">6 €</span></div>
-        <div class="mrow"><span class="mname">Cuba Libre</span><span class="mprice">7 €</span></div>
-        <div class="mrow"><span class="mname">Daikiri</span><span class="mprice">8 €</span></div>
-        <div class="mrow"><span class="mname">Tinto de verano</span><span class="mprice">4 €</span></div>
-        <div class="mrow"><span class="mname">Vermouth / con aperitivo</span><span class="mprice">3,50–8 €</span></div>
-        <div class="mrow"><span class="mname">Bitter Rosso</span><span class="mprice">2 €</span></div>
-        <div class="mrow"><span class="mname">Fernet</span><span class="mprice">7 €</span></div>
+        <div class="mrow"><span class="mname">Aperol Spritz</span><span class="dots"></span><span class="mprice">6 €</span></div>
+        <div class="mrow"><span class="mname">Cuba Libre</span><span class="dots"></span><span class="mprice">7 €</span></div>
+        <div class="mrow"><span class="mname">Daikiri</span><span class="dots"></span><span class="mprice">8 €</span></div>
+        <div class="mrow"><span class="mname">Tinto de verano</span><span class="dots"></span><span class="mprice">4 €</span></div>
+        <div class="mrow"><span class="mname">Vermouth / con aperitivo</span><span class="dots"></span><span class="mprice">3,50 / 8 €</span></div>
+        <div class="mrow"><span class="mname">Bitter Rosso</span><span class="dots"></span><span class="mprice">2 €</span></div>
+        <div class="mrow"><span class="mname">Fernet</span><span class="dots"></span><span class="mprice">7 €</span></div>
       </div>
 
-      <div class="ss-title">Ginebras y licores</div>
+      <div class="ss"><span class="ss-title">Ginebras y licores</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Tanqueray / Beefeater / Pimpollo</span><span class="mprice">8 €</span></div>
-        <div class="mrow"><span class="mname">Puerto de Indias</span><span class="mprice">9 €</span></div>
-        <div class="mrow"><span class="mname">Seagrams</span><span class="mprice">2,50 €</span></div>
-        <div class="mrow"><span class="mname">Whiskey / Ron especial</span><span class="mprice">5 €</span></div>
-        <div class="mrow"><span class="mname">Copa de licor</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">Chupito / especial</span><span class="mprice">2–3 €</span></div>
+        <div class="mrow"><span class="mname">Tanqueray / Beefeater / Pimpollo</span><span class="dots"></span><span class="mprice">8 €</span></div>
+        <div class="mrow"><span class="mname">Puerto de Indias</span><span class="dots"></span><span class="mprice">9 €</span></div>
+        <div class="mrow"><span class="mname">Seagrams</span><span class="dots"></span><span class="mprice">2,50 €</span></div>
+        <div class="mrow"><span class="mname">Whiskey / Ron especial</span><span class="dots"></span><span class="mprice">5 €</span></div>
+        <div class="mrow"><span class="mname">Copa de licor</span><span class="dots"></span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">Chupito / especial</span><span class="dots"></span><span class="mprice">2 – 3 €</span></div>
       </div>
     </div>
 
     <!-- COL 5 · PASTELERÍA -->
     <div class="col">
-      <div class="sh">
-        <span class="sh-eye">Recetas de cuarta generación</span>
-        <div class="sh-title">Pastelería Artesanal</div>
-        <p class="sh-desc">Porción 4,50 € · Tartas enteras a encargo con 48 h · WhatsApp +34 621 498 315</p>
+      <div class="band">
+        <div class="b-title">Pastelería Artesanal</div>
+        <div class="b-note">Recetas de cuarta generación · Porción 4,50 €</div>
       </div>
 
       <div class="card-grid k3">
         <div class="card">
           <img class="sq" src="fotos/chocotorta%20(2).jpg" alt="Chocotorta"/>
-          <div class="card-body"><span class="card-name">Chocotorta</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Chocotorta</span></div>
         </div>
         <div class="card">
           <img class="sq" src="fotos/lemon%20pie.jpg" alt="Lemon Pie"/>
-          <div class="card-body"><span class="card-name">Lemon Pie</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Lemon Pie</span></div>
         </div>
         <div class="card">
           <img class="sq" src="fotos/carrot%20cake.jpeg" alt="Carrot Cake"/>
-          <div class="card-body"><span class="card-name">Carrot Cake</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Carrot Cake</span></div>
         </div>
         <div class="card">
           <img class="sq" src="fotos/cheesecake.jpg" alt="Cheesecake"/>
-          <div class="card-body"><span class="card-name">Cheesecake</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Cheesecake</span></div>
         </div>
         <div class="card">
           <img class="sq" src="fotos/rogel.jpg" alt="Rogel"/>
-          <div class="card-body"><span class="card-name">Rogel</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Rogel</span></div>
         </div>
         <div class="card">
           <img class="sq" src="fotos/torta%20de%20oreo.jpeg" alt="Tarta Oreo"/>
-          <div class="card-body"><span class="card-name">Tarta de Oreo</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Tarta de Oreo</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/tartas/selva-negra.jpg" alt="Selva Negra"/>
-          <div class="card-body"><span class="card-name">Selva Negra</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Selva Negra</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/tartas/chaja.jpg" alt="Chajá"/>
-          <div class="card-body"><span class="card-name">Chajá</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Chajá</span></div>
         </div>
         <div class="card">
           <img class="sq" src="Kume%20menus/images/tartas/brazo-gitano.jpg" alt="Brazo Gitano"/>
-          <div class="card-body"><span class="card-name">Brazo Gitano</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+          <div class="card-body"><span class="card-name">Brazo Gitano</span></div>
         </div>
       </div>
 
-      <div class="ss-title">Tartas enteras — M</div>
+      <div class="ss"><span class="ss-title">Tartas enteras — Tamaño M</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Brazo Gitano</span><span class="mprice">16 €</span></div>
-        <div class="mrow"><span class="mname">Coco y DDL / Pastafrola</span><span class="mprice">22 €</span></div>
-        <div class="mrow"><span class="mname">Brownie / Chocotorta / Lemon Pie</span><span class="mprice">25 €</span></div>
-        <div class="mrow"><span class="mname">Carrot / Chajá / Rogel / Selva Negra</span><span class="mprice">31 €</span></div>
-        <div class="mrow"><span class="mname">DDL Choco / La Cuadra / Oreo</span><span class="mprice">31 €</span></div>
+        <div class="mrow"><span class="mname">Brazo Gitano</span><span class="dots"></span><span class="mprice">16 €</span></div>
+        <div class="mrow"><span class="mname">Coco y DDL / Pastafrola</span><span class="dots"></span><span class="mprice">22 €</span></div>
+        <div class="mrow"><span class="mname">Brownie / Chocotorta / Lemon Pie</span><span class="dots"></span><span class="mprice">25 €</span></div>
+        <div class="mrow"><span class="mname">Carrot / Chajá / Rogel / Selva Negra</span><span class="dots"></span><span class="mprice">31 €</span></div>
+        <div class="mrow"><span class="mname">DDL Choco / La Cuadra / Oreo</span><span class="dots"></span><span class="mprice">31 €</span></div>
       </div>
 
-      <div class="ss-title">Tartas XL &amp; Especiales</div>
+      <div class="ss"><span class="ss-title">Tartas XL &amp; Especiales</span></div>
       <div class="mlist">
-        <div class="mrow"><span class="mname">Pasta Frola / Coco DDL XL</span><span class="mprice">31 €</span></div>
-        <div class="mrow"><span class="mname">Lemon Pie XL / Oreo XL</span><span class="mprice">42 €</span></div>
-        <div class="mrow"><span class="mname">Carrot / DDL / Red Velvet XL</span><span class="mprice">44 €</span></div>
-        <div class="mrow"><span class="mname">Tarteleta</span><span class="mprice">4,50 €</span></div>
-        <div class="mrow"><span class="mname">Banda de frutas MINI / normal</span><span class="mprice">8–15 €</span></div>
+        <div class="mrow"><span class="mname">Pasta Frola / Coco DDL XL</span><span class="dots"></span><span class="mprice">31 €</span></div>
+        <div class="mrow"><span class="mname">Lemon Pie XL / Oreo XL</span><span class="dots"></span><span class="mprice">42 €</span></div>
+        <div class="mrow"><span class="mname">Carrot / DDL / Red Velvet XL</span><span class="dots"></span><span class="mprice">44 €</span></div>
+        <div class="mrow"><span class="mname">Tarteleta</span><span class="dots"></span><span class="mprice">4,50 €</span></div>
+        <div class="mrow"><span class="mname">Banda de frutas MINI / normal</span><span class="dots"></span><span class="mprice">8 / 15 €</span></div>
       </div>
 
-      <div class="info-panel">
-        <div>
-          <div class="info-label">Horarios</div>
-          <div class="info-val">Desayunos 7:00–11:00 · Brunch 11:00–14:00 (L–V)<br/>L–S 7:00–14:00 y 17:00–24:00 · Dom 8:00–14:00</div>
-        </div>
-        <div>
-          <div class="info-label">Reservas &amp; Encargos</div>
-          <div class="info-val">+34 621 498 315 · C/ Guardia Civil, 20 · kumepasteleria.com · @kume.cafe</div>
-        </div>
-      </div>
+      <div class="note">Tartas enteras a encargo con 48 h de antelación por WhatsApp: <strong>+34 621 498 315</strong></div>
     </div>
 
   </div>
 
-  <div class="bot"><span>KÜME café · C/ Guardia Civil, 20 · Benimaclet, Valencia</span><span>Merienda · Tardeo · Comida · Pastelería</span><span>IVA incluido</span></div>
+  <div class="strip">
+    <span class="strip-logo">KÜME</span>
+    <div class="strip-block">
+      <span class="strip-label">Horarios</span>
+      <span class="strip-val">Desayunos 7:00–11:00 · Brunch 11:00–14:00 (L–V) · L–S 7:00–14:00 y 17:00–24:00 · Dom 8:00–14:00</span>
+    </div>
+    <div class="strip-block">
+      <span class="strip-label">Dónde estamos</span>
+      <span class="strip-val">C/ Guardia Civil, 20 · Benimaclet, Valencia</span>
+    </div>
+    <div class="strip-block">
+      <span class="strip-label">Reservas &amp; Encargos</span>
+      <span class="strip-val">+34 621 498 315 · kumepasteleria.com · @kume.cafe</span>
+    </div>
+  </div>
 </div>
 
 </body>
