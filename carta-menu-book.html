@@ -98,6 +98,10 @@ img{display:block;max-width:100%;object-fit:cover}
 .card-grid.g3{grid-template-columns:repeat(3,1fr)}
 .card-grid.g4{grid-template-columns:repeat(4,1fr)}
 .card-grid.g5{grid-template-columns:repeat(5,1fr)}
+.card-grid.g6{grid-template-columns:repeat(6,1fr)}
+.card.compact .card-body{padding:1.3mm 1.6mm 1.8mm}
+.card.compact .card-name{font-size:6.3pt;line-height:1.15}
+.card.compact .card-price{font-size:7pt}
 
 .card{border-radius:1mm;overflow:hidden;background:#FBF8F0;border:0.75px solid var(--hair-gold);display:flex;flex-direction:column}
 .card img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(1.03)}
@@ -391,7 +395,7 @@ img{display:block;max-width:100%;object-fit:cover}
 </div>
 
 
-<!-- ═══════════ MERIENDA (1/2 — fusiona la antigua Merienda &amp; Tardeo) ═══════════ -->
+<!-- ═══════════ MERIENDA (fusiona Merienda &amp; Tardeo + Brunch/Merienda Dulce) ═══════════ -->
 <div class="page pg white">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Merienda</span></div>
 
@@ -464,45 +468,34 @@ img{display:block;max-width:100%;object-fit:cover}
     </div>
   </div>
 
-  <div class="pf"><span>KÜME café · Benimaclet, Valencia</span><span>IVA incluido</span></div>
-</div>
-
-
-<!-- ═══════════ MERIENDA · DULCE (2/2 — antes "Brunch Dulce") ═══════════ -->
-<div class="page pg cream">
-  <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Merienda · Dulce</span></div>
-
-  <div class="sh">
-    <span class="sh-eye">Crepes y gofres dulces · disponibles toda la tarde</span>
-    <div class="sh-title">Dulce</div>
-    <div class="sh-rule"><span class="ln"></span><span class="dm"></span><span class="ln"></span></div>
-    <p class="sh-desc">+0,50 € añadir nata y fresas en crepes</p>
-  </div>
-
-  <div class="card-grid g3" style="margin-top:2mm">
-    <div class="card">
-      <img class="sq" src="fotos/dulces/crepe-dulce-de-leche.png" alt="Crepe DDL"/>
-      <div class="card-body"><span class="card-name">Crepe · Dulce de Leche</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
-    </div>
-    <div class="card">
-      <img class="sq" src="fotos/dulces/crepe-nutella.png" alt="Crepe Nutella"/>
-      <div class="card-body"><span class="card-name">Crepe · Nutella</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
-    </div>
-    <div class="card">
-      <img class="sq" src="fotos/dulces/gofre-dulce-de-leche.png" alt="Gofre DDL o Nutella"/>
-      <div class="card-body"><span class="card-name">Gofre · Dulce de Leche o Nutella</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
-    </div>
-    <div class="card">
-      <img class="sq" src="fotos/dulces/gofre-dulce-fresas-nata.png" alt="Gofre DDL Fresas"/>
-      <div class="card-body"><span class="card-name">Gofre · DDL Fresas y Nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
-    </div>
-    <div class="card">
-      <img class="sq" src="fotos/dulces/batido-crepe-dulce-de-leche.png" alt="Batido + Crepe DDL"/>
-      <div class="card-body"><span class="card-name">Batido + Crepe DDL y Nata</span><div class="card-foot"><span class="card-price">7,50 €</span></div></div>
-    </div>
-    <div class="card">
-      <img class="sq" src="fotos/dulces/batido-crepe-nutella.png" alt="Batido + Crepe Nutella"/>
-      <div class="card-body"><span class="card-name">Batido + Crepe Nutella y Nata</span><div class="card-foot"><span class="card-price">7,50 €</span></div></div>
+  <div style="display:flex;flex-direction:column;gap:1.5mm">
+    <div class="ss-title" style="margin-bottom:0">Dulce</div>
+    <p class="sh-desc" style="margin:0 0 1mm">Crepes y gofres dulces · +0,50 € añadir nata y fresas en crepes</p>
+    <div class="card-grid g6">
+      <div class="card compact">
+        <img class="sq" src="fotos/dulces/crepe-dulce-de-leche.png" alt="Crepe DDL"/>
+        <div class="card-body"><span class="card-name">Crepe · Dulce de Leche</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
+      </div>
+      <div class="card compact">
+        <img class="sq" src="fotos/dulces/crepe-nutella.png" alt="Crepe Nutella"/>
+        <div class="card-body"><span class="card-name">Crepe · Nutella</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
+      </div>
+      <div class="card compact">
+        <img class="sq" src="fotos/dulces/gofre-dulce-de-leche.png" alt="Gofre DDL o Nutella"/>
+        <div class="card-body"><span class="card-name">Gofre · DDL o Nutella</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+      </div>
+      <div class="card compact">
+        <img class="sq" src="fotos/dulces/gofre-dulce-fresas-nata.png" alt="Gofre DDL Fresas"/>
+        <div class="card-body"><span class="card-name">Gofre · DDL Fresas y Nata</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+      </div>
+      <div class="card compact">
+        <img class="sq" src="fotos/dulces/batido-crepe-dulce-de-leche.png" alt="Batido + Crepe DDL"/>
+        <div class="card-body"><span class="card-name">Batido + Crepe DDL y Nata</span><div class="card-foot"><span class="card-price">7,50 €</span></div></div>
+      </div>
+      <div class="card compact">
+        <img class="sq" src="fotos/dulces/batido-crepe-nutella.png" alt="Batido + Crepe Nutella"/>
+        <div class="card-body"><span class="card-name">Batido + Crepe Nutella y Nata</span><div class="card-foot"><span class="card-price">7,50 €</span></div></div>
+      </div>
     </div>
   </div>
 
