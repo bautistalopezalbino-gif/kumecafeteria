@@ -126,13 +126,18 @@ img{display:block;max-width:100%;object-fit:cover}
 
 .pf{position:absolute;bottom:5mm;left:11mm;right:11mm;display:flex;justify-content:space-between;font-size:6pt;letter-spacing:0.04em;color:rgba(90,80,50,0.45);border-top:0.5px solid var(--hair-gold);padding-top:1.5mm}
 
-/* ── página Almuerzo: pocos ítems, se centra y se agranda para llenar bien la hoja ── */
+/* ── página Menús Medio Día: pocos ítems, se centra y se agranda para llenar bien la hoja ── */
 .almuerzo-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11mm;padding:0 14mm}
 .almuerzo-cols{width:100%;max-width:150mm;gap:5mm 16mm}
 .almuerzo-ss{font-size:15pt;margin-bottom:3.5mm}
 .almuerzo-list .mrow{padding:3.4mm 0;font-size:9.5pt}
 .almuerzo-list .mname{font-size:9.5pt}
 .almuerzo-list .mprice{font-size:9.5pt}
+
+/* ── foto genérica pendiente (para ítems nuevos sin foto real todavía) ── */
+.card-photo-pending{width:100%;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.8mm;background:linear-gradient(160deg,#F1E9D6,#E6DBBE);border-bottom:0.5px solid var(--hair-gold)}
+.card-photo-pending svg{width:8mm;height:8mm;opacity:.5}
+.card-photo-pending span{font-family:'Lora',serif;font-style:italic;font-size:6pt;color:var(--subtle);letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -198,6 +203,16 @@ img{display:block;max-width:100%;object-fit:cover}
         <div class="card-foot"><span class="card-price">3,50 €</span></div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-photo-pending">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="20" height="15" rx="1.5" stroke="#8A6A2E" stroke-width="1.1"/><circle cx="12" cy="12.5" r="4" stroke="#8A6A2E" stroke-width="1.1"/><path d="M7 5l1.4-2h7.2L17 5" stroke="#8A6A2E" stroke-width="1.1"/></svg>
+        <span>foto próximamente</span>
+      </div>
+      <div class="card-body">
+        <span class="card-name">Café clásico + Bollería rellena</span>
+        <div class="card-foot"><span class="card-price">3 €</span></div>
+      </div>
+    </div>
   </div>
 
   <div class="div"></div>
@@ -248,7 +263,7 @@ img{display:block;max-width:100%;object-fit:cover}
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Brunch · L–V · 11:00–14:00 h</span></div>
 
   <div class="sh">
-    <span class="sh-eye">Lunes a viernes · 11:00 – 14:00 h · Café simple y zumo incluidos · +0,50 € café de especialidad</span>
+    <span class="sh-eye">Lunes a viernes · 11:00 – 14:00 h · Café simple y zumo incluidos · +1,50 € café de especialidad</span>
     <div class="sh-title">Brunch</div>
     <div class="sh-rule"><span class="ln"></span><span class="dm"></span><span class="ln"></span></div>
   </div>
@@ -332,13 +347,134 @@ img{display:block;max-width:100%;object-fit:cover}
 </div>
 
 
-<!-- ═══════════ BRUNCH DULCE ═══════════ -->
+<!-- ═══════════ MENÚS MEDIO DÍA (nueva sección, antes "Almuerzo") ═══════════ -->
+<div class="page pg cream">
+  <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Menús Medio Día · 14:00–17:00 h</span></div>
+
+  <div class="almuerzo-wrap">
+    <div class="sh" style="align-items:center;text-align:center">
+      <span class="sh-eye">Todos los días · 14:00 – 17:00 h</span>
+      <div class="sh-title" style="font-size:29pt">Menús Medio Día</div>
+      <div class="sh-rule"><span class="ln"></span><span class="dm"></span><span class="ln"></span></div>
+    </div>
+
+    <div class="cols2 almuerzo-cols">
+      <div>
+        <div class="ss-title almuerzo-ss">Platos</div>
+        <div class="mlist almuerzo-list">
+          <div class="mrow"><span class="mname">Ensalada</span><span class="mprice">—</span></div>
+          <div class="mrow"><span class="mname">Arroz al horno</span><span class="mprice">—</span></div>
+          <div class="mrow"><span class="mname">Pincho de tortilla</span><span class="mprice">2,50 €</span></div>
+          <div class="mrow"><span class="mname">Milanesa (pollo o lomo) · con patatas fritas</span><span class="mprice">—</span></div>
+          <div class="mrow"><span class="mname">Pata de muslo al horno con salsa cerveza y ajo · con patatas fritas</span><span class="mprice">—</span></div>
+        </div>
+        <p class="sh-desc" style="margin-top:2.5mm">Cualquier plato + 0,50 € = menú completo</p>
+      </div>
+
+      <div>
+        <div class="ss-title almuerzo-ss">Bocatas</div>
+        <div class="mlist almuerzo-list">
+          <div class="mrow"><span class="mname">Lomo, queso y bacon</span><span class="mprice">—</span></div>
+          <div class="mrow"><span class="mname">Tortilla y longaniza</span><span class="mprice">—</span></div>
+          <div class="mrow"><span class="mname">Brascada</span><span class="mprice">—</span></div>
+          <div class="mrow"><span class="mname">Pollo y guacamole</span><span class="mprice">—</span></div>
+          <div class="mrow"><span class="mname">Chivito (pollo, ternera o lomo)</span><span class="mprice">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sh-rule"><span class="ln"></span><span class="dm"></span><span class="ln"></span></div>
+    <div class="note" style="text-align:center">Precios de la sección Menús Medio Día pendientes de confirmar.</div>
+  </div>
+
+  <div class="pf"><span>KÜME café · Benimaclet, Valencia</span><span>IVA incluido</span></div>
+</div>
+
+
+<!-- ═══════════ MERIENDA (1/2 — fusiona la antigua Merienda &amp; Tardeo) ═══════════ -->
 <div class="page pg white">
-  <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Brunch Dulce</span></div>
+  <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Merienda</span></div>
+
+  <div class="cols2">
+    <div style="display:flex;flex-direction:column;gap:3mm">
+      <div class="sh">
+        <span class="sh-eye">Toda la tarde</span>
+        <div class="sh-title" style="font-size:16pt">Merienda</div>
+        <p class="sh-desc">+1,50 € cambiar tostado por tarta artesanal</p>
+      </div>
+      <div class="card-grid g2">
+        <div class="card">
+          <img src="Kume%20menus/images/merienda-cafe-tostado.png" alt="Café y tostado"/>
+          <div class="card-body"><span class="card-name">Café con leche y tostado</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+        </div>
+        <div class="card">
+          <img src="Kume%20menus/images/tardeo-infantil.png" alt="Choleck tostado"/>
+          <div class="card-body"><span class="card-name">Tostado con Choleck</span><span class="card-desc">Infantil</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+        </div>
+        <div class="card">
+          <img src="Kume%20menus/images/merienda-matcha-tostado.png" alt="Matcha tostado"/>
+          <div class="card-body"><span class="card-name">Matcha Latte y tostado</span><div class="card-foot"><span class="card-price">6,50 €</span></div></div>
+        </div>
+        <div class="card">
+          <img src="Kume%20menus/images/merienda-cafe-tostado.png" alt="Caramel tostado"/>
+          <div class="card-body"><span class="card-name">Caramel Latte y tostado</span><div class="card-foot"><span class="card-price">6,50 €</span></div></div>
+        </div>
+        <div class="card">
+          <div class="card-photo-pending">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="20" height="15" rx="1.5" stroke="#8A6A2E" stroke-width="1.1"/><circle cx="12" cy="12.5" r="4" stroke="#8A6A2E" stroke-width="1.1"/><path d="M7 5l1.4-2h7.2L17 5" stroke="#8A6A2E" stroke-width="1.1"/></svg>
+            <span>foto próximamente</span>
+          </div>
+          <div class="card-body"><span class="card-name">Batido a elección + porción de tarta</span><div class="card-foot"><span class="card-price">8,50 €</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:3mm">
+      <div class="sh">
+        <span class="sh-eye">Cerveza fría con tapa de cortesía</span>
+        <div class="sh-title" style="font-size:16pt">Tardeo</div>
+      </div>
+      <div class="card-grid g2">
+        <div class="card">
+          <img src="Kume%20menus/images/tardeo-carlitos.png" alt="Cerveza tostado"/>
+          <div class="card-body"><span class="card-name">Cerveza con tostado Carlitos</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+        </div>
+        <div class="card">
+          <img src="Kume%20menus/images/tardeo-adulto.png" alt="Cerveza sandwich"/>
+          <div class="card-body"><span class="card-name">Cerveza con sandwich de miga</span><div class="card-foot"><span class="card-price">7 €</span></div></div>
+        </div>
+        <div class="card">
+          <img src="Kume%20menus/images/estrella-galicia.png" alt="Caña"/>
+          <div class="card-body"><span class="card-name">Caña de cerveza</span><div class="card-foot"><span class="card-price">1,90 €</span></div></div>
+        </div>
+        <div class="card">
+          <img src="Kume%20menus/images/estrella-galicia.png" alt="Doble"/>
+          <div class="card-body"><span class="card-name">Doble de cerveza</span><div class="card-foot"><span class="card-price">2,90 €</span></div></div>
+        </div>
+      </div>
+
+      <div class="ss-title">Tapeo</div>
+      <div class="mlist">
+        <div class="mrow"><span class="mname">Miga Huevo y Pimientos</span><span class="mprice">2,50 €</span></div>
+        <div class="mrow"><span class="mname">Miga Carlitos</span><span class="mprice">3 €</span></div>
+        <div class="mrow"><span class="mname">1 Cerveza + Tostado</span><span class="mprice">5,50 €</span></div>
+        <div class="mrow"><span class="mname">1 Cerveza + 2 Tostados</span><span class="mprice">7 €</span></div>
+        <div class="mrow"><span class="mname">Patatas / Olivas para cerveza</span><span class="mprice">1–2 €</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf"><span>KÜME café · Benimaclet, Valencia</span><span>IVA incluido</span></div>
+</div>
+
+
+<!-- ═══════════ MERIENDA · DULCE (2/2 — antes "Brunch Dulce") ═══════════ -->
+<div class="page pg cream">
+  <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Merienda · Dulce</span></div>
 
   <div class="sh">
-    <span class="sh-eye">Crepes y gofres dulces · disponibles todo el día</span>
-    <div class="sh-title">Brunch Dulce</div>
+    <span class="sh-eye">Crepes y gofres dulces · disponibles toda la tarde</span>
+    <div class="sh-title">Dulce</div>
     <div class="sh-rule"><span class="ln"></span><span class="dm"></span><span class="ln"></span></div>
     <p class="sh-desc">+0,50 € añadir nata y fresas en crepes</p>
   </div>
@@ -353,8 +489,8 @@ img{display:block;max-width:100%;object-fit:cover}
       <div class="card-body"><span class="card-name">Crepe · Nutella</span><div class="card-foot"><span class="card-price">3 €</span></div></div>
     </div>
     <div class="card">
-      <img class="sq" src="fotos/dulces/gofre-dulce-de-leche.png" alt="Gofre DDL"/>
-      <div class="card-body"><span class="card-name">Gofre · Dulce de Leche</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
+      <img class="sq" src="fotos/dulces/gofre-dulce-de-leche.png" alt="Gofre DDL o Nutella"/>
+      <div class="card-body"><span class="card-name">Gofre · Dulce de Leche o Nutella</span><div class="card-foot"><span class="card-price">4,50 €</span></div></div>
     </div>
     <div class="card">
       <img class="sq" src="fotos/dulces/gofre-dulce-fresas-nata.png" alt="Gofre DDL Fresas"/>
@@ -368,48 +504,6 @@ img{display:block;max-width:100%;object-fit:cover}
       <img class="sq" src="fotos/dulces/batido-crepe-nutella.png" alt="Batido + Crepe Nutella"/>
       <div class="card-body"><span class="card-name">Batido + Crepe Nutella y Nata</span><div class="card-foot"><span class="card-price">7,50 €</span></div></div>
     </div>
-  </div>
-
-  <div class="pf"><span>KÜME café · Benimaclet, Valencia</span><span>IVA incluido</span></div>
-</div>
-
-
-<!-- ═══════════ ALMUERZO (nueva sección) ═══════════ -->
-<div class="page pg cream">
-  <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Almuerzo · 14:00–17:00 h</span></div>
-
-  <div class="almuerzo-wrap">
-    <div class="sh" style="align-items:center;text-align:center">
-      <span class="sh-eye">Todos los días · 14:00 – 17:00 h</span>
-      <div class="sh-title" style="font-size:34pt">Almuerzo</div>
-      <div class="sh-rule"><span class="ln"></span><span class="dm"></span><span class="ln"></span></div>
-    </div>
-
-    <div class="cols2 almuerzo-cols">
-      <div>
-        <div class="ss-title almuerzo-ss">Platos</div>
-        <div class="mlist almuerzo-list">
-          <div class="mrow"><span class="mname">Ensalada</span><span class="mprice">—</span></div>
-          <div class="mrow"><span class="mname">Arroz al horno</span><span class="mprice">—</span></div>
-          <div class="mrow"><span class="mname">Milanesa de pollo</span><span class="mprice">—</span></div>
-          <div class="mrow"><span class="mname">Pata de muslo al horno con salsa cerveza y ajo</span><span class="mprice">—</span></div>
-        </div>
-      </div>
-
-      <div>
-        <div class="ss-title almuerzo-ss">Bocatas</div>
-        <div class="mlist almuerzo-list">
-          <div class="mrow"><span class="mname">Lomo, queso y bacon</span><span class="mprice">—</span></div>
-          <div class="mrow"><span class="mname">Tortilla y longaniza</span><span class="mprice">—</span></div>
-          <div class="mrow"><span class="mname">Brascada</span><span class="mprice">—</span></div>
-          <div class="mrow"><span class="mname">Pollo y guacamole</span><span class="mprice">—</span></div>
-          <div class="mrow"><span class="mname">Chivito</span><span class="mprice">—</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sh-rule"><span class="ln"></span><span class="dm"></span><span class="ln"></span></div>
-    <div class="note" style="text-align:center">Precios de la sección Almuerzo pendientes de confirmar.</div>
   </div>
 
   <div class="pf"><span>KÜME café · Benimaclet, Valencia</span><span>IVA incluido</span></div>
@@ -577,76 +671,6 @@ img{display:block;max-width:100%;object-fit:cover}
         </div>
       </div>
 
-    </div>
-  </div>
-
-  <div class="pf"><span>KÜME café · Benimaclet, Valencia</span><span>IVA incluido</span></div>
-</div>
-
-
-<!-- ═══════════ MERIENDA & TARDEO ═══════════ -->
-<div class="page pg white">
-  <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Merienda &amp; Tardeo</span></div>
-
-  <div class="cols2">
-    <div style="display:flex;flex-direction:column;gap:3mm">
-      <div class="sh">
-        <span class="sh-eye">Toda la tarde</span>
-        <div class="sh-title" style="font-size:16pt">Merienda</div>
-        <p class="sh-desc">+1,50 € cambiar tostado por tarta artesanal</p>
-      </div>
-      <div class="card-grid g2">
-        <div class="card">
-          <img src="Kume%20menus/images/merienda-cafe-tostado.png" alt="Café y tostado"/>
-          <div class="card-body"><span class="card-name">Café con leche y tostado</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
-        </div>
-        <div class="card">
-          <img src="Kume%20menus/images/tardeo-infantil.png" alt="Choleck tostado"/>
-          <div class="card-body"><span class="card-name">Tostado con Choleck</span><span class="card-desc">Infantil</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
-        </div>
-        <div class="card">
-          <img src="Kume%20menus/images/merienda-matcha-tostado.png" alt="Matcha tostado"/>
-          <div class="card-body"><span class="card-name">Matcha Latte y tostado</span><div class="card-foot"><span class="card-price">6,50 €</span></div></div>
-        </div>
-        <div class="card">
-          <img src="Kume%20menus/images/merienda-cafe-tostado.png" alt="Caramel tostado"/>
-          <div class="card-body"><span class="card-name">Caramel Latte y tostado</span><div class="card-foot"><span class="card-price">6,50 €</span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:3mm">
-      <div class="sh">
-        <span class="sh-eye">Cerveza fría con tapa de cortesía</span>
-        <div class="sh-title" style="font-size:16pt">Tardeo</div>
-      </div>
-      <div class="card-grid g2">
-        <div class="card">
-          <img src="Kume%20menus/images/tardeo-carlitos.png" alt="Cerveza tostado"/>
-          <div class="card-body"><span class="card-name">Cerveza con tostado Carlitos</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
-        </div>
-        <div class="card">
-          <img src="Kume%20menus/images/tardeo-adulto.png" alt="Cerveza sandwich"/>
-          <div class="card-body"><span class="card-name">Cerveza con sandwich de miga</span><div class="card-foot"><span class="card-price">7 €</span></div></div>
-        </div>
-        <div class="card">
-          <img src="Kume%20menus/images/estrella-galicia.png" alt="Caña"/>
-          <div class="card-body"><span class="card-name">Caña de cerveza</span><div class="card-foot"><span class="card-price">1,90 €</span></div></div>
-        </div>
-        <div class="card">
-          <img src="Kume%20menus/images/estrella-galicia.png" alt="Doble"/>
-          <div class="card-body"><span class="card-name">Doble de cerveza</span><div class="card-foot"><span class="card-price">2,90 €</span></div></div>
-        </div>
-      </div>
-
-      <div class="ss-title">Tapeo</div>
-      <div class="mlist">
-        <div class="mrow"><span class="mname">Miga Huevo y Pimientos</span><span class="mprice">2,50 €</span></div>
-        <div class="mrow"><span class="mname">Miga Carlitos</span><span class="mprice">3 €</span></div>
-        <div class="mrow"><span class="mname">1 Cerveza + Tostado</span><span class="mprice">5,50 €</span></div>
-        <div class="mrow"><span class="mname">1 Cerveza + 2 Tostados</span><span class="mprice">7 €</span></div>
-        <div class="mrow"><span class="mname">Patatas / Olivas para cerveza</span><span class="mprice">1–2 €</span></div>
-      </div>
     </div>
   </div>
 
@@ -931,7 +955,7 @@ img{display:block;max-width:100%;object-fit:cover}
   <div class="back-grid">
     <div class="back-block">
       <span class="back-label">Horarios</span>
-      <span class="back-val">Desayunos &nbsp; 7:00 – 11:00 h · L–V<br/>Brunch &nbsp; 11:00 – 14:00 h · L–V<br/>Almuerzo &nbsp; 14:00 – 17:00 h<br/>Merienda &amp; Tardeo &nbsp; toda la tarde<br/><span style="font-size:7pt;opacity:.6">L–S 7:00–14:00 y 17:00–24:00 · Dom 8:00–14:00</span></span>
+      <span class="back-val">Desayunos &nbsp; 7:00 – 11:00 h · L–V<br/>Brunch &nbsp; 11:00 – 14:00 h · L–V<br/>Menús Medio Día &nbsp; 14:00 – 17:00 h<br/>Merienda &nbsp; toda la tarde<br/><span style="font-size:7pt;opacity:.6">L–S 7:00–14:00 y 17:00–24:00 · Dom 8:00–14:00</span></span>
     </div>
     <div class="back-block">
       <span class="back-label">Dónde estamos</span>
