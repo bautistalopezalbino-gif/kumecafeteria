@@ -224,6 +224,7 @@
     gap: 34px;
   }
   .grid-5 { grid-template-columns: repeat(5, 1fr); }
+  .grid-6 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); }
   .grid-esp { grid-template-columns: repeat(4, 1fr); gap: 30px; }
 
   .card {
@@ -352,7 +353,7 @@
   .grid-merienda {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 36px;
     align-content: center;
   }
@@ -657,7 +658,15 @@
       <p class="price-note">Café incluido · <strong>3 €</strong> cada uno <span class="tag">+ 1 € el zumo natural</span></p>
     </div>
 
-    <div class="grid grid-5">
+    <div class="grid grid-6">
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/cafe-clasico-bolleria.png" alt="Café clásico con bollería rellena"/></div>
+        <div class="card-body">
+          <p class="card-pre">Café clásico +</p>
+          <h3 class="card-name">Bollería rellena</h3>
+        </div>
+      </article>
+
       <article class="card">
         <div class="card-photo"><img src="images/croissant.jpg" alt="Café con croissant"/></div>
         <div class="card-body">
@@ -853,6 +862,97 @@
     </div>
   </section>
 
+  <!-- ░░ 6b · MENÚ MEDIO DÍA · PLATOS ░░ -->
+  <section data-label="Menú Medio Día · Platos" class="board">
+    <div class="board-head">
+      <p class="eyebrow">14:00 – 17:00h</p>
+      <h2 class="board-title serif">Menú Medio Día · Platos</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+    </div>
+    <div class="grid grid-6">
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/ensalada-rusa.png" alt="Ensalada rusa"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Ensalada rusa</h3>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/ensalada-pasta.png" alt="Ensalada de pasta"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Ensalada de pasta</h3>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/arroz-al-horno.png" alt="Arroz al horno"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Arroz al horno</h3>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/pincho-tortilla.png" alt="Pincho de tortilla"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Pincho de tortilla</h3>
+          <div class="card-foot"><span></span><span class="card-price">2,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/milanesa.png" alt="Milanesa de pollo o lomo"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Milanesa · pollo o lomo</h3>
+          <p class="card-extra">Con patatas fritas</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/pata-muslo.png" alt="Pata de muslo al horno con salsa cerveza y ajo"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Pata de muslo al horno · salsa cerveza y ajo</h3>
+          <p class="card-extra">Con patatas fritas</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ░░ 6c · MENÚ MEDIO DÍA · BOCATAS ░░ -->
+  <section data-label="Menú Medio Día · Bocatas" class="board">
+    <div class="board-head">
+      <p class="eyebrow">14:00 – 17:00h</p>
+      <h2 class="board-title serif">Menú Medio Día · Bocatas</h2>
+      <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+    </div>
+    <div class="grid grid-5">
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-lomo-queso-bacon.png" alt="Bocata de lomo, queso y bacon"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Lomo, queso y bacon</h3>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-tortilla-longaniza.png" alt="Bocata de tortilla y longaniza"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Tortilla y longaniza</h3>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-brascada.png" alt="Bocata de brascada"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Brascada</h3>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-pollo-guacamole.png" alt="Bocata de pollo y guacamole"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Pollo y guacamole</h3>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-chivito.png" alt="Chivito de pollo, ternera o lomo"/></div>
+        <div class="card-body">
+          <h3 class="card-name">Chivito · pollo, ternera o lomo</h3>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- ░░ 7 · SMOOTHIES NATURALES ░░ -->
   <section data-label="Smoothies naturales" class="board">
     <div class="board-head">
@@ -974,7 +1074,7 @@
       <article class="card">
         <div class="card-photo"><img src="gofre con dulce de leche.png" alt="Gofre con Dulce de Leche"/></div>
         <div class="card-body">
-          <h3 class="card-name">Gofre · Dulce de Leche</h3>
+          <h3 class="card-name">Gofre · Dulce de Leche o Nutella</h3>
           <div class="card-foot"><span class="card-price">4,50<span> €</span></span></div>
         </div>
       </article>
@@ -1108,6 +1208,14 @@
         <div class="card-body">
           <h3 class="card-name">Caramel latte y tostado</h3>
           <div class="card-foot"><span></span><span class="card-price">6,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo"><img src="../Kume%20menus/images/batido-tarta.png" alt="Batido a elección con porción de tarta"/></div>
+        <div class="card-body">
+          <p class="card-pre">Batido a elección +</p>
+          <h3 class="card-name">Porción de tarta</h3>
+          <div class="card-foot"><span></span><span class="card-price">8,50<span> €</span></span></div>
         </div>
       </article>
     </div>
