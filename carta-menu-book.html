@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#17251C"/>
 <title>KÜME café — La Carta (Menu Book)</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
 <style>
@@ -144,11 +146,181 @@ img{display:block;max-width:100%;object-fit:cover}
 .card-photo-pending svg{width:8mm;height:8mm;opacity:.5}
 .card-photo-pending span{font-family:'Lora',serif;font-style:italic;font-size:6pt;color:var(--subtle);letter-spacing:.02em}
 </style>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     LIBRO DIGITAL — estilos de pantalla (móvil).
+     Todo lo anterior queda intacto y se sigue usando tal cual para
+     @media print (generación de PDF). Este bloque solo se activa
+     en pantalla y convierte las mismas páginas en un libro que se
+     hojea con swipe / tap, sin tocar el contenido ni los datos.
+     ═══════════════════════════════════════════════════════════════ -->
+<style id="kb-screen-style">
+/* Red de seguridad SIEMPRE activa (fuera de @media screen): si este
+   archivo se renderiza para PDF, el chrome interactivo (cabecera, pie,
+   índice) nunca debe pintarse ni ocupar espacio, sin depender de que
+   el JS detecte el modo impresión a tiempo (el script corre al cargar
+   la página, antes de que el motor aplique el media "print" del PDF). */
+#kb-chrome{display:none}
+
+@media screen{
+  #kb-chrome{display:block}
+  html,body{width:100%;height:100%;font-size:16px}
+  body{
+    margin:0;min-height:100dvh;overflow:hidden;
+    background:
+      radial-gradient(ellipse 140% 60% at 50% -10%, rgba(255,255,255,.06), transparent 60%),
+      linear-gradient(180deg,#1c1a15 0%,#0d0c0a 100%);
+    display:flex;align-items:center;justify-content:center;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-user-select:none;user-select:none;
+  }
+
+  #kb-stage{
+    position:relative;width:100%;height:100vh;height:100dvh;max-width:520px;max-height:960px;
+    overflow:hidden;background:var(--leather-2);
+    box-shadow:0 40px 90px -25px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.05);
+    perspective:2600px;
+  }
+
+  #kb-stage .page{
+    position:absolute!important;inset:0;width:100%!important;height:100%!important;
+    max-width:none!important;min-width:0!important;min-height:0!important;max-height:none!important;
+    margin:0!important;
+    overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+    backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    transform-origin:left center;
+    transition:transform .5s cubic-bezier(.42,0,.2,1);
+    will-change:transform;
+    background-position:top 3vw left 3vw,top 3vw right 3vw,bottom 3vw left 3vw,bottom 3vw right 3vw;
+    background-size:6vw 6vw;
+  }
+  #kb-stage .page.cover,#kb-stage .page.back{
+    background-size:9vw 9vw;
+    background-position:top 5vw left 5vw,top 5vw right 5vw,bottom 5vw left 5vw,bottom 5vw right 5vw;
+  }
+  #kb-stage .page.kb-noanim{transition:none!important}
+
+  .pg{padding:16vw 6vw 8vw!important;gap:5vw!important}
+
+  .ph{padding-bottom:2vw}
+  .ph-brand{font-size:.95rem}
+  .ph-tag{font-size:.6rem}
+
+  .sh-eye{font-size:.6rem}
+  .sh-title{font-size:1.85rem!important}
+  .sh-rule .ln{width:6vw}
+  .sh-desc{font-size:.7rem;line-height:1.5}
+
+  .ss-title{font-size:1.05rem;margin-bottom:3vw;padding-bottom:2vw}
+
+  .card-grid{gap:2.8vw!important;grid-template-columns:repeat(2,1fr)!important}
+  .card-grid.g4,.card-grid.g5,.card-grid.g6{grid-template-columns:repeat(3,1fr)!important}
+  .card-body{padding:2.6vw 3vw 3.2vw!important}
+  .card-name{font-size:.8rem;line-height:1.25}
+  .card-desc{font-size:.66rem}
+  .card-price{font-size:.88rem}
+  .card-extra{font-size:.64rem}
+
+  .mrow{padding:2.8vw 0}
+  .mname{font-size:.86rem}
+  .mdesc{font-size:.68rem}
+  .mprice{font-size:.86rem;min-width:16vw}
+
+  .cols2,.cols3{display:flex!important;flex-direction:column;gap:0!important}
+  .cols2>*+*,.cols3>*+*{margin-top:7vw;padding-top:6vw;border-top:0.5px solid var(--hair-gold)}
+
+  .note{font-size:.72rem;padding:3vw 3.5vw}
+  .pf{display:none!important}
+
+  .cover-body{gap:5vw}
+  .cover-logo{font-size:4.2rem}
+  .cover-serif{font-size:1rem}
+  .cover-eyebrow{font-size:.66rem}
+  .cover-tag{font-size:.7rem}
+  .cover-addr{display:none}
+  .cover-frame{inset:6vw}
+
+  .back-logo{font-size:2.3rem}
+  .back-serif{font-size:.9rem}
+  .back-grid{grid-template-columns:1fr!important;gap:5vw!important;max-width:none}
+  .back-label{font-size:.62rem}
+  .back-val{font-size:.8rem}
+
+  .card-photo-pending svg{width:7vw;height:7vw}
+  .card-photo-pending span{font-size:.62rem}
+
+  /* ── chrome: cabecera, pie, índice ── */
+  #kb-chrome{position:absolute;inset:0;pointer-events:none;z-index:5000}
+  #kb-head{
+    position:absolute;top:0;left:0;right:0;
+    padding:calc(env(safe-area-inset-top,0px) + 3vw) 4vw 5vw;
+    display:flex;align-items:center;justify-content:space-between;gap:2vw;
+    background:linear-gradient(rgba(10,9,7,.60),transparent);
+    pointer-events:none;
+  }
+  #kb-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.92rem;color:rgba(244,238,221,.92);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60vw}
+  #kb-count{
+    pointer-events:auto;display:flex;align-items:center;gap:1.2vw;
+    font:inherit;font-size:.64rem;letter-spacing:.05em;color:rgba(244,238,221,.9);
+    background:rgba(244,238,221,.10);border:0.75px solid rgba(244,238,221,.28);
+    padding:1.6vw 3vw;border-radius:99px;flex:none;
+  }
+
+  #kb-foot{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:3vw 4vw calc(env(safe-area-inset-bottom,0px) + 3vw);
+    display:flex;align-items:center;justify-content:space-between;gap:3vw;
+    background:linear-gradient(rgba(10,9,7,0),rgba(10,9,7,.66));
+    pointer-events:none;
+  }
+  .kb-btn{
+    pointer-events:auto;width:10vw;height:10vw;min-width:38px;min-height:38px;max-width:44px;max-height:44px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:rgba(244,238,221,.12);border:0.75px solid rgba(244,238,221,.3);
+    color:var(--gold-lt);font-size:1.15rem;line-height:1;flex:none;
+  }
+  .kb-btn[disabled]{opacity:.25}
+  #kb-dots{pointer-events:auto;display:flex;align-items:center;gap:1.6vw;overflow-x:auto;max-width:48vw;padding:1vw 0}
+  #kb-dots span{width:1.7vw;height:1.7vw;min-width:6px;min-height:6px;border-radius:50%;background:rgba(244,238,221,.3);flex:none;transition:background .2s,transform .2s}
+  #kb-dots span.on{background:var(--gold-lt);transform:scale(1.4)}
+
+  #kb-hint{
+    position:absolute;left:0;right:0;bottom:18vw;display:flex;justify-content:center;
+    pointer-events:none;opacity:0;transition:opacity .5s;
+  }
+  #kb-hint.show{opacity:1}
+  #kb-hint span{
+    font-family:'Lora',serif;font-style:italic;font-size:.76rem;color:rgba(244,238,221,.85);
+    background:rgba(244,238,221,.09);border:0.75px solid rgba(244,238,221,.24);
+    padding:2.2vw 5.5vw;border-radius:99px;animation:kbPulse 1.8s ease-in-out infinite;
+    white-space:nowrap;
+  }
+  @keyframes kbPulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.2vw)}}
+
+  #kb-index-scrim{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:6000}
+  #kb-index-scrim.open{opacity:1;pointer-events:auto}
+  #kb-index{
+    position:absolute;left:0;right:0;bottom:0;max-height:74%;overflow-y:auto;
+    background:var(--parchment);border-radius:5vw 5vw 0 0;
+    padding:4vw 5.5vw calc(env(safe-area-inset-bottom,0px) + 5vw);
+    transform:translateY(100%);transition:transform .32s cubic-bezier(.32,.72,0,1);
+    box-shadow:0 -20px 50px rgba(0,0,0,.4);
+  }
+  #kb-index-scrim.open #kb-index{transform:translateY(0)}
+  #kb-index-handle{width:11vw;height:1.1vw;min-width:36px;min-height:4px;background:var(--hair-gold);border-radius:99px;margin:0 auto 3.5vw}
+  #kb-index h4{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gold-dk);margin-bottom:3vw;text-align:center;font-weight:600}
+  .kb-idx-row{display:flex;align-items:center;justify-content:space-between;padding:3.4vw 1vw;border-bottom:0.5px dotted var(--hair)}
+  .kb-idx-row:last-child{border-bottom:none}
+  .kb-idx-row span:first-child{font-size:.88rem;color:var(--ink);font-weight:500}
+  .kb-idx-row span:last-child{font-size:.68rem;color:var(--subtle)}
+  .kb-idx-row.on span:first-child{color:var(--gold-dk);font-weight:700}
+}
+</style>
 </head>
 <body>
 
 <!-- ═══════════ PORTADA ═══════════ -->
-<div class="page cover">
+<div class="page cover" data-title="Portada">
   <div class="cover-frame"></div>
   <div class="cover-body">
     <span class="cover-eyebrow">Benimaclet · Valencia</span>
@@ -162,7 +334,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ DESAYUNOS ═══════════ -->
-<div class="page pg white">
+<div class="page pg white" data-title="Desayunos">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Desayunos · L–V · 7:00–11:00 h</span></div>
 
   <div class="sh">
@@ -261,7 +433,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ BRUNCH ═══════════ -->
-<div class="page pg cream">
+<div class="page pg cream" data-title="Brunch">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Brunch · L–V · 11:00–14:00 h</span></div>
 
   <div class="sh">
@@ -350,7 +522,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ MENÚS MEDIO DÍA (nueva sección, antes "Almuerzo") ═══════════ -->
-<div class="page pg cream" style="gap:3mm">
+<div class="page pg cream" style="gap:3mm" data-title="Menús Medio Día">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Menús Medio Día · 14:00–17:00 h</span></div>
 
   <div class="sh">
@@ -419,7 +591,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ MERIENDA (fusiona Merienda &amp; Tardeo + Brunch/Merienda Dulce) ═══════════ -->
-<div class="page pg white">
+<div class="page pg white" data-title="Merienda &amp; Tardeo">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Merienda</span></div>
 
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:0">
@@ -495,7 +667,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ MERIENDA · DULCE (2/2 — deja claro que es parte de Merienda) ═══════════ -->
-<div class="page pg cream">
+<div class="page pg cream" data-title="Merienda · Dulce">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Merienda · Dulce</span></div>
 
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:8mm">
@@ -539,7 +711,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ CAFÉS Y BEBIDAS ═══════════ -->
-<div class="page pg white">
+<div class="page pg white" data-title="Cafés &amp; Bebidas">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Cafés &amp; Bebidas</span></div>
 
   <div class="cols2">
@@ -618,7 +790,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ SMOOTHIES & BATIDOS ═══════════ -->
-<div class="page pg cream">
+<div class="page pg cream" data-title="Smoothies &amp; Batidos">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Smoothies &amp; Batidos</span></div>
 
   <div class="cols2">
@@ -707,7 +879,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ COMIDA ═══════════ -->
-<div class="page pg cream">
+<div class="page pg cream" data-title="Comida">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Comida</span></div>
 
   <div class="cols3">
@@ -800,7 +972,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ BEBIDAS & CÓCTELES ═══════════ -->
-<div class="page pg white">
+<div class="page pg white" data-title="Bebidas &amp; Cócteles">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Bebidas &amp; Cócteles</span></div>
 
   <div class="cols3">
@@ -889,7 +1061,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ PASTELERÍA ═══════════ -->
-<div class="page pg cream">
+<div class="page pg cream" data-title="Pastelería">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Pastelería Artesanal</span></div>
 
   <div class="sh">
@@ -975,7 +1147,7 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ CONTRAPORTADA ═══════════ -->
-<div class="page back">
+<div class="page back" data-title="Contacto">
   <div class="back-logo">KÜME</div>
   <div class="back-serif">café &amp; pastelería · Benimaclet, Valencia</div>
   <div class="cover-rule"><span class="ln"></span><span class="dm"></span><span class="ln"></span></div>
@@ -1003,5 +1175,197 @@ img{display:block;max-width:100%;object-fit:cover}
   <span style="font-size:6.5pt;color:rgba(244,238,221,0.35);letter-spacing:0.06em">Todos los precios incluyen IVA</span>
 </div>
 
+<script>
+/* Libro digital — navegación por swipe/tap con efecto de página real.
+   Se desactiva por completo cuando el documento se renderiza como
+   @media print (generación de PDF): no toca el DOM en ese caso, así
+   que el flujo de impresión existente queda intacto. */
+(function(){
+  if (window.matchMedia && window.matchMedia('print').matches) return;
+
+  function init(){
+    var pages = Array.prototype.slice.call(document.querySelectorAll('body > .page'));
+    if (!pages.length) return;
+
+    var stage = document.createElement('div');
+    stage.id = 'kb-stage';
+    document.body.insertBefore(stage, pages[0]);
+    pages.forEach(function(p){ stage.appendChild(p); });
+
+    stage.querySelectorAll('img').forEach(function(img){
+      img.loading = 'lazy'; img.decoding = 'async';
+    });
+
+    var total = pages.length;
+    var active = 0;
+    var animating = false;
+    var ANIM_MS = 500;
+
+    function titleOf(p){ return p.getAttribute('data-title') || ('Página ' + (pages.indexOf(p) + 1)); }
+
+    var chrome = document.createElement('div');
+    chrome.id = 'kb-chrome';
+    chrome.innerHTML =
+      '<div id="kb-head">' +
+        '<span id="kb-title"></span>' +
+        '<button id="kb-count" type="button" aria-label="Índice de la carta"></button>' +
+      '</div>' +
+      '<div id="kb-hint"><span>Desliza para pasar la página</span></div>' +
+      '<div id="kb-foot">' +
+        '<button class="kb-btn" id="kb-prev" type="button" aria-label="Página anterior">&#8249;</button>' +
+        '<div id="kb-dots"></div>' +
+        '<button class="kb-btn" id="kb-next" type="button" aria-label="Página siguiente">&#8250;</button>' +
+      '</div>' +
+      '<div id="kb-index-scrim">' +
+        '<div id="kb-index">' +
+          '<div id="kb-index-handle"></div>' +
+          '<h4>Índice de la carta</h4>' +
+          '<div id="kb-index-list"></div>' +
+        '</div>' +
+      '</div>';
+    stage.appendChild(chrome);
+
+    var titleEl  = chrome.querySelector('#kb-title');
+    var countEl  = chrome.querySelector('#kb-count');
+    var dotsEl   = chrome.querySelector('#kb-dots');
+    var prevBtn  = chrome.querySelector('#kb-prev');
+    var nextBtn  = chrome.querySelector('#kb-next');
+    var hintEl   = chrome.querySelector('#kb-hint');
+    var scrim    = chrome.querySelector('#kb-index-scrim');
+    var idxList  = chrome.querySelector('#kb-index-list');
+
+    var idxRows = [];
+    pages.forEach(function(p, i){
+      var d = document.createElement('span');
+      dotsEl.appendChild(d);
+
+      var row = document.createElement('div');
+      row.className = 'kb-idx-row';
+      row.innerHTML = '<span></span><span>' + String(i + 1).padStart(2, '0') + '</span>';
+      row.firstChild.textContent = titleOf(p);
+      row.addEventListener('click', function(){ closeIndex(); jumpTo(i); });
+      idxList.appendChild(row);
+      idxRows.push(row);
+    });
+    var dotEls = Array.prototype.slice.call(dotsEl.children);
+
+    function openIndex(){ scrim.classList.add('open'); }
+    function closeIndex(){ scrim.classList.remove('open'); }
+    scrim.addEventListener('click', function(e){ if (e.target === scrim) closeIndex(); });
+    countEl.addEventListener('click', openIndex);
+
+    function render(){
+      pages.forEach(function(p, i){
+        p.classList.add('kb-noanim');
+        if (i < active){ p.style.transform = 'rotateY(-179.9deg)'; p.style.zIndex = i; }
+        else if (i === active){ p.style.transform = 'rotateY(0deg)'; p.style.zIndex = 1000; }
+        else { p.style.transform = 'rotateY(0deg)'; p.style.zIndex = total - i; }
+        void p.offsetHeight;
+        p.classList.remove('kb-noanim');
+      });
+      titleEl.textContent = titleOf(pages[active]);
+      countEl.textContent = (active + 1) + ' / ' + total + '  ≡';
+      dotEls.forEach(function(d, i){ d.classList.toggle('on', i === active); });
+      idxRows.forEach(function(r, i){ r.classList.toggle('on', i === active); });
+      prevBtn.disabled = active === 0;
+      nextBtn.disabled = active === total - 1;
+      hintEl.classList.toggle('show', active === 0);
+    }
+
+    function goNext(){
+      if (animating || active >= total - 1) return;
+      animating = true;
+      var p = pages[active];
+      p.style.zIndex = 1000;
+      requestAnimationFrame(function(){ p.style.transform = 'rotateY(-179.9deg)'; });
+      setTimeout(function(){ active++; animating = false; render(); }, ANIM_MS);
+    }
+    function goPrev(){
+      if (animating || active <= 0) return;
+      animating = true;
+      var p = pages[active - 1];
+      p.style.zIndex = 1001;
+      requestAnimationFrame(function(){ p.style.transform = 'rotateY(0deg)'; });
+      setTimeout(function(){ active--; animating = false; render(); }, ANIM_MS);
+    }
+    function jumpTo(i){
+      if (animating || i === active || i < 0 || i >= total) return;
+      active = i; render();
+    }
+
+    prevBtn.addEventListener('click', goPrev);
+    nextBtn.addEventListener('click', goNext);
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight') goNext();
+      if (e.key === 'ArrowLeft') goPrev();
+      if (e.key === 'Escape') closeIndex();
+    });
+
+    /* ── swipe / drag con seguimiento en tiempo real ── */
+    var sx = 0, sy = 0, dragging = false, horiz = false, dragTarget = null, dragDir = 0, width = 1;
+
+    function onStart(x, y){
+      if (animating) return;
+      sx = x; sy = y; dragging = true; horiz = false; dragTarget = null;
+      width = stage.clientWidth || 1;
+    }
+    function onMove(x, y, ev){
+      if (!dragging) return;
+      var dx = x - sx, dy = y - sy;
+      if (!horiz){
+        if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+        if (Math.abs(dx) <= Math.abs(dy) * 1.15){ dragging = false; return; }
+        horiz = true;
+        dragDir = dx < 0 ? 1 : -1;
+        if (dragDir === 1 && active >= total - 1){ dragging = false; return; }
+        if (dragDir === -1 && active <= 0){ dragging = false; return; }
+        dragTarget = dragDir === 1 ? pages[active] : pages[active - 1];
+        dragTarget.classList.add('kb-noanim');
+        dragTarget.style.zIndex = dragDir === 1 ? 1000 : 1001;
+      }
+      if (horiz){
+        if (ev && ev.cancelable) ev.preventDefault();
+        var rot;
+        if (dragDir === 1) rot = Math.max(-179.9, Math.min(0, (dx / width) * 180));
+        else rot = Math.min(0, Math.max(-179.9, -179.9 + (dx / width) * 180));
+        dragTarget.style.transform = 'rotateY(' + rot + 'deg)';
+      }
+    }
+    function onEnd(){
+      if (!dragging) return;
+      dragging = false;
+      if (!horiz || !dragTarget) return;
+      dragTarget.classList.remove('kb-noanim');
+      var m = /rotateY\((-?[\d.]+)deg\)/.exec(dragTarget.style.transform);
+      var rot = m ? parseFloat(m[1]) : 0;
+      animating = true;
+      if (dragDir === 1){
+        var commit = rot < -70;
+        dragTarget.style.transform = commit ? 'rotateY(-179.9deg)' : 'rotateY(0deg)';
+        setTimeout(function(){ if (commit) active++; animating = false; render(); }, ANIM_MS);
+      } else {
+        var commitBack = rot > -110;
+        dragTarget.style.transform = commitBack ? 'rotateY(0deg)' : 'rotateY(-179.9deg)';
+        setTimeout(function(){ if (commitBack) active--; animating = false; render(); }, ANIM_MS);
+      }
+    }
+
+    stage.addEventListener('touchstart', function(e){ var t = e.touches[0]; onStart(t.clientX, t.clientY); }, { passive:true });
+    stage.addEventListener('touchmove',  function(e){ var t = e.touches[0]; onMove(t.clientX, t.clientY, e); }, { passive:false });
+    stage.addEventListener('touchend',   onEnd, { passive:true });
+    stage.addEventListener('touchcancel',onEnd, { passive:true });
+
+    var mouseDown = false;
+    stage.addEventListener('mousedown', function(e){ mouseDown = true; onStart(e.clientX, e.clientY); });
+    window.addEventListener('mousemove', function(e){ if (mouseDown) onMove(e.clientX, e.clientY, e); });
+    window.addEventListener('mouseup', function(){ if (mouseDown){ mouseDown = false; onEnd(); } });
+
+    render();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 </body>
 </html>
