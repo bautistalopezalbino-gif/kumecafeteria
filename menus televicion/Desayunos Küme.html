@@ -224,7 +224,13 @@
     gap: 34px;
   }
   .grid-5 { grid-template-columns: repeat(5, 1fr); }
-  .grid-6 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); }
+  .grid-6 { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid-6 .card-photo { aspect-ratio: 5 / 2; }
+  .grid-6 .card-body { padding: 14px 18px 16px; gap: 4px; }
+  .grid-6 .card-name { font-size: 24px; line-height: 1.2; }
+  .grid-6 .card-pre { font-size: 16px; }
+  .grid-6 .card-price { font-size: 26px; }
+  .grid-6 .card-extra { font-size: 15px; margin-top: 2px; }
   .grid-esp { grid-template-columns: repeat(4, 1fr); gap: 30px; }
 
   .card {
