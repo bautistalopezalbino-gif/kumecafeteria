@@ -231,6 +231,13 @@
   .grid-6 .card-pre { font-size: 16px; }
   .grid-6 .card-price { font-size: 26px; }
   .grid-6 .card-extra { font-size: 15px; margin-top: 2px; }
+  .grid-7 { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .grid-7 .card-photo { aspect-ratio: 5 / 2.4; }
+  .grid-7 .card-body { padding: 10px 14px 12px; gap: 2px; }
+  .grid-7 .card-name { font-size: 19px; line-height: 1.15; }
+  .grid-7 .card-pre { font-size: 13px; }
+  .grid-7 .card-price { font-size: 21px; }
+  .grid-7 .card-extra { font-size: 12px; margin-top: 1px; }
   .grid-esp { grid-template-columns: repeat(4, 1fr); gap: 30px; }
 
   .card {
@@ -251,6 +258,16 @@
   .card-photo img {
     width: 100%; height: 100%;
     object-fit: cover;
+  }
+  .card-photo.no-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #9a9478;
+    font-style: italic;
+    font-size: 18px;
+    background: repeating-linear-gradient(45deg, #f0ead8, #f0ead8 10px, #e7dfc5 10px, #e7dfc5 20px);
   }
   .card-body {
     padding: 24px 22px 28px;
@@ -875,7 +892,7 @@
       <h2 class="board-title serif">Menú Medio Día · Platos</h2>
       <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
     </div>
-    <div class="grid grid-6">
+    <div class="grid grid-7">
       <article class="card">
         <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/ensalada-rusa.png" alt="Ensalada rusa"/></div>
         <div class="card-body">
@@ -894,6 +911,7 @@
         <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/arroz-al-horno.png" alt="Arroz al horno"/></div>
         <div class="card-body">
           <h3 class="card-name">Arroz al horno</h3>
+          <div class="card-foot"><span></span><span class="card-price">5<span> €</span></span></div>
         </div>
       </article>
       <article class="card">
@@ -919,6 +937,13 @@
           <p class="card-extra">Con patatas fritas</p>
         </div>
       </article>
+      <article class="card">
+        <div class="card-photo no-photo">Foto pendiente</div>
+        <div class="card-body">
+          <h3 class="card-name">Albóndigas</h3>
+          <div class="card-foot"><span></span><span class="card-price">3,50<span> €</span></span></div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -929,7 +954,7 @@
       <h2 class="board-title serif">Menú Medio Día · Bocatas</h2>
       <div class="diamond-rule"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
     </div>
-    <div class="grid grid-6">
+    <div class="grid grid-7">
       <article class="card">
         <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-lomo-queso-bacon.png" alt="Bocata de lomo, queso y bacon"/></div>
         <div class="card-body">
@@ -940,30 +965,42 @@
         <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-tortilla-longaniza.png" alt="Bocata de tortilla y longaniza"/></div>
         <div class="card-body">
           <h3 class="card-name">Tortilla y longaniza</h3>
+          <div class="card-foot"><span></span><span class="card-price">5,50<span> €</span></span></div>
         </div>
       </article>
       <article class="card">
         <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-brascada.png" alt="Bocata de brascada"/></div>
         <div class="card-body">
           <h3 class="card-name">Brascada</h3>
+          <div class="card-foot"><span></span><span class="card-price">6,50<span> €</span></span></div>
         </div>
       </article>
       <article class="card">
         <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-pollo-guacamole.png" alt="Bocata de pollo y guacamole"/></div>
         <div class="card-body">
           <h3 class="card-name">Pollo y guacamole</h3>
+          <div class="card-foot"><span></span><span class="card-price">5,50<span> €</span></span></div>
         </div>
       </article>
       <article class="card">
         <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-chivito.png" alt="Chivito de pollo, ternera o lomo"/></div>
         <div class="card-body">
           <h3 class="card-name">Chivito · pollo, ternera o lomo</h3>
+          <div class="card-foot"><span></span><span class="card-price">5,50<span> €</span></span></div>
         </div>
       </article>
       <article class="card">
         <div class="card-photo"><img src="../Kume%20menus/images/almuerzo/bocata-milanesa.png" alt="Bocata de milanesa"/></div>
         <div class="card-body">
           <h3 class="card-name">Milanesa</h3>
+          <div class="card-foot"><span></span><span class="card-price">5,50<span> €</span></span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-photo no-photo">Foto pendiente</div>
+        <div class="card-body">
+          <h3 class="card-name">Albóndigas</h3>
+          <div class="card-foot"><span></span><span class="card-price">5,50<span> €</span></span></div>
         </div>
       </article>
     </div>

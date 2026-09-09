@@ -109,6 +109,8 @@ img{display:block;max-width:100%;object-fit:cover}
 .card img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(1.03)}
 .card img.sq{aspect-ratio:1/1}
 .card img.wide{aspect-ratio:21/9}
+.card .no-photo{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;text-align:center;padding:2mm;background:repeating-linear-gradient(45deg,#f0ead8,#f0ead8 5px,#e7dfc5 5px,#e7dfc5 10px);color:var(--subtle);font-size:6.3pt;font-style:italic}
+.card .no-photo.sq{aspect-ratio:1/1}
 .card-body{padding:2mm 2.5mm 2.5mm;display:flex;flex-direction:column;gap:0.5mm;border-top:0.5px solid var(--hair-gold)}
 .card-name{font-size:7.5pt;font-weight:600;color:var(--ink);line-height:1.2}
 .card-desc{font-size:6pt;font-style:italic;color:var(--subtle);line-height:1.2}
@@ -532,7 +534,7 @@ img{display:block;max-width:100%;object-fit:cover}
   </div>
 
   <div class="ss-title">Platos</div>
-  <div class="card-grid g3">
+  <div class="card-grid g4">
     <div class="card">
       <img src="Kume%20menus/images/almuerzo/ensalada-rusa.png" alt="Ensalada rusa"/>
       <div class="card-body"><span class="card-name">Ensalada rusa</span><div class="card-foot"><span class="card-price">3,40 €</span></div></div>
@@ -543,7 +545,7 @@ img{display:block;max-width:100%;object-fit:cover}
     </div>
     <div class="card">
       <img src="Kume%20menus/images/almuerzo/arroz-al-horno.png" alt="Arroz al horno"/>
-      <div class="card-body"><span class="card-name">Arroz al horno</span><div class="card-foot"><span class="card-price">—</span></div></div>
+      <div class="card-body"><span class="card-name">Arroz al horno</span><div class="card-foot"><span class="card-price">5 €</span></div></div>
     </div>
     <div class="card">
       <img src="Kume%20menus/images/almuerzo/pincho-tortilla.png" alt="Pincho de tortilla"/>
@@ -557,38 +559,46 @@ img{display:block;max-width:100%;object-fit:cover}
       <img src="Kume%20menus/images/almuerzo/pata-muslo.png" alt="Pata de muslo al horno"/>
       <div class="card-body"><span class="card-name">Pata de muslo al horno, salsa cerveza y ajo</span><span class="card-desc">Con patatas fritas</span><div class="card-foot"><span class="card-price">5,00 €</span></div></div>
     </div>
+    <div class="card">
+      <div class="no-photo">Foto<br/>pendiente</div>
+      <div class="card-body"><span class="card-name">Albóndigas</span><div class="card-foot"><span class="card-price">3,50 €</span></div></div>
+    </div>
   </div>
   <p class="sh-desc" style="margin-top:1mm">Cualquier plato + 0,50 € = menú completo</p>
 
   <div class="ss-title" style="margin-top:3mm">Bocatas</div>
-  <div class="card-grid g6">
+  <div class="card-grid g4">
     <div class="card">
-      <img class="sq" src="Kume%20menus/images/almuerzo/bocata-lomo-queso-bacon.png" alt="Bocata lomo, queso y bacon"/>
+      <img src="Kume%20menus/images/almuerzo/bocata-lomo-queso-bacon.png" alt="Bocata lomo, queso y bacon"/>
       <div class="card-body"><span class="card-name">Lomo, queso y bacon</span><div class="card-foot"><span class="card-price">—</span></div></div>
     </div>
     <div class="card">
-      <img class="sq" src="Kume%20menus/images/almuerzo/bocata-tortilla-longaniza.png" alt="Bocata tortilla y longaniza"/>
-      <div class="card-body"><span class="card-name">Tortilla y longaniza</span><div class="card-foot"><span class="card-price">—</span></div></div>
+      <img src="Kume%20menus/images/almuerzo/bocata-tortilla-longaniza.png" alt="Bocata tortilla y longaniza"/>
+      <div class="card-body"><span class="card-name">Tortilla y longaniza</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
     </div>
     <div class="card">
-      <img class="sq" src="Kume%20menus/images/almuerzo/bocata-brascada.png" alt="Bocata Brascada"/>
-      <div class="card-body"><span class="card-name">Brascada</span><div class="card-foot"><span class="card-price">—</span></div></div>
+      <img src="Kume%20menus/images/almuerzo/bocata-brascada.png" alt="Bocata Brascada"/>
+      <div class="card-body"><span class="card-name">Brascada</span><div class="card-foot"><span class="card-price">6,50 €</span></div></div>
     </div>
     <div class="card">
-      <img class="sq" src="Kume%20menus/images/almuerzo/bocata-pollo-guacamole.png" alt="Bocata pollo y guacamole"/>
-      <div class="card-body"><span class="card-name">Pollo y guacamole</span><div class="card-foot"><span class="card-price">—</span></div></div>
+      <img src="Kume%20menus/images/almuerzo/bocata-pollo-guacamole.png" alt="Bocata pollo y guacamole"/>
+      <div class="card-body"><span class="card-name">Pollo y guacamole</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
     </div>
     <div class="card">
-      <img class="sq" src="Kume%20menus/images/almuerzo/bocata-chivito.png" alt="Bocata Chivito"/>
-      <div class="card-body"><span class="card-name">Chivito (pollo, ternera o lomo)</span><div class="card-foot"><span class="card-price">—</span></div></div>
+      <img src="Kume%20menus/images/almuerzo/bocata-chivito.png" alt="Bocata Chivito"/>
+      <div class="card-body"><span class="card-name">Chivito (pollo, ternera o lomo)</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
     </div>
     <div class="card">
-      <img class="sq" src="Kume%20menus/images/almuerzo/bocata-milanesa.png" alt="Bocata de milanesa"/>
-      <div class="card-body"><span class="card-name">Milanesa</span><div class="card-foot"><span class="card-price">—</span></div></div>
+      <img src="Kume%20menus/images/almuerzo/bocata-milanesa.png" alt="Bocata de milanesa"/>
+      <div class="card-body"><span class="card-name">Milanesa</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
+    </div>
+    <div class="card">
+      <div class="no-photo">Foto<br/>pendiente</div>
+      <div class="card-body"><span class="card-name">Albóndigas</span><div class="card-foot"><span class="card-price">5,50 €</span></div></div>
     </div>
   </div>
 
-  <div class="note" style="margin-top:2mm">Precios de la sección Menús Medio Día pendientes de confirmar.</div>
+  <div class="note" style="margin-top:2mm">Precio del bocata Lomo, queso y bacon pendiente de confirmar.</div>
 
   <div class="pf"><span>KÜME café · Benimaclet, Valencia</span><span>IVA incluido</span></div>
 </div>
