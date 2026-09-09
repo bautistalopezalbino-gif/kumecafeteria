@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ficha de Cocina · Menú Medio Día</title>
+<style>
+  :root{
+    --ink:#2c2a20;
+    --leaf:#3f4f34;
+    --leaf-2:#5a6e4b;
+    --paper:#faf6ec;
+    --card:#ffffff;
+    --line:#e4ddc9;
+    --tag:#f1ead4;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Georgia','Times New Roman',serif;
+    padding:14mm 12mm 20mm;
+  }
+  header{
+    text-align:center;
+    margin-bottom:10mm;
+    padding-bottom:6mm;
+    border-bottom:2px solid var(--leaf);
+  }
+  header .eyebrow{
+    font-family:Arial,Helvetica,sans-serif;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-size:11px;
+    color:var(--leaf-2);
+    margin:0 0 4px;
+  }
+  header h1{
+    margin:0;
+    font-size:30px;
+    color:var(--leaf);
+    letter-spacing:.02em;
+  }
+  header p.sub{
+    margin:6px 0 0;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:13px;
+    color:#6b6552;
+  }
+  .section-title{
+    font-family:Arial,Helvetica,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:13px;
+    font-weight:700;
+    color:#fff;
+    background:var(--leaf);
+    display:inline-block;
+    padding:6px 16px;
+    border-radius:3px;
+    margin:0 0 6mm;
+  }
+  .section + .section{ margin-top:12mm; }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:6mm;
+  }
+  .dish{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    break-inside:avoid;
+    page-break-inside:avoid;
+    display:flex;
+    flex-direction:column;
+  }
+  .dish-photo{
+    width:100%;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:#eee;
+  }
+  .dish-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .dish-body{
+    padding:10px 12px 12px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .dish-name{
+    font-family:Arial,Helvetica,sans-serif;
+    font-weight:700;
+    font-size:15px;
+    color:var(--leaf);
+    margin:0;
+  }
+  .dish-ing{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:15.5px;
+    line-height:1.45;
+    color:#3a3626;
+    margin:0;
+  }
+  .dish-ing b{ color:var(--ink); }
+  footer{
+    margin-top:14mm;
+    text-align:center;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:11px;
+    color:#8a8367;
+  }
+  @media print{
+    body{ padding:8mm; }
+    .grid{ grid-template-columns:repeat(3,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Uso interno · Cocina</p>
+  <h1>Ficha de Elaboración</h1>
+  <p class="sub">Menú Medio Día · KÜME café, Benimaclet</p>
+</header>
+
+<div class="section">
+  <div class="section-title">Platos</div>
+  <div class="grid">
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/ensalada-rusa.png" alt="Ensalada rusa"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Ensalada rusa</p>
+        <p class="dish-ing">Patata hervida, zanahoria hervida, judías y mayonesa.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/ensalada-pasta.png" alt="Ensalada de pasta"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Ensalada de pasta</p>
+        <p class="dish-ing">Pasta fusilli, jamón york, queso de barra, aceite de oliva y <b>opcional</b> tomate cherry si el cliente lo pide.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/arroz-al-horno.png" alt="Arroz al horno"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Arroz al horno</p>
+        <p class="dish-ing">Arroz redondo, costillita de cerdo, panceta de cerdo, longaniza, morcilla, medios tomates cortados a la mitad, ajo entero al medio y caldo de pollo.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/pincho-tortilla.png" alt="Pincho de tortilla"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Pincho de tortilla</p>
+        <p class="dish-ing">Tortilla de patata y tortilla de patata con cebolla.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/milanesa.png" alt="Milanesa"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Milanesa</p>
+        <p class="dish-ing">De pollo o de lomo de cerdo, acompañada con papas al horno.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/pata-muslo.png" alt="Pata de muslo al horno"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Pata de muslo al horno</p>
+        <p class="dish-ing">Pata de muslo al horno con salsa de cerveza y ajo, acompañada de patatas al horno.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Bocatas</div>
+  <div class="grid">
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/bocata-lomo-queso-bacon.png" alt="Bocadillo de lomo"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Bocadillo de lomo</p>
+        <p class="dish-ing">Cinta de lomo a la plancha con bacon a la plancha y queso derretido.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/bocata-tortilla-longaniza.png" alt="Bocadillo de tortilla francesa y longaniza"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Bocadillo de tortilla francesa y longaniza</p>
+        <p class="dish-ing">Tortilla francesa y longanizas fritas precalentadas.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/bocata-brascada.png" alt="Bocadillo brascada"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Bocadillo brascada</p>
+        <p class="dish-ing">Filete de ternera con ajos tiernos, cebolla a la plancha y jamón serrano.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/bocata-pollo-guacamole.png" alt="Bocadillo de pollo y guacamole"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Bocadillo de pollo y guacamole</p>
+        <p class="dish-ing">Pollo con guacamole y huevo.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/bocata-chivito.png" alt="Bocadillo chivito"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Bocadillo chivito</p>
+        <p class="dish-ing">Cinta de cerdo, pechuga de pollo o filete de ternera (a elegir), queso, bacon, huevo, rodajas de tomate y hoja de lechuga.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-photo"><img src="Kume%20menus/images/almuerzo/bocata-milanesa.png" alt="Bocadillo de milanesa"/></div>
+      <div class="dish-body">
+        <p class="dish-name">Bocadillo de milanesa</p>
+        <p class="dish-ing">Milanesa de cinta de cerdo o pechuga de pollo (a elegir), con tomate y lechuga.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>KÜME café · Benimaclet, Valencia — Ficha interna de elaboración, no repartir a clientes</footer>
+
+</body>
+</html>
