@@ -183,6 +183,14 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 22px;
     }
+    .menu-grid-label {
+      grid-column: 1 / -1;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--g-700);
+      padding-bottom: 10px; margin-top: 8px;
+      border-bottom: 1px solid rgba(43,83,64,0.15);
+    }
+    .menu-grid-label:first-child { margin-top: 0; }
 
     /* ── SMOOTHIES COLLAGE LAYOUT ── */
     .smoothies-layout {
@@ -707,10 +715,6 @@
   </div>
 </section>
 
-<!-- ── HORARIOS BANNER ── -->
-<div class="include-banner">
-  <p>🌅 <strong>Desayunos</strong> 7:00–11:00 h &nbsp;·&nbsp; 🍳 <strong>Brunch</strong> 11:00–14:00 h (L–V) &nbsp;·&nbsp; 🌙 <strong>Merienda &amp; Tardeo</strong> toda la tarde</p>
-</div>
 
 <!-- ── DESAYUNOS CLÁSICOS ── -->
 <section class="menu-sec" id="desayunos">
@@ -1303,6 +1307,8 @@
     </div>
     <div class="menu-grid">
 
+      <div class="menu-grid-label">Bocatas</div>
+
       <div class="menu-card">
         <div class="menu-card-img"><img src="Kume menus/images/almuerzos/bocata-milanesa.jpg" alt="Bocata de Milanesa" loading="lazy" /></div>
         <div class="menu-card-body">
@@ -1356,6 +1362,8 @@
           <div class="menu-card-foot"><div class="menu-card-price">5,50 €</div></div>
         </div>
       </div>
+
+      <div class="menu-grid-label">Platos</div>
 
       <div class="menu-card">
         <div class="menu-card-img"><img src="Kume menus/images/almuerzos/milanesa.jpg" alt="Milanesa" loading="lazy" /></div>
@@ -1420,15 +1428,6 @@
         </div>
       </div>
 
-      <div class="menu-card">
-        <div class="menu-card-img"><img src="Kume menus/images/almuerzos/batido-tarta.jpg" alt="Batido con Tarta" loading="lazy" /></div>
-        <div class="menu-card-body">
-          <div class="menu-card-name">Batido con Tarta</div>
-          <div class="menu-card-desc">Batido helado + porción de tarta a elegir</div>
-          <div class="menu-card-foot"><div class="menu-card-price">8,50 €</div></div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1479,6 +1478,15 @@
           <div class="menu-card-name">Caramel latte y tostado</div>
           <div class="menu-card-desc">Caramel latte caliente con tostado artesanal</div>
           <div class="menu-card-foot"><div class="menu-card-price">6,50 €</div></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume menus/images/almuerzos/batido-tarta.jpg" alt="Batido con Tarta" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Batido con Tarta</div>
+          <div class="menu-card-desc">Batido helado + porción de tarta a elegir</div>
+          <div class="menu-card-foot"><div class="menu-card-price">8,50 €</div></div>
         </div>
       </div>
 
@@ -2033,8 +2041,6 @@
           <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Ensalada Rusa</span><span class="price text-sm">3,40 €</span></div>
           <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
           <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Pincho de Tortilla</span><span class="price text-sm">2,50 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Batido con Tarta</span><span class="price text-sm">8,50 €</span></div>
         </div>
       </div>
     </div>
@@ -2150,6 +2156,8 @@
       <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Matcha Latte + Tostado</span><span class="price text-sm">6,50 €</span></div>
       <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
       <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Caramel Latte + Tostado</span><span class="price text-sm">6,50 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Batido con Tarta</span><span class="price text-sm">8,50 €</span></div>
     </div>
   </section>
 
