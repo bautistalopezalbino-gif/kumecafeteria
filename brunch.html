@@ -183,14 +183,6 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 22px;
     }
-    .menu-grid-label {
-      grid-column: 1 / -1;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--g-700);
-      padding-bottom: 10px; margin-top: 8px;
-      border-bottom: 1px solid rgba(43,83,64,0.15);
-    }
-    .menu-grid-label:first-child { margin-top: 0; }
 
     /* ── SMOOTHIES COLLAGE LAYOUT ── */
     .smoothies-layout {
@@ -1297,17 +1289,15 @@
   </div>
 </section>
 
-<!-- ── ALMUERZOS ── -->
-<section class="menu-sec" id="almuerzos">
+<!-- ── ALMUERZOS · BOCADILLOS ── -->
+<section class="menu-sec" id="almuerzos-bocadillos">
   <div class="container">
     <div class="section-head">
       <div class="eyebrow eyebrow-dark">Comida casera</div>
-      <h2>Almuerzos</h2>
-      <p>Bocatas, platos caseros y raciones para el mediodía, hechos al momento.</p>
+      <h2>Almuerzos · Bocadillos</h2>
+      <p>Bocatas caseros para el mediodía, hechos al momento.</p>
     </div>
     <div class="menu-grid">
-
-      <div class="menu-grid-label">Bocatas</div>
 
       <div class="menu-card">
         <div class="menu-card-img"><img src="Kume menus/images/almuerzos/bocata-milanesa.jpg" alt="Bocata de Milanesa" loading="lazy" /></div>
@@ -1363,7 +1353,19 @@
         </div>
       </div>
 
-      <div class="menu-grid-label">Platos</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ALMUERZOS ── -->
+<section class="menu-sec" id="almuerzos">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-dark">Comida casera</div>
+      <h2>Almuerzos</h2>
+      <p>Platos caseros y raciones para el mediodía, hechos al momento.</p>
+    </div>
+    <div class="menu-grid">
 
       <div class="menu-card">
         <div class="menu-card-img"><img src="Kume menus/images/almuerzos/milanesa.jpg" alt="Milanesa" loading="lazy" /></div>
@@ -1689,8 +1691,12 @@
         <span class="material-symbols-outlined text-[15px]">lunch_dining</span>
         Bocadillos
       </a>
-      <a href="#almuerzos-carta" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+      <a href="#almuerzos-bocadillos-carta" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
         <span class="material-symbols-outlined text-[15px]">dinner_dining</span>
+        Almuerzos · Bocadillos
+      </a>
+      <a href="#almuerzos-carta" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
+        <span class="material-symbols-outlined text-[15px]">restaurant_menu</span>
         Almuerzos
       </a>
       <a href="#bolleria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 text-xs font-semibold uppercase tracking-widest text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 whitespace-nowrap">
@@ -2006,43 +2012,42 @@
   <div class="border-b border-outline-variant/20"></div>
 
   <!-- ALMUERZOS -->
+  <section id="almuerzos-bocadillos-carta" class="scroll-mt-36 reveal">
+    <div class="ornament"><span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Almuerzos · Bocadillos</span></div>
+    <div class="max-w-lg space-y-0">
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata de Milanesa</span><span class="price text-sm">5,50 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata de Chivito</span><span class="price text-sm">5,50 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata de Pollo y Guacamole</span><span class="price text-sm">5,50 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata de Tortilla Francesa y Longaniza</span><span class="price text-sm">5,50 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata Lomo, Queso y Bacon</span><span class="price text-sm">5,50 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocadillo de Albóndigas</span><span class="price text-sm">5,50 €</span></div>
+    </div>
+  </section>
+
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ALMUERZOS -->
   <section id="almuerzos-carta" class="scroll-mt-36 reveal">
     <div class="ornament"><span class="font-serif text-xl md:text-2xl font-semibold text-on-surface">Almuerzos</span></div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
-      <div>
-        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Bocatas</p>
-        <div class="space-y-0">
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata de Milanesa</span><span class="price text-sm">5,50 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata de Chivito</span><span class="price text-sm">5,50 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata de Pollo y Guacamole</span><span class="price text-sm">5,50 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata de Tortilla Francesa y Longaniza</span><span class="price text-sm">5,50 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocata Lomo, Queso y Bacon</span><span class="price text-sm">5,50 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Bocadillo de Albóndigas</span><span class="price text-sm">5,50 €</span></div>
-        </div>
-      </div>
-      <div>
-        <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant mb-6 pb-2 border-b border-outline-variant/30">Platos</p>
-        <div class="space-y-0">
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Milanesa (ración, sin pan)</span><span class="price text-sm">5,50 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Pata de Muslo de Pollo</span><span class="price text-sm">5,50 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Arroz al Horno</span><span class="price text-sm">5,00 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Albóndigas</span><span class="price text-sm">3,50 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Ensalada de Pasta</span><span class="price text-sm">3,40 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Ensalada Rusa</span><span class="price text-sm">3,40 €</span></div>
-          <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
-          <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Pincho de Tortilla</span><span class="price text-sm">2,50 €</span></div>
-        </div>
-      </div>
+    <div class="max-w-lg space-y-0">
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Milanesa (ración, sin pan)</span><span class="price text-sm">5,50 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Pata de Muslo de Pollo</span><span class="price text-sm">5,50 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Arroz al Horno</span><span class="price text-sm">5,00 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Albóndigas</span><span class="price text-sm">3,50 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Ensalada de Pasta</span><span class="price text-sm">3,40 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Ensalada Rusa</span><span class="price text-sm">3,40 €</span></div>
+      <div class="border-b border-dotted border-outline-variant/25 mx-2"></div>
+      <div class="menu-row flex justify-between py-3 px-2 rounded-DEFAULT"><span class="text-sm text-on-surface">Pincho de Tortilla</span><span class="price text-sm">2,50 €</span></div>
     </div>
   </section>
 
