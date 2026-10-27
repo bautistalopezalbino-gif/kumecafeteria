@@ -130,12 +130,16 @@ img{display:block;max-width:100%;object-fit:cover}
 .xgrid{display:grid;grid-template-columns:1fr 1fr;column-gap:4mm}
 .xgrid .mrow:last-child{border-bottom:0.5px dotted rgba(43,83,64,0.13)}
 
-/* Tarjeta informativa (ocupa un hueco de la rejilla) */
-.info-tile{background:var(--g800);border-radius:3mm;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5mm;padding:5mm;text-align:center}
-.it-eye{font-size:6.5pt;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--g200)}
-.it-title{font-family:'Noto Serif',serif;font-size:15pt;font-weight:700;line-height:1.15;color:var(--cream)}
-.it-line{width:18mm;height:1px;background:rgba(196,212,160,0.40)}
-.it-txt{font-size:8pt;color:rgba(245,240,232,0.80);line-height:1.4}
+/* Rejilla de 6 columnas: 3 tarjetas arriba (span2) y 2 abajo (span3) */
+.card-grid.g6{grid-template-columns:repeat(6,1fr)}
+.span2{grid-column:span 2}
+.span3{grid-column:span 3}
+
+/* Columna de listas que reparte sus filas hasta el pie de página
+   (flex de cada .mlist = número de filas) */
+.col.stretch .mlist{display:flex;flex-direction:column;min-height:0}
+.col.stretch .mrow{flex:1;align-items:center}
+.pg.roomy .col.stretch .mrow{padding:1.8mm 0}
 
 /* Tipografía más grande para leer mejor la carta impresa */
 .sh-title{font-size:17pt}
@@ -184,47 +188,41 @@ img{display:block;max-width:100%;object-fit:cover}
     <div class="sh-title">Desayunos Clásicos</div>
   </div>
 
-  <div class="card-grid g3 fill" style="flex:2">
-    <div class="card">
+  <div class="card-grid g6 fill" style="flex:2">
+    <div class="card span2">
       <img src="Kume%20menus/images/croissant.jpg" alt="Café + Croissant"/>
       <div class="card-body">
         <span class="card-name">Café + Croissant</span>
         <div class="card-foot"><span class="card-price">3,30 €</span><span class="card-extra">+1,10 € zumo</span></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card span2">
       <img src="Kume%20menus/images/tomate-aceite.jpg" alt="Tostada tomate y aceite"/>
       <div class="card-body">
         <span class="card-name">Tostada tomate y aceite</span>
         <div class="card-foot"><span class="card-price">3,30 €</span></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card span2">
       <img src="Kume%20menus/images/mantequilla-mermelada.jpg" alt="Mantequilla y mermelada"/>
       <div class="card-body">
         <span class="card-name">Tostada mantequilla y mermelada</span>
         <div class="card-foot"><span class="card-price">3,30 €</span></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card span3">
       <img src="Kume%20menus/images/medialunas.jpg" alt="Dos medialunas"/>
       <div class="card-body">
         <span class="card-name">Café + Dos medialunas</span>
         <div class="card-foot"><span class="card-price">3,30 €</span></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card span3">
       <img src="Kume%20menus/images/tomate-jamon.png" alt="Tostada tomate y jamón"/>
       <div class="card-body">
         <span class="card-name">Tostada tomate y jamón</span>
         <div class="card-foot"><span class="card-price">3,90 €</span></div>
       </div>
-    </div>
-    <div class="info-tile">
-      <span class="it-eye">En todos los desayunos</span>
-      <span class="it-title">Café de especialidad incluido</span>
-      <span class="it-line"></span>
-      <span class="it-txt">+1,10 € zumo de naranja natural</span>
     </div>
   </div>
 
@@ -271,13 +269,13 @@ img{display:block;max-width:100%;object-fit:cover}
 
 
 <!-- ═══════════ CAFÉS Y BEBIDAS ═══════════ -->
-<div class="page pg cream">
+<div class="page pg cream roomy">
   <div class="ph"><span class="ph-brand">KÜME</span><span class="ph-tag">Cafés &amp; Bebidas</span></div>
 
   <div class="cols2 grow">
-    <div class="col">
+    <div class="col stretch">
       <div class="ss-title">Cafetería</div>
-      <div class="mlist">
+      <div class="mlist" style="flex:10">
         <div class="mrow"><span class="mname">Café solo</span><span class="mprice">1,70 €</span></div>
         <div class="mrow"><span class="mname">Cortado</span><span class="mprice">2,00 €</span></div>
         <div class="mrow"><span class="mname">Bombón</span><span class="mprice">2,00 €</span></div>
@@ -291,7 +289,7 @@ img{display:block;max-width:100%;object-fit:cover}
       </div>
 
       <div class="ss-title" style="margin-top:1mm">Bebidas calientes</div>
-      <div class="mlist">
+      <div class="mlist" style="flex:7">
         <div class="mrow"><span class="mname">Vaso de leche</span><span class="mprice">1,70 €</span></div>
         <div class="mrow"><span class="mname">Infusión</span><span class="mprice">2,20 €</span></div>
         <div class="mrow"><span class="mname">Colacao</span><span class="mprice">2,20 €</span></div>
@@ -301,7 +299,14 @@ img{display:block;max-width:100%;object-fit:cover}
         <div class="mrow"><span class="mname">Matcha Latte caliente</span><span class="mprice">4,40 €</span></div>
       </div>
 
-      <div class="photo"><img src="fotos/nuevas%20fotos/IMG_6811.JPG" alt="Cafés en la barra de Küme"/></div>
+      <div class="ss-title" style="margin-top:1mm">Refrescos y zumos</div>
+      <div class="mlist" style="flex:5">
+        <div class="mrow"><span class="mname">Coca Cola / Zero / 0,0</span><span class="mprice">2,20 €</span></div>
+        <div class="mrow"><span class="mname">Fanta / Nestea / Aquarius</span><span class="mprice">2,20 €</span></div>
+        <div class="mrow"><span class="mname">Tónica / Agua con gas</span><span class="mprice">2,40 €</span></div>
+        <div class="mrow"><span class="mname">Agua 500 ml / 1,5 L</span><span class="mprice">1,70–2,20 €</span></div>
+        <div class="mrow"><span class="mname">Zumo de naranja / piña / melocotón</span><span class="mprice">2,20 €</span></div>
+      </div>
     </div>
 
     <div class="col">
@@ -315,15 +320,6 @@ img{display:block;max-width:100%;object-fit:cover}
         <div class="mrow"><span class="mname">Granizado limón · peq.</span><span class="mprice">3,20 €</span></div>
         <div class="mrow"><span class="mname">Granizado limón · gde.</span><span class="mprice">3,60 €</span></div>
         <div class="mrow"><span class="mname">Horchata</span><span class="mprice">3,60 €</span></div>
-      </div>
-
-      <div class="ss-title" style="margin-top:1mm">Refrescos y zumos</div>
-      <div class="mlist">
-        <div class="mrow"><span class="mname">Coca Cola / Zero / 0,0</span><span class="mprice">2,20 €</span></div>
-        <div class="mrow"><span class="mname">Fanta / Nestea / Aquarius</span><span class="mprice">2,20 €</span></div>
-        <div class="mrow"><span class="mname">Tónica / Agua con gas</span><span class="mprice">2,40 €</span></div>
-        <div class="mrow"><span class="mname">Agua 500 ml / 1,5 L</span><span class="mprice">1,70–2,20 €</span></div>
-        <div class="mrow"><span class="mname">Zumo de naranja / piña / melocotón</span><span class="mprice">2,20 €</span></div>
       </div>
 
       <div class="ss-title" style="margin-top:1mm">Cafés especiales</div>
