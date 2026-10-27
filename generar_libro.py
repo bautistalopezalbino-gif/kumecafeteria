@@ -5,12 +5,14 @@ Requiere: pip install pypdf pymupdf. Antes, node generar_libro.js
 (carta-print.html → carta-kume.pdf); este script lo recomprime y maqueta.
 
 Genera dos PDFs en hojas A3 apaisadas (2 páginas A4 por cara):
-  carta-kume-libro.pdf            doble página en orden de lectura (para ver / enviar)
+  carta-kume-libro.pdf            doble página en orden de lectura (para ver / enviar):
+                                  1.ª hoja = exterior (contraportada | portada)
   carta-kume-libro-imprimir.pdf   cuadernillo grapado, listo para imprimir
                                   (a doble cara, voltear por el lado corto) y doblar
 
-El libro necesita un múltiplo de 4 páginas: se añade una página en blanco
-(interior de contraportada) antes de la contraportada.
+El libro necesita un múltiplo de 4 páginas. carta-print.html tiene 12 y no
+queda ninguna en blanco; si algún día no cuadra, se añade una página en
+blanco antes de la contraportada y el script avisa.
 """
 import os
 import pymupdf
@@ -36,6 +38,7 @@ blank = PageObject.create_blank_page(width=A4_W, height=A4_H)
 book = [cover] + inner
 while (len(book) + 1) % 4:
     book.append(blank)
+    print("AVISO: añadida una página en blanco para completar el cuadernillo")
 book.append(back)
 n = len(book)
 
@@ -49,13 +52,12 @@ def sheet(left, right):
     return out
 
 
-# 1) Doble página en orden de lectura: portada sola a la derecha,
-#    contraportada sola a la izquierda
+# 1) Doble página en orden de lectura. La primera hoja es el exterior del
+#    libro (contraportada | portada), así ninguna hoja queda a medias.
 w = PdfWriter()
-w.add_page(sheet(None, book[0]))
+w.add_page(sheet(book[-1], book[0]))
 for i in range(1, n - 1, 2):
     w.add_page(sheet(book[i], book[i + 1]))
-w.add_page(sheet(book[-1], None))
 w.add_metadata({"/Title": "KÜME café — La Carta (libro)"})
 w.write("carta-kume-libro.pdf")
 
