@@ -323,6 +323,20 @@
       letter-spacing: 0.03em; text-align: right; line-height: 1.4;
     }
 
+    .menu-card-foot.menu-card-foot-wa { flex-direction: column; align-items: stretch; gap: 12px; }
+    .menu-card-consult {
+      font-family: 'Noto Serif', serif; font-style: italic; font-weight: 600;
+      font-size: 1.02rem; color: var(--primary);
+    }
+    .btn-wa-card {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: #25D366; color: #fff; font-size: 0.82rem; font-weight: 600;
+      padding: 10px 14px; border-radius: 999px; text-decoration: none;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .btn-wa-card:hover { background: #1fb858; transform: translateY(-1px); }
+    #tartas .menu-card-img { aspect-ratio: 4/5; }
+
     /* ── PHOTO STRIP ── */
     .strip { background: var(--g-950); padding: 72px 0; overflow: hidden; }
     .strip-track {
@@ -655,6 +669,9 @@
     }
 
     /* ── Tarta name overlay ── */
+    .wa-label-short { display: inline; }
+    .wa-label-long { display: none; }
+    @media (min-width: 480px) { .wa-label-short { display: none; } .wa-label-long { display: inline; } }
     .tarta-overlay {
       background: linear-gradient(to top, rgba(28,27,27,.75) 0%, rgba(28,27,27,0) 55%);
     }
@@ -1546,6 +1563,199 @@
   </div>
 </section>
 
+<section class="menu-sec" id="tartas">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-dark">Por encargo</div>
+      <h2>Tartas artesanales</h2>
+      <p>Elaboradas con ingredientes de calidad y mucho cariño. Consulte el precio y pídelas por WhatsApp con antelación.</p>
+    </div>
+    <div class="menu-grid-4">
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="fotos/chocotorta (2).jpg" alt="Chocotorta" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Chocotorta</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Chocotorta%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="fotos/red velvet.jpg" alt="Red Velvet" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Red Velvet</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Red%20Velvet%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="fotos/lemon pie.jpg" alt="Lemon Pie" loading="lazy" style="object-position:center bottom" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Lemon Pie</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Lemon%20Pie%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="fotos/carrot cake.jpeg" alt="Carrot Cake" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Carrot Cake</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Carrot%20Cake%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="fotos/cheesecake.jpg" alt="Cheesecake de frutilla" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Cheesecake</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Cheesecake%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="fotos/rogel.jpg" alt="Rogel" loading="lazy" style="object-position:center top" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Rogel</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Rogel%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="fotos/torta de oreo.jpeg" alt="Torta de Oreo" loading="lazy" style="object-position:center top" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Torta de Oreo</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Torta%20de%20Oreo%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="fotos/tarta de la abuela.jpg" alt="Tarta de la Abuela" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tarta de la Abuela</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Tarta%20de%20la%20Abuela%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume%20menus/images/tartas/chaja.jpg" alt="Tarta Chajá" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tarta Chajá</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Tarta%20Chaj%C3%A1%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume%20menus/images/tartas/selva-negra.jpg" alt="Selva Negra" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Selva Negra</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Selva%20Negra%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume%20menus/images/tartas/brazo-gitano.jpg" alt="Brazo Gitano" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Brazo Gitano</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Brazo%20Gitano%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume%20menus/images/tartas/choco.jpg" alt="Tarta de Choco" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tarta de Choco</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Tarta%20de%20Choco%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume%20menus/images/tartas/balcarce.jpg" alt="Balcarce" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Balcarce</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Balcarce%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume%20menus/images/tartas/fresita.jpg" alt="Fresita" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Fresita</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Fresita%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="Kume%20menus/images/tartas/frutal.jpg" alt="Tarta Frutal" loading="lazy" /></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Tarta Frutal</div>
+          <div class="menu-card-desc">Tarta artesanal por encargo</div>
+          <div class="menu-card-foot menu-card-foot-wa">
+            <div class="menu-card-consult">Consulte precio</div>
+            <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Tarta%20Frutal%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="btn-wa-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span>Pedir por WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── PHOTO STRIP ── -->
 <section class="strip">
   <div class="strip-track" id="stripTrack">
@@ -1654,7 +1864,7 @@
 
     <!-- CTA -->
     <div class="header-anim mt-6 flex flex-wrap items-center gap-4" style="animation-delay:.6s">
-      <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+      <a href="https://wa.me/34621498315" target="_blank" rel="noopener noreferrer"
          class="btn-shine inline-flex items-center gap-2 bg-primary text-on-primary text-sm font-medium px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-colors shadow-sm">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Pedir por WhatsApp
@@ -2483,7 +2693,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Chocotorta</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Chocotorta%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2493,7 +2704,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Red Velvet</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Red%20Velvet%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2503,7 +2715,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Lemon Pie</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Lemon%20Pie%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2513,7 +2726,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Carrot Cake</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Carrot%20Cake%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2523,7 +2737,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Cheesecake</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Cheesecake%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2533,7 +2748,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Rogel</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Rogel%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2543,7 +2759,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Torta de Oreo</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Torta%20de%20Oreo%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2553,7 +2770,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Tarta de la Abuela</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Tarta%20de%20la%20Abuela%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2563,7 +2781,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Tarta Chajá</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Tarta%20Chaj%C3%A1%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2573,7 +2792,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Selva Negra</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Selva%20Negra%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2583,7 +2803,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Brazo Gitano</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">5,00 € porción</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Brazo%20Gitano%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2593,7 +2814,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Tarta de Choco</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Por encargo</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Tarta%20de%20Choco%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2603,7 +2825,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Balcarce</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Por encargo</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Balcarce%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2613,7 +2836,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Fresita</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Por encargo</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20tarta%20Fresita%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2623,7 +2847,8 @@
         <div class="tarta-overlay absolute inset-0"></div>
         <div class="absolute bottom-0 left-0 w-full p-4">
           <p class="font-serif text-base text-white leading-tight mb-1">Tarta Frutal</p>
-          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Por encargo</p>
+          <p class="font-sans text-sm font-semibold text-primary-fixed italic">Consulte precio</p>
+          <a href="https://wa.me/34621498315?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20el%20precio%20de%20la%20Tarta%20Frutal%20%F0%9F%8E%82" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#25D366] hover:bg-[#1fb858] text-white text-[11px] font-semibold px-3 py-1.5 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.426-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.18-.178.398-.465.597-.698.2-.232.266-.398.399-.663.132-.265.066-.497-.034-.696-.1-.2-.896-2.161-1.228-2.96-.323-.777-.651-.672-.896-.684l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.852 1.627 4.117c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.656 2.271.84.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.892.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg><span class="wa-label-long">Pedir por WhatsApp</span><span class="wa-label-short">WhatsApp</span></a>
         </div>
       </div>
 
@@ -2737,7 +2962,7 @@
             </li>
           </ul>
 
-          <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/34621498315" target="_blank" rel="noopener noreferrer"
              class="btn-shine wa-float self-start inline-flex items-center gap-2.5 bg-primary text-on-primary text-sm font-medium px-7 py-3.5 rounded-DEFAULT hover:bg-primary-container transition-colors shadow-md">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Consultar por WhatsApp
